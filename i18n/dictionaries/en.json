@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "ANSTON | Your All-in-One Marketplace",
+    "description": "Buy, bid, rent and sell almost anything in one place: vehicles, homes, clothes, jewelry, food and services."
+  },
+  "header": {
+    "buy": "Buy",
+    "bid": "Bid",
+    "rent": "Rent",
+    "sell": "Sell",
+    "services": "Services",
+    "search": "Search for anything...",
+    "listItem": "+ List Item",
+    "language": "Language",
+    "favorites": "Favorites",
+    "cart": "Cart",
+    "account": "Account"
+  },
+  "hero": {
+    "tagline": "Your All in One Marketplace",
+    "modes": "Buy • Bid • Rent • Offer • Sell",
+    "startSelling": "Start Selling",
+    "browse": "Browse Listings"
+  },
+  "categories": {
+    "title": "Browse by Category",
+    "subtitle": "Find exactly what you're looking for",
+    "vehicles": "Vehicles",
+    "homes": "Homes",
+    "boats": "Boats",
+    "clothes": "Clothes",
+    "jewelry": "Jewelry",
+    "accessories": "Accessories",
+    "furniture": "Furniture",
+    "equipment": "Equipment",
+    "services": "Services",
+    "more": "More"
+  },
+  "featured": {
+    "title": "Featured Listings",
+    "subtitle": "Discover the best deals and opportunities",
+    "viewAll": "View All",
+    "all": "All",
+    "buy": "Buy",
+    "bid": "Bid",
+    "rent": "Rent",
+    "offer": "Offer",
+    "buyNow": "Buy Now",
+    "forRent": "For Rent",
+    "reviews": "reviews",
+    "perMonth": "/mo",
+    "image": "Image",
+    "addToCart": "Add to Cart"
+  },
+  "footer": {
+    "about": "Your all-in-one marketplace for buying, bidding, renting, and selling. Everything you need in one place.",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "howItWorks": "How It Works",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "categories": "Categories",
+    "vehicles": "Vehicles",
+    "realEstate": "Real Estate",
+    "fashion": "Fashion & Accessories",
+    "electronics": "Electronics",
+    "contact": "Contact Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  }
+}
