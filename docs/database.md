@@ -1,6 +1,6 @@
 # Anston database
 
-The schema lives in [`supabase/migrations/20261111000000_initial_schema.sql`](../supabase/migrations/20261111000000_initial_schema.sql) and targets Supabase (Postgres).
+The schema lives in [`supabase/migrations/`](../supabase/migrations/). Run the files in order: `20261111000000_initial_schema.sql`, then `20261111020000_more_languages.sql`.
 
 ## How the tables connect
 
@@ -31,8 +31,8 @@ erDiagram
 
 | Table | What it stores |
 | --- | --- |
-| `profiles` | One row per user (created automatically at sign-up). Buyers and sellers are the same user. Holds language (English/Arabic), location, Stripe Connect account, and rating. |
-| `categories` | Category tree in English and Arabic, which ways to trade each allows (`allowed_modes`), whether a license is required, and the extra fields each category expects (`attribute_schema`). |
+| `profiles` | One row per user (created automatically at sign-up). Buyers and sellers are the same user. Holds preferred language (English, Arabic, Spanish, Chinese, French or Urdu), location, Stripe Connect account, and rating. |
+| `categories` | Category tree with names in English, Arabic, Spanish, Chinese, French and Urdu, which ways to trade each allows (`allowed_modes`), whether a license is required, and the extra fields each category expects (`attribute_schema`). |
 | `listings` | The item, property or service: title, description, condition, currency, location, status, and category-specific details in `attributes` (JSON). Includes full-text search. |
 | `listing_modes` | How a listing is offered: `sale` (fixed price, optional offers), `auction` (start/reserve/buy-now price, end time), `rental` (rate per hour/day/week/month, deposit), `booking` (price per session). A listing can have several. |
 | `listing_images` | Photo paths in Supabase Storage, in display order. |

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "ANSTON | Votre marketplace tout-en-un",
+    "description": "Achetez, enchérissez, louez et vendez presque tout au même endroit : véhicules, logements, vêtements, bijoux, alimentation et services."
+  },
+  "header": {
+    "buy": "Acheter",
+    "bid": "Enchérir",
+    "rent": "Louer",
+    "sell": "Vendre",
+    "services": "Services",
+    "search": "Recherchez ce que vous voulez...",
+    "listItem": "+ Publier",
+    "language": "Langue",
+    "favorites": "Favoris",
+    "cart": "Panier",
+    "account": "Compte"
+  },
+  "hero": {
+    "tagline": "Votre marketplace tout-en-un",
+    "modes": "Acheter • Enchérir • Louer • Proposer • Vendre",
+    "startSelling": "Commencer à vendre",
+    "browse": "Voir les annonces"
+  },
+  "categories": {
+    "title": "Parcourir par catégorie",
+    "subtitle": "Trouvez exactement ce que vous cherchez",
+    "vehicles": "Véhicules",
+    "homes": "Logements",
+    "boats": "Bateaux",
+    "clothes": "Vêtements",
+    "jewelry": "Bijoux",
+    "accessories": "Accessoires",
+    "furniture": "Meubles",
+    "equipment": "Équipement",
+    "services": "Services",
+    "more": "Plus"
+  },
+  "featured": {
+    "title": "Annonces à la une",
+    "subtitle": "Découvrez les meilleures offres et opportunités",
+    "viewAll": "Tout voir",
+    "all": "Tout",
+    "buy": "Acheter",
+    "bid": "Enchérir",
+    "rent": "Louer",
+    "offer": "Proposer",
+    "buyNow": "Acheter",
+    "forRent": "À louer",
+    "reviews": "avis",
+    "perMonth": "/mois",
+    "image": "Image",
+    "addToCart": "Ajouter au panier"
+  },
+  "footer": {
+    "about": "Votre marketplace tout-en-un pour acheter, enchérir, louer et vendre. Tout ce qu'il vous faut au même endroit.",
+    "quickLinks": "Liens rapides",
+    "aboutUs": "À propos",
+    "howItWorks": "Comment ça marche",
+    "pricing": "Tarifs",
+    "faq": "FAQ",
+    "categories": "Catégories",
+    "vehicles": "Véhicules",
+    "realEstate": "Immobilier",
+    "fashion": "Mode et accessoires",
+    "electronics": "Électronique",
+    "contact": "Nous contacter",
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "cookies": "Politique relative aux cookies"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "ANSTON | Tu mercado todo en uno",
+    "description": "Compra, puja, alquila y vende casi cualquier cosa en un solo lugar: vehículos, casas, ropa, joyas, comida y servicios."
+  },
+  "header": {
+    "buy": "Comprar",
+    "bid": "Pujar",
+    "rent": "Alquilar",
+    "sell": "Vender",
+    "services": "Servicios",
+    "search": "Busca lo que quieras...",
+    "listItem": "+ Publicar",
+    "language": "Idioma",
+    "favorites": "Favoritos",
+    "cart": "Carrito",
+    "account": "Cuenta"
+  },
+  "hero": {
+    "tagline": "Tu mercado todo en uno",
+    "modes": "Comprar • Pujar • Alquilar • Ofertar • Vender",
+    "startSelling": "Empieza a vender",
+    "browse": "Ver anuncios"
+  },
+  "categories": {
+    "title": "Explorar por categoría",
+    "subtitle": "Encuentra exactamente lo que buscas",
+    "vehicles": "Vehículos",
+    "homes": "Casas",
+    "boats": "Barcos",
+    "clothes": "Ropa",
+    "jewelry": "Joyería",
+    "accessories": "Accesorios",
+    "furniture": "Muebles",
+    "equipment": "Equipos",
+    "services": "Servicios",
+    "more": "Más"
+  },
+  "featured": {
+    "title": "Anuncios destacados",
+    "subtitle": "Descubre las mejores ofertas y oportunidades",
+    "viewAll": "Ver todo",
+    "all": "Todo",
+    "buy": "Comprar",
+    "bid": "Pujar",
+    "rent": "Alquilar",
+    "offer": "Ofertar",
+    "buyNow": "Comprar ya",
+    "forRent": "En alquiler",
+    "reviews": "reseñas",
+    "perMonth": "/mes",
+    "image": "Imagen",
+    "addToCart": "Añadir al carrito"
+  },
+  "footer": {
+    "about": "Tu mercado todo en uno para comprar, pujar, alquilar y vender. Todo lo que necesitas en un solo lugar.",
+    "quickLinks": "Enlaces rápidos",
+    "aboutUs": "Sobre nosotros",
+    "howItWorks": "Cómo funciona",
+    "pricing": "Precios",
+    "faq": "Preguntas frecuentes",
+    "categories": "Categorías",
+    "vehicles": "Vehículos",
+    "realEstate": "Inmuebles",
+    "fashion": "Moda y accesorios",
+    "electronics": "Electrónica",
+    "contact": "Contáctanos",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos del servicio",
+    "cookies": "Política de cookies"
+  }
+}
