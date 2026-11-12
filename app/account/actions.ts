@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { createClient, supabaseConfigured } from "@/lib/supabase/server";
+import { SUPABASE_KEY, SUPABASE_URL, createClient, supabaseConfigured } from "@/lib/supabase/server";
 import {
   MIN_AGE,
   USERNAME_PATTERN,
@@ -204,8 +204,24 @@ export async function completeProfile(_prev: AuthState, formData: FormData): Pro
   redirect("/account");
 }
 
+// Asks Supabase whether Google sign-in is switched on, so people see a
+// friendly message instead of Supabase's raw error page when it isn't.
+async function googleEnabled() {
+  try {
+    const res = await fetch(`${SUPABASE_URL}/auth/v1/settings`, {
+      headers: { apikey: SUPABASE_KEY },
+      cache: "no-store",
+    });
+    if (!res.ok) return true; // Can't tell; let Supabase decide.
+    const settings = (await res.json()) as { external?: { google?: boolean } };
+    return settings.external?.google === true;
+  } catch {
+    return true;
+  }
+}
+
 export async function signInWithGoogle() {
-  if (!supabaseConfigured()) redirect("/account?error=google");
+  if (!supabaseConfigured() || !(await googleEnabled())) redirect("/account?error=google");
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
