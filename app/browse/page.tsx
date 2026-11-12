@@ -2,14 +2,16 @@ import Link from "next/link";
 import Form from "next/form";
 import ListingCard from "../components/listing-card";
 import { getDictionary, getLocale } from "@/i18n/server";
-import { categorySlugs, getListings, isCategory, isMode, type Mode } from "@/lib/listings";
+import { findListings } from "@/lib/catalog";
+import { categorySlugs, isCategory, isMode, type Mode } from "@/lib/listings";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export default async function BrowsePage({ searchParams }: { searchParams: SearchParams }) {
-  const t = await getDictionary(await getLocale());
+  const locale = await getLocale();
+  const t = await getDictionary(locale);
   const params = await searchParams;
   const modeParam = one(params.mode);
   const categoryParam = one(params.category);
@@ -17,7 +19,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
   const mode = isMode(modeParam) ? modeParam : undefined;
   const category = isCategory(categoryParam) ? categoryParam : undefined;
 
-  const results = getListings({ mode, category, q });
+  const results = await findListings(locale, { mode, category, q });
 
   // Build a link that changes one filter and keeps the others.
   const href = (change: { mode?: string | null; category?: string | null }) => {

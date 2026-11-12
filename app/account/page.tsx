@@ -47,6 +47,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
     }
 
     const contact = user.email || user.phone || "";
+    const { count: unread } = await supabase
+      .from("messages")
+      .select("id", { count: "exact", head: true })
+      .is("read_at", null)
+      .neq("sender_id", user.id);
     return (
       <main className="flex-1 px-4 sm:px-8 py-12 max-w-md mx-auto w-full">
         <h1 className="text-3xl font-bold mb-6">{t.account.title}</h1>
@@ -65,6 +70,14 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
           <div className="flex flex-col gap-2">
             <Link href="/sell" className="bg-[#7A1E2B] text-white py-2 rounded-lg text-center font-medium">
               {t.header.listItem}
+            </Link>
+            <Link href="/account/selling" className="border py-2 rounded-lg text-center">{t.dashboard.sellingTitle}</Link>
+            <Link href="/account/buying" className="border py-2 rounded-lg text-center">{t.dashboard.buyingTitle}</Link>
+            <Link href="/messages" className="border py-2 rounded-lg text-center">
+              {t.messages.title}
+              {unread ? (
+                <span className="ms-2 bg-[#7A1E2B] text-white text-xs rounded-full px-2 py-0.5">{unread}</span>
+              ) : null}
             </Link>
             <Link href="/favorites" className="border py-2 rounded-lg text-center">{t.favorites.title}</Link>
             {user.email && (

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import ListingCard from "./components/listing-card";
 import { getDictionary, getLocale } from "@/i18n/server";
-import { listings } from "@/lib/listings";
+import { findListings } from "@/lib/catalog";
 
 export default async function Home() {
-  const t = await getDictionary(await getLocale());
+  const locale = await getLocale();
+  const t = await getDictionary(locale);
 
   const categories = [
     { slug: "vehicles", name: t.categories.vehicles, emoji: "🚗", color: "bg-blue-500" },
@@ -27,7 +28,7 @@ export default async function Home() {
     { label: t.featured.offer, href: "/browse?mode=offer" },
   ];
 
-  const featured = listings.filter((l) => l.featured);
+  const featured = await findListings(locale, { limit: 8 });
 
   return (
     <main className="flex-1">
@@ -93,11 +94,20 @@ export default async function Home() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {featured.map((item) => (
-            <ListingCard key={item.id} listing={item} t={t} />
-          ))}
-        </div>
+        {featured.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {featured.map((item) => (
+              <ListingCard key={item.id} listing={item} t={t} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16 border rounded-xl bg-gray-50">
+            <p className="text-gray-600 mb-4">{t.featured.empty}</p>
+            <Link href="/sell" className="bg-[#7A1E2B] text-white px-5 py-2 rounded-full text-sm">
+              {t.header.listItem}
+            </Link>
+          </div>
+        )}
       </section>
     </main>
   );

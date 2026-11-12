@@ -1,5 +1,6 @@
-// Sample listings shown until real listings come from the Supabase database.
-// When the database is connected, getListings/getListing will query it instead.
+// The listing shape the pages use, plus sample listings that are shown only
+// when the site runs without a database (for example on a developer's laptop).
+// On the live site, listings come from Supabase through lib/catalog.ts.
 
 export type Mode = "buy" | "bid" | "rent" | "offer" | "services";
 
@@ -12,6 +13,7 @@ export type CategorySlug =
   | "accessories"
   | "furniture"
   | "equipment"
+  | "instruments"
   | "food"
   | "services";
 
@@ -24,28 +26,55 @@ export const categorySlugs: CategorySlug[] = [
   "accessories",
   "furniture",
   "equipment",
+  "instruments",
   "food",
   "services",
 ];
 
 export const modes: Mode[] = ["buy", "bid", "rent", "offer", "services"];
 
+export type PriceUnit = "month" | "week" | "day" | "hour" | "session";
+
 export type Listing = {
   id: string;
   title: string;
   description: string;
   category: CategorySlug;
+  categoryName?: string; // the exact category in the visitor's language, e.g. "Cleaning"
   modes: Mode[];
-  priceCents: number;
-  priceUnit?: "month" | "day" | "hour" | "session";
+  priceCents: number; // the headline price shown on cards
+  priceUnit?: PriceUnit;
+  currency: string;
   location: string;
   rating: number;
   reviews: number;
   emoji: string;
   featured?: boolean;
+  images: string[]; // public photo URLs, first one is the cover
+  // Filled in for listings from the database:
+  sellerId?: string;
+  sellerUsername?: string;
+  status?: string;
+  condition?: string;
+  createdAt?: string;
+  ships?: boolean;
+  localPickup?: boolean;
+  attributes?: Record<string, unknown>;
+  sale?: { priceCents: number; acceptsOffers: boolean; quantity: number };
+  auction?: {
+    startCents: number;
+    highestCents: number | null;
+    minNextCents: number;
+    buyNowCents: number | null;
+    endsAt: string;
+  };
+  rental?: { rateCents: number; unit: "hour" | "day" | "week" | "month"; depositCents: number | null };
+  booking?: { priceCents: number; sessionMinutes: number };
 };
 
-export const listings: Listing[] = [
+type SampleListing = Omit<Listing, "currency" | "images">;
+
+const samples: SampleListing[] = [
   {
     id: "tesla-model-3-2023",
     title: "2023 Tesla Model 3 - Low Mileage",
@@ -214,6 +243,8 @@ export const listings: Listing[] = [
   },
 ];
 
+export const listings: Listing[] = samples.map((l) => ({ ...l, currency: "USD", images: [] }));
+
 export function isMode(value: string | undefined): value is Mode {
   return modes.includes(value as Mode);
 }
@@ -239,10 +270,14 @@ export function getListing(id: string) {
   return listings.find((l) => l.id === id);
 }
 
-export function formatPrice(cents: number) {
+export function formatPrice(cents: number, currency = "USD") {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
-    currency: "USD",
+    currency,
     maximumFractionDigits: cents % 100 === 0 ? 0 : 2,
   }).format(cents / 100);
+}
+
+export function isFuture(iso: string) {
+  return new Date(iso).getTime() > Date.now();
 }
