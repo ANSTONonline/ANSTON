@@ -115,7 +115,8 @@
   "sell": {
     "title": "Publier une annonce",
     "intro": "Publiez ce que vous voulez : vendez, mettez aux enchères, louez ou proposez un service.",
-    "signIn": "Connectez-vous pour publier une annonce."
+    "signIn": "Connectez-vous pour publier une annonce.",
+    "formSoon": "Vous êtes connecté. Le formulaire de publication arrive bientôt."
   },
   "account": {
     "title": "Votre compte",
@@ -124,7 +125,24 @@
     "password": "Mot de passe",
     "signIn": "Se connecter",
     "signUp": "Créer un compte",
-    "soon": "Les comptes sont en cours de connexion. Revenez bientôt."
+    "soon": "Les comptes sont en cours de connexion. Revenez bientôt.",
+    "name": "Nom (facultatif)",
+    "passwordHint": "Au moins 8 caractères",
+    "noAccount": "Nouveau sur Anston ?",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "checkEmail": "Consultez vos e-mails : nous vous avons envoyé un lien pour confirmer votre compte. En cliquant dessus, vous serez connecté.",
+    "working": "Veuillez patienter...",
+    "confirmed": "Votre e-mail est confirmé. Bienvenue sur Anston !",
+    "signOut": "Se déconnecter",
+    "errors": {
+      "invalid": "E-mail ou mot de passe incorrect.",
+      "notConfirmed": "Veuillez d'abord confirmer votre e-mail. Cherchez le lien que nous vous avons envoyé.",
+      "exists": "Un compte existe déjà avec cet e-mail. Essayez de vous connecter.",
+      "weakPassword": "Utilisez un mot de passe d'au moins 8 caractères.",
+      "rateLimit": "Trop de tentatives. Patientez quelques minutes puis réessayez.",
+      "link": "Ce lien est invalide ou a expiré. Connectez-vous ou inscrivez-vous à nouveau.",
+      "generic": "Un problème est survenu. Veuillez réessayer."
+    }
   },
   "pages": {
     "about": {

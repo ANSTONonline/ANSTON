@@ -115,7 +115,8 @@
   "sell": {
     "title": "List an item",
     "intro": "List anything: sell it, auction it, rent it out or offer a service.",
-    "signIn": "Sign in to list an item."
+    "signIn": "Sign in to list an item.",
+    "formSoon": "You're signed in. The listing form is coming next."
   },
   "account": {
     "title": "Your account",
@@ -124,7 +125,24 @@
     "password": "Password",
     "signIn": "Sign in",
     "signUp": "Create account",
-    "soon": "Accounts are being connected. Check back soon."
+    "soon": "Accounts are being connected. Check back soon.",
+    "name": "Name (optional)",
+    "passwordHint": "At least 8 characters",
+    "noAccount": "New to Anston?",
+    "haveAccount": "Already have an account?",
+    "checkEmail": "Check your email for a link to confirm your account. After you click it, you'll be signed in.",
+    "working": "Please wait...",
+    "confirmed": "Your email is confirmed. Welcome to Anston!",
+    "signOut": "Sign out",
+    "errors": {
+      "invalid": "Wrong email or password.",
+      "notConfirmed": "Please confirm your email first. Check your inbox for the link we sent.",
+      "exists": "An account with this email already exists. Try signing in.",
+      "weakPassword": "Use a password with at least 8 characters.",
+      "rateLimit": "Too many attempts. Please wait a few minutes and try again.",
+      "link": "That link is invalid or has expired. Please sign in or sign up again.",
+      "generic": "Something went wrong. Please try again."
+    }
   },
   "pages": {
     "about": {
