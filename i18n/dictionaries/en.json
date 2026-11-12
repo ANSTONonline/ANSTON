@@ -14,7 +14,8 @@
     "language": "Language",
     "favorites": "Favorites",
     "cart": "Cart",
-    "account": "Account"
+    "account": "Account",
+    "searchButton": "Search"
   },
   "hero": {
     "tagline": "Your All in One Marketplace",
@@ -34,7 +35,8 @@
     "furniture": "Furniture",
     "equipment": "Equipment",
     "services": "Services",
-    "more": "More"
+    "more": "More",
+    "food": "Food"
   },
   "featured": {
     "title": "Featured Listings",
@@ -50,7 +52,10 @@
     "reviews": "reviews",
     "perMonth": "/mo",
     "image": "Image",
-    "addToCart": "Add to Cart"
+    "addToCart": "Add to Cart",
+    "inCart": "In cart",
+    "save": "Save",
+    "saved": "Saved"
   },
   "footer": {
     "about": "Your all-in-one marketplace for buying, bidding, renting, and selling. Everything you need in one place.",
@@ -69,5 +74,123 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "cookies": "Cookie Policy"
+  },
+  "browse": {
+    "title": "Browse listings",
+    "resultsFor": "Results for “{q}”",
+    "count": "{n} listings",
+    "none": "No listings match your search.",
+    "clear": "Clear filters",
+    "allCategories": "All categories",
+    "services": "Services"
+  },
+  "listing": {
+    "back": "Back to browse",
+    "description": "Description",
+    "location": "Location",
+    "perMonth": "/mo",
+    "perDay": "/day",
+    "perHour": "/hr",
+    "perSession": "/session",
+    "placeBid": "Place a bid",
+    "rentNow": "Request to rent",
+    "bookNow": "Book now",
+    "makeOffer": "Make an offer",
+    "actionSoon": "Bidding, renting, booking and offers open when accounts launch.",
+    "notFound": "Listing not found"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "browse": "Browse listings",
+    "remove": "Remove",
+    "total": "Total",
+    "checkout": "Checkout",
+    "checkoutSoon": "Checkout opens soon. We're setting up secure payments."
+  },
+  "favorites": {
+    "title": "Saved listings",
+    "empty": "You haven't saved anything yet. Tap the heart on a listing to save it."
+  },
+  "sell": {
+    "title": "List an item",
+    "intro": "List anything: sell it, auction it, rent it out or offer a service.",
+    "signIn": "Sign in to list an item."
+  },
+  "account": {
+    "title": "Your account",
+    "intro": "Sign in or create an account to buy, sell and save listings.",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "soon": "Accounts are being connected. Check back soon."
+  },
+  "pages": {
+    "about": {
+      "title": "About Anston",
+      "body": [
+        "Anston is an all-in-one marketplace where anyone can buy, bid on, rent or sell almost anything, from vehicles and homes to clothes, food and services.",
+        "Anston LLC is based in Houston, Texas, and is built for buyers and sellers around the world, in English, Arabic, Spanish, Chinese, French and Urdu."
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "body": [
+        "Create a free account.",
+        "List an item, property or service and choose how to offer it: sell it at a fixed price, auction it, rent it out or take bookings.",
+        "Buyers find it through search and categories, message you, and pay securely on Anston.",
+        "After the deal, buyers and sellers review each other."
+      ]
+    },
+    "pricing": {
+      "title": "Pricing",
+      "body": [
+        "Listing on Anston is free.",
+        "There are no selling fees at launch. Any future fees will be shown clearly before you list."
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "What can I sell on Anston?",
+          "a": "Almost anything legal: vehicles, homes, clothes, jewelry, furniture, equipment, homemade food that follows local rules, and services. Some items, like weapons and drugs, are not allowed."
+        },
+        {
+          "q": "Can I rent things out instead of selling?",
+          "a": "Yes. When you list, choose sell, auction, rent or booking. You can choose more than one."
+        },
+        {
+          "q": "How do I pay?",
+          "a": "Payments will be made securely on Anston when checkout opens."
+        },
+        {
+          "q": "How do I contact Anston?",
+          "a": "Email support@myanston.com."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "body": [
+        "We're finalizing our Privacy Policy before launch.",
+        "Questions? Email support@myanston.com."
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "body": [
+        "We're finalizing our Terms of Service before launch.",
+        "Questions? Email support@myanston.com."
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "body": [
+        "Anston uses a small number of cookies, such as one that remembers your language. Our full Cookie Policy is coming before launch.",
+        "Questions? Email support@myanston.com."
+      ]
+    }
   }
 }

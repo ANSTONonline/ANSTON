@@ -14,7 +14,8 @@
     "language": "Idioma",
     "favorites": "Favoritos",
     "cart": "Carrito",
-    "account": "Cuenta"
+    "account": "Cuenta",
+    "searchButton": "Buscar"
   },
   "hero": {
     "tagline": "Tu mercado todo en uno",
@@ -34,7 +35,8 @@
     "furniture": "Muebles",
     "equipment": "Equipos",
     "services": "Servicios",
-    "more": "Más"
+    "more": "Más",
+    "food": "Comida"
   },
   "featured": {
     "title": "Anuncios destacados",
@@ -50,7 +52,10 @@
     "reviews": "reseñas",
     "perMonth": "/mes",
     "image": "Imagen",
-    "addToCart": "Añadir al carrito"
+    "addToCart": "Añadir al carrito",
+    "inCart": "En el carrito",
+    "save": "Guardar",
+    "saved": "Guardado"
   },
   "footer": {
     "about": "Tu mercado todo en uno para comprar, pujar, alquilar y vender. Todo lo que necesitas en un solo lugar.",
@@ -69,5 +74,123 @@
     "privacy": "Política de privacidad",
     "terms": "Términos del servicio",
     "cookies": "Política de cookies"
+  },
+  "browse": {
+    "title": "Explorar anuncios",
+    "resultsFor": "Resultados para “{q}”",
+    "count": "{n} anuncios",
+    "none": "Ningún anuncio coincide con tu búsqueda.",
+    "clear": "Quitar filtros",
+    "allCategories": "Todas las categorías",
+    "services": "Servicios"
+  },
+  "listing": {
+    "back": "Volver a explorar",
+    "description": "Descripción",
+    "location": "Ubicación",
+    "perMonth": "/mes",
+    "perDay": "/día",
+    "perHour": "/h",
+    "perSession": "/sesión",
+    "placeBid": "Pujar",
+    "rentNow": "Solicitar alquiler",
+    "bookNow": "Reservar",
+    "makeOffer": "Hacer una oferta",
+    "actionSoon": "Las pujas, alquileres, reservas y ofertas se abrirán cuando lancemos las cuentas.",
+    "notFound": "Anuncio no encontrado"
+  },
+  "cart": {
+    "title": "Tu carrito",
+    "empty": "Tu carrito está vacío.",
+    "browse": "Explorar anuncios",
+    "remove": "Quitar",
+    "total": "Total",
+    "checkout": "Pagar",
+    "checkoutSoon": "El pago se abrirá pronto. Estamos configurando pagos seguros."
+  },
+  "favorites": {
+    "title": "Anuncios guardados",
+    "empty": "Aún no has guardado nada. Toca el corazón de un anuncio para guardarlo."
+  },
+  "sell": {
+    "title": "Publicar un anuncio",
+    "intro": "Publica lo que quieras: véndelo, subástalo, alquílalo u ofrece un servicio.",
+    "signIn": "Inicia sesión para publicar."
+  },
+  "account": {
+    "title": "Tu cuenta",
+    "intro": "Inicia sesión o crea una cuenta para comprar, vender y guardar anuncios.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "signIn": "Iniciar sesión",
+    "signUp": "Crear cuenta",
+    "soon": "Estamos conectando las cuentas. Vuelve pronto."
+  },
+  "pages": {
+    "about": {
+      "title": "Sobre Anston",
+      "body": [
+        "Anston es un mercado todo en uno donde cualquiera puede comprar, pujar, alquilar o vender casi cualquier cosa, desde vehículos y casas hasta ropa, comida y servicios.",
+        "Anston LLC tiene su sede en Houston, Texas, y está pensada para compradores y vendedores de todo el mundo, en inglés, árabe, español, chino, francés y urdu."
+      ]
+    },
+    "howItWorks": {
+      "title": "Cómo funciona",
+      "body": [
+        "Crea una cuenta gratis.",
+        "Publica un artículo, una propiedad o un servicio y elige cómo ofrecerlo: venta a precio fijo, subasta, alquiler o reservas.",
+        "Los compradores lo encuentran con la búsqueda y las categorías, te escriben y pagan de forma segura en Anston.",
+        "Después del trato, compradores y vendedores se valoran mutuamente."
+      ]
+    },
+    "pricing": {
+      "title": "Precios",
+      "body": [
+        "Publicar en Anston es gratis.",
+        "No hay comisiones de venta en el lanzamiento. Cualquier comisión futura se mostrará claramente antes de publicar."
+      ]
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": [
+        {
+          "q": "¿Qué puedo vender en Anston?",
+          "a": "Casi cualquier cosa legal: vehículos, casas, ropa, joyas, muebles, equipos, comida casera que cumpla las normas locales y servicios. Algunos artículos, como armas y drogas, no están permitidos."
+        },
+        {
+          "q": "¿Puedo alquilar en lugar de vender?",
+          "a": "Sí. Al publicar, elige venta, subasta, alquiler o reserva. Puedes elegir más de una opción."
+        },
+        {
+          "q": "¿Cómo pago?",
+          "a": "Los pagos se harán de forma segura en Anston cuando se abra el pago."
+        },
+        {
+          "q": "¿Cómo contacto con Anston?",
+          "a": "Escribe a support@myanston.com."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de privacidad",
+      "body": [
+        "Estamos terminando nuestra Política de privacidad antes del lanzamiento.",
+        "¿Preguntas? Escribe a support@myanston.com."
+      ]
+    },
+    "terms": {
+      "title": "Términos del servicio",
+      "body": [
+        "Estamos terminando nuestros Términos del servicio antes del lanzamiento.",
+        "¿Preguntas? Escribe a support@myanston.com."
+      ]
+    },
+    "cookies": {
+      "title": "Política de cookies",
+      "body": [
+        "Anston usa pocas cookies, por ejemplo una que recuerda tu idioma. Nuestra Política de cookies completa llegará antes del lanzamiento.",
+        "¿Preguntas? Escribe a support@myanston.com."
+      ]
+    }
   }
 }
