@@ -115,7 +115,8 @@
   "sell": {
     "title": "Publicar un anuncio",
     "intro": "Publica lo que quieras: véndelo, subástalo, alquílalo u ofrece un servicio.",
-    "signIn": "Inicia sesión para publicar."
+    "signIn": "Inicia sesión para publicar.",
+    "formSoon": "Has iniciado sesión. El formulario para publicar llegará pronto."
   },
   "account": {
     "title": "Tu cuenta",
@@ -124,7 +125,24 @@
     "password": "Contraseña",
     "signIn": "Iniciar sesión",
     "signUp": "Crear cuenta",
-    "soon": "Estamos conectando las cuentas. Vuelve pronto."
+    "soon": "Estamos conectando las cuentas. Vuelve pronto.",
+    "name": "Nombre (opcional)",
+    "passwordHint": "Al menos 8 caracteres",
+    "noAccount": "¿Nuevo en Anston?",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "checkEmail": "Revisa tu correo: te enviamos un enlace para confirmar tu cuenta. Al hacer clic, iniciarás sesión.",
+    "working": "Espera un momento...",
+    "confirmed": "Tu correo está confirmado. ¡Bienvenido a Anston!",
+    "signOut": "Cerrar sesión",
+    "errors": {
+      "invalid": "Correo o contraseña incorrectos.",
+      "notConfirmed": "Primero confirma tu correo. Busca en tu bandeja el enlace que te enviamos.",
+      "exists": "Ya existe una cuenta con este correo. Intenta iniciar sesión.",
+      "weakPassword": "Usa una contraseña de al menos 8 caracteres.",
+      "rateLimit": "Demasiados intentos. Espera unos minutos e inténtalo de nuevo.",
+      "link": "Ese enlace no es válido o ha caducado. Inicia sesión o regístrate de nuevo.",
+      "generic": "Algo salió mal. Inténtalo de nuevo."
+    }
   },
   "pages": {
     "about": {

@@ -115,7 +115,8 @@
   "sell": {
     "title": "发布商品",
     "intro": "发布任何东西：出售、拍卖、出租或提供服务。",
-    "signIn": "登录后即可发布商品。"
+    "signIn": "登录后即可发布商品。",
+    "formSoon": "你已登录。发布商品的表单即将上线。"
   },
   "account": {
     "title": "我的账户",
@@ -124,7 +125,24 @@
     "password": "密码",
     "signIn": "登录",
     "signUp": "注册账户",
-    "soon": "账户功能正在接入，请稍后再来。"
+    "soon": "账户功能正在接入，请稍后再来。",
+    "name": "姓名（可选）",
+    "passwordHint": "至少 8 个字符",
+    "noAccount": "第一次使用 Anston？",
+    "haveAccount": "已有账户？",
+    "checkEmail": "请查看邮箱，我们已发送确认账户的链接。点击链接后即可登录。",
+    "working": "请稍候...",
+    "confirmed": "你的邮箱已确认，欢迎来到 Anston！",
+    "signOut": "退出登录",
+    "errors": {
+      "invalid": "邮箱或密码错误。",
+      "notConfirmed": "请先确认你的邮箱，在收件箱中查找我们发送的链接。",
+      "exists": "该邮箱已注册，请尝试登录。",
+      "weakPassword": "密码至少需要 8 个字符。",
+      "rateLimit": "尝试次数过多，请等几分钟后再试。",
+      "link": "该链接无效或已过期，请重新登录或注册。",
+      "generic": "出了点问题，请重试。"
+    }
   },
   "pages": {
     "about": {
