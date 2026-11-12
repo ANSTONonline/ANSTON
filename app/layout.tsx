@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SiteHeader from "./components/site-header";
+import SiteFooter from "./components/site-footer";
 import { localeDir } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/server";
 
@@ -28,6 +30,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const t = await getDictionary(locale);
 
   return (
     <html
@@ -36,7 +39,11 @@ export default async function RootLayout({
       style={{ colorScheme: "light" }}
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white">
+        <SiteHeader t={t} locale={locale} />
+        {children}
+        <SiteFooter t={t} />
+      </body>
     </html>
   );
 }

@@ -14,7 +14,8 @@
     "language": "语言",
     "favorites": "收藏",
     "cart": "购物车",
-    "account": "账户"
+    "account": "账户",
+    "searchButton": "搜索"
   },
   "hero": {
     "tagline": "一站式综合市场",
@@ -34,7 +35,8 @@
     "furniture": "家具",
     "equipment": "设备",
     "services": "服务",
-    "more": "更多"
+    "more": "更多",
+    "food": "食品"
   },
   "featured": {
     "title": "精选商品",
@@ -50,7 +52,10 @@
     "reviews": "条评价",
     "perMonth": "/月",
     "image": "图片",
-    "addToCart": "加入购物车"
+    "addToCart": "加入购物车",
+    "inCart": "已加入购物车",
+    "save": "收藏",
+    "saved": "已收藏"
   },
   "footer": {
     "about": "购买、竞拍、租赁和出售的一站式市场。你需要的一切，尽在一处。",
@@ -69,5 +74,123 @@
     "privacy": "隐私政策",
     "terms": "服务条款",
     "cookies": "Cookie 政策"
+  },
+  "browse": {
+    "title": "浏览商品",
+    "resultsFor": "“{q}”的搜索结果",
+    "count": "{n} 件商品",
+    "none": "没有符合搜索条件的商品。",
+    "clear": "清除筛选",
+    "allCategories": "全部类别",
+    "services": "服务"
+  },
+  "listing": {
+    "back": "返回浏览",
+    "description": "描述",
+    "location": "地点",
+    "perMonth": "/月",
+    "perDay": "/天",
+    "perHour": "/小时",
+    "perSession": "/次",
+    "placeBid": "出价竞拍",
+    "rentNow": "申请租赁",
+    "bookNow": "立即预约",
+    "makeOffer": "提出报价",
+    "actionSoon": "账户上线后即可竞拍、租赁、预约和报价。",
+    "notFound": "未找到该商品"
+  },
+  "cart": {
+    "title": "购物车",
+    "empty": "购物车是空的。",
+    "browse": "浏览商品",
+    "remove": "移除",
+    "total": "合计",
+    "checkout": "结算",
+    "checkoutSoon": "结算功能即将开放，我们正在设置安全支付。"
+  },
+  "favorites": {
+    "title": "收藏的商品",
+    "empty": "你还没有收藏任何商品。点击商品上的心形即可收藏。"
+  },
+  "sell": {
+    "title": "发布商品",
+    "intro": "发布任何东西：出售、拍卖、出租或提供服务。",
+    "signIn": "登录后即可发布商品。"
+  },
+  "account": {
+    "title": "我的账户",
+    "intro": "登录或注册账户，即可购买、出售和收藏商品。",
+    "email": "电子邮箱",
+    "password": "密码",
+    "signIn": "登录",
+    "signUp": "注册账户",
+    "soon": "账户功能正在接入，请稍后再来。"
+  },
+  "pages": {
+    "about": {
+      "title": "关于 Anston",
+      "body": [
+        "Anston 是一个一站式综合市场，任何人都可以在这里购买、竞拍、租赁或出售几乎任何东西，从车辆、房屋到服装、食品和服务。",
+        "Anston LLC 总部位于德克萨斯州休斯顿，面向全球买家和卖家，支持英语、阿拉伯语、西班牙语、中文、法语和乌尔都语。"
+      ]
+    },
+    "howItWorks": {
+      "title": "使用方式",
+      "body": [
+        "免费注册账户。",
+        "发布商品、房产或服务，并选择交易方式：固定价格出售、拍卖、出租或接受预约。",
+        "买家通过搜索和类别找到你的商品，给你发消息，并在 Anston 上安全付款。",
+        "交易完成后，买卖双方互相评价。"
+      ]
+    },
+    "pricing": {
+      "title": "收费标准",
+      "body": [
+        "在 Anston 发布商品是免费的。",
+        "上线初期不收取任何销售费用。未来如有收费，会在发布前清楚说明。"
+      ]
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": [
+        {
+          "q": "我可以在 Anston 上卖什么？",
+          "a": "几乎所有合法物品：车辆、房屋、服装、珠宝、家具、设备、符合当地规定的自制食品以及服务。部分物品（如武器和毒品）不允许出售。"
+        },
+        {
+          "q": "我可以出租而不是出售吗？",
+          "a": "可以。发布时选择出售、拍卖、出租或预约，也可以同时选择多种方式。"
+        },
+        {
+          "q": "如何付款？",
+          "a": "结算功能开放后，可以在 Anston 上安全付款。"
+        },
+        {
+          "q": "如何联系 Anston？",
+          "a": "请发送邮件至 support@myanston.com。"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "body": [
+        "我们正在完善隐私政策，将在上线前发布。",
+        "有疑问？请发送邮件至 support@myanston.com。"
+      ]
+    },
+    "terms": {
+      "title": "服务条款",
+      "body": [
+        "我们正在完善服务条款，将在上线前发布。",
+        "有疑问？请发送邮件至 support@myanston.com。"
+      ]
+    },
+    "cookies": {
+      "title": "Cookie 政策",
+      "body": [
+        "Anston 只使用少量 Cookie，例如用于记住你所选语言的 Cookie。完整的 Cookie 政策将在上线前发布。",
+        "有疑问？请发送邮件至 support@myanston.com。"
+      ]
+    }
   }
 }
