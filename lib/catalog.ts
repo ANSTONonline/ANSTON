@@ -92,7 +92,7 @@ export async function getCategories(locale: Locale): Promise<Category[]> {
 export const LISTING_SELECT = `
   id, title, description, status, currency, condition, quantity, city, region, country_code,
   ships, local_pickup, attributes, created_at, seller_id,
-  category:categories ( slug, parent_id, icon, name_en, name_ar, name_es, name_zh, name_fr, name_ur ),
+  category:categories ( * ),
   listing_modes ( mode, price_cents, accepts_offers, start_price_cents, buy_now_price_cents,
                   min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes ),
   listing_images ( storage_path, position ),
@@ -287,7 +287,8 @@ export async function findListing(locale: Locale, id: string): Promise<Listing |
   if (!supabaseConfigured()) return getSampleListing(id) ?? null;
   if (!/^[0-9a-f-]{36}$/i.test(id)) return null;
   const supabase = await createClient();
-  const { data } = await supabase.from("listings").select(LISTING_SELECT).eq("id", id).maybeSingle();
+  const { data, error } = await supabase.from("listings").select(LISTING_SELECT).eq("id", id).maybeSingle();
+  if (error) console.error("findListing", error.message);
   if (!data) return null;
   const [listing] = await toListings([data as unknown as ListingRow], locale);
   return listing;
@@ -298,18 +299,20 @@ export async function findListingsByIds(locale: Locale, ids: string[]): Promise<
   const valid = ids.filter((id) => /^[0-9a-f-]{36}$/i.test(id)).slice(0, 100);
   if (valid.length === 0) return [];
   const supabase = await createClient();
-  const { data } = await supabase.from("listings").select(LISTING_SELECT).in("id", valid);
+  const { data, error } = await supabase.from("listings").select(LISTING_SELECT).in("id", valid);
+  if (error) console.error("findListingsByIds", error.message);
   return toListings((data ?? []) as unknown as ListingRow[], locale);
 }
 
 export async function findSellerListings(locale: Locale, sellerId: string): Promise<Listing[]> {
   if (!supabaseConfigured()) return [];
   const supabase = await createClient();
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("listings")
     .select(LISTING_SELECT)
     .eq("seller_id", sellerId)
     .neq("status", "removed")
     .order("created_at", { ascending: false });
+  if (error) console.error("findSellerListings", error.message);
   return toListings((data ?? []) as unknown as ListingRow[], locale);
 }
