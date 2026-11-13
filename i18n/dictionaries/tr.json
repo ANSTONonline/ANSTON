@@ -340,7 +340,15 @@
       "terms": "Hizmet Şartları ve Gizlilik Politikası'nı kabul etmek için lütfen kutuyu işaretleyin."
     },
     "agree": "Devam ederek Anston'un {terms} ve {privacy} metinlerini kabul etmiş olursunuz.",
-    "agreeBox": "Anston'un {terms} ve {privacy} metinlerini kabul ediyorum."
+    "agreeBox": "Anston'un {terms} ve {privacy} metinlerini kabul ediyorum.",
+    "changeUsername": "Kullanıcı adını değiştir",
+    "usernameCurrent": "Kullanıcı adınız {username}.",
+    "usernameNew": "Yeni kullanıcı adı",
+    "usernameRule": "Kullanıcı adınızı 30 günde bir değiştirebilirsiniz.",
+    "usernameSaved": "Kullanıcı adınız artık @{username}.",
+    "usernameWait": "Kullanıcı adınızı kısa süre önce değiştirdiniz. {date} tarihinde tekrar değiştirebilirsiniz.",
+    "usernameSame": "Bu zaten sizin kullanıcı adınız.",
+    "save": "Kaydet"
   },
   "pages": {
     "about": {

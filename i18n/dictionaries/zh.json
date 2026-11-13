@@ -340,7 +340,15 @@
       "terms": "请勾选复选框以同意服务条款和隐私政策。"
     },
     "agree": "继续即表示你同意 Anston 的{terms}和{privacy}。",
-    "agreeBox": "我同意 Anston 的{terms}和{privacy}。"
+    "agreeBox": "我同意 Anston 的{terms}和{privacy}。",
+    "changeUsername": "修改用户名",
+    "usernameCurrent": "你的用户名是 {username}。",
+    "usernameNew": "新用户名",
+    "usernameRule": "用户名每 30 天只能修改一次。",
+    "usernameSaved": "你的用户名已改为 @{username}。",
+    "usernameWait": "你最近修改过用户名，{date} 之后可以再次修改。",
+    "usernameSame": "这已经是你的用户名了。",
+    "save": "保存"
   },
   "pages": {
     "about": {

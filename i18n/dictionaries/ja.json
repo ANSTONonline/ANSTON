@@ -340,7 +340,15 @@
       "terms": "利用規約とプライバシーポリシーに同意するには、チェックボックスにチェックを入れてください。"
     },
     "agree": "続けることで、Anstonの{terms}と{privacy}に同意したことになります。",
-    "agreeBox": "Anstonの{terms}と{privacy}に同意します。"
+    "agreeBox": "Anstonの{terms}と{privacy}に同意します。",
+    "changeUsername": "ユーザー名を変更",
+    "usernameCurrent": "現在のユーザー名は{username}です。",
+    "usernameNew": "新しいユーザー名",
+    "usernameRule": "ユーザー名は30日に1回まで変更できます。",
+    "usernameSaved": "ユーザー名を@{username}に変更しました。",
+    "usernameWait": "最近ユーザー名を変更しました。次に変更できるのは{date}です。",
+    "usernameSame": "すでにこのユーザー名を使っています。",
+    "save": "保存"
   },
   "pages": {
     "about": {

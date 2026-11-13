@@ -290,14 +290,16 @@ function SignUpForm({
 }
 
 // Username box that checks, as you type, whether the name is free.
-function UsernameField({
+export function UsernameField({
   text,
   defaultValue = "",
   onValidChange,
+  label,
 }: {
   text: Text;
   defaultValue?: string;
   onValidChange: (ok: boolean) => void;
+  label?: string;
 }) {
   const [value, setValue] = useState(defaultValue);
   // The last answer from the server, for the name it was about.
@@ -341,7 +343,7 @@ function UsernameField({
 
   return (
     <label className="block">
-      <span className="text-sm font-medium">{text.username}</span>
+      <span className="text-sm font-medium">{label ?? text.username}</span>
       <div className="relative" dir="ltr">
         <span className="absolute left-3 top-1/2 -translate-y-1/2 mt-0.5 text-gray-400">@</span>
         <input

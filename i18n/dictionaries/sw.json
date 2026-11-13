@@ -340,7 +340,15 @@
       "terms": "Tafadhali weka alama kwenye kisanduku ili ukubali Masharti ya Huduma na Sera ya Faragha."
     },
     "agree": "Kwa kuendelea, unakubali {terms} na {privacy} ya Anston.",
-    "agreeBox": "Ninakubali {terms} na {privacy} ya Anston."
+    "agreeBox": "Ninakubali {terms} na {privacy} ya Anston.",
+    "changeUsername": "Badilisha jina la mtumiaji",
+    "usernameCurrent": "Jina lako la mtumiaji ni {username}.",
+    "usernameNew": "Jina jipya la mtumiaji",
+    "usernameRule": "Unaweza kubadilisha jina la mtumiaji mara moja kila siku 30.",
+    "usernameSaved": "Jina lako la mtumiaji sasa ni @{username}.",
+    "usernameWait": "Ulibadilisha jina la mtumiaji hivi karibuni. Unaweza kulibadilisha tena tarehe {date}.",
+    "usernameSame": "Hilo tayari ni jina lako la mtumiaji.",
+    "save": "Hifadhi"
   },
   "pages": {
     "about": {

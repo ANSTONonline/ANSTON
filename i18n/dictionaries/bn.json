@@ -340,7 +340,15 @@
       "terms": "সেবার শর্তাবলি ও গোপনীয়তা নীতিতে সম্মতি দিতে বক্সে টিক দিন।"
     },
     "agree": "চালিয়ে গেলে আপনি Anston-এর {terms} ও {privacy}-তে সম্মতি দিচ্ছেন।",
-    "agreeBox": "আমি Anston-এর {terms} ও {privacy}-তে সম্মত।"
+    "agreeBox": "আমি Anston-এর {terms} ও {privacy}-তে সম্মত।",
+    "changeUsername": "ইউজারনেম বদলান",
+    "usernameCurrent": "আপনার ইউজারনেম {username}।",
+    "usernameNew": "নতুন ইউজারনেম",
+    "usernameRule": "আপনি প্রতি ৩০ দিনে একবার ইউজারনেম বদলাতে পারবেন।",
+    "usernameSaved": "আপনার ইউজারনেম এখন @{username}।",
+    "usernameWait": "আপনি সম্প্রতি ইউজারনেম বদলেছেন। {date} তারিখে আবার বদলাতে পারবেন।",
+    "usernameSame": "এটি আগে থেকেই আপনার ইউজারনেম।",
+    "save": "সংরক্ষণ করুন"
   },
   "pages": {
     "about": {

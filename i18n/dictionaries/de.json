@@ -340,7 +340,15 @@
       "terms": "Bitte setze das Häkchen, um den Nutzungsbedingungen und der Datenschutzerklärung zuzustimmen."
     },
     "agree": "Wenn du fortfährst, stimmst du den {terms} und der {privacy} von Anston zu.",
-    "agreeBox": "Ich stimme den {terms} und der {privacy} von Anston zu."
+    "agreeBox": "Ich stimme den {terms} und der {privacy} von Anston zu.",
+    "changeUsername": "Benutzernamen ändern",
+    "usernameCurrent": "Dein Benutzername ist {username}.",
+    "usernameNew": "Neuer Benutzername",
+    "usernameRule": "Du kannst deinen Benutzernamen einmal alle 30 Tage ändern.",
+    "usernameSaved": "Dein Benutzername ist jetzt @{username}.",
+    "usernameWait": "Du hast deinen Benutzernamen vor Kurzem geändert. Du kannst ihn am {date} wieder ändern.",
+    "usernameSame": "Das ist bereits dein Benutzername.",
+    "save": "Speichern"
   },
   "pages": {
     "about": {

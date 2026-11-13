@@ -340,7 +340,15 @@
       "terms": "Отметьте галочку, чтобы принять Условия использования и Политику конфиденциальности."
     },
     "agree": "Продолжая, вы принимаете {terms} и {privacy} Anston.",
-    "agreeBox": "Я принимаю {terms} и {privacy} Anston."
+    "agreeBox": "Я принимаю {terms} и {privacy} Anston.",
+    "changeUsername": "Сменить имя пользователя",
+    "usernameCurrent": "Ваше имя пользователя — {username}.",
+    "usernameNew": "Новое имя пользователя",
+    "usernameRule": "Имя пользователя можно менять раз в 30 дней.",
+    "usernameSaved": "Теперь ваше имя пользователя — @{username}.",
+    "usernameWait": "Вы недавно меняли имя пользователя. Снова изменить его можно {date}.",
+    "usernameSame": "Это уже ваше имя пользователя.",
+    "save": "Сохранить"
   },
   "pages": {
     "about": {
