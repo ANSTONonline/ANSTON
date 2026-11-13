@@ -172,7 +172,8 @@
       "notAvailable": "Iklan ini sudah tidak tersedia.",
       "message": "Silakan tulis pesan.",
       "generic": "Terjadi kesalahan. Silakan coba lagi."
-    }
+    },
+    "edit": "Edit"
   },
   "cart": {
     "title": "Keranjang Anda",
@@ -266,7 +267,14 @@
       "license": "Silakan konfirmasi bahwa Anda memiliki izin yang diwajibkan untuk jasa ini.",
       "location": "Silakan pilih negara.",
       "generic": "Terjadi kesalahan. Silakan coba lagi."
-    }
+    },
+    "editTitle": "Edit iklan",
+    "saveChanges": "Simpan perubahan",
+    "saving": "Menyimpan...",
+    "updated": "Perubahan Anda sudah disimpan.",
+    "keepEnd": "Pertahankan waktu berakhir ({date})",
+    "auctionLocked": "Lelang ini sudah punya tawaran, jadi harga dan waktu berakhirnya tidak bisa diubah.",
+    "cancel": "Batal"
   },
   "account": {
     "title": "Akun Anda",

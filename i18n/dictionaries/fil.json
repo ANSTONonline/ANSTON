@@ -172,7 +172,8 @@
       "notAvailable": "Hindi na available ang listing na ito.",
       "message": "Pakisulat ng mensahe.",
       "generic": "May nangyaring mali. Pakisubukang muli."
-    }
+    },
+    "edit": "I-edit"
   },
   "cart": {
     "title": "Ang cart mo",
@@ -266,7 +267,14 @@
       "license": "Pakikumpirma na mayroon kang lisensyang kailangan ng serbisyong ito.",
       "location": "Pumili ng bansa.",
       "generic": "May nangyaring mali. Pakisubukang muli."
-    }
+    },
+    "editTitle": "I-edit ang listing",
+    "saveChanges": "I-save ang mga pagbabago",
+    "saving": "Sine-save...",
+    "updated": "Na-save na ang mga pagbabago mo.",
+    "keepEnd": "Panatilihin ang kasalukuyang pagtatapos ({date})",
+    "auctionLocked": "May mga bid na ang auction na ito, kaya hindi na mababago ang mga presyo at oras ng pagtatapos.",
+    "cancel": "Kanselahin"
   },
   "account": {
     "title": "Ang account mo",

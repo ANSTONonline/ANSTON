@@ -132,6 +132,7 @@ export default async function SellingPage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
+                  <Link href={`/listing/${l.id}/edit`} className={small}>✏️ {t.listing.edit}</Link>
                   {winners.has(l.id) && (
                     <MessageButton listingId={l.id} buyerId={winners.get(l.id)!} label={d.messageWinner} />
                   )}

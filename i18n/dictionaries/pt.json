@@ -172,7 +172,8 @@
       "notAvailable": "Este anúncio não está mais disponível.",
       "message": "Escreva uma mensagem.",
       "generic": "Algo deu errado. Tente novamente."
-    }
+    },
+    "edit": "Editar"
   },
   "cart": {
     "title": "Seu carrinho",
@@ -266,7 +267,14 @@
       "license": "Confirme que você tem a licença exigida para este serviço.",
       "location": "Escolha um país.",
       "generic": "Algo deu errado. Tente novamente."
-    }
+    },
+    "editTitle": "Editar anúncio",
+    "saveChanges": "Salvar alterações",
+    "saving": "Salvando...",
+    "updated": "Suas alterações foram salvas.",
+    "keepEnd": "Manter o fim atual ({date})",
+    "auctionLocked": "Este leilão já tem lances, então os preços e o horário de término não podem mudar.",
+    "cancel": "Cancelar"
   },
   "account": {
     "title": "Sua conta",

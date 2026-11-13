@@ -172,7 +172,8 @@
       "notAvailable": "此商品已不再提供。",
       "message": "请输入消息内容。",
       "generic": "出了点问题，请重试。"
-    }
+    },
+    "edit": "编辑"
   },
   "cart": {
     "title": "购物车",
@@ -266,7 +267,14 @@
       "license": "请确认你持有此服务所需的执照。",
       "location": "请选择国家/地区。",
       "generic": "出了点问题，请重试。"
-    }
+    },
+    "editTitle": "编辑商品",
+    "saveChanges": "保存更改",
+    "saving": "正在保存...",
+    "updated": "你的更改已保存。",
+    "keepEnd": "保持当前结束时间（{date}）",
+    "auctionLocked": "这场拍卖已有出价，因此价格和结束时间无法更改。",
+    "cancel": "取消"
   },
   "account": {
     "title": "我的账户",

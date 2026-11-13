@@ -172,7 +172,8 @@
       "notAvailable": "Questo annuncio non è più disponibile.",
       "message": "Scrivi un messaggio.",
       "generic": "Qualcosa è andato storto. Riprova."
-    }
+    },
+    "edit": "Modifica"
   },
   "cart": {
     "title": "Il tuo carrello",
@@ -266,7 +267,14 @@
       "license": "Conferma di possedere la licenza richiesta per questo servizio.",
       "location": "Scegli un paese.",
       "generic": "Qualcosa è andato storto. Riprova."
-    }
+    },
+    "editTitle": "Modifica annuncio",
+    "saveChanges": "Salva modifiche",
+    "saving": "Salvataggio...",
+    "updated": "Le modifiche sono state salvate.",
+    "keepEnd": "Mantieni la fine attuale ({date})",
+    "auctionLocked": "Questa asta ha già delle offerte, quindi prezzi e orario di fine non possono cambiare.",
+    "cancel": "Annulla"
   },
   "account": {
     "title": "Il tuo account",

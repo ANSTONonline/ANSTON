@@ -172,7 +172,8 @@
       "notAvailable": "Dieses Angebot ist nicht mehr verfügbar.",
       "message": "Bitte schreib eine Nachricht.",
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
-    }
+    },
+    "edit": "Bearbeiten"
   },
   "cart": {
     "title": "Dein Warenkorb",
@@ -266,7 +267,14 @@
       "license": "Bitte bestätige, dass du die für diese Dienstleistung nötige Genehmigung besitzt.",
       "location": "Bitte wähle ein Land.",
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
-    }
+    },
+    "editTitle": "Angebot bearbeiten",
+    "saveChanges": "Änderungen speichern",
+    "saving": "Wird gespeichert...",
+    "updated": "Deine Änderungen sind gespeichert.",
+    "keepEnd": "Aktuelles Ende beibehalten ({date})",
+    "auctionLocked": "Für diese Auktion gibt es schon Gebote, daher können Preise und Endzeit nicht mehr geändert werden.",
+    "cancel": "Abbrechen"
   },
   "account": {
     "title": "Dein Konto",
