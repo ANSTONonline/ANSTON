@@ -336,7 +336,8 @@
       "link": "That link is invalid or has expired. Please log in or try again.",
       "google": "Google sign-in isn't available right now. Please use your email.",
       "generic": "Something went wrong. Please try again."
-    }
+    },
+    "agree": "By continuing, you agree to Anston's {terms} and {privacy}."
   },
   "pages": {
     "about": {
@@ -403,7 +404,9 @@
         "Anston uses a small number of cookies, such as one that remembers your language. Our full Cookie Policy is coming before launch.",
         "Questions? Email support@myanston.com."
       ]
-    }
+    },
+    "updated": "Last updated: {date}",
+    "englishNote": "This document is written in English, which is the official version."
   },
   "messages": {
     "title": "Messages",

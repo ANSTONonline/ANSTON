@@ -336,7 +336,8 @@
       "link": "Ese enlace no es válido o ha caducado. Inicia sesión o inténtalo de nuevo.",
       "google": "El inicio de sesión con Google no está disponible ahora. Usa tu correo.",
       "generic": "Algo salió mal. Inténtalo de nuevo."
-    }
+    },
+    "agree": "Al continuar, aceptas los {terms} y la {privacy} de Anston."
   },
   "pages": {
     "about": {
@@ -403,7 +404,9 @@
         "Anston usa pocas cookies, por ejemplo una que recuerda tu idioma. Nuestra Política de cookies completa llegará antes del lanzamiento.",
         "¿Preguntas? Escribe a support@myanston.com."
       ]
-    }
+    },
+    "updated": "Última actualización: {date}",
+    "englishNote": "Este documento está escrito en inglés, que es la versión oficial."
   },
   "messages": {
     "title": "Mensajes",

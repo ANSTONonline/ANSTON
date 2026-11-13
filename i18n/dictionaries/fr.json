@@ -336,7 +336,8 @@
       "link": "Ce lien est invalide ou a expiré. Connectez-vous ou réessayez.",
       "google": "La connexion avec Google n'est pas disponible pour le moment. Utilisez votre e-mail.",
       "generic": "Un problème est survenu. Veuillez réessayer."
-    }
+    },
+    "agree": "En continuant, vous acceptez les {terms} et la {privacy} d'Anston."
   },
   "pages": {
     "about": {
@@ -403,7 +404,9 @@
         "Anston utilise peu de cookies, par exemple un cookie qui mémorise votre langue. Notre Politique relative aux cookies complète arrivera avant le lancement.",
         "Des questions ? Écrivez à support@myanston.com."
       ]
-    }
+    },
+    "updated": "Dernière mise à jour : {date}",
+    "englishNote": "Ce document est rédigé en anglais, qui en est la version officielle."
   },
   "messages": {
     "title": "Messages",
