@@ -76,7 +76,8 @@
     "rights": "版权所有。",
     "privacy": "隐私政策",
     "terms": "服务条款",
-    "cookies": "Cookie 政策"
+    "cookies": "Cookie 政策",
+    "follow": "关注我们"
   },
   "browse": {
     "title": "浏览商品",
@@ -314,7 +315,7 @@
     "passwordUpdated": "你的密码已更新。",
     "changePassword": "修改密码",
     "finishTitle": "完成账户设置",
-    "finishIntro": "选择用户名并确认年龄，即可开始使用 Anston。",
+    "finishIntro": "只需填写几项简单信息，即可开始使用 Anston。",
     "continue": "继续",
     "confirmed": "你的账户已验证，欢迎来到 Anston！",
     "signOut": "退出登录",
@@ -335,8 +336,11 @@
       "rateLimit": "尝试次数过多，请等几分钟后再试。",
       "link": "该链接无效或已过期，请重新登录或重试。",
       "google": "Google 登录暂时不可用，请使用邮箱。",
-      "generic": "出了点问题，请重试。"
-    }
+      "generic": "出了点问题，请重试。",
+      "terms": "请勾选复选框以同意服务条款和隐私政策。"
+    },
+    "agree": "继续即表示你同意 Anston 的{terms}和{privacy}。",
+    "agreeBox": "我同意 Anston 的{terms}和{privacy}。"
   },
   "pages": {
     "about": {
@@ -403,7 +407,9 @@
         "Anston 只使用少量 Cookie，例如用于记住你所选语言的 Cookie。完整的 Cookie 政策将在上线前发布。",
         "有疑问？请发送邮件至 support@myanston.com。"
       ]
-    }
+    },
+    "updated": "最后更新：{date}",
+    "englishNote": "本文件以英文撰写，英文版本为正式版本。"
   },
   "messages": {
     "title": "消息",

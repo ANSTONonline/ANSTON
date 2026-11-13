@@ -76,7 +76,8 @@
     "rights": "Tous droits réservés.",
     "privacy": "Politique de confidentialité",
     "terms": "Conditions d'utilisation",
-    "cookies": "Politique relative aux cookies"
+    "cookies": "Politique relative aux cookies",
+    "follow": "Suivez-nous"
   },
   "browse": {
     "title": "Parcourir les annonces",
@@ -314,7 +315,7 @@
     "passwordUpdated": "Votre mot de passe a été mis à jour.",
     "changePassword": "Changer de mot de passe",
     "finishTitle": "Finalisez votre compte",
-    "finishIntro": "Choisissez un nom d'utilisateur et confirmez votre âge pour commencer à utiliser Anston.",
+    "finishIntro": "Quelques détails rapides et vous pourrez utiliser Anston.",
     "continue": "Continuer",
     "confirmed": "Votre compte est vérifié. Bienvenue sur Anston !",
     "signOut": "Se déconnecter",
@@ -335,8 +336,11 @@
       "rateLimit": "Trop de tentatives. Patientez quelques minutes puis réessayez.",
       "link": "Ce lien est invalide ou a expiré. Connectez-vous ou réessayez.",
       "google": "La connexion avec Google n'est pas disponible pour le moment. Utilisez votre e-mail.",
-      "generic": "Un problème est survenu. Veuillez réessayer."
-    }
+      "generic": "Un problème est survenu. Veuillez réessayer.",
+      "terms": "Cochez la case pour accepter les Conditions d'utilisation et la Politique de confidentialité."
+    },
+    "agree": "En continuant, vous acceptez les {terms} et la {privacy} d'Anston.",
+    "agreeBox": "J'accepte les {terms} et la {privacy} d'Anston."
   },
   "pages": {
     "about": {
@@ -403,7 +407,9 @@
         "Anston utilise peu de cookies, par exemple un cookie qui mémorise votre langue. Notre Politique relative aux cookies complète arrivera avant le lancement.",
         "Des questions ? Écrivez à support@myanston.com."
       ]
-    }
+    },
+    "updated": "Dernière mise à jour : {date}",
+    "englishNote": "Ce document est rédigé en anglais, qui en est la version officielle."
   },
   "messages": {
     "title": "Messages",

@@ -25,7 +25,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
     const supabase = await createClient();
     const { data: profile } = await supabase
       .from("profiles")
-      .select("username, display_name, age_confirmed_at")
+      .select("username, display_name, age_confirmed_at, terms_accepted_at")
       .eq("id", user.id)
       .maybeSingle();
 
@@ -33,12 +33,19 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
     // moment) choose a username and confirm their age here first.
     const needsUsername = !profile?.username;
     const needsAge = !profile?.age_confirmed_at;
-    if (needsUsername || needsAge) {
+    const needsTerms = !profile?.terms_accepted_at;
+    if (needsUsername || needsAge || needsTerms) {
       return (
         <main className="flex-1 px-4 sm:px-8 py-12 max-w-md mx-auto w-full">
           <h1 className="text-3xl font-bold mb-2">{t.account.finishTitle}</h1>
           <p className="text-gray-600 mb-6">{t.account.finishIntro}</p>
-          <FinishProfileForm text={t.account} needsUsername={needsUsername} needsAge={needsAge} />
+          <FinishProfileForm
+            text={t.account}
+            needsUsername={needsUsername}
+            needsAge={needsAge}
+            needsTerms={needsTerms}
+            legal={{ terms: t.footer.terms, privacy: t.footer.privacy }}
+          />
           <form action={signOut} className="mt-4 text-center">
             <button type="submit" className="text-sm text-gray-500 hover:underline">{t.account.signOut}</button>
           </form>
@@ -103,7 +110,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
       {params.error === "link" && <Banner kind="error">{t.account.errors.link}</Banner>}
       {params.error === "google" && <Banner kind="error">{t.account.errors.google}</Banner>}
       {supabaseConfigured() ? (
-        <AuthForms text={t.account} />
+        <AuthForms text={t.account} legal={{ terms: t.footer.terms, privacy: t.footer.privacy }} />
       ) : (
         <p className="border rounded-xl p-6 bg-gray-50 text-gray-600">{t.account.soon}</p>
       )}

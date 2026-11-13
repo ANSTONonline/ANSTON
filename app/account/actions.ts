@@ -11,6 +11,7 @@ import {
   normalizeUsername,
   passwordOk,
 } from "@/lib/auth-rules";
+import { EFFECTIVE_DATE } from "@/lib/legal";
 
 export type AuthErrorCode =
   | "invalid"
@@ -22,6 +23,7 @@ export type AuthErrorCode =
   | "usernameTaken"
   | "usernameInvalid"
   | "underage"
+  | "terms"
   | "birthDate"
   | "phoneInvalid"
   | "phoneUnavailable"
@@ -108,9 +110,10 @@ export async function signUp(_prev: AuthState, formData: FormData): Promise<Auth
   const age = ageFrom(birthDate);
   if (age === null || age > 120) return { error: "birthDate", values };
   if (age < MIN_AGE) return { error: "underage", values };
+  if (formData.get("terms") !== "on") return { error: "terms", values };
 
   const supabase = await createClient();
-  const data = { username, age_confirmed: true };
+  const data = { username, age_confirmed: true, terms_accepted: true, terms_version: EFFECTIVE_DATE };
 
   if (method === "phone") {
     const phone = normalizePhone(phoneRaw);
@@ -182,11 +185,11 @@ export async function completeProfile(_prev: AuthState, formData: FormData): Pro
 
   const { data: profile } = await supabase
     .from("profiles")
-    .select("username, age_confirmed_at")
+    .select("username, age_confirmed_at, terms_accepted_at")
     .eq("id", auth.user.id)
     .maybeSingle();
 
-  const update: { username?: string; age_confirmed_at?: string } = {};
+  const update: { username?: string; age_confirmed_at?: string; terms_accepted_at?: string; terms_version?: string } = {};
   if (!profile?.username) {
     if (!USERNAME_PATTERN.test(username)) return { error: "usernameInvalid", values };
     if ((await checkUsername(username)) === "taken") return { error: "usernameTaken", values };
@@ -197,6 +200,11 @@ export async function completeProfile(_prev: AuthState, formData: FormData): Pro
     if (age === null || age > 120) return { error: "birthDate", values };
     if (age < MIN_AGE) return { error: "underage", values };
     update.age_confirmed_at = new Date().toISOString();
+  }
+  if (!profile?.terms_accepted_at) {
+    if (formData.get("terms") !== "on") return { error: "terms", values };
+    update.terms_accepted_at = new Date().toISOString(); // the database replaces this with its own time
+    update.terms_version = EFFECTIVE_DATE;
   }
 
   const { error } = await supabase.from("profiles").update(update).eq("id", auth.user.id);

@@ -76,7 +76,8 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "cookies": "Cookie Policy"
+    "cookies": "Cookie Policy",
+    "follow": "Follow us"
   },
   "browse": {
     "title": "Browse listings",
@@ -314,7 +315,7 @@
     "passwordUpdated": "Your password has been updated.",
     "changePassword": "Change password",
     "finishTitle": "Finish setting up your account",
-    "finishIntro": "Choose a username and confirm your age to start using Anston.",
+    "finishIntro": "A few quick details and you're ready to use Anston.",
     "continue": "Continue",
     "confirmed": "Your account is verified. Welcome to Anston!",
     "signOut": "Log out",
@@ -335,8 +336,11 @@
       "rateLimit": "Too many attempts. Please wait a few minutes and try again.",
       "link": "That link is invalid or has expired. Please log in or try again.",
       "google": "Google sign-in isn't available right now. Please use your email.",
-      "generic": "Something went wrong. Please try again."
-    }
+      "generic": "Something went wrong. Please try again.",
+      "terms": "Please tick the box to agree to the Terms of Service and Privacy Policy."
+    },
+    "agree": "By continuing, you agree to Anston's {terms} and {privacy}.",
+    "agreeBox": "I agree to Anston's {terms} and {privacy}."
   },
   "pages": {
     "about": {
@@ -403,7 +407,9 @@
         "Anston uses a small number of cookies, such as one that remembers your language. Our full Cookie Policy is coming before launch.",
         "Questions? Email support@myanston.com."
       ]
-    }
+    },
+    "updated": "Last updated: {date}",
+    "englishNote": "This document is written in English, which is the official version."
   },
   "messages": {
     "title": "Messages",

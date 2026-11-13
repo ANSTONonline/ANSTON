@@ -35,7 +35,48 @@ function ErrorMessage({ state, text }: { state: AuthState; text: Text }) {
 // Log in / Sign up
 // ---------------------------------------------------------------------------
 
-export default function AuthForms({ text }: { text: Text }) {
+type LegalLinks = { terms: string; privacy: string };
+
+// "By continuing, you agree to Anston's Terms of Service and Privacy Policy."
+function Agreement({ text, legal }: { text: Text; legal: LegalLinks }) {
+  const parts = text.agree.split(/(\{terms\}|\{privacy\})/);
+  return (
+    <p className="text-xs text-gray-500 text-center mt-3">
+      {parts.map((part, i) =>
+        part === "{terms}" ? (
+          <Link key={i} href="/terms" className="underline">{legal.terms}</Link>
+        ) : part === "{privacy}" ? (
+          <Link key={i} href="/privacy" className="underline">{legal.privacy}</Link>
+        ) : (
+          part
+        ),
+      )}
+    </p>
+  );
+}
+
+// The required "I agree" box on sign-up and on the finish-setup form.
+function TermsCheckbox({ text, legal }: { text: Text; legal: LegalLinks }) {
+  const parts = text.agreeBox.split(/(\{terms\}|\{privacy\})/);
+  return (
+    <label className="flex items-start gap-2 text-sm">
+      <input type="checkbox" name="terms" required className="w-4 h-4 mt-0.5 accent-[#7A1E2B]" />
+      <span>
+        {parts.map((part, i) =>
+          part === "{terms}" ? (
+            <Link key={i} href="/terms" target="_blank" className="underline text-[#7A1E2B]">{legal.terms}</Link>
+          ) : part === "{privacy}" ? (
+            <Link key={i} href="/privacy" target="_blank" className="underline text-[#7A1E2B]">{legal.privacy}</Link>
+          ) : (
+            part
+          ),
+        )}
+      </span>
+    </label>
+  );
+}
+
+export default function AuthForms({ text, legal }: { text: Text; legal: LegalLinks }) {
   const [tab, setTab] = useState<"logIn" | "signUp">("logIn");
   const [logInState, logInAction, loggingIn] = useActionState(logIn, {});
   const [signUpState, signUpAction, signingUp] = useActionState(signUp, {});
@@ -92,6 +133,7 @@ export default function AuthForms({ text }: { text: Text }) {
           {text.google}
         </button>
       </form>
+      <Agreement text={text} legal={legal} />
 
       <div className="flex items-center gap-3 my-5 text-sm text-gray-500">
         <span className="flex-1 border-t" />
@@ -128,7 +170,7 @@ export default function AuthForms({ text }: { text: Text }) {
           </button>
         </form>
       ) : (
-        <SignUpForm text={text} state={signUpState} action={signUpAction} pending={signingUp} />
+        <SignUpForm text={text} legal={legal} state={signUpState} action={signUpAction} pending={signingUp} />
       )}
 
       <p className="text-sm text-gray-600 mt-4 text-center">
@@ -147,11 +189,13 @@ export default function AuthForms({ text }: { text: Text }) {
 
 function SignUpForm({
   text,
+  legal,
   state,
   action,
   pending,
 }: {
   text: Text;
+  legal: LegalLinks;
   state: AuthState;
   action: (formData: FormData) => void;
   pending: boolean;
@@ -236,6 +280,7 @@ function SignUpForm({
         <span className="text-xs text-gray-500">{text.ageNote}</span>
       </label>
 
+      <TermsCheckbox text={text} legal={legal} />
       <ErrorMessage state={state} text={text} />
       <button type="submit" disabled={pending || !usernameOk || !passwordValid} className={primary}>
         {pending ? text.working : text.createAccount}
@@ -478,10 +523,14 @@ export function FinishProfileForm({
   text,
   needsUsername,
   needsAge,
+  needsTerms,
+  legal,
 }: {
   text: Text;
   needsUsername: boolean;
   needsAge: boolean;
+  needsTerms: boolean;
+  legal: LegalLinks;
 }) {
   const [state, action, pending] = useActionState(completeProfile, {});
   const [usernameOk, setUsernameOk] = useState(!needsUsername);
@@ -504,6 +553,7 @@ export function FinishProfileForm({
           <span className="text-xs text-gray-500">{text.ageNote}</span>
         </label>
       )}
+      {needsTerms && <TermsCheckbox text={text} legal={legal} />}
       <ErrorMessage state={state} text={text} />
       <button type="submit" disabled={pending || !usernameOk} className={primary}>
         {pending ? text.working : text.continue}
