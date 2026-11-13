@@ -3,7 +3,7 @@
 // in other languages show a short note saying so (see i18n dictionaries).
 // When anything here changes, update EFFECTIVE_DATE.
 
-export const EFFECTIVE_DATE = "November 12, 2026";
+export const EFFECTIVE_DATE = "November 13, 2026";
 export const CONTACT_EMAIL = "support@myanston.com";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[]; after?: string[] };
@@ -180,6 +180,7 @@ export const termsOfService: LegalDoc = {
       bullets: [
         "Bids are binding. If you win an auction, you agree to buy at your winning bid. Sellers agree to sell to the winning bidder.",
         "Offers: when a seller accepts your offer, you have both agreed to the deal at that price.",
+        "Refunds: every listing shows whether the seller accepts refunds and for how long, or that all sales are final. Sellers must honor the refund policy shown on their listing, and buyers should read it before buying, bidding or booking. Refunds required by law apply either way.",
         "Rentals and bookings: a request becomes an agreement when the seller confirms it. Renters must return items on time and in the same condition, apart from normal wear. Sellers may ask for the security deposit shown on the listing. Any cancellation, damage or late-return terms are between renter and owner and should be agreed in messages before confirming.",
         "If a deal falls through, work it out with the other user first. You can report a user or listing to us, and we may step in to keep the marketplace safe, but we are not required to resolve disputes between users.",
       ],

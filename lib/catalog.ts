@@ -92,7 +92,7 @@ export async function getCategories(locale: Locale): Promise<Category[]> {
 // ---------------------------------------------------------------------------
 export const LISTING_SELECT = `
   id, title, description, status, currency, condition, quantity, city, region, country_code,
-  ships, local_pickup, attributes, created_at, seller_id,
+  ships, local_pickup, attributes, created_at, seller_id, refund_policy, refund_days,
   category:categories ( * ),
   listing_modes ( mode, price_cents, accepts_offers, start_price_cents, buy_now_price_cents,
                   min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes ),
@@ -128,6 +128,8 @@ export type ListingRow = {
   ships: boolean;
   local_pickup: boolean;
   attributes: Record<string, unknown>;
+  refund_policy: "refundable" | "non_refundable" | null;
+  refund_days: number | null;
   created_at: string;
   seller_id: string;
   category: (CategoryRow & { parent_id: number | null }) | null;
@@ -198,6 +200,8 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
     ships: row.ships,
     localPickup: row.local_pickup,
     attributes: row.attributes,
+    refundPolicy: row.refund_policy,
+    refundDays: row.refund_days,
     sale: sale ? { priceCents: sale.price_cents ?? 0, acceptsOffers: sale.accepts_offers, quantity: row.quantity } : undefined,
     auction: auction
       ? {

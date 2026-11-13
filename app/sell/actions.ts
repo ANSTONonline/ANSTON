@@ -5,7 +5,8 @@ import { revalidatePath } from "next/cache";
 import { getLocale } from "@/i18n/server";
 import { MAX_PHOTOS, PHOTO_BUCKET, getCategories, type DbMode } from "@/lib/catalog";
 import { requireMember } from "@/lib/member";
-import { AUCTION_DAYS, CONDITIONS, CURRENCIES, RATE_UNITS, SESSION_MINUTES } from "@/lib/sell-options";
+import { checkLocation } from "@/lib/places";
+import { AUCTION_DAYS, CONDITIONS, CURRENCIES, RATE_UNITS, REFUND_DAYS, SESSION_MINUTES } from "@/lib/sell-options";
 
 export type SellErrorCode =
   | "title"
@@ -17,6 +18,9 @@ export type SellErrorCode =
   | "food"
   | "license"
   | "location"
+  | "region"
+  | "cityMismatch"
+  | "refund"
   | "generic";
 
 export type SellState = { error?: SellErrorCode; values?: Record<string, string> };
@@ -97,8 +101,14 @@ async function readListingForm(
   const description = text(fd, "description");
   if (description.length > 10000) return { error: "description" };
 
+  // The state/region must be in the country, and the city in the region.
   const country = text(fd, "country").toUpperCase();
-  if (!/^[A-Z]{2}$/.test(country)) return { error: "location" };
+  const place = checkLocation(country, text(fd, "region"), text(fd, "city"));
+  if (!place.ok) return { error: place.error };
+
+  const refund = text(fd, "refund");
+  if (refund !== "refundable" && refund !== "non_refundable") return { error: "refund" };
+  const refundDays = REFUND_DAYS.includes(Number(text(fd, "refund_days"))) ? Number(text(fd, "refund_days")) : 14;
 
   const currency = CURRENCIES.includes(text(fd, "currency")) ? text(fd, "currency") : "USD";
   const condition = (CONDITIONS as readonly string[]).includes(text(fd, "condition")) ? text(fd, "condition") : "not_applicable";
@@ -171,8 +181,10 @@ async function readListingForm(
       quantity: modes.some((m) => m.mode === "sale") ? quantity : 1,
       attributes,
       country_code: country,
-      region: text(fd, "region").slice(0, 100) || null,
-      city: text(fd, "city").slice(0, 100) || null,
+      region: place.regionName,
+      city: place.city,
+      refund_policy: refund,
+      refund_days: refund === "refundable" ? refundDays : null,
       ships: checked(fd, "ships"),
       local_pickup: checked(fd, "local_pickup"),
     },

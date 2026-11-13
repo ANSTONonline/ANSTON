@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { startTransition, useActionState, useRef, useState, useSyncExternalStore } from "react";
+import { startTransition, useActionState, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Dictionary } from "@/i18n/server";
 import type { Category, DbMode } from "@/lib/catalog";
 import { createBrowserSupabase } from "@/lib/supabase/client";
 import {
   AUCTION_DAYS,
   CONDITIONS,
-  COUNTRIES,
   CURRENCIES,
   RATE_UNITS,
+  REFUND_DAYS,
   SESSION_MINUTES,
 } from "@/lib/sell-options";
 import { createListing, discardPhoto, updateListing, type SellState } from "./actions";
@@ -150,17 +150,122 @@ function Photos({ text, userId, initial = [] }: { text: Text; userId: string; in
   );
 }
 
+// Country, state/region and city. The region menu always matches the chosen
+// country, and cities in that region are suggested as the seller types.
+function LocationFields({
+  text,
+  locale,
+  countryCodes,
+  initial,
+}: {
+  text: Text;
+  locale: string;
+  countryCodes: string[];
+  initial: { country?: string; region?: string; city?: string };
+}) {
+  const [country, setCountry] = useState(initial.country || "US");
+  const [region, setRegion] = useState(initial.region ?? "");
+  const [regions, setRegions] = useState<{ country: string; list: { code: string; name: string }[] } | null>(null);
+  const [cities, setCities] = useState<{ key: string; list: string[] }>({ key: "", list: [] });
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`/api/places?country=${country}`)
+      .then((r) => (r.ok ? r.json() : []))
+      .then((list) => !cancelled && setRegions({ country, list }))
+      .catch(() => !cancelled && setRegions({ country, list: [] }));
+    return () => {
+      cancelled = true;
+    };
+  }, [country]);
+
+  const key = `${country}/${region}`;
+  useEffect(() => {
+    if (!region) return;
+    let cancelled = false;
+    fetch(`/api/places?country=${country}&region=${encodeURIComponent(region)}`)
+      .then((r) => (r.ok ? r.json() : []))
+      .then((list) => !cancelled && setCities({ key, list }))
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [country, region, key]);
+
+  // Country names come from the browser. The server's list can be worded a
+  // little differently, so the first render uses codes and names follow.
+  const inBrowser = useSyncExternalStore(noSubscribe, () => true, () => false);
+  const names = inBrowser ? regionNames(locale) : null;
+  const countryName = (code: string) => names?.of(code) ?? code;
+  const countries = [...countryCodes].sort((a, b) => countryName(a).localeCompare(countryName(b), locale));
+  const regionList = regions?.country === country ? regions.list : null;
+
+  return (
+    <div className="grid sm:grid-cols-3 gap-3">
+      <div>
+        <label className={label} htmlFor="country">{text.country}</label>
+        <select
+          id="country"
+          name="country"
+          value={country}
+          onChange={(e) => {
+            setCountry(e.target.value);
+            setRegion("");
+          }}
+          className={input}
+        >
+          {countries.map((c) => (
+            <option key={c} value={c}>{countryName(c)}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label className={label} htmlFor="region">{text.region}</label>
+        {regionList && regionList.length === 0 ? (
+          <input id="region" disabled value="—" className={`${input} text-gray-400`} />
+        ) : (
+          <select
+            id="region"
+            name="region"
+            required
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+            disabled={!regionList}
+            className={input}
+          >
+            <option value="">{text.chooseRegion}</option>
+            {(regionList ?? []).map((r) => (
+              <option key={r.code} value={r.code}>{r.name}</option>
+            ))}
+          </select>
+        )}
+      </div>
+      <div>
+        <label className={label} htmlFor="city">{text.city}</label>
+        <input id="city" name="city" maxLength={100} defaultValue={initial.city} list="city-options" autoComplete="off" className={input} />
+        <datalist id="city-options">
+          {(cities.key === key ? cities.list : []).map((c) => (
+            <option key={c} value={c} />
+          ))}
+        </datalist>
+      </div>
+    </div>
+  );
+}
+
 export default function ListingForm({
   text,
   categories,
   userId,
   locale,
+  countryCodes,
   editing,
 }: {
   text: Text;
   categories: Category[];
   userId: string;
   locale: string;
+  countryCodes: string[];
   editing?: EditingListing;
 }) {
   const submit = editing ? updateListing.bind(null, editing.listingId) : createListing;
@@ -180,13 +285,7 @@ export default function ListingForm({
     return initial;
   });
   const isPicked = (m: DbMode) => allowed.includes(m) && Boolean(picked[m]);
-
-  // Country names come from the browser. The server's list can be worded a
-  // little differently, so the first render uses codes and names follow.
-  const inBrowser = useSyncExternalStore(noSubscribe, () => true, () => false);
-  const names = inBrowser ? regionNames(locale) : null;
-  const countryName = (code: string) => names?.of(code) ?? code;
-  const countries = [...COUNTRIES].sort((a, b) => countryName(a).localeCompare(countryName(b), locale));
+  const [refund, setRefund] = useState(v.refund ?? "");
 
   const mainCategories = categories.filter((c) => c.parentId === null && c.slug !== "services");
   const services = categories.filter((c) => c.parentId !== null);
@@ -415,26 +514,59 @@ export default function ListingForm({
         </div>
       )}
 
+      {category && (
+        <div className={section}>
+          <h2 className="font-semibold">{text.refundTitle}</h2>
+          <label className="flex items-start gap-2 text-sm">
+            <input
+              type="radio"
+              name="refund"
+              value="refundable"
+              required
+              checked={refund === "refundable"}
+              onChange={() => setRefund("refundable")}
+              className="w-4 h-4 mt-0.5 accent-[#7A1E2B]"
+            />
+            <span>
+              <span className="font-medium">{text.refundable}</span>
+              <span className="block text-gray-500">{text.refundableHint}</span>
+            </span>
+          </label>
+          {refund === "refundable" && (
+            <div className="ps-6">
+              <label className={label} htmlFor="refund_days">{text.refundWithin}</label>
+              <select id="refund_days" name="refund_days" defaultValue={v.refund_days ?? "14"} className={`${input} sm:w-48`}>
+                {REFUND_DAYS.map((d) => (
+                  <option key={d} value={d}>{text.days.replace("{n}", String(d))}</option>
+                ))}
+              </select>
+            </div>
+          )}
+          <label className="flex items-start gap-2 text-sm">
+            <input
+              type="radio"
+              name="refund"
+              value="non_refundable"
+              checked={refund === "non_refundable"}
+              onChange={() => setRefund("non_refundable")}
+              className="w-4 h-4 mt-0.5 accent-[#7A1E2B]"
+            />
+            <span>
+              <span className="font-medium">{text.nonRefundable}</span>
+              <span className="block text-gray-500">{text.nonRefundableHint}</span>
+            </span>
+          </label>
+        </div>
+      )}
+
       <div className={section}>
         <h2 className="font-semibold">{text.location}</h2>
-        <div className="grid sm:grid-cols-3 gap-3">
-          <div>
-            <label className={label} htmlFor="city">{text.city}</label>
-            <input id="city" name="city" maxLength={100} defaultValue={v.city} className={input} />
-          </div>
-          <div>
-            <label className={label} htmlFor="region">{text.region}</label>
-            <input id="region" name="region" maxLength={100} defaultValue={v.region} className={input} />
-          </div>
-          <div>
-            <label className={label} htmlFor="country">{text.country}</label>
-            <select id="country" name="country" defaultValue={v.country ?? "US"} className={input}>
-              {countries.map((c) => (
-                <option key={c} value={c}>{countryName(c)}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+        <LocationFields
+          text={text}
+          locale={locale}
+          countryCodes={countryCodes}
+          initial={{ country: v.country, region: v.region, city: v.city }}
+        />
         {category && !isService && (
           <div className="flex flex-wrap gap-6 text-sm">
             <label className="flex items-center gap-2">

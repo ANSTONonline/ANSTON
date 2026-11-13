@@ -38,7 +38,8 @@
     "services": "Serbisyo",
     "more": "Iba pa",
     "food": "Pagkain",
-    "instruments": "Instrumentong pangmusika"
+    "instruments": "Instrumentong pangmusika",
+    "other": "Iba pa"
   },
   "featured": {
     "title": "Mga tampok na listing",
@@ -173,7 +174,10 @@
       "message": "Pakisulat ng mensahe.",
       "generic": "May nangyaring mali. Pakisubukang muli."
     },
-    "edit": "I-edit"
+    "edit": "I-edit",
+    "refunds": "Refund",
+    "refundsAccepted": "Tinatanggap sa loob ng {n} araw",
+    "noRefunds": "Walang refund, final ang benta"
   },
   "cart": {
     "title": "Ang cart mo",
@@ -266,7 +270,10 @@
       "food": "Pakikumpirma na sinusunod mo ang mga patakaran sa pagkain sa inyong lugar.",
       "license": "Pakikumpirma na mayroon kang lisensyang kailangan ng serbisyong ito.",
       "location": "Pumili ng bansa.",
-      "generic": "May nangyaring mali. Pakisubukang muli."
+      "generic": "May nangyaring mali. Pakisubukang muli.",
+      "region": "Pumili ng estado o rehiyon sa bansang pinili mo.",
+      "cityMismatch": "Wala ang lungsod na iyan sa estado at bansang pinili mo. Pakitingnan ang lokasyon mo.",
+      "refund": "Piliin kung tumatanggap ka ng refund."
     },
     "editTitle": "I-edit ang listing",
     "saveChanges": "I-save ang mga pagbabago",
@@ -274,7 +281,14 @@
     "updated": "Na-save na ang mga pagbabago mo.",
     "keepEnd": "Panatilihin ang kasalukuyang pagtatapos ({date})",
     "auctionLocked": "May mga bid na ang auction na ito, kaya hindi na mababago ang mga presyo at oras ng pagtatapos.",
-    "cancel": "Kanselahin"
+    "cancel": "Kanselahin",
+    "refundTitle": "Refund",
+    "refundable": "Tumatanggap ng refund",
+    "refundableHint": "Puwedeng humingi ng refund ang mamimili kung may problema.",
+    "refundWithin": "Puwedeng humingi sa loob ng",
+    "nonRefundable": "Walang refund",
+    "nonRefundableHint": "Lahat ng benta ay final.",
+    "chooseRegion": "Pumili ng estado o rehiyon"
   },
   "account": {
     "title": "Ang account mo",

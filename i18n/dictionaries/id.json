@@ -38,7 +38,8 @@
     "services": "Jasa",
     "more": "Lainnya",
     "food": "Makanan",
-    "instruments": "Alat musik"
+    "instruments": "Alat musik",
+    "other": "Lainnya"
   },
   "featured": {
     "title": "Iklan pilihan",
@@ -173,7 +174,10 @@
       "message": "Silakan tulis pesan.",
       "generic": "Terjadi kesalahan. Silakan coba lagi."
     },
-    "edit": "Edit"
+    "edit": "Edit",
+    "refunds": "Pengembalian dana",
+    "refundsAccepted": "Diterima dalam {n} hari",
+    "noRefunds": "Tanpa pengembalian dana, penjualan final"
   },
   "cart": {
     "title": "Keranjang Anda",
@@ -266,7 +270,10 @@
       "food": "Silakan konfirmasi bahwa Anda mematuhi aturan pangan di daerah Anda.",
       "license": "Silakan konfirmasi bahwa Anda memiliki izin yang diwajibkan untuk jasa ini.",
       "location": "Silakan pilih negara.",
-      "generic": "Terjadi kesalahan. Silakan coba lagi."
+      "generic": "Terjadi kesalahan. Silakan coba lagi.",
+      "region": "Pilih provinsi atau wilayah di negara yang Anda pilih.",
+      "cityMismatch": "Kota itu tidak ada di provinsi dan negara yang Anda pilih. Periksa lokasi Anda.",
+      "refund": "Pilih apakah Anda menerima pengembalian dana."
     },
     "editTitle": "Edit iklan",
     "saveChanges": "Simpan perubahan",
@@ -274,7 +281,14 @@
     "updated": "Perubahan Anda sudah disimpan.",
     "keepEnd": "Pertahankan waktu berakhir ({date})",
     "auctionLocked": "Lelang ini sudah punya tawaran, jadi harga dan waktu berakhirnya tidak bisa diubah.",
-    "cancel": "Batal"
+    "cancel": "Batal",
+    "refundTitle": "Pengembalian dana",
+    "refundable": "Menerima pengembalian dana",
+    "refundableHint": "Pembeli bisa meminta pengembalian dana jika ada masalah.",
+    "refundWithin": "Pembeli bisa meminta dalam",
+    "nonRefundable": "Tanpa pengembalian dana",
+    "nonRefundableHint": "Semua penjualan bersifat final.",
+    "chooseRegion": "Pilih provinsi atau wilayah"
   },
   "account": {
     "title": "Akun Anda",

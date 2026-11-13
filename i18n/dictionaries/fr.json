@@ -38,7 +38,8 @@
     "services": "Services",
     "more": "Plus",
     "food": "Alimentation",
-    "instruments": "Instruments"
+    "instruments": "Instruments",
+    "other": "Autres"
   },
   "featured": {
     "title": "Annonces à la une",
@@ -173,7 +174,10 @@
       "message": "Écrivez un message.",
       "generic": "Un problème est survenu. Veuillez réessayer."
     },
-    "edit": "Modifier"
+    "edit": "Modifier",
+    "refunds": "Remboursements",
+    "refundsAccepted": "Acceptés sous {n} jours",
+    "noRefunds": "Pas de remboursement, vente définitive"
   },
   "cart": {
     "title": "Votre panier",
@@ -266,7 +270,10 @@
       "food": "Confirmez que vous respectez les règles alimentaires de votre région.",
       "license": "Confirmez que vous détenez la licence exigée pour ce service.",
       "location": "Choisissez un pays.",
-      "generic": "Un problème est survenu. Veuillez réessayer."
+      "generic": "Un problème est survenu. Veuillez réessayer.",
+      "region": "Choisissez un État ou une région dans le pays sélectionné.",
+      "cityMismatch": "Cette ville ne se trouve pas dans l'État et le pays choisis. Vérifiez votre localisation.",
+      "refund": "Indiquez si vous acceptez les remboursements."
     },
     "editTitle": "Modifier l'annonce",
     "saveChanges": "Enregistrer les modifications",
@@ -274,7 +281,14 @@
     "updated": "Vos modifications sont enregistrées.",
     "keepEnd": "Garder la fin actuelle ({date})",
     "auctionLocked": "Ces enchères ont déjà reçu des offres : leurs prix et leur heure de fin ne peuvent plus changer.",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "refundTitle": "Remboursements",
+    "refundable": "Remboursements acceptés",
+    "refundableHint": "Les acheteurs peuvent demander un remboursement en cas de problème.",
+    "refundWithin": "Les acheteurs peuvent demander sous",
+    "nonRefundable": "Pas de remboursement",
+    "nonRefundableHint": "Toutes les ventes sont définitives.",
+    "chooseRegion": "Choisissez un État ou une région"
   },
   "account": {
     "title": "Votre compte",

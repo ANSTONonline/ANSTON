@@ -38,7 +38,8 @@
     "services": "Servicios",
     "more": "Más",
     "food": "Comida",
-    "instruments": "Instrumentos"
+    "instruments": "Instrumentos",
+    "other": "Otros"
   },
   "featured": {
     "title": "Anuncios destacados",
@@ -173,7 +174,10 @@
       "message": "Escribe un mensaje.",
       "generic": "Algo salió mal. Inténtalo de nuevo."
     },
-    "edit": "Editar"
+    "edit": "Editar",
+    "refunds": "Reembolsos",
+    "refundsAccepted": "Se aceptan dentro de {n} días",
+    "noRefunds": "Sin reembolsos, venta final"
   },
   "cart": {
     "title": "Tu carrito",
@@ -266,7 +270,10 @@
       "food": "Confirma que cumples las normas de alimentos de tu zona.",
       "license": "Confirma que tienes la licencia que exige este servicio.",
       "location": "Elige un país.",
-      "generic": "Algo salió mal. Inténtalo de nuevo."
+      "generic": "Algo salió mal. Inténtalo de nuevo.",
+      "region": "Elige un estado o región del país que seleccionaste.",
+      "cityMismatch": "Esa ciudad no está en el estado y país que elegiste. Revisa tu ubicación.",
+      "refund": "Elige si aceptas reembolsos."
     },
     "editTitle": "Editar anuncio",
     "saveChanges": "Guardar cambios",
@@ -274,7 +281,14 @@
     "updated": "Tus cambios se guardaron.",
     "keepEnd": "Mantener el final actual ({date})",
     "auctionLocked": "Esta subasta ya tiene pujas, así que sus precios y su hora de cierre no pueden cambiar.",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "refundTitle": "Reembolsos",
+    "refundable": "Se aceptan reembolsos",
+    "refundableHint": "Los compradores pueden pedir un reembolso si algo está mal.",
+    "refundWithin": "Pueden pedirlo dentro de",
+    "nonRefundable": "Sin reembolsos",
+    "nonRefundableHint": "Todas las ventas son finales.",
+    "chooseRegion": "Elige un estado o región"
   },
   "account": {
     "title": "Tu cuenta",

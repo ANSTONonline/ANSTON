@@ -38,7 +38,8 @@
     "services": "サービス",
     "more": "もっと見る",
     "food": "食品",
-    "instruments": "楽器"
+    "instruments": "楽器",
+    "other": "その他"
   },
   "featured": {
     "title": "注目の出品",
@@ -173,7 +174,10 @@
       "message": "メッセージを入力してください。",
       "generic": "問題が発生しました。もう一度お試しください。"
     },
-    "edit": "編集"
+    "edit": "編集",
+    "refunds": "返金",
+    "refundsAccepted": "{n}日以内なら返金可",
+    "noRefunds": "返金不可（すべて最終販売）"
   },
   "cart": {
     "title": "カート",
@@ -266,7 +270,10 @@
       "food": "地域の食品に関する規則を守っていることを確認してください。",
       "license": "このサービスに必要な資格・許可を持っていることを確認してください。",
       "location": "国を選んでください。",
-      "generic": "問題が発生しました。もう一度お試しください。"
+      "generic": "問題が発生しました。もう一度お試しください。",
+      "region": "選んだ国の都道府県・州・地域を選んでください。",
+      "cityMismatch": "その市区町村は、選んだ州と国にはありません。場所を確認してください。",
+      "refund": "返金を受け付けるかどうかを選んでください。"
     },
     "editTitle": "出品を編集",
     "saveChanges": "変更を保存",
@@ -274,7 +281,14 @@
     "updated": "変更を保存しました。",
     "keepEnd": "現在の終了日時のまま（{date}）",
     "auctionLocked": "このオークションにはすでに入札があるため、価格と終了日時は変更できません。",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "refundTitle": "返金",
+    "refundable": "返金可",
+    "refundableHint": "問題があった場合、購入者は返金を求められます。",
+    "refundWithin": "返金を受け付ける期間",
+    "nonRefundable": "返金不可",
+    "nonRefundableHint": "すべての販売は最終的なものです。",
+    "chooseRegion": "都道府県・州・地域を選択"
   },
   "account": {
     "title": "アカウント",

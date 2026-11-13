@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { getCategories } from "@/lib/catalog";
 import { getMember } from "@/lib/member";
+import { allCountryCodes } from "@/lib/places";
 import ListingForm from "./listing-form";
 
 export default async function SellPage() {
@@ -18,7 +19,13 @@ export default async function SellPage() {
       <h1 className="text-3xl font-bold mb-3 text-center">{t.sell.title}</h1>
       <p className="text-gray-600 mb-8 text-center">{t.sell.intro}</p>
       {member ? (
-        <ListingForm text={t.sell} categories={categories} userId={member.user.id} locale={locale} />
+        <ListingForm
+          text={t.sell}
+          categories={categories}
+          userId={member.user.id}
+          locale={locale}
+          countryCodes={allCountryCodes()}
+        />
       ) : (
         <div className="border rounded-xl p-8 bg-gray-50 text-center">
           <p className="mb-4">{t.sell.signIn}</p>

@@ -38,7 +38,8 @@
     "services": "Services",
     "more": "More",
     "food": "Food",
-    "instruments": "Instruments"
+    "instruments": "Instruments",
+    "other": "Other"
   },
   "featured": {
     "title": "Featured Listings",
@@ -173,7 +174,10 @@
       "message": "Please write a message.",
       "generic": "Something went wrong. Please try again."
     },
-    "edit": "Edit"
+    "edit": "Edit",
+    "refunds": "Refunds",
+    "refundsAccepted": "Accepted within {n} days",
+    "noRefunds": "No refunds, all sales final"
   },
   "cart": {
     "title": "Your cart",
@@ -266,7 +270,10 @@
       "food": "Please confirm you follow your local food rules.",
       "license": "Please confirm you hold the license this service requires.",
       "location": "Please choose a country.",
-      "generic": "Something went wrong. Please try again."
+      "generic": "Something went wrong. Please try again.",
+      "region": "Please choose a state or region in the country you picked.",
+      "cityMismatch": "That city isn't in the state and country you picked. Please check your location.",
+      "refund": "Please choose whether you accept refunds."
     },
     "editTitle": "Edit listing",
     "saveChanges": "Save changes",
@@ -274,7 +281,14 @@
     "updated": "Your changes are saved.",
     "keepEnd": "Keep current end ({date})",
     "auctionLocked": "This auction already has bids, so its prices and end time can't change.",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "refundTitle": "Refunds",
+    "refundable": "Refunds accepted",
+    "refundableHint": "Buyers can ask for a refund if something is wrong.",
+    "refundWithin": "Buyers can ask within",
+    "nonRefundable": "No refunds",
+    "nonRefundableHint": "All sales are final.",
+    "chooseRegion": "Choose a state or region"
   },
   "account": {
     "title": "Your account",

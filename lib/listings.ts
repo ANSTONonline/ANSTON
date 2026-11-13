@@ -15,7 +15,8 @@ export type CategorySlug =
   | "equipment"
   | "instruments"
   | "food"
-  | "services";
+  | "services"
+  | "other";
 
 export const categorySlugs: CategorySlug[] = [
   "vehicles",
@@ -29,6 +30,7 @@ export const categorySlugs: CategorySlug[] = [
   "instruments",
   "food",
   "services",
+  "other",
 ];
 
 export const modes: Mode[] = ["buy", "bid", "rent", "offer", "services"];
@@ -60,6 +62,8 @@ export type Listing = {
   ships?: boolean;
   localPickup?: boolean;
   attributes?: Record<string, unknown>;
+  refundPolicy?: "refundable" | "non_refundable" | null;
+  refundDays?: number | null;
   sale?: { priceCents: number; acceptsOffers: boolean; quantity: number };
   auction?: {
     startCents: number;

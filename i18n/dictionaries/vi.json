@@ -38,7 +38,8 @@
     "services": "Dịch vụ",
     "more": "Thêm",
     "food": "Đồ ăn",
-    "instruments": "Nhạc cụ"
+    "instruments": "Nhạc cụ",
+    "other": "Khác"
   },
   "featured": {
     "title": "Tin đăng nổi bật",
@@ -173,7 +174,10 @@
       "message": "Vui lòng viết tin nhắn.",
       "generic": "Đã có lỗi xảy ra. Vui lòng thử lại."
     },
-    "edit": "Sửa"
+    "edit": "Sửa",
+    "refunds": "Hoàn tiền",
+    "refundsAccepted": "Chấp nhận trong {n} ngày",
+    "noRefunds": "Không hoàn tiền, bán là chốt"
   },
   "cart": {
     "title": "Giỏ hàng của bạn",
@@ -266,7 +270,10 @@
       "food": "Vui lòng xác nhận bạn tuân thủ quy định thực phẩm tại địa phương.",
       "license": "Vui lòng xác nhận bạn có giấy phép mà dịch vụ này yêu cầu.",
       "location": "Vui lòng chọn quốc gia.",
-      "generic": "Đã có lỗi xảy ra. Vui lòng thử lại."
+      "generic": "Đã có lỗi xảy ra. Vui lòng thử lại.",
+      "region": "Vui lòng chọn tỉnh, bang hoặc khu vực thuộc quốc gia đã chọn.",
+      "cityMismatch": "Thành phố này không thuộc bang và quốc gia bạn đã chọn. Vui lòng kiểm tra địa điểm.",
+      "refund": "Vui lòng chọn có chấp nhận hoàn tiền hay không."
     },
     "editTitle": "Sửa tin đăng",
     "saveChanges": "Lưu thay đổi",
@@ -274,7 +281,14 @@
     "updated": "Đã lưu thay đổi của bạn.",
     "keepEnd": "Giữ thời gian kết thúc hiện tại ({date})",
     "auctionLocked": "Phiên đấu giá này đã có người đặt giá nên không thể đổi giá và thời gian kết thúc.",
-    "cancel": "Hủy"
+    "cancel": "Hủy",
+    "refundTitle": "Hoàn tiền",
+    "refundable": "Chấp nhận hoàn tiền",
+    "refundableHint": "Người mua có thể yêu cầu hoàn tiền nếu có vấn đề.",
+    "refundWithin": "Người mua có thể yêu cầu trong vòng",
+    "nonRefundable": "Không hoàn tiền",
+    "nonRefundableHint": "Mọi giao dịch là cuối cùng.",
+    "chooseRegion": "Chọn tỉnh, bang hoặc khu vực"
   },
   "account": {
     "title": "Tài khoản của bạn",
