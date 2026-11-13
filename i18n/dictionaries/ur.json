@@ -446,6 +446,8 @@
       "confirmed": "تصدیق شدہ",
       "cancelled": "منسوخ",
       "completed": "مکمل"
-    }
+    },
+    "messageBuyer": "خریدار کو پیغام",
+    "messageSeller": "بیچنے والے کو پیغام"
   }
 }

@@ -446,6 +446,8 @@
       "confirmed": "已确认",
       "cancelled": "已取消",
       "completed": "已完成"
-    }
+    },
+    "messageBuyer": "联系买家",
+    "messageSeller": "联系卖家"
   }
 }

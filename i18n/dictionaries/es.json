@@ -446,6 +446,8 @@
       "confirmed": "Confirmada",
       "cancelled": "Cancelada",
       "completed": "Completada"
-    }
+    },
+    "messageBuyer": "Escribir al comprador",
+    "messageSeller": "Escribir al vendedor"
   }
 }
