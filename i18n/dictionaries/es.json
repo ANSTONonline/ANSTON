@@ -347,7 +347,7 @@
       "title": "Sobre Anston",
       "body": [
         "Anston es un mercado todo en uno donde cualquiera puede comprar, pujar, alquilar o vender casi cualquier cosa, desde vehículos y casas hasta ropa, comida y servicios.",
-        "Anston LLC tiene su sede en Houston, Texas, y está pensada para compradores y vendedores de todo el mundo, en inglés, árabe, español, chino, francés y urdu."
+        "Anston LLC tiene su sede en Houston, Texas, y está pensada para compradores y vendedores de todo el mundo, en más de 20 idiomas."
       ]
     },
     "howItWorks": {
@@ -388,25 +388,13 @@
       ]
     },
     "privacy": {
-      "title": "Política de privacidad",
-      "body": [
-        "Estamos terminando nuestra Política de privacidad antes del lanzamiento.",
-        "¿Preguntas? Escribe a support@myanston.com."
-      ]
+      "title": "Política de privacidad"
     },
     "terms": {
-      "title": "Términos del servicio",
-      "body": [
-        "Estamos terminando nuestros Términos del servicio antes del lanzamiento.",
-        "¿Preguntas? Escribe a support@myanston.com."
-      ]
+      "title": "Términos del servicio"
     },
     "cookies": {
-      "title": "Política de cookies",
-      "body": [
-        "Anston usa pocas cookies, por ejemplo una que recuerda tu idioma. Nuestra Política de cookies completa llegará antes del lanzamiento.",
-        "¿Preguntas? Escribe a support@myanston.com."
-      ]
+      "title": "Política de cookies"
     },
     "updated": "Última actualización: {date}",
     "englishNote": "Este documento está escrito en inglés, que es la versión oficial."

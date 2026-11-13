@@ -1,6 +1,6 @@
 import { getDictionary, getLocale } from "@/i18n/server";
 
-type TextPage = "about" | "howItWorks" | "pricing" | "privacy" | "terms" | "cookies";
+type TextPage = "about" | "howItWorks" | "pricing";
 
 // A simple page of text (About, How it works, Pricing, policies).
 export default async function InfoPage({ page, numbered = false }: { page: TextPage; numbered?: boolean }) {
@@ -17,7 +17,7 @@ export default async function InfoPage({ page, numbered = false }: { page: TextP
   );
 }
 
-export async function pageTitle(page: TextPage | "faq") {
+export async function pageTitle(page: TextPage | "faq" | "privacy" | "terms" | "cookies") {
   const t = await getDictionary(await getLocale());
   return { title: `${t.pages[page].title} | ANSTON` };
 }
