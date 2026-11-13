@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/i18n/server";
+import SocialIcons from "./social-icons";
 
 export default function SiteFooter({ t }: { t: Dictionary }) {
   const link = "hover:underline";
@@ -33,6 +34,8 @@ export default function SiteFooter({ t }: { t: Dictionary }) {
           <a href="mailto:support@myanston.com" className={`text-sm opacity-90 ${link}`} dir="ltr">
             support@myanston.com
           </a>
+          <p className="font-semibold mt-6">{t.footer.follow}</p>
+          <SocialIcons label={t.footer.follow} />
         </div>
       </div>
 
