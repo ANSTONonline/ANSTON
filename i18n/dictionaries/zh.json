@@ -347,7 +347,7 @@
       "title": "关于 Anston",
       "body": [
         "Anston 是一个一站式综合市场，任何人都可以在这里购买、竞拍、租赁或出售几乎任何东西，从车辆、房屋到服装、食品和服务。",
-        "Anston LLC 总部位于德克萨斯州休斯顿，面向全球买家和卖家，支持英语、阿拉伯语、西班牙语、中文、法语和乌尔都语。"
+        "Anston LLC 总部位于德克萨斯州休斯顿，面向全球买家和卖家，支持 20 多种语言。"
       ]
     },
     "howItWorks": {
@@ -388,25 +388,13 @@
       ]
     },
     "privacy": {
-      "title": "隐私政策",
-      "body": [
-        "我们正在完善隐私政策，将在上线前发布。",
-        "有疑问？请发送邮件至 support@myanston.com。"
-      ]
+      "title": "隐私政策"
     },
     "terms": {
-      "title": "服务条款",
-      "body": [
-        "我们正在完善服务条款，将在上线前发布。",
-        "有疑问？请发送邮件至 support@myanston.com。"
-      ]
+      "title": "服务条款"
     },
     "cookies": {
-      "title": "Cookie 政策",
-      "body": [
-        "Anston 只使用少量 Cookie，例如用于记住你所选语言的 Cookie。完整的 Cookie 政策将在上线前发布。",
-        "有疑问？请发送邮件至 support@myanston.com。"
-      ]
+      "title": "Cookie 政策"
     },
     "updated": "最后更新：{date}",
     "englishNote": "本文件以英文撰写，英文版本为正式版本。"

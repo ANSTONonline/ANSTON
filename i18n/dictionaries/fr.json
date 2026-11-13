@@ -347,7 +347,7 @@
       "title": "À propos d'Anston",
       "body": [
         "Anston est une marketplace tout-en-un où chacun peut acheter, enchérir, louer ou vendre presque tout, des véhicules et logements aux vêtements, à l'alimentation et aux services.",
-        "Anston LLC est basée à Houston, au Texas, et s'adresse aux acheteurs et vendeurs du monde entier, en anglais, arabe, espagnol, chinois, français et ourdou."
+        "Anston LLC est basée à Houston, au Texas, et s'adresse aux acheteurs et vendeurs du monde entier, dans plus de 20 langues."
       ]
     },
     "howItWorks": {
@@ -388,25 +388,13 @@
       ]
     },
     "privacy": {
-      "title": "Politique de confidentialité",
-      "body": [
-        "Nous finalisons notre Politique de confidentialité avant le lancement.",
-        "Des questions ? Écrivez à support@myanston.com."
-      ]
+      "title": "Politique de confidentialité"
     },
     "terms": {
-      "title": "Conditions d'utilisation",
-      "body": [
-        "Nous finalisons nos Conditions d'utilisation avant le lancement.",
-        "Des questions ? Écrivez à support@myanston.com."
-      ]
+      "title": "Conditions d'utilisation"
     },
     "cookies": {
-      "title": "Politique relative aux cookies",
-      "body": [
-        "Anston utilise peu de cookies, par exemple un cookie qui mémorise votre langue. Notre Politique relative aux cookies complète arrivera avant le lancement.",
-        "Des questions ? Écrivez à support@myanston.com."
-      ]
+      "title": "Politique relative aux cookies"
     },
     "updated": "Dernière mise à jour : {date}",
     "englishNote": "Ce document est rédigé en anglais, qui en est la version officielle."

@@ -49,11 +49,12 @@ type CategoryRow = {
   name_zh?: string;
   name_fr?: string;
   name_ur?: string;
+  names?: Record<string, string>; // translations for the other languages
 };
 
 function categoryName(row: CategoryRow, locale: Locale) {
   const key = `name_${locale}` as keyof CategoryRow;
-  return (row[key] as string | undefined) || row.name_en;
+  return (row[key] as string | undefined) || row.names?.[locale] || row.name_en;
 }
 
 // The site's category filter (shown on the home and browse pages) uses a few

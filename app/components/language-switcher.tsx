@@ -69,7 +69,7 @@ export default function LanguageSwitcher({
         <ul
           role="listbox"
           aria-label={label}
-          className="absolute end-0 z-20 mt-2 w-44 overflow-hidden rounded-xl border bg-white py-1 shadow-lg"
+          className="absolute end-0 z-20 mt-2 w-52 max-h-[70vh] overflow-y-auto rounded-xl border bg-white py-1 shadow-lg"
         >
           {locales.map((l) => (
             <li key={l.code}>
