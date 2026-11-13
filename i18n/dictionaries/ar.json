@@ -452,6 +452,9 @@
       "confirmed": "مؤكد",
       "cancelled": "ملغى",
       "completed": "مكتمل"
-    }
+    },
+    "messageBuyer": "راسل المشتري",
+    "messageSeller": "راسل البائع",
+    "messageWinner": "راسل الفائز"
   }
 }

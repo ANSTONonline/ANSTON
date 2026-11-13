@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { findSellerListings } from "@/lib/catalog";
-import { formatPrice } from "@/lib/listings";
+import { formatPrice, isFuture } from "@/lib/listings";
 import { requireMember } from "@/lib/member";
 import { periodBounds } from "@/lib/period";
 import { priceLabel } from "@/lib/price-label";
 import { answerOffer, answerReservation, deleteListing, setListingStatus } from "../../listing/actions";
 import { ConfirmButton, LocalTime } from "../../listing/[id]/listing-actions";
+import { openConversation } from "../../messages/actions";
 
 type OfferRow = {
   id: string;
@@ -14,6 +15,7 @@ type OfferRow = {
   message: string | null;
   status: keyof Awaited<ReturnType<typeof getDictionary>>["dashboard"]["offerStatus"];
   created_at: string;
+  buyer_id: string;
   listing: { id: string; title: string; currency: string };
   buyer: { username: string | null } | null;
 };
@@ -24,11 +26,22 @@ type RequestRow = {
   period: string;
   status: keyof Awaited<ReturnType<typeof getDictionary>>["dashboard"]["requestStatus"];
   notes: string | null;
+  renter_id: string;
   listing: { id: string; title: string };
   renter: { username: string | null } | null;
 };
 
 const small = "border rounded-lg px-3 py-1.5 text-sm bg-white";
+
+function MessageButton({ listingId, buyerId, label }: { listingId: string; buyerId: string; label: string }) {
+  return (
+    <form action={openConversation}>
+      <input type="hidden" name="listing" value={listingId} />
+      <input type="hidden" name="buyer" value={buyerId} />
+      <button type="submit" className={small}>💬 {label}</button>
+    </form>
+  );
+}
 
 function StatusButton({ action, id, status, label, className = small }: {
   action: (fd: FormData) => Promise<void>;
@@ -54,9 +67,22 @@ export default async function SellingPage() {
 
   const listings = await findSellerListings(locale, user.id);
 
+  // Winners of ended auctions, so the seller can message them.
+  const ended = listings.filter((l) => l.auction && l.auction.highestCents !== null && !isFuture(l.auction.endsAt));
+  const winners = new Map<string, string>();
+  if (ended.length > 0) {
+    const { data: bids } = await supabase
+      .from("bids")
+      .select("listing_id, bidder_id, amount_cents, created_at")
+      .in("listing_id", ended.map((l) => l.id))
+      .order("amount_cents", { ascending: false })
+      .order("created_at", { ascending: true });
+    for (const b of bids ?? []) if (!winners.has(b.listing_id)) winners.set(b.listing_id, b.bidder_id);
+  }
+
   const { data: offerData } = await supabase
     .from("offers")
-    .select("id, amount_cents, message, status, created_at, listing:listings!inner ( id, title, currency, seller_id ), buyer:profiles!offers_buyer_id_fkey ( username )")
+    .select("id, amount_cents, message, status, created_at, buyer_id, listing:listings!inner ( id, title, currency, seller_id ), buyer:profiles!offers_buyer_id_fkey ( username )")
     .eq("listing.seller_id", user.id)
     .order("created_at", { ascending: false })
     .limit(50);
@@ -64,7 +90,7 @@ export default async function SellingPage() {
 
   const { data: requestData } = await supabase
     .from("reservations")
-    .select("id, mode, period, status, notes, listing:listings!inner ( id, title, seller_id ), renter:profiles!reservations_renter_id_fkey ( username )")
+    .select("id, mode, period, status, notes, renter_id, listing:listings!inner ( id, title, seller_id ), renter:profiles!reservations_renter_id_fkey ( username )")
     .eq("listing.seller_id", user.id)
     .order("created_at", { ascending: false })
     .limit(50);
@@ -106,6 +132,9 @@ export default async function SellingPage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
+                  {winners.has(l.id) && (
+                    <MessageButton listingId={l.id} buyerId={winners.get(l.id)!} label={d.messageWinner} />
+                  )}
                   {l.status === "active" ? (
                     <StatusButton action={setListingStatus} id={l.id} status="paused" label={t.listing.pause} />
                   ) : (
@@ -146,12 +175,15 @@ export default async function SellingPage() {
                     {d.offerStatus[o.status]} · <LocalTime iso={o.created_at} locale={locale} />
                   </p>
                 </div>
-                {o.status === "pending" && (
-                  <div className="flex gap-2">
-                    <StatusButton action={answerOffer} id={o.id} status="accepted" label={d.accept} className="bg-[#7A1E2B] text-white rounded-lg px-3 py-1.5 text-sm" />
-                    <StatusButton action={answerOffer} id={o.id} status="declined" label={d.decline} />
-                  </div>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {o.status === "pending" && (
+                    <>
+                      <StatusButton action={answerOffer} id={o.id} status="accepted" label={d.accept} className="bg-[#7A1E2B] text-white rounded-lg px-3 py-1.5 text-sm" />
+                      <StatusButton action={answerOffer} id={o.id} status="declined" label={d.decline} />
+                    </>
+                  )}
+                  <MessageButton listingId={o.listing.id} buyerId={o.buyer_id} label={d.messageBuyer} />
+                </div>
               </li>
             ))}
           </ul>
@@ -179,7 +211,7 @@ export default async function SellingPage() {
                     {r.notes && <p className="text-sm text-gray-700 mt-1">“{r.notes}”</p>}
                     <p className="text-xs text-gray-500 mt-1">{d.requestStatus[r.status]}</p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {r.status === "requested" && (
                       <>
                         <StatusButton action={answerReservation} id={r.id} status="confirmed" label={d.confirm} className="bg-[#7A1E2B] text-white rounded-lg px-3 py-1.5 text-sm" />
@@ -192,6 +224,7 @@ export default async function SellingPage() {
                         <StatusButton action={answerReservation} id={r.id} status="cancelled" label={d.cancel} />
                       </>
                     )}
+                    <MessageButton listingId={r.listing.id} buyerId={r.renter_id} label={d.messageBuyer} />
                   </div>
                 </li>
               );

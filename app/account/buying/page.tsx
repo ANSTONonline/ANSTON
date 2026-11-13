@@ -5,6 +5,7 @@ import { requireMember } from "@/lib/member";
 import { periodBounds } from "@/lib/period";
 import { answerOffer, answerReservation } from "../../listing/actions";
 import { LocalTime } from "../../listing/[id]/listing-actions";
+import { openConversation } from "../../messages/actions";
 
 type Dashboard = Awaited<ReturnType<typeof getDictionary>>["dashboard"];
 
@@ -22,6 +23,15 @@ type RequestRow = {
   status: keyof Dashboard["requestStatus"];
   listing: { id: string; title: string } | null;
 };
+
+function MessageSeller({ listingId, label }: { listingId: string; label: string }) {
+  return (
+    <form action={openConversation}>
+      <input type="hidden" name="listing" value={listingId} />
+      <button type="submit" className="border rounded-lg px-3 py-1.5 text-sm">💬 {label}</button>
+    </form>
+  );
+}
 
 export default async function BuyingPage() {
   const locale = await getLocale();
@@ -89,9 +99,12 @@ export default async function BuyingPage() {
                       {t.listing.yourBid}: <span dir="ltr">{formatPrice(Number(b.amount_cents), b.listing?.currency)}</span>
                     </p>
                   </div>
-                  <span className={`text-sm font-medium ${winning ? "text-green-700" : "text-red-700"}`}>
-                    {winning ? d.winning : d.outbid}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className={`text-sm font-medium ${winning ? "text-green-700" : "text-red-700"}`}>
+                      {winning ? d.winning : d.outbid}
+                    </span>
+                    {b.listing && <MessageSeller listingId={b.listing.id} label={d.messageSeller} />}
+                  </div>
                 </li>
               );
             })}
@@ -114,13 +127,16 @@ export default async function BuyingPage() {
                     <LocalTime iso={o.created_at} locale={locale} withTime={false} />
                   </p>
                 </div>
-                {o.status === "pending" && (
-                  <form action={answerOffer}>
-                    <input type="hidden" name="id" value={o.id} />
-                    <input type="hidden" name="status" value="withdrawn" />
-                    <button type="submit" className="border rounded-lg px-3 py-1.5 text-sm">{d.withdraw}</button>
-                  </form>
-                )}
+                <div className="flex flex-wrap gap-2">
+                  {o.status === "pending" && (
+                    <form action={answerOffer}>
+                      <input type="hidden" name="id" value={o.id} />
+                      <input type="hidden" name="status" value="withdrawn" />
+                      <button type="submit" className="border rounded-lg px-3 py-1.5 text-sm">{d.withdraw}</button>
+                    </form>
+                  )}
+                  {o.listing && <MessageSeller listingId={o.listing.id} label={d.messageSeller} />}
+                </div>
               </li>
             ))}
           </ul>
@@ -144,13 +160,16 @@ export default async function BuyingPage() {
                     </p>
                     <p className="text-xs text-gray-500">{d.requestStatus[r.status]}</p>
                   </div>
-                  {(r.status === "requested" || r.status === "confirmed") && (
-                    <form action={answerReservation}>
-                      <input type="hidden" name="id" value={r.id} />
-                      <input type="hidden" name="status" value="cancelled" />
-                      <button type="submit" className="border rounded-lg px-3 py-1.5 text-sm">{d.cancel}</button>
-                    </form>
-                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {(r.status === "requested" || r.status === "confirmed") && (
+                      <form action={answerReservation}>
+                        <input type="hidden" name="id" value={r.id} />
+                        <input type="hidden" name="status" value="cancelled" />
+                        <button type="submit" className="border rounded-lg px-3 py-1.5 text-sm">{d.cancel}</button>
+                      </form>
+                    )}
+                    {r.listing && <MessageSeller listingId={r.listing.id} label={d.messageSeller} />}
+                  </div>
                 </li>
               );
             })}
