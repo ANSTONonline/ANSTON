@@ -315,7 +315,7 @@
     "passwordUpdated": "Tu contraseña se ha actualizado.",
     "changePassword": "Cambiar contraseña",
     "finishTitle": "Termina de configurar tu cuenta",
-    "finishIntro": "Elige un nombre de usuario y confirma tu edad para empezar a usar Anston.",
+    "finishIntro": "Unos datos rápidos y estarás listo para usar Anston.",
     "continue": "Continuar",
     "confirmed": "Tu cuenta está verificada. ¡Bienvenido a Anston!",
     "signOut": "Cerrar sesión",
@@ -336,9 +336,11 @@
       "rateLimit": "Demasiados intentos. Espera unos minutos e inténtalo de nuevo.",
       "link": "Ese enlace no es válido o ha caducado. Inicia sesión o inténtalo de nuevo.",
       "google": "El inicio de sesión con Google no está disponible ahora. Usa tu correo.",
-      "generic": "Algo salió mal. Inténtalo de nuevo."
+      "generic": "Algo salió mal. Inténtalo de nuevo.",
+      "terms": "Marca la casilla para aceptar los Términos del servicio y la Política de privacidad."
     },
-    "agree": "Al continuar, aceptas los {terms} y la {privacy} de Anston."
+    "agree": "Al continuar, aceptas los {terms} y la {privacy} de Anston.",
+    "agreeBox": "Acepto los {terms} y la {privacy} de Anston."
   },
   "pages": {
     "about": {
