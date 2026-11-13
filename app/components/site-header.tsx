@@ -30,7 +30,7 @@ export default function SiteHeader({ t, locale }: { t: Dictionary; locale: Local
         />
       </Form>
 
-      <div className="flex items-center gap-3 sm:gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         <LanguageSwitcher current={locale} label={t.header.language} />
         <Link
           href="/sell"
@@ -41,6 +41,9 @@ export default function SiteHeader({ t, locale }: { t: Dictionary; locale: Local
           <span className="hidden sm:inline">{t.header.listItem}</span>
         </Link>
         <HeaderCounts favoritesLabel={t.header.favorites} cartLabel={t.header.cart} />
+        <Link href="/messages" className="text-xl" aria-label={t.header.messages} title={t.header.messages}>
+          💬
+        </Link>
         <Link href="/account" className="text-xl" aria-label={t.header.account} title={t.header.account}>
           👤
         </Link>

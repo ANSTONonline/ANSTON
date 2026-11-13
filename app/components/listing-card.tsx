@@ -1,17 +1,10 @@
 import Link from "next/link";
 import { AddToCartButton, FavoriteButton } from "./list-buttons";
-import { formatPrice, type Listing } from "@/lib/listings";
-import type { Dictionary } from "@/i18n/server";
+import type { Listing } from "@/lib/listings";
+import { priceLabel } from "@/lib/price-label";
 
-export function priceLabel(listing: Listing, t: Dictionary) {
-  const unit = {
-    month: t.listing.perMonth,
-    day: t.listing.perDay,
-    hour: t.listing.perHour,
-    session: t.listing.perSession,
-  };
-  return formatPrice(listing.priceCents) + (listing.priceUnit ? unit[listing.priceUnit] : "");
-}
+export { priceLabel };
+import type { Dictionary } from "@/i18n/server";
 
 export function modeLabel(listing: Listing, t: Dictionary) {
   const m = listing.modes[0];
@@ -34,8 +27,13 @@ export default function ListingCard({ listing, t }: { listing: Listing; t: Dicti
   return (
     <div className="border rounded-xl overflow-hidden hover:shadow-md transition flex flex-col">
       <div className="relative h-40 bg-gray-100 flex items-center justify-center text-5xl">
+        {listing.images[0] ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={listing.images[0]} alt="" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        ) : (
+          <span aria-hidden="true">{listing.emoji}</span>
+        )}
         <Link href={`/listing/${listing.id}`} className="absolute inset-0" aria-label={listing.title} />
-        <span aria-hidden="true">{listing.emoji}</span>
         <span className="absolute top-2 start-2 bg-[#7A1E2B] text-white text-xs px-2 py-1 rounded">
           {modeLabel(listing, t)}
         </span>
@@ -47,14 +45,16 @@ export default function ListingCard({ listing, t }: { listing: Listing; t: Dicti
         />
       </div>
       <div className="p-4 flex flex-col flex-1">
-        <p className="text-xs text-gray-500 mb-1">{t.categories[listing.category]}</p>
-        <Link href={`/listing/${listing.id}`} className="font-semibold mb-1 hover:text-[#7A1E2B]" dir="ltr">
+        <p className="text-xs text-gray-500 mb-1">{listing.categoryName ?? t.categories[listing.category]}</p>
+        <Link href={`/listing/${listing.id}`} className="font-semibold mb-1 hover:text-[#7A1E2B] line-clamp-2">
           {listing.title}
         </Link>
-        <p className="text-sm text-gray-600 mb-1">
-          ⭐ {listing.rating} ({listing.reviews} {t.featured.reviews})
-        </p>
-        <p className="text-sm text-gray-500 mb-3" dir="ltr">📍 {listing.location}</p>
+        {listing.reviews > 0 && (
+          <p className="text-sm text-gray-600 mb-1">
+            ⭐ {listing.rating} ({listing.reviews} {t.featured.reviews})
+          </p>
+        )}
+        {listing.location && <p className="text-sm text-gray-500 mb-3" dir="ltr">📍 {listing.location}</p>}
         <div className="flex items-center justify-between gap-2 mt-auto">
           <span className="font-bold" dir="ltr">{priceLabel(listing, t)}</span>
           {listing.modes.includes("buy") ? (
