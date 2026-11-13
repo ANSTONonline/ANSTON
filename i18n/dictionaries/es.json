@@ -340,7 +340,15 @@
       "terms": "Marca la casilla para aceptar los Términos del servicio y la Política de privacidad."
     },
     "agree": "Al continuar, aceptas los {terms} y la {privacy} de Anston.",
-    "agreeBox": "Acepto los {terms} y la {privacy} de Anston."
+    "agreeBox": "Acepto los {terms} y la {privacy} de Anston.",
+    "changeUsername": "Cambiar nombre de usuario",
+    "usernameCurrent": "Tu nombre de usuario es {username}.",
+    "usernameNew": "Nuevo nombre de usuario",
+    "usernameRule": "Puedes cambiar tu nombre de usuario una vez cada 30 días.",
+    "usernameSaved": "Tu nombre de usuario ahora es @{username}.",
+    "usernameWait": "Cambiaste tu nombre de usuario hace poco. Podrás cambiarlo de nuevo el {date}.",
+    "usernameSame": "Ese ya es tu nombre de usuario.",
+    "save": "Guardar"
   },
   "pages": {
     "about": {

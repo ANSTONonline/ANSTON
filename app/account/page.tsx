@@ -64,15 +64,21 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
         <h1 className="text-3xl font-bold mb-6">{t.account.title}</h1>
         {params.confirmed && <Banner kind="ok">{t.account.confirmed}</Banner>}
         {params.passwordUpdated && <Banner kind="ok">{t.account.passwordUpdated}</Banner>}
+        {params.usernameChanged && (
+          <Banner kind="ok">{t.account.usernameSaved.replace("{username}", profile.username ?? "")}</Banner>
+        )}
         <div className="border rounded-xl p-6 space-y-4">
           <div className="flex items-center gap-3">
             <span className="w-12 h-12 rounded-full bg-[#7A1E2B] text-white flex items-center justify-center text-xl font-bold">
               {profile.username!.charAt(0).toUpperCase()}
             </span>
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <p className="font-semibold" dir="ltr">@{profile.username}</p>
               <p className="text-sm text-gray-600 truncate" dir="ltr">{contact}</p>
             </div>
+            <Link href="/account/username" className="text-sm text-[#7A1E2B] hover:underline shrink-0">
+              {t.account.changeUsername}
+            </Link>
           </div>
           <div className="flex flex-col gap-2">
             <Link href="/sell" className="bg-[#7A1E2B] text-white py-2 rounded-lg text-center font-medium">

@@ -340,7 +340,15 @@
       "terms": "서비스 약관과 개인정보 처리방침에 동의하려면 체크박스를 선택하세요."
     },
     "agree": "계속하면 Anston의 {terms} 및 {privacy}에 동의하게 됩니다.",
-    "agreeBox": "Anston의 {terms} 및 {privacy}에 동의합니다."
+    "agreeBox": "Anston의 {terms} 및 {privacy}에 동의합니다.",
+    "changeUsername": "사용자 이름 변경",
+    "usernameCurrent": "현재 사용자 이름은 {username}이에요.",
+    "usernameNew": "새 사용자 이름",
+    "usernameRule": "사용자 이름은 30일에 한 번 바꿀 수 있어요.",
+    "usernameSaved": "사용자 이름이 @{username}(으)로 바뀌었어요.",
+    "usernameWait": "최근에 사용자 이름을 바꿨어요. {date}에 다시 바꿀 수 있어요.",
+    "usernameSame": "이미 사용 중인 내 이름이에요.",
+    "save": "저장"
   },
   "pages": {
     "about": {

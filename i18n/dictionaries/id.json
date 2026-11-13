@@ -340,7 +340,15 @@
       "terms": "Centang kotak untuk menyetujui Ketentuan Layanan dan Kebijakan Privasi."
     },
     "agree": "Dengan melanjutkan, Anda menyetujui {terms} dan {privacy} Anston.",
-    "agreeBox": "Saya menyetujui {terms} dan {privacy} Anston."
+    "agreeBox": "Saya menyetujui {terms} dan {privacy} Anston.",
+    "changeUsername": "Ubah nama pengguna",
+    "usernameCurrent": "Nama pengguna Anda {username}.",
+    "usernameNew": "Nama pengguna baru",
+    "usernameRule": "Anda bisa mengubah nama pengguna sekali setiap 30 hari.",
+    "usernameSaved": "Nama pengguna Anda sekarang @{username}.",
+    "usernameWait": "Anda baru saja mengubah nama pengguna. Anda bisa mengubahnya lagi pada {date}.",
+    "usernameSame": "Itu sudah nama pengguna Anda.",
+    "save": "Simpan"
   },
   "pages": {
     "about": {

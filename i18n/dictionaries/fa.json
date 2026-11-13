@@ -340,7 +340,15 @@
       "terms": "برای پذیرش شرایط استفاده و سیاست حفظ حریم خصوصی، کادر را تیک بزنید."
     },
     "agree": "با ادامه دادن، {terms} و {privacy} Anston را می‌پذیرید.",
-    "agreeBox": "{terms} و {privacy} Anston را می‌پذیرم."
+    "agreeBox": "{terms} و {privacy} Anston را می‌پذیرم.",
+    "changeUsername": "تغییر نام کاربری",
+    "usernameCurrent": "نام کاربری شما {username} است.",
+    "usernameNew": "نام کاربری جدید",
+    "usernameRule": "هر ۳۰ روز یک بار می‌توانید نام کاربری خود را تغییر دهید.",
+    "usernameSaved": "نام کاربری شما اکنون @{username} است.",
+    "usernameWait": "به‌تازگی نام کاربری خود را تغییر داده‌اید. از {date} می‌توانید دوباره آن را تغییر دهید.",
+    "usernameSame": "این همین حالا نام کاربری شماست.",
+    "save": "ذخیره"
   },
   "pages": {
     "about": {

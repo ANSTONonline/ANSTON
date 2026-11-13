@@ -340,7 +340,15 @@
       "terms": "Please tick the box to agree to the Terms of Service and Privacy Policy."
     },
     "agree": "By continuing, you agree to Anston's {terms} and {privacy}.",
-    "agreeBox": "I agree to Anston's {terms} and {privacy}."
+    "agreeBox": "I agree to Anston's {terms} and {privacy}.",
+    "changeUsername": "Change username",
+    "usernameCurrent": "Your username is {username}.",
+    "usernameNew": "New username",
+    "usernameRule": "You can change your username once every 30 days.",
+    "usernameSaved": "Your username is now @{username}.",
+    "usernameWait": "You changed your username recently. You can change it again on {date}.",
+    "usernameSame": "That's already your username.",
+    "save": "Save"
   },
   "pages": {
     "about": {

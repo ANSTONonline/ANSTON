@@ -340,7 +340,15 @@
       "terms": "Vui lòng đánh dấu ô để đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư."
     },
     "agree": "Khi tiếp tục, bạn đồng ý với {terms} và {privacy} của Anston.",
-    "agreeBox": "Tôi đồng ý với {terms} và {privacy} của Anston."
+    "agreeBox": "Tôi đồng ý với {terms} và {privacy} của Anston.",
+    "changeUsername": "Đổi tên người dùng",
+    "usernameCurrent": "Tên người dùng của bạn là {username}.",
+    "usernameNew": "Tên người dùng mới",
+    "usernameRule": "Bạn có thể đổi tên người dùng mỗi 30 ngày một lần.",
+    "usernameSaved": "Tên người dùng của bạn giờ là @{username}.",
+    "usernameWait": "Bạn vừa đổi tên người dùng gần đây. Bạn có thể đổi lại vào {date}.",
+    "usernameSame": "Đó đã là tên người dùng của bạn.",
+    "save": "Lưu"
   },
   "pages": {
     "about": {

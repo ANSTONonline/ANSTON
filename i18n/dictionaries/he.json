@@ -340,7 +340,15 @@
       "terms": "סמנו את התיבה כדי לאשר את תנאי השימוש ואת מדיניות הפרטיות."
     },
     "agree": "בהמשך אתם מסכימים ל{terms} ול{privacy} של Anston.",
-    "agreeBox": "אני מסכים/ה ל{terms} ול{privacy} של Anston."
+    "agreeBox": "אני מסכים/ה ל{terms} ול{privacy} של Anston.",
+    "changeUsername": "שינוי שם משתמש",
+    "usernameCurrent": "שם המשתמש שלכם הוא {username}.",
+    "usernameNew": "שם משתמש חדש",
+    "usernameRule": "אפשר לשנות את שם המשתמש פעם ב-30 ימים.",
+    "usernameSaved": "שם המשתמש שלכם הוא עכשיו @{username}.",
+    "usernameWait": "שיניתם את שם המשתמש לאחרונה. אפשר יהיה לשנות אותו שוב ב-{date}.",
+    "usernameSame": "זה כבר שם המשתמש שלכם.",
+    "save": "שמירה"
   },
   "pages": {
     "about": {

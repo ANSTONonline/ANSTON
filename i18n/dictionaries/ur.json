@@ -340,7 +340,15 @@
       "terms": "براہ کرم شرائطِ خدمت اور رازداری کی پالیسی سے اتفاق کے لیے خانے پر نشان لگائیں۔"
     },
     "agree": "جاری رکھ کر، آپ Anston کی {terms} اور {privacy} سے اتفاق کرتے ہیں۔",
-    "agreeBox": "میں Anston کی {terms} اور {privacy} سے اتفاق کرتا/کرتی ہوں۔"
+    "agreeBox": "میں Anston کی {terms} اور {privacy} سے اتفاق کرتا/کرتی ہوں۔",
+    "changeUsername": "یوزر نیم تبدیل کریں",
+    "usernameCurrent": "آپ کا یوزر نیم {username} ہے۔",
+    "usernameNew": "نیا یوزر نیم",
+    "usernameRule": "آپ ہر 30 دن میں ایک بار اپنا یوزر نیم تبدیل کر سکتے ہیں۔",
+    "usernameSaved": "آپ کا یوزر نیم اب @{username} ہے۔",
+    "usernameWait": "آپ نے حال ہی میں یوزر نیم تبدیل کیا ہے۔ آپ اسے {date} کو دوبارہ تبدیل کر سکتے ہیں۔",
+    "usernameSame": "یہ پہلے سے آپ کا یوزر نیم ہے۔",
+    "save": "محفوظ کریں"
   },
   "pages": {
     "about": {

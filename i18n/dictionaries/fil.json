@@ -340,7 +340,15 @@
       "terms": "Lagyan ng tsek ang kahon para sumang-ayon sa Mga Tuntunin ng Serbisyo at Patakaran sa Privacy."
     },
     "agree": "Sa pagpapatuloy, sumasang-ayon ka sa {terms} at {privacy} ng Anston.",
-    "agreeBox": "Sumasang-ayon ako sa {terms} at {privacy} ng Anston."
+    "agreeBox": "Sumasang-ayon ako sa {terms} at {privacy} ng Anston.",
+    "changeUsername": "Palitan ang username",
+    "usernameCurrent": "Ang username mo ay {username}.",
+    "usernameNew": "Bagong username",
+    "usernameRule": "Puwede mong palitan ang username mo isang beses kada 30 araw.",
+    "usernameSaved": "Ang username mo ay @{username} na.",
+    "usernameWait": "Kakapalit mo lang ng username. Puwede mo itong palitan ulit sa {date}.",
+    "usernameSame": "Iyan na ang username mo.",
+    "save": "I-save"
   },
   "pages": {
     "about": {
