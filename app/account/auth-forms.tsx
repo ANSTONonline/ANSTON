@@ -35,7 +35,27 @@ function ErrorMessage({ state, text }: { state: AuthState; text: Text }) {
 // Log in / Sign up
 // ---------------------------------------------------------------------------
 
-export default function AuthForms({ text }: { text: Text }) {
+type LegalLinks = { terms: string; privacy: string };
+
+// "By continuing, you agree to Anston's Terms of Service and Privacy Policy."
+function Agreement({ text, legal }: { text: Text; legal: LegalLinks }) {
+  const parts = text.agree.split(/(\{terms\}|\{privacy\})/);
+  return (
+    <p className="text-xs text-gray-500 text-center mt-3">
+      {parts.map((part, i) =>
+        part === "{terms}" ? (
+          <Link key={i} href="/terms" className="underline">{legal.terms}</Link>
+        ) : part === "{privacy}" ? (
+          <Link key={i} href="/privacy" className="underline">{legal.privacy}</Link>
+        ) : (
+          part
+        ),
+      )}
+    </p>
+  );
+}
+
+export default function AuthForms({ text, legal }: { text: Text; legal: LegalLinks }) {
   const [tab, setTab] = useState<"logIn" | "signUp">("logIn");
   const [logInState, logInAction, loggingIn] = useActionState(logIn, {});
   const [signUpState, signUpAction, signingUp] = useActionState(signUp, {});
@@ -92,6 +112,7 @@ export default function AuthForms({ text }: { text: Text }) {
           {text.google}
         </button>
       </form>
+      <Agreement text={text} legal={legal} />
 
       <div className="flex items-center gap-3 my-5 text-sm text-gray-500">
         <span className="flex-1 border-t" />
