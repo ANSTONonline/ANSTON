@@ -38,7 +38,8 @@
     "services": "Huduma",
     "more": "Zaidi",
     "food": "Chakula",
-    "instruments": "Ala za muziki"
+    "instruments": "Ala za muziki",
+    "other": "Nyingine"
   },
   "featured": {
     "title": "Matangazo maalum",
@@ -173,7 +174,10 @@
       "message": "Tafadhali andika ujumbe.",
       "generic": "Hitilafu imetokea. Tafadhali jaribu tena."
     },
-    "edit": "Hariri"
+    "edit": "Hariri",
+    "refunds": "Kurejeshewa pesa",
+    "refundsAccepted": "Kunakubaliwa ndani ya siku {n}",
+    "noRefunds": "Hakuna kurejesha pesa, mauzo ni ya mwisho"
   },
   "cart": {
     "title": "Kikapu chako",
@@ -266,7 +270,10 @@
       "food": "Tafadhali thibitisha kuwa unafuata sheria za chakula za eneo lako.",
       "license": "Tafadhali thibitisha kuwa una leseni inayohitajika kwa huduma hii.",
       "location": "Tafadhali chagua nchi.",
-      "generic": "Hitilafu imetokea. Tafadhali jaribu tena."
+      "generic": "Hitilafu imetokea. Tafadhali jaribu tena.",
+      "region": "Tafadhali chagua jimbo au mkoa ndani ya nchi uliyochagua.",
+      "cityMismatch": "Jiji hilo haliko katika jimbo na nchi uliyochagua. Tafadhali angalia mahali ulipo.",
+      "refund": "Tafadhali chagua kama unakubali kurejesha pesa."
     },
     "editTitle": "Hariri tangazo",
     "saveChanges": "Hifadhi mabadiliko",
@@ -274,7 +281,14 @@
     "updated": "Mabadiliko yako yamehifadhiwa.",
     "keepEnd": "Baki na muda wa sasa wa kuisha ({date})",
     "auctionLocked": "Mnada huu tayari una zabuni, kwa hiyo bei zake na muda wa kuisha haviwezi kubadilishwa.",
-    "cancel": "Ghairi"
+    "cancel": "Ghairi",
+    "refundTitle": "Kurejeshewa pesa",
+    "refundable": "Pesa zinarejeshwa",
+    "refundableHint": "Wanunuzi wanaweza kuomba kurejeshewa pesa kukiwa na tatizo.",
+    "refundWithin": "Wanunuzi wanaweza kuomba ndani ya",
+    "nonRefundable": "Hakuna kurejesha pesa",
+    "nonRefundableHint": "Mauzo yote ni ya mwisho.",
+    "chooseRegion": "Chagua jimbo au mkoa"
   },
   "account": {
     "title": "Akaunti yako",

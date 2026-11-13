@@ -38,7 +38,8 @@
     "services": "Hizmetler",
     "more": "Daha fazla",
     "food": "Yemek",
-    "instruments": "Müzik aletleri"
+    "instruments": "Müzik aletleri",
+    "other": "Diğer"
   },
   "featured": {
     "title": "Öne çıkan ilanlar",
@@ -173,7 +174,10 @@
       "message": "Lütfen bir mesaj yazın.",
       "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
     },
-    "edit": "Düzenle"
+    "edit": "Düzenle",
+    "refunds": "İade",
+    "refundsAccepted": "{n} gün içinde kabul edilir",
+    "noRefunds": "İade yok, tüm satışlar kesin"
   },
   "cart": {
     "title": "Sepetiniz",
@@ -266,7 +270,10 @@
       "food": "Lütfen bölgenizdeki gıda kurallarına uyduğunuzu onaylayın.",
       "license": "Lütfen bu hizmet için gereken lisansa sahip olduğunuzu onaylayın.",
       "location": "Lütfen bir ülke seçin.",
-      "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+      "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+      "region": "Lütfen seçtiğiniz ülkedeki bir eyalet veya bölgeyi seçin.",
+      "cityMismatch": "Bu şehir seçtiğiniz eyalet ve ülkede değil. Lütfen konumunuzu kontrol edin.",
+      "refund": "Lütfen iade kabul edip etmediğinizi seçin."
     },
     "editTitle": "İlanı düzenle",
     "saveChanges": "Değişiklikleri kaydet",
@@ -274,7 +281,14 @@
     "updated": "Değişiklikleriniz kaydedildi.",
     "keepEnd": "Mevcut bitişi koru ({date})",
     "auctionLocked": "Bu açık artırmada zaten teklif var, bu yüzden fiyatları ve bitiş zamanı değiştirilemez.",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "refundTitle": "İade",
+    "refundable": "İade kabul edilir",
+    "refundableHint": "Bir sorun olursa alıcılar iade isteyebilir.",
+    "refundWithin": "Alıcılar şu süre içinde isteyebilir",
+    "nonRefundable": "İade yok",
+    "nonRefundableHint": "Tüm satışlar kesindir.",
+    "chooseRegion": "Eyalet veya bölge seçin"
   },
   "account": {
     "title": "Hesabınız",

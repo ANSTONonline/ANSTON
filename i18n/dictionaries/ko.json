@@ -38,7 +38,8 @@
     "services": "서비스",
     "more": "더 보기",
     "food": "음식",
-    "instruments": "악기"
+    "instruments": "악기",
+    "other": "기타"
   },
   "featured": {
     "title": "추천 상품",
@@ -173,7 +174,10 @@
       "message": "메시지를 입력하세요.",
       "generic": "문제가 발생했어요. 다시 시도해 주세요."
     },
-    "edit": "수정"
+    "edit": "수정",
+    "refunds": "환불",
+    "refundsAccepted": "{n}일 이내 환불 가능",
+    "noRefunds": "환불 불가, 최종 판매"
   },
   "cart": {
     "title": "장바구니",
@@ -266,7 +270,10 @@
       "food": "지역 식품 규정을 지킨다는 것을 확인해 주세요.",
       "license": "이 서비스에 필요한 자격을 갖추고 있음을 확인해 주세요.",
       "location": "국가를 선택하세요.",
-      "generic": "문제가 발생했어요. 다시 시도해 주세요."
+      "generic": "문제가 발생했어요. 다시 시도해 주세요.",
+      "region": "선택한 국가의 주 또는 지역을 고르세요.",
+      "cityMismatch": "그 도시는 선택한 주와 국가에 없어요. 위치를 확인해 주세요.",
+      "refund": "환불을 받을지 선택하세요."
     },
     "editTitle": "상품 수정",
     "saveChanges": "변경 사항 저장",
@@ -274,7 +281,14 @@
     "updated": "변경 사항이 저장되었어요.",
     "keepEnd": "현재 종료 시간 유지 ({date})",
     "auctionLocked": "이 경매에는 이미 입찰이 있어서 가격과 종료 시간을 바꿀 수 없어요.",
-    "cancel": "취소"
+    "cancel": "취소",
+    "refundTitle": "환불",
+    "refundable": "환불 가능",
+    "refundableHint": "문제가 있으면 구매자가 환불을 요청할 수 있어요.",
+    "refundWithin": "환불 요청 가능 기간",
+    "nonRefundable": "환불 불가",
+    "nonRefundableHint": "모든 판매는 최종 판매예요.",
+    "chooseRegion": "주 또는 지역 선택"
   },
   "account": {
     "title": "내 계정",

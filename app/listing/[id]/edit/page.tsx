@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { getCategories, photoUrl } from "@/lib/catalog";
 import { requireMember } from "@/lib/member";
+import { allCountryCodes, regionCodeFor } from "@/lib/places";
 import ListingForm, { type EditingListing } from "../../../sell/listing-form";
 
 type ModeRow = {
@@ -30,7 +31,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     .from("listings")
     .select(
       `id, seller_id, category_id, title, description, condition, currency, quantity, attributes,
-       country_code, region, city, ships, local_pickup,
+       country_code, region, city, ships, local_pickup, refund_policy, refund_days,
        listing_modes ( * ), listing_images ( storage_path, position )`,
     )
     .eq("id", id)
@@ -60,7 +61,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     currency: listing.currency,
     quantity: String(listing.quantity ?? 1),
     country: listing.country_code,
-    region: listing.region ?? "",
+    region: regionCodeFor(listing.country_code, listing.region),
     city: listing.city ?? "",
     ships: on(listing.ships),
     local_pickup: on(listing.local_pickup),
@@ -78,6 +79,8 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     mode_booking: on(Boolean(booking)),
     booking_price: money(booking?.price_cents ?? null),
     booking_minutes: String(booking?.session_minutes ?? 60),
+    refund: listing.refund_policy ?? "",
+    refund_days: String(listing.refund_days ?? 14),
     homemade: on(attributes.homemade === true),
     allergens: typeof attributes.allergens === "string" ? attributes.allergens : "",
     // They confirmed these when they first listed it.
@@ -103,6 +106,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
         categories={await getCategories(locale)}
         userId={user.id}
         locale={locale}
+        countryCodes={allCountryCodes()}
         editing={editing}
       />
     </main>

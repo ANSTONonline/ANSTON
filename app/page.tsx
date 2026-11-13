@@ -16,8 +16,10 @@ export default async function Home() {
     { slug: "accessories", name: t.categories.accessories, emoji: "🎒", color: "bg-orange-500" },
     { slug: "furniture", name: t.categories.furniture, emoji: "🛋️", color: "bg-amber-500" },
     { slug: "equipment", name: t.categories.equipment, emoji: "🔧", color: "bg-slate-600" },
+    { slug: "instruments", name: t.categories.instruments, emoji: "🎸", color: "bg-yellow-600" },
+    { slug: "food", name: t.categories.food, emoji: "🍲", color: "bg-red-500" },
     { slug: "services", name: t.categories.services, emoji: "🔔", color: "bg-rose-600" },
-    { slug: "", name: t.categories.more, emoji: "📦", color: "bg-indigo-600" },
+    { slug: "other", name: t.categories.other, emoji: "📦", color: "bg-indigo-600" },
   ];
 
   const tabs = [

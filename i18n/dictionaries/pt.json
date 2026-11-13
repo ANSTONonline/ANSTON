@@ -38,7 +38,8 @@
     "services": "Serviços",
     "more": "Mais",
     "food": "Comida",
-    "instruments": "Instrumentos"
+    "instruments": "Instrumentos",
+    "other": "Outros"
   },
   "featured": {
     "title": "Anúncios em destaque",
@@ -173,7 +174,10 @@
       "message": "Escreva uma mensagem.",
       "generic": "Algo deu errado. Tente novamente."
     },
-    "edit": "Editar"
+    "edit": "Editar",
+    "refunds": "Reembolsos",
+    "refundsAccepted": "Aceitos em até {n} dias",
+    "noRefunds": "Sem reembolso, venda final"
   },
   "cart": {
     "title": "Seu carrinho",
@@ -266,7 +270,10 @@
       "food": "Confirme que você segue as regras de alimentos da sua região.",
       "license": "Confirme que você tem a licença exigida para este serviço.",
       "location": "Escolha um país.",
-      "generic": "Algo deu errado. Tente novamente."
+      "generic": "Algo deu errado. Tente novamente.",
+      "region": "Escolha um estado ou região do país selecionado.",
+      "cityMismatch": "Essa cidade não fica no estado e país escolhidos. Confira sua localização.",
+      "refund": "Escolha se você aceita reembolsos."
     },
     "editTitle": "Editar anúncio",
     "saveChanges": "Salvar alterações",
@@ -274,7 +281,14 @@
     "updated": "Suas alterações foram salvas.",
     "keepEnd": "Manter o fim atual ({date})",
     "auctionLocked": "Este leilão já tem lances, então os preços e o horário de término não podem mudar.",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "refundTitle": "Reembolsos",
+    "refundable": "Aceita reembolso",
+    "refundableHint": "Os compradores podem pedir reembolso se algo der errado.",
+    "refundWithin": "Os compradores podem pedir em até",
+    "nonRefundable": "Sem reembolso",
+    "nonRefundableHint": "Todas as vendas são finais.",
+    "chooseRegion": "Escolha um estado ou região"
   },
   "account": {
     "title": "Sua conta",

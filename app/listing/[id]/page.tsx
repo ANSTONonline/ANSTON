@@ -252,6 +252,14 @@ export default async function ListingPage({
               {t.sell.conditions[listing.condition as keyof typeof t.sell.conditions] ?? listing.condition}
             </p>
           )}
+          {listing.refundPolicy && (
+            <p className="text-sm text-gray-700 mb-2">
+              <span className="font-semibold">{t.listing.refunds}:</span>{" "}
+              {listing.refundPolicy === "refundable"
+                ? t.listing.refundsAccepted.replace("{n}", String(listing.refundDays ?? 14))
+                : t.listing.noRefunds}
+            </p>
+          )}
           {listing.attributes?.homemade === true && (
             <p className="text-sm text-gray-700 mb-2">🏠 {t.listing.homemadeNotice}</p>
           )}

@@ -38,7 +38,8 @@
     "services": "Servizi",
     "more": "Altro",
     "food": "Cibo",
-    "instruments": "Strumenti"
+    "instruments": "Strumenti",
+    "other": "Altro"
   },
   "featured": {
     "title": "Annunci in evidenza",
@@ -173,7 +174,10 @@
       "message": "Scrivi un messaggio.",
       "generic": "Qualcosa è andato storto. Riprova."
     },
-    "edit": "Modifica"
+    "edit": "Modifica",
+    "refunds": "Rimborsi",
+    "refundsAccepted": "Accettati entro {n} giorni",
+    "noRefunds": "Nessun rimborso, vendita definitiva"
   },
   "cart": {
     "title": "Il tuo carrello",
@@ -266,7 +270,10 @@
       "food": "Conferma di rispettare le norme alimentari della tua zona.",
       "license": "Conferma di possedere la licenza richiesta per questo servizio.",
       "location": "Scegli un paese.",
-      "generic": "Qualcosa è andato storto. Riprova."
+      "generic": "Qualcosa è andato storto. Riprova.",
+      "region": "Scegli uno stato o una regione del paese selezionato.",
+      "cityMismatch": "Quella città non si trova nello stato e nel paese scelti. Controlla la posizione.",
+      "refund": "Indica se accetti rimborsi."
     },
     "editTitle": "Modifica annuncio",
     "saveChanges": "Salva modifiche",
@@ -274,7 +281,14 @@
     "updated": "Le modifiche sono state salvate.",
     "keepEnd": "Mantieni la fine attuale ({date})",
     "auctionLocked": "Questa asta ha già delle offerte, quindi prezzi e orario di fine non possono cambiare.",
-    "cancel": "Annulla"
+    "cancel": "Annulla",
+    "refundTitle": "Rimborsi",
+    "refundable": "Rimborsi accettati",
+    "refundableHint": "Gli acquirenti possono chiedere un rimborso se qualcosa non va.",
+    "refundWithin": "Gli acquirenti possono chiederlo entro",
+    "nonRefundable": "Nessun rimborso",
+    "nonRefundableHint": "Tutte le vendite sono definitive.",
+    "chooseRegion": "Scegli uno stato o una regione"
   },
   "account": {
     "title": "Il tuo account",

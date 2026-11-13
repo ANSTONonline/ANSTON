@@ -38,7 +38,8 @@
     "services": "Dienstleistungen",
     "more": "Mehr",
     "food": "Essen",
-    "instruments": "Instrumente"
+    "instruments": "Instrumente",
+    "other": "Sonstiges"
   },
   "featured": {
     "title": "Ausgewählte Angebote",
@@ -173,7 +174,10 @@
       "message": "Bitte schreib eine Nachricht.",
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
     },
-    "edit": "Bearbeiten"
+    "edit": "Bearbeiten",
+    "refunds": "Rückerstattung",
+    "refundsAccepted": "Möglich innerhalb von {n} Tagen",
+    "noRefunds": "Keine Rückerstattung, alle Verkäufe endgültig"
   },
   "cart": {
     "title": "Dein Warenkorb",
@@ -266,7 +270,10 @@
       "food": "Bitte bestätige, dass du die Lebensmittelvorschriften deiner Region einhältst.",
       "license": "Bitte bestätige, dass du die für diese Dienstleistung nötige Genehmigung besitzt.",
       "location": "Bitte wähle ein Land.",
-      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+      "region": "Bitte wähle ein Bundesland oder eine Region im gewählten Land.",
+      "cityMismatch": "Diese Stadt liegt nicht im gewählten Bundesland und Land. Bitte prüfe deinen Standort.",
+      "refund": "Bitte wähle, ob du Rückerstattungen annimmst."
     },
     "editTitle": "Angebot bearbeiten",
     "saveChanges": "Änderungen speichern",
@@ -274,7 +281,14 @@
     "updated": "Deine Änderungen sind gespeichert.",
     "keepEnd": "Aktuelles Ende beibehalten ({date})",
     "auctionLocked": "Für diese Auktion gibt es schon Gebote, daher können Preise und Endzeit nicht mehr geändert werden.",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "refundTitle": "Rückerstattung",
+    "refundable": "Rückerstattung möglich",
+    "refundableHint": "Käufer können eine Rückerstattung verlangen, wenn etwas nicht stimmt.",
+    "refundWithin": "Käufer können sie verlangen innerhalb von",
+    "nonRefundable": "Keine Rückerstattung",
+    "nonRefundableHint": "Alle Verkäufe sind endgültig.",
+    "chooseRegion": "Bundesland oder Region wählen"
   },
   "account": {
     "title": "Dein Konto",

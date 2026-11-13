@@ -38,7 +38,8 @@
     "services": "服务",
     "more": "更多",
     "food": "食品",
-    "instruments": "乐器"
+    "instruments": "乐器",
+    "other": "其他"
   },
   "featured": {
     "title": "精选商品",
@@ -173,7 +174,10 @@
       "message": "请输入消息内容。",
       "generic": "出了点问题，请重试。"
     },
-    "edit": "编辑"
+    "edit": "编辑",
+    "refunds": "退款",
+    "refundsAccepted": "{n} 天内可退款",
+    "noRefunds": "不退款，售出即为最终交易"
   },
   "cart": {
     "title": "购物车",
@@ -266,7 +270,10 @@
       "food": "请确认你遵守当地食品法规。",
       "license": "请确认你持有此服务所需的执照。",
       "location": "请选择国家/地区。",
-      "generic": "出了点问题，请重试。"
+      "generic": "出了点问题，请重试。",
+      "region": "请选择所选国家/地区内的州或地区。",
+      "cityMismatch": "该城市不在你选择的州和国家/地区内，请检查位置。",
+      "refund": "请选择是否接受退款。"
     },
     "editTitle": "编辑商品",
     "saveChanges": "保存更改",
@@ -274,7 +281,14 @@
     "updated": "你的更改已保存。",
     "keepEnd": "保持当前结束时间（{date}）",
     "auctionLocked": "这场拍卖已有出价，因此价格和结束时间无法更改。",
-    "cancel": "取消"
+    "cancel": "取消",
+    "refundTitle": "退款",
+    "refundable": "接受退款",
+    "refundableHint": "如有问题，买家可以申请退款。",
+    "refundWithin": "买家可在以下时间内申请",
+    "nonRefundable": "不退款",
+    "nonRefundableHint": "所有交易一经售出概不退款。",
+    "chooseRegion": "选择州或地区"
   },
   "account": {
     "title": "我的账户",
