@@ -448,6 +448,7 @@
       "completed": "Terminée"
     },
     "messageBuyer": "Écrire à l'acheteur",
-    "messageSeller": "Écrire au vendeur"
+    "messageSeller": "Écrire au vendeur",
+    "messageWinner": "Écrire au gagnant"
   }
 }

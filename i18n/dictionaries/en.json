@@ -448,6 +448,7 @@
       "completed": "Completed"
     },
     "messageBuyer": "Message buyer",
-    "messageSeller": "Message seller"
+    "messageSeller": "Message seller",
+    "messageWinner": "Message winner"
   }
 }

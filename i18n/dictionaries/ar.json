@@ -448,6 +448,7 @@
       "completed": "مكتمل"
     },
     "messageBuyer": "راسل المشتري",
-    "messageSeller": "راسل البائع"
+    "messageSeller": "راسل البائع",
+    "messageWinner": "راسل الفائز"
   }
 }

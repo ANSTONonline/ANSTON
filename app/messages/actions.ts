@@ -19,8 +19,9 @@ export async function sendReply(fd: FormData) {
 }
 
 // Opens the conversation about a listing, starting it if needed, then goes
-// to it. Buyers message the seller; sellers message a buyer who bid on,
-// offered on, or asked to rent or book their listing (form field "buyer").
+// to it. Buyers can message the seller any time. Sellers can message a buyer
+// (form field "buyer") only after a purchase: an accepted offer, a confirmed
+// rental or booking, a won auction or a paid order. The database enforces it.
 export async function openConversation(fd: FormData) {
   const member = await requireMember();
   const listingId = String(fd.get("listing") ?? "");
