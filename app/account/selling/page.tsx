@@ -182,9 +182,7 @@ export default async function SellingPage() {
                       <StatusButton action={answerOffer} id={o.id} status="declined" label={d.decline} />
                     </>
                   )}
-                  {o.status === "accepted" && (
-                    <MessageButton listingId={o.listing.id} buyerId={o.buyer_id} label={d.messageBuyer} />
-                  )}
+                  <MessageButton listingId={o.listing.id} buyerId={o.buyer_id} label={d.messageBuyer} />
                 </div>
               </li>
             ))}
@@ -226,9 +224,7 @@ export default async function SellingPage() {
                         <StatusButton action={answerReservation} id={r.id} status="cancelled" label={d.cancel} />
                       </>
                     )}
-                    {(r.status === "confirmed" || r.status === "completed") && (
-                      <MessageButton listingId={r.listing.id} buyerId={r.renter_id} label={d.messageBuyer} />
-                    )}
+                    <MessageButton listingId={r.listing.id} buyerId={r.renter_id} label={d.messageBuyer} />
                   </div>
                 </li>
               );
