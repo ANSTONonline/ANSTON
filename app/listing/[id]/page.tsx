@@ -20,7 +20,7 @@ export default async function ListingPage({
   searchParams: SearchParams;
 }) {
   const { id } = await params;
-  const { created } = await searchParams;
+  const { created, updated } = await searchParams;
   const locale = await getLocale();
   const t = await getDictionary(locale);
   const listing = await findListing(locale, id);
@@ -51,6 +51,11 @@ export default async function ListingPage({
         {t.listing.back}
       </Link>
 
+      {updated && (
+        <p role="status" className="mt-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3">
+          {t.sell.updated}
+        </p>
+      )}
       {created && (
         <p role="status" className="mt-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3">
           {t.sell.created}
@@ -194,6 +199,9 @@ export default async function ListingPage({
               <div className="border rounded-xl p-4 space-y-3 bg-gray-50">
                 <p className="font-medium">{t.listing.yourListing}</p>
                 <div className="flex flex-wrap gap-2">
+                  <Link href={`/listing/${listing.id}/edit`} className="bg-[#7A1E2B] text-white rounded-lg px-3 py-2 text-sm">
+                    ✏️ {t.listing.edit}
+                  </Link>
                   {listing.status !== "active" && (
                     <form action={setListingStatus}>
                       <input type="hidden" name="id" value={listing.id} />

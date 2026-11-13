@@ -172,7 +172,8 @@
       "notAvailable": "Bu ilan artık mevcut değil.",
       "message": "Lütfen bir mesaj yazın.",
       "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
-    }
+    },
+    "edit": "Düzenle"
   },
   "cart": {
     "title": "Sepetiniz",
@@ -266,7 +267,14 @@
       "license": "Lütfen bu hizmet için gereken lisansa sahip olduğunuzu onaylayın.",
       "location": "Lütfen bir ülke seçin.",
       "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
-    }
+    },
+    "editTitle": "İlanı düzenle",
+    "saveChanges": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor...",
+    "updated": "Değişiklikleriniz kaydedildi.",
+    "keepEnd": "Mevcut bitişi koru ({date})",
+    "auctionLocked": "Bu açık artırmada zaten teklif var, bu yüzden fiyatları ve bitiş zamanı değiştirilemez.",
+    "cancel": "İptal"
   },
   "account": {
     "title": "Hesabınız",

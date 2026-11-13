@@ -172,7 +172,8 @@
       "notAvailable": "This listing isn't available anymore.",
       "message": "Please write a message.",
       "generic": "Something went wrong. Please try again."
-    }
+    },
+    "edit": "Edit"
   },
   "cart": {
     "title": "Your cart",
@@ -266,7 +267,14 @@
       "license": "Please confirm you hold the license this service requires.",
       "location": "Please choose a country.",
       "generic": "Something went wrong. Please try again."
-    }
+    },
+    "editTitle": "Edit listing",
+    "saveChanges": "Save changes",
+    "saving": "Saving...",
+    "updated": "Your changes are saved.",
+    "keepEnd": "Keep current end ({date})",
+    "auctionLocked": "This auction already has bids, so its prices and end time can't change.",
+    "cancel": "Cancel"
   },
   "account": {
     "title": "Your account",

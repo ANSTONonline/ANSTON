@@ -172,7 +172,8 @@
       "notAvailable": "Este anuncio ya no está disponible.",
       "message": "Escribe un mensaje.",
       "generic": "Algo salió mal. Inténtalo de nuevo."
-    }
+    },
+    "edit": "Editar"
   },
   "cart": {
     "title": "Tu carrito",
@@ -266,7 +267,14 @@
       "license": "Confirma que tienes la licencia que exige este servicio.",
       "location": "Elige un país.",
       "generic": "Algo salió mal. Inténtalo de nuevo."
-    }
+    },
+    "editTitle": "Editar anuncio",
+    "saveChanges": "Guardar cambios",
+    "saving": "Guardando...",
+    "updated": "Tus cambios se guardaron.",
+    "keepEnd": "Mantener el final actual ({date})",
+    "auctionLocked": "Esta subasta ya tiene pujas, así que sus precios y su hora de cierre no pueden cambiar.",
+    "cancel": "Cancelar"
   },
   "account": {
     "title": "Tu cuenta",

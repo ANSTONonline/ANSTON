@@ -172,7 +172,8 @@
       "notAvailable": "Tangazo hili halipatikani tena.",
       "message": "Tafadhali andika ujumbe.",
       "generic": "Hitilafu imetokea. Tafadhali jaribu tena."
-    }
+    },
+    "edit": "Hariri"
   },
   "cart": {
     "title": "Kikapu chako",
@@ -266,7 +267,14 @@
       "license": "Tafadhali thibitisha kuwa una leseni inayohitajika kwa huduma hii.",
       "location": "Tafadhali chagua nchi.",
       "generic": "Hitilafu imetokea. Tafadhali jaribu tena."
-    }
+    },
+    "editTitle": "Hariri tangazo",
+    "saveChanges": "Hifadhi mabadiliko",
+    "saving": "Inahifadhi...",
+    "updated": "Mabadiliko yako yamehifadhiwa.",
+    "keepEnd": "Baki na muda wa sasa wa kuisha ({date})",
+    "auctionLocked": "Mnada huu tayari una zabuni, kwa hiyo bei zake na muda wa kuisha haviwezi kubadilishwa.",
+    "cancel": "Ghairi"
   },
   "account": {
     "title": "Akaunti yako",

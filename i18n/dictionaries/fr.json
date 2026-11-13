@@ -172,7 +172,8 @@
       "notAvailable": "Cette annonce n'est plus disponible.",
       "message": "Écrivez un message.",
       "generic": "Un problème est survenu. Veuillez réessayer."
-    }
+    },
+    "edit": "Modifier"
   },
   "cart": {
     "title": "Votre panier",
@@ -266,7 +267,14 @@
       "license": "Confirmez que vous détenez la licence exigée pour ce service.",
       "location": "Choisissez un pays.",
       "generic": "Un problème est survenu. Veuillez réessayer."
-    }
+    },
+    "editTitle": "Modifier l'annonce",
+    "saveChanges": "Enregistrer les modifications",
+    "saving": "Enregistrement...",
+    "updated": "Vos modifications sont enregistrées.",
+    "keepEnd": "Garder la fin actuelle ({date})",
+    "auctionLocked": "Ces enchères ont déjà reçu des offres : leurs prix et leur heure de fin ne peuvent plus changer.",
+    "cancel": "Annuler"
   },
   "account": {
     "title": "Votre compte",

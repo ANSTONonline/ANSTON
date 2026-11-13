@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { startTransition, useActionState, useRef, useState, useSyncExternalStore } from "react";
 import type { Dictionary } from "@/i18n/server";
 import type { Category, DbMode } from "@/lib/catalog";
@@ -12,7 +13,7 @@ import {
   RATE_UNITS,
   SESSION_MINUTES,
 } from "@/lib/sell-options";
-import { createListing, discardPhoto, type SellState } from "./actions";
+import { createListing, discardPhoto, updateListing, type SellState } from "./actions";
 
 type Text = Dictionary["sell"];
 
@@ -44,6 +45,15 @@ async function shrink(file: File): Promise<Blob> {
 
 type Photo = { path: string; url: string };
 
+// Filled in when editing an existing listing.
+export type EditingListing = {
+  listingId: string;
+  values: Record<string, string>; // form field values, as if typed
+  photos: Photo[];
+  auctionLocked: boolean; // the auction has bids, so it can't change
+  auctionEndsAt: string | null;
+};
+
 const noSubscribe = () => () => {};
 
 // Country names in the visitor's language, from the browser.
@@ -55,8 +65,8 @@ function regionNames(locale: string) {
   }
 }
 
-function Photos({ text, userId }: { text: Text; userId: string }) {
-  const [photos, setPhotos] = useState<Photo[]>([]);
+function Photos({ text, userId, initial = [] }: { text: Text; userId: string; initial?: Photo[] }) {
+  const [photos, setPhotos] = useState<Photo[]>(initial);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -88,7 +98,9 @@ function Photos({ text, userId }: { text: Text; userId: string }) {
 
   function remove(path: string) {
     setPhotos((current) => current.filter((p) => p.path !== path));
-    void discardPhoto(path);
+    // Photos already on the listing are only deleted when the changes are
+    // saved, so nothing is lost if the person leaves without saving.
+    if (!initial.some((p) => p.path === path)) void discardPhoto(path);
   }
 
   return (
@@ -143,14 +155,18 @@ export default function ListingForm({
   categories,
   userId,
   locale,
+  editing,
 }: {
   text: Text;
   categories: Category[];
   userId: string;
   locale: string;
+  editing?: EditingListing;
 }) {
-  const [state, action, pending] = useActionState<SellState, FormData>(createListing, {});
-  const v = state.values ?? {};
+  const submit = editing ? updateListing.bind(null, editing.listingId) : createListing;
+  const [state, action, pending] = useActionState<SellState, FormData>(submit, {});
+  const v = state.values ?? editing?.values ?? {};
+  const auctionLocked = Boolean(editing?.auctionLocked);
   const [categoryId, setCategoryId] = useState(v.category ?? "");
   const category = categories.find((c) => String(c.id) === categoryId);
   const allowed = category?.allowedModes ?? [];
@@ -184,12 +200,18 @@ export default function ListingForm({
             type="checkbox"
             name={`mode_${m}`}
             checked={isPicked(m)}
+            disabled={m === "auction" && auctionLocked}
             onChange={(e) => setPicked((p) => ({ ...p, [m]: e.target.checked }))}
             className="w-4 h-4 accent-[#7A1E2B]"
           />
           {title}
         </label>
-        {isPicked(m) && <div className="grid sm:grid-cols-2 gap-3 mt-3">{children}</div>}
+        {m === "auction" && auctionLocked && <p className="text-xs text-gray-500 mt-2">{text.auctionLocked}</p>}
+        {isPicked(m) && (
+          <fieldset disabled={m === "auction" && auctionLocked} className="grid sm:grid-cols-2 gap-3 mt-3 disabled:opacity-60">
+            {children}
+          </fieldset>
+        )}
       </div>
     );
 
@@ -286,7 +308,7 @@ export default function ListingForm({
       </div>
 
       <div className={section}>
-        <Photos text={text} userId={userId} />
+        <Photos text={text} userId={userId} initial={editing?.photos} />
       </div>
 
       <div className={section}>
@@ -328,6 +350,11 @@ export default function ListingForm({
                 <div>
                   <label className={label} htmlFor="auction_days">{text.duration}</label>
                   <select id="auction_days" name="auction_days" defaultValue={v.auction_days ?? "7"} className={input}>
+                    {editing?.auctionEndsAt && (
+                      <option value="keep">
+                        {text.keepEnd.replace("{date}", new Date(editing.auctionEndsAt).toLocaleString(locale, { dateStyle: "medium", timeStyle: "short" }))}
+                      </option>
+                    )}
                     {AUCTION_DAYS.map((d) => (
                       <option key={d} value={d}>{d === 1 ? text.day1 : text.days.replace("{n}", String(d))}</option>
                     ))}
@@ -382,7 +409,7 @@ export default function ListingForm({
             <input id="allergens" name="allergens" maxLength={300} defaultValue={v.allergens} className={input} />
           </div>
           <label className="flex items-start gap-2 text-sm">
-            <input type="checkbox" name="food_rules" required className="w-4 h-4 mt-0.5 accent-[#7A1E2B]" />
+            <input type="checkbox" name="food_rules" required defaultChecked={v.food_rules === "on"} className="w-4 h-4 mt-0.5 accent-[#7A1E2B]" />
             {text.foodRules}
           </label>
         </div>
@@ -422,7 +449,7 @@ export default function ListingForm({
         )}
         {category?.requiresLicense && (
           <label className="flex items-start gap-2 text-sm">
-            <input type="checkbox" name="license_confirm" required className="w-4 h-4 mt-0.5 accent-[#7A1E2B]" />
+            <input type="checkbox" name="license_confirm" required defaultChecked={v.license_confirm === "on"} className="w-4 h-4 mt-0.5 accent-[#7A1E2B]" />
             {text.licenseConfirm}
           </label>
         )}
@@ -433,8 +460,13 @@ export default function ListingForm({
         disabled={pending || !category}
         className="w-full bg-[#7A1E2B] text-white py-3 rounded-lg font-medium disabled:opacity-60"
       >
-        {pending ? text.publishing : text.publish}
+        {editing ? (pending ? text.saving : text.saveChanges) : pending ? text.publishing : text.publish}
       </button>
+      {editing && (
+        <Link href={`/listing/${editing.listingId}`} className="block text-center text-sm text-gray-600 hover:underline">
+          {text.cancel}
+        </Link>
+      )}
     </form>
   );
 }

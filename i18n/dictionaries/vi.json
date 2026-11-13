@@ -172,7 +172,8 @@
       "notAvailable": "Tin đăng này không còn nữa.",
       "message": "Vui lòng viết tin nhắn.",
       "generic": "Đã có lỗi xảy ra. Vui lòng thử lại."
-    }
+    },
+    "edit": "Sửa"
   },
   "cart": {
     "title": "Giỏ hàng của bạn",
@@ -266,7 +267,14 @@
       "license": "Vui lòng xác nhận bạn có giấy phép mà dịch vụ này yêu cầu.",
       "location": "Vui lòng chọn quốc gia.",
       "generic": "Đã có lỗi xảy ra. Vui lòng thử lại."
-    }
+    },
+    "editTitle": "Sửa tin đăng",
+    "saveChanges": "Lưu thay đổi",
+    "saving": "Đang lưu...",
+    "updated": "Đã lưu thay đổi của bạn.",
+    "keepEnd": "Giữ thời gian kết thúc hiện tại ({date})",
+    "auctionLocked": "Phiên đấu giá này đã có người đặt giá nên không thể đổi giá và thời gian kết thúc.",
+    "cancel": "Hủy"
   },
   "account": {
     "title": "Tài khoản của bạn",
