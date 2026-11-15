@@ -31,6 +31,7 @@ create table if not exists private.email_log (
   sent_at  timestamptz not null default now()
 );
 create index if not exists email_log_lookup on private.email_log (user_id, kind, ref_id, sent_at desc);
+alter table private.email_log enable row level security;
 
 create or replace function private.html_escape(t text)
 returns text language sql immutable as $$
