@@ -370,7 +370,10 @@
     "usernameSaved": "Your username is now @{username}.",
     "usernameWait": "You changed your username recently. You can change it again on {date}.",
     "usernameSame": "That's already your username.",
-    "save": "Save"
+    "save": "Save",
+    "emailsTitle": "Email notifications",
+    "emailsLabel": "Email me about new messages, offers, bids and booking requests.",
+    "emailsSaved": "Your email settings were saved."
   },
   "pages": {
     "about": {

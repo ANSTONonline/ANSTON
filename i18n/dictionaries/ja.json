@@ -370,7 +370,10 @@
     "usernameSaved": "ユーザー名を@{username}に変更しました。",
     "usernameWait": "最近ユーザー名を変更しました。次に変更できるのは{date}です。",
     "usernameSame": "すでにこのユーザー名を使っています。",
-    "save": "保存"
+    "save": "保存",
+    "emailsTitle": "メール通知",
+    "emailsLabel": "新しいメッセージ、オファー、入札、予約リクエストがあったらメールで知らせる。",
+    "emailsSaved": "メール設定を保存しました。"
   },
   "pages": {
     "about": {

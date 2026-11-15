@@ -1,6 +1,6 @@
 import Link from "next/link";
 import AuthForms, { FinishProfileForm } from "./auth-forms";
-import { signOut } from "./actions";
+import { saveEmailSettings, signOut } from "./actions";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { createClient, getUser, supabaseConfigured } from "@/lib/supabase/server";
 
@@ -53,6 +53,12 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
       );
     }
 
+    // Asked for separately so the page still works if this column is missing.
+    const { data: emailPrefs } = await supabase
+      .from("profiles")
+      .select("email_notifications")
+      .eq("id", user.id)
+      .maybeSingle();
     const contact = user.email || user.phone || "";
     const { count: unread } = await supabase
       .from("messages")
@@ -67,6 +73,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
         {params.usernameChanged && (
           <Banner kind="ok">{t.account.usernameSaved.replace("{username}", profile.username ?? "")}</Banner>
         )}
+        {params.emailsSaved && <Banner kind="ok">{t.account.emailsSaved}</Banner>}
         <div className="border rounded-xl p-6 space-y-4">
           <div className="flex items-center gap-3">
             <span className="w-12 h-12 rounded-full bg-[#7A1E2B] text-white flex items-center justify-center text-xl font-bold">
@@ -105,6 +112,23 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             </form>
           </div>
         </div>
+        {user.email && (
+          <form action={saveEmailSettings} className="border rounded-xl p-6 mt-4">
+            <h2 className="font-semibold mb-3">{t.account.emailsTitle}</h2>
+            <label className="flex items-start gap-3 text-sm">
+              <input
+                type="checkbox"
+                name="emails"
+                defaultChecked={emailPrefs?.email_notifications !== false}
+                className="mt-1 accent-[#7A1E2B]"
+              />
+              <span>{t.account.emailsLabel}</span>
+            </label>
+            <button type="submit" className="mt-4 border border-[#7A1E2B] text-[#7A1E2B] px-4 py-2 rounded-lg text-sm">
+              {t.account.save}
+            </button>
+          </form>
+        )}
       </main>
     );
   }

@@ -370,7 +370,10 @@
     "usernameSaved": "사용자 이름이 @{username}(으)로 바뀌었어요.",
     "usernameWait": "최근에 사용자 이름을 바꿨어요. {date}에 다시 바꿀 수 있어요.",
     "usernameSame": "이미 사용 중인 내 이름이에요.",
-    "save": "저장"
+    "save": "저장",
+    "emailsTitle": "이메일 알림",
+    "emailsLabel": "새 메시지, 제안, 입찰, 예약 요청이 있으면 이메일로 알려 주세요.",
+    "emailsSaved": "이메일 설정이 저장되었습니다."
   },
   "pages": {
     "about": {

@@ -370,7 +370,10 @@
     "usernameSaved": "Jina lako la mtumiaji sasa ni @{username}.",
     "usernameWait": "Ulibadilisha jina la mtumiaji hivi karibuni. Unaweza kulibadilisha tena tarehe {date}.",
     "usernameSame": "Hilo tayari ni jina lako la mtumiaji.",
-    "save": "Hifadhi"
+    "save": "Hifadhi",
+    "emailsTitle": "Arifa za barua pepe",
+    "emailsLabel": "Nitumie barua pepe kuhusu ujumbe mpya, ofa, zabuni na maombi ya kuweka nafasi.",
+    "emailsSaved": "Mipangilio yako ya barua pepe imehifadhiwa."
   },
   "pages": {
     "about": {

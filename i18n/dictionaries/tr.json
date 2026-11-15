@@ -370,7 +370,10 @@
     "usernameSaved": "Kullanıcı adınız artık @{username}.",
     "usernameWait": "Kullanıcı adınızı kısa süre önce değiştirdiniz. {date} tarihinde tekrar değiştirebilirsiniz.",
     "usernameSame": "Bu zaten sizin kullanıcı adınız.",
-    "save": "Kaydet"
+    "save": "Kaydet",
+    "emailsTitle": "E-posta bildirimleri",
+    "emailsLabel": "Yeni mesajlar, teklifler, açık artırma teklifleri ve rezervasyon talepleri için bana e-posta gönder.",
+    "emailsSaved": "E-posta ayarlarınız kaydedildi."
   },
   "pages": {
     "about": {

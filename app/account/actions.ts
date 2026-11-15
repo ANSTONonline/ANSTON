@@ -246,3 +246,17 @@ export async function signOut() {
   }
   redirect("/account");
 }
+
+// Turns the email notifications on or off for the signed-in member.
+export async function saveEmailSettings(formData: FormData) {
+  if (!supabaseConfigured()) redirect("/account");
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getUser();
+  if (!data.user) redirect("/account");
+  const { error } = await supabase
+    .from("profiles")
+    .update({ email_notifications: formData.get("emails") === "on" })
+    .eq("id", data.user.id);
+  if (error) console.error("saveEmailSettings", error.message);
+  redirect("/account?emailsSaved=1");
+}

@@ -370,7 +370,10 @@
     "usernameSaved": "你的用户名已改为 @{username}。",
     "usernameWait": "你最近修改过用户名，{date} 之后可以再次修改。",
     "usernameSame": "这已经是你的用户名了。",
-    "save": "保存"
+    "save": "保存",
+    "emailsTitle": "电子邮件通知",
+    "emailsLabel": "有新消息、报价、出价或预订请求时给我发邮件。",
+    "emailsSaved": "您的电子邮件设置已保存。"
   },
   "pages": {
     "about": {
