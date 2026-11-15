@@ -370,7 +370,10 @@
     "usernameSaved": "Votre nom d'utilisateur est désormais @{username}.",
     "usernameWait": "Vous avez changé de nom d'utilisateur récemment. Vous pourrez le changer à nouveau le {date}.",
     "usernameSame": "C'est déjà votre nom d'utilisateur.",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "emailsTitle": "Notifications par e-mail",
+    "emailsLabel": "M'envoyer un e-mail pour les nouveaux messages, offres, enchères et demandes de réservation.",
+    "emailsSaved": "Vos préférences d'e-mail ont été enregistrées."
   },
   "pages": {
     "about": {

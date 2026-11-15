@@ -3,7 +3,7 @@
 // in other languages show a short note saying so (see i18n dictionaries).
 // When anything here changes, update EFFECTIVE_DATE.
 
-export const EFFECTIVE_DATE = "November 13, 2026";
+export const EFFECTIVE_DATE = "November 15, 2026";
 export const CONTACT_EMAIL = "support@myanston.com";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[]; after?: string[] };
@@ -43,7 +43,7 @@ export const privacyPolicy: LegalDoc = {
         "To create and run your account and let you log in.",
         "To show your listings, and your username, to other users.",
         "To make bids, offers, rentals, bookings and messages work between buyers and sellers.",
-        "To send account emails or texts, such as verification links and codes and password resets.",
+        "To send account emails or texts, such as verification links and codes and password resets, and emails about activity on your listings and deals (new messages, offers, bids and booking requests). You can turn activity emails off on your account page.",
         "To keep the marketplace safe: checking ages, reviewing reports, and preventing fraud, spam and prohibited listings.",
         "To answer your questions and improve the Service.",
         "To meet legal obligations.",
@@ -65,6 +65,7 @@ export const privacyPolicy: LegalDoc = {
         "Supabase: database, sign-in and photo storage (servers in the United States).",
         "Vercel: website hosting.",
         "Google: only if you choose to sign in with Google.",
+        "Resend: delivers activity emails (servers in the United States).",
         "Email and text message providers that deliver verification messages and support email.",
         "A payment provider such as Stripe, once checkout is available.",
       ],

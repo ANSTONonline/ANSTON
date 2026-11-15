@@ -370,7 +370,10 @@
     "usernameSaved": "Nama pengguna Anda sekarang @{username}.",
     "usernameWait": "Anda baru saja mengubah nama pengguna. Anda bisa mengubahnya lagi pada {date}.",
     "usernameSame": "Itu sudah nama pengguna Anda.",
-    "save": "Simpan"
+    "save": "Simpan",
+    "emailsTitle": "Notifikasi email",
+    "emailsLabel": "Kirimi saya email tentang pesan, penawaran, tawaran lelang, dan permintaan pemesanan baru.",
+    "emailsSaved": "Pengaturan email Anda telah disimpan."
   },
   "pages": {
     "about": {

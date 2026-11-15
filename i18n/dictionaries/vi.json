@@ -370,7 +370,10 @@
     "usernameSaved": "Tên người dùng của bạn giờ là @{username}.",
     "usernameWait": "Bạn vừa đổi tên người dùng gần đây. Bạn có thể đổi lại vào {date}.",
     "usernameSame": "Đó đã là tên người dùng của bạn.",
-    "save": "Lưu"
+    "save": "Lưu",
+    "emailsTitle": "Thông báo qua email",
+    "emailsLabel": "Gửi email cho tôi khi có tin nhắn, lời đề nghị, lượt đặt giá và yêu cầu đặt chỗ mới.",
+    "emailsSaved": "Đã lưu cài đặt email của bạn."
   },
   "pages": {
     "about": {

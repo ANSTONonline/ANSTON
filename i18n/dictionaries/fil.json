@@ -370,7 +370,10 @@
     "usernameSaved": "Ang username mo ay @{username} na.",
     "usernameWait": "Kakapalit mo lang ng username. Puwede mo itong palitan ulit sa {date}.",
     "usernameSame": "Iyan na ang username mo.",
-    "save": "I-save"
+    "save": "I-save",
+    "emailsTitle": "Mga abiso sa email",
+    "emailsLabel": "I-email ako tungkol sa mga bagong mensahe, alok, bid at kahilingan sa booking.",
+    "emailsSaved": "Na-save ang iyong mga setting sa email."
   },
   "pages": {
     "about": {
