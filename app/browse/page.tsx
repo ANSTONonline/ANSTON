@@ -3,6 +3,8 @@ import Form from "next/form";
 import ListingCard from "../components/listing-card";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { findListings } from "@/lib/catalog";
+import { getPlaceFilter, placeLabel } from "@/lib/location-filter";
+import { clearPlaceFilter } from "../location-actions";
 import { categorySlugs, isCategory, isMode, type Mode } from "@/lib/listings";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -19,7 +21,8 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
   const mode = isMode(modeParam) ? modeParam : undefined;
   const category = isCategory(categoryParam) ? categoryParam : undefined;
 
-  const results = await findListings(locale, { mode, category, q });
+  const place = await getPlaceFilter();
+  const results = await findListings(locale, { mode, category, q, place });
 
   // Build a link that changes one filter and keeps the others.
   const href = (change: { mode?: string | null; category?: string | null }) => {
@@ -52,7 +55,16 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
       <h1 className="text-3xl font-bold mb-1">
         {q ? t.browse.resultsFor.replace("{q}", q) : t.browse.title}
       </h1>
-      <p className="text-gray-500 mb-6">{t.browse.count.replace("{n}", String(results.length))}</p>
+      <p className="text-gray-500 mb-2">{t.browse.count.replace("{n}", String(results.length))}</p>
+      {place && (
+        <form action={clearPlaceFilter} className="flex flex-wrap items-center gap-2 mb-6 text-sm">
+          <span className="bg-[#7A1E2B]/10 text-[#7A1E2B] rounded-full px-3 py-1">
+            📍 {t.location.showing.replace("{place}", placeLabel(place, locale))}
+          </span>
+          <button type="submit" className="underline text-gray-600">{t.location.reset}</button>
+        </form>
+      )}
+      {!place && <div className="mb-4" />}
 
       {/* Search (works on phones, where the header search is hidden) */}
       <Form action="/browse" className="flex gap-2 mb-6" role="search">
@@ -98,7 +110,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
         </div>
       ) : (
         <div className="text-center py-16 border rounded-xl bg-gray-50">
-          <p className="text-gray-600 mb-4">{t.browse.none}</p>
+          <p className="text-gray-600 mb-4">{place ? t.location.noneHere : t.browse.none}</p>
           <Link href="/browse" className="bg-[#7A1E2B] text-white px-5 py-2 rounded-full text-sm">
             {t.browse.clear}
           </Link>

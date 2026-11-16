@@ -558,5 +558,18 @@
     "listings": "Annunci di @{username}",
     "noListings": "Nessun annuncio attivo al momento.",
     "viewProfile": "Vedi profilo e recensioni del venditore"
+  },
+  "location": {
+    "all": "Tutte le località",
+    "choose": "Esplora per località",
+    "country": "Paese",
+    "region": "Stato o regione",
+    "allRegions": "Tutti gli stati e le regioni",
+    "city": "Città",
+    "anyCity": "Qualsiasi città",
+    "apply": "Mostra annunci",
+    "reset": "Mostra tutte le località",
+    "showing": "Annunci a {place}",
+    "noneHere": "Ancora nessun annuncio qui. Prova un'area più ampia o mostra tutte le località."
   }
 }

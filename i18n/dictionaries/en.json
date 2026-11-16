@@ -558,5 +558,18 @@
     "listings": "Listings from @{username}",
     "noListings": "No active listings right now.",
     "viewProfile": "See the seller's profile and reviews"
+  },
+  "location": {
+    "all": "All locations",
+    "choose": "Browse by location",
+    "country": "Country",
+    "region": "State or region",
+    "allRegions": "All states and regions",
+    "city": "City",
+    "anyCity": "Any city",
+    "apply": "Show listings",
+    "reset": "Show all locations",
+    "showing": "Showing listings in {place}",
+    "noneHere": "No listings here yet. Try a wider area or show all locations."
   }
 }

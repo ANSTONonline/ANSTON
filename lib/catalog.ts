@@ -2,6 +2,7 @@
 // shape the pages use. Without a database (local development), it falls back
 // to the sample listings in lib/listings.ts.
 
+import type { PlaceFilter } from "@/lib/location-filter";
 import { cache } from "react";
 import type { Locale } from "@/i18n/config";
 import { SUPABASE_URL, createClient, supabaseConfigured } from "@/lib/supabase/server";
@@ -251,7 +252,7 @@ function cleanSearch(q: string) {
 
 export async function findListings(
   locale: Locale,
-  filters: { mode?: Mode; category?: CategorySlug; q?: string; limit?: number; featured?: boolean } = {},
+  filters: { mode?: Mode; category?: CategorySlug; q?: string; limit?: number; featured?: boolean; place?: PlaceFilter | null } = {},
 ): Promise<Listing[]> {
   if (!supabaseConfigured()) {
     const results = getSampleListings(filters);
@@ -281,6 +282,12 @@ export async function findListings(
   const q = filters.q ? cleanSearch(filters.q) : "";
   if (q) {
     query = query.or(`title.ilike."%${q}%",description.ilike."%${q}%",city.ilike."%${q}%",region.ilike."%${q}%"`);
+  }
+  // Only listings in the chosen country / state / city.
+  if (filters.place) {
+    query = query.eq("country_code", filters.place.country);
+    if (filters.place.regionName) query = query.eq("region", filters.place.regionName);
+    if (filters.place.city) query = query.ilike("city", filters.place.city.replace(/[\\%_]/g, (ch) => `\\${ch}`));
   }
   // Featured Listings put boosted listings first, highest boost first.
   if (filters.featured) query = query.order("boost_bps", { ascending: false });

@@ -1,18 +1,25 @@
 import Link from "next/link";
 import Form from "next/form";
 import LanguageSwitcher from "./language-switcher";
+import LocationPicker from "./location-picker";
 import { HeaderCounts } from "./list-buttons";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/server";
 
-export default function SiteHeader({ t, locale }: { t: Dictionary; locale: Locale }) {
+type HeaderPlace = {
+  current: { country: string; region: string; city: string } | null;
+  label: string | null;
+  countryCodes: string[];
+};
+
+export default function SiteHeader({ t, locale, place }: { t: Dictionary; locale: Locale; place: HeaderPlace }) {
   return (
-    <header className="flex items-center justify-between gap-3 px-4 sm:px-8 py-4 border-b">
+    <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3 px-4 sm:px-8 py-4 border-b">
       <Link href="/" className="text-2xl font-bold text-[#7A1E2B]">
         ANSTON
       </Link>
 
-      <nav className="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
+      <nav className="hidden lg:flex gap-4 xl:gap-6 text-sm text-gray-700 font-medium">
         <Link href="/browse?mode=buy" className="hover:text-[#7A1E2B]">{t.header.buy}</Link>
         <Link href="/browse?mode=bid" className="hover:text-[#7A1E2B]">{t.header.bid}</Link>
         <Link href="/browse?mode=rent" className="hover:text-[#7A1E2B]">{t.header.rent}</Link>
@@ -20,7 +27,7 @@ export default function SiteHeader({ t, locale }: { t: Dictionary; locale: Local
         <Link href="/browse?mode=services" className="hover:text-[#7A1E2B]">{t.header.services}</Link>
       </nav>
 
-      <Form action="/browse" className="hidden md:block w-72" role="search">
+      <Form action="/browse" className="hidden xl:block w-56 2xl:w-72" role="search">
         <input
           type="search"
           name="q"
@@ -31,6 +38,15 @@ export default function SiteHeader({ t, locale }: { t: Dictionary; locale: Local
       </Form>
 
       <div className="flex items-center gap-2 sm:gap-4">
+        <div className="hidden md:block">
+          <LocationPicker
+          text={t.location}
+          locale={locale}
+          countryCodes={place.countryCodes}
+          current={place.current}
+          label={place.label}
+        />
+        </div>
         <LanguageSwitcher current={locale} label={t.header.language} />
         <Link
           href="/sell"
@@ -47,6 +63,17 @@ export default function SiteHeader({ t, locale }: { t: Dictionary; locale: Local
         <Link href="/account" className="text-xl" aria-label={t.header.account} title={t.header.account}>
           👤
         </Link>
+      </div>
+
+      {/* On phones the location picker gets its own row. */}
+      <div className="w-full md:hidden">
+        <LocationPicker
+          text={t.location}
+          locale={locale}
+          countryCodes={place.countryCodes}
+          current={place.current}
+          label={place.label}
+        />
       </div>
     </header>
   );

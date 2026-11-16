@@ -558,5 +558,18 @@
     "listings": "Mga listing ni @{username}",
     "noListings": "Walang aktibong listing sa ngayon.",
     "viewProfile": "Tingnan ang profile at mga review ng nagbebenta"
+  },
+  "location": {
+    "all": "Lahat ng lokasyon",
+    "choose": "Mag-browse ayon sa lokasyon",
+    "country": "Bansa",
+    "region": "Estado o rehiyon",
+    "allRegions": "Lahat ng estado at rehiyon",
+    "city": "Lungsod",
+    "anyCity": "Kahit anong lungsod",
+    "apply": "Ipakita ang mga listing",
+    "reset": "Ipakita ang lahat ng lokasyon",
+    "showing": "Mga listing sa {place}",
+    "noneHere": "Wala pang listing dito. Subukan ang mas malawak na lugar o ipakita ang lahat ng lokasyon."
   }
 }

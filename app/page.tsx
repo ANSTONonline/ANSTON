@@ -2,6 +2,7 @@ import Link from "next/link";
 import ListingCard from "./components/listing-card";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { findListings } from "@/lib/catalog";
+import { getPlaceFilter, placeLabel } from "@/lib/location-filter";
 
 export default async function Home() {
   const locale = await getLocale();
@@ -30,7 +31,8 @@ export default async function Home() {
     { label: t.featured.offer, href: "/browse?mode=offer" },
   ];
 
-  const featured = await findListings(locale, { limit: 8, featured: true });
+  const place = await getPlaceFilter();
+  const featured = await findListings(locale, { limit: 8, featured: true, place });
 
   return (
     <main className="flex-1">
@@ -80,7 +82,10 @@ export default async function Home() {
             {t.featured.viewAll}
           </Link>
         </div>
-        <p className="text-gray-500 mb-6">{t.featured.subtitle}</p>
+        <p className="text-gray-500 mb-6">
+          {t.featured.subtitle}
+          {place && <span className="block text-sm text-[#7A1E2B] mt-1">📍 {t.location.showing.replace("{place}", placeLabel(place, locale))}</span>}
+        </p>
 
         <div className="flex flex-wrap gap-3 mb-8">
           {tabs.map((tab, i) => (
@@ -104,7 +109,7 @@ export default async function Home() {
           </div>
         ) : (
           <div className="text-center py-16 border rounded-xl bg-gray-50">
-            <p className="text-gray-600 mb-4">{t.featured.empty}</p>
+            <p className="text-gray-600 mb-4">{place ? t.location.noneHere : t.featured.empty}</p>
             <Link href="/sell" className="bg-[#7A1E2B] text-white px-5 py-2 rounded-full text-sm">
               {t.header.listItem}
             </Link>

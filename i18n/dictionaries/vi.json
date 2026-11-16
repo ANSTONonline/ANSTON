@@ -558,5 +558,18 @@
     "listings": "Tin đăng của @{username}",
     "noListings": "Hiện chưa có tin đăng nào.",
     "viewProfile": "Xem hồ sơ và đánh giá của người bán"
+  },
+  "location": {
+    "all": "Mọi địa điểm",
+    "choose": "Xem theo địa điểm",
+    "country": "Quốc gia",
+    "region": "Bang hoặc khu vực",
+    "allRegions": "Tất cả bang và khu vực",
+    "city": "Thành phố",
+    "anyCity": "Bất kỳ thành phố nào",
+    "apply": "Xem tin đăng",
+    "reset": "Xem mọi địa điểm",
+    "showing": "Tin đăng tại {place}",
+    "noneHere": "Chưa có tin đăng nào ở đây. Hãy thử khu vực rộng hơn hoặc xem mọi địa điểm."
   }
 }

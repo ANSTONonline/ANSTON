@@ -558,5 +558,18 @@
     "listings": "Anzeigen von @{username}",
     "noListings": "Gerade keine aktiven Anzeigen.",
     "viewProfile": "Profil und Bewertungen des Verkäufers ansehen"
+  },
+  "location": {
+    "all": "Alle Orte",
+    "choose": "Nach Ort durchsuchen",
+    "country": "Land",
+    "region": "Bundesland oder Region",
+    "allRegions": "Alle Bundesländer und Regionen",
+    "city": "Stadt",
+    "anyCity": "Beliebige Stadt",
+    "apply": "Anzeigen zeigen",
+    "reset": "Alle Orte anzeigen",
+    "showing": "Anzeigen in {place}",
+    "noneHere": "Hier gibt es noch keine Anzeigen. Wähle ein größeres Gebiet oder zeig alle Orte an."
   }
 }

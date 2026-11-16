@@ -558,5 +558,18 @@
     "listings": "Iklan dari @{username}",
     "noListings": "Belum ada iklan aktif.",
     "viewProfile": "Lihat profil dan ulasan penjual"
+  },
+  "location": {
+    "all": "Semua lokasi",
+    "choose": "Jelajahi berdasarkan lokasi",
+    "country": "Negara",
+    "region": "Provinsi atau wilayah",
+    "allRegions": "Semua provinsi dan wilayah",
+    "city": "Kota",
+    "anyCity": "Kota mana saja",
+    "apply": "Tampilkan iklan",
+    "reset": "Tampilkan semua lokasi",
+    "showing": "Menampilkan iklan di {place}",
+    "noneHere": "Belum ada iklan di sini. Coba area yang lebih luas atau tampilkan semua lokasi."
   }
 }

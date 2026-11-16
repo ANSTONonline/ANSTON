@@ -558,5 +558,18 @@
     "listings": "@{username} 的商品",
     "noListings": "目前没有在售商品。",
     "viewProfile": "查看卖家主页和评价"
+  },
+  "location": {
+    "all": "所有地区",
+    "choose": "按地区浏览",
+    "country": "国家/地区",
+    "region": "州或省",
+    "allRegions": "所有州和省",
+    "city": "城市",
+    "anyCity": "任何城市",
+    "apply": "查看商品",
+    "reset": "显示所有地区",
+    "showing": "正在显示 {place} 的商品",
+    "noneHere": "这里还没有商品。试试更大的范围，或显示所有地区。"
   }
 }

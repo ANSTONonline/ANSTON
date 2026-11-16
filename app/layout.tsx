@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./components/site-header";
+import { getPlaceFilter, placeLabel } from "@/lib/location-filter";
+import { allCountryCodes } from "@/lib/places";
 import SiteFooter from "./components/site-footer";
 import { localeDir } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/server";
@@ -30,6 +32,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  const place = await getPlaceFilter();
   const t = await getDictionary(locale);
 
   return (
@@ -40,7 +43,15 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-white">
-        <SiteHeader t={t} locale={locale} />
+        <SiteHeader
+          t={t}
+          locale={locale}
+          place={{
+            current: place ? { country: place.country, region: place.regionCode ?? "", city: place.city ?? "" } : null,
+            label: place ? placeLabel(place, locale) : null,
+            countryCodes: allCountryCodes(),
+          }}
+        />
         {children}
         <SiteFooter t={t} />
       </body>
