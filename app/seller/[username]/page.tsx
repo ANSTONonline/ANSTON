@@ -24,7 +24,7 @@ async function loadProfile(raw: string) {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { username } = await params;
-  return { title: `@${decodeURIComponent(username).toLowerCase()} | ANSTON` };
+  return { title: `@${decodeURIComponent(username).toLowerCase()} | Anston` };
 }
 
 // A seller's public page: rating, reviews from buyers, and active listings.

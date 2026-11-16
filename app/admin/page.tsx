@@ -9,7 +9,7 @@ import AdminNav from "./admin-nav";
 
 // Admin-only page for reviewing reported listings. Kept in English: only the
 // Anston team sees it.
-export const metadata: Metadata = { title: "Reports | ANSTON", robots: { index: false } };
+export const metadata: Metadata = { title: "Reports | Anston", robots: { index: false } };
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
