@@ -38,7 +38,7 @@ export default async function Home() {
     <main className="flex-1">
       {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center py-24 px-4 bg-[#7A1E2B] text-white">
-        <h2 className="text-5xl font-bold mb-4 tracking-wide">ANSTON</h2>
+        <h2 className="text-5xl font-bold mb-4 tracking-wide">Anston</h2>
         <p className="text-xl mb-2">{t.hero.tagline}</p>
         <p className="text-sm mb-8 opacity-90">{t.hero.modes}</p>
         <div className="flex gap-4">
