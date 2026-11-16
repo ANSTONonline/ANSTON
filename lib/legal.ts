@@ -31,7 +31,7 @@ export const privacyPolicy: LegalDoc = {
     {
       heading: "2. Information collected automatically",
       bullets: [
-        "Sign-in cookies that keep you logged in, and a cookie that remembers your language. See our Cookie Policy for the full list.",
+        "Sign-in cookies that keep you logged in, and cookies that remember your language and the location you browse. See our Cookie Policy for the full list.",
         "Your cart and saved listings, which are stored in your own browser, not on our servers.",
         "Basic technical information our hosting providers record to keep the Service running and secure, such as your IP address, browser type and the pages you request.",
       ],
@@ -271,6 +271,7 @@ export const cookiePolicy: LegalDoc = {
       heading: "Cookies we use",
       bullets: [
         "NEXT_LOCALE: remembers the language you chose. Kept for one year.",
+        "anston_location: remembers the location you chose to browse (country, and optionally state and city). Only set if you pick a location; kept for one year.",
         "Sign-in cookies (names starting with sb-): keep you logged in securely. Removed when you log out or the session expires.",
       ],
     },

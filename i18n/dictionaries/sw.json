@@ -558,5 +558,18 @@
     "listings": "Matangazo ya @{username}",
     "noListings": "Hakuna matangazo yanayoendelea kwa sasa.",
     "viewProfile": "Tazama wasifu na maoni ya muuzaji"
+  },
+  "location": {
+    "all": "Maeneo yote",
+    "choose": "Vinjari kwa eneo",
+    "country": "Nchi",
+    "region": "Jimbo au mkoa",
+    "allRegions": "Majimbo na mikoa yote",
+    "city": "Jiji",
+    "anyCity": "Jiji lolote",
+    "apply": "Onyesha matangazo",
+    "reset": "Onyesha maeneo yote",
+    "showing": "Matangazo katika {place}",
+    "noneHere": "Bado hakuna matangazo hapa. Jaribu eneo pana zaidi au onyesha maeneo yote."
   }
 }

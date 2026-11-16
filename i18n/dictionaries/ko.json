@@ -558,5 +558,18 @@
     "listings": "@{username}님의 상품",
     "noListings": "현재 판매 중인 상품이 없습니다.",
     "viewProfile": "판매자 프로필과 후기 보기"
+  },
+  "location": {
+    "all": "모든 지역",
+    "choose": "지역별로 보기",
+    "country": "국가",
+    "region": "주 또는 지역",
+    "allRegions": "모든 주 및 지역",
+    "city": "도시",
+    "anyCity": "모든 도시",
+    "apply": "상품 보기",
+    "reset": "모든 지역 보기",
+    "showing": "{place}의 상품",
+    "noneHere": "아직 이 지역에 상품이 없습니다. 더 넓은 지역을 선택하거나 모든 지역을 보세요."
   }
 }

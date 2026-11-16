@@ -558,5 +558,18 @@
     "listings": "@{username} kullanıcısının ilanları",
     "noListings": "Şu anda aktif ilan yok.",
     "viewProfile": "Satıcının profilini ve değerlendirmelerini gör"
+  },
+  "location": {
+    "all": "Tüm konumlar",
+    "choose": "Konuma göre göz at",
+    "country": "Ülke",
+    "region": "Eyalet veya bölge",
+    "allRegions": "Tüm eyaletler ve bölgeler",
+    "city": "Şehir",
+    "anyCity": "Herhangi bir şehir",
+    "apply": "İlanları göster",
+    "reset": "Tüm konumları göster",
+    "showing": "{place} konumundaki ilanlar",
+    "noneHere": "Burada henüz ilan yok. Daha geniş bir alan deneyin veya tüm konumları gösterin."
   }
 }

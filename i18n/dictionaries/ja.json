@@ -558,5 +558,18 @@
     "listings": "@{username} の出品",
     "noListings": "現在出品中の商品はありません。",
     "viewProfile": "出品者のプロフィールとレビューを見る"
+  },
+  "location": {
+    "all": "すべての地域",
+    "choose": "地域で探す",
+    "country": "国",
+    "region": "州・地域",
+    "allRegions": "すべての州・地域",
+    "city": "都市",
+    "anyCity": "すべての都市",
+    "apply": "出品を表示",
+    "reset": "すべての地域を表示",
+    "showing": "{place} の出品を表示中",
+    "noneHere": "この地域にはまだ出品がありません。範囲を広げるか、すべての地域を表示してください。"
   }
 }
