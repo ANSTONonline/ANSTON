@@ -3,7 +3,7 @@
 // in other languages show a short note saying so (see i18n dictionaries).
 // When anything here changes, update EFFECTIVE_DATE.
 
-export const EFFECTIVE_DATE = "November 15, 2026";
+export const EFFECTIVE_DATE = "November 16, 2026";
 export const CONTACT_EMAIL = "support@myanston.com";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[]; after?: string[] };
@@ -45,7 +45,7 @@ export const privacyPolicy: LegalDoc = {
         "To make bids, offers, rentals, bookings and messages work between buyers and sellers.",
         "To send account emails or texts, such as verification links and codes and password resets, and emails about activity on your listings and deals (new messages, offers, bids and booking requests). You can turn activity emails off on your account page.",
         "To keep the marketplace safe: checking ages, reviewing reports, and preventing fraud, spam and prohibited listings.",
-        "To answer your questions and improve the Service.",
+        "To answer your questions and improve the Service. Authorized Anston staff can view your account details and activity (such as your email or phone number, listings, orders, offers and bids) to give support, resolve problems and enforce our rules.",
         "To meet legal obligations.",
       ],
       after: [

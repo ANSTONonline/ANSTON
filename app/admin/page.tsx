@@ -5,6 +5,7 @@ import { getDictionary, getLocale } from "@/i18n/server";
 import { requireMember } from "@/lib/member";
 import { ConfirmButton, LocalTime } from "../listing/[id]/listing-actions";
 import { resolveReport, restoreListing, setSuspended } from "./actions";
+import AdminNav from "./admin-nav";
 
 // Admin-only page for reviewing reported listings. Kept in English: only the
 // Anston team sees it.
@@ -87,6 +88,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
 
   return (
     <main className="flex-1 px-4 sm:px-8 py-10 max-w-4xl mx-auto w-full" dir="ltr">
+      <AdminNav current="reports" />
       <h1 className="text-3xl font-bold mb-2">Reports</h1>
       <p className="text-gray-600 mb-6">
         Listings people flagged. Removing a listing hides it from everyone and closes all its reports.
@@ -117,7 +119,12 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
                       <span className="font-semibold text-gray-500">Listing deleted</span>
                     )}
                     <p className="text-sm text-gray-600">
-                      Seller: {seller?.username ? `@${seller.username}` : "unknown"}
+                      Seller:{" "}
+                      {seller?.username && r.listing ? (
+                        <Link href={`/admin/members/${r.listing.seller_id}`} className="underline">@{seller.username}</Link>
+                      ) : (
+                        "unknown"
+                      )}
                       {seller?.is_suspended && <span className="ms-2 text-red-700 font-medium">suspended</span>}
                       {r.listing && <span className="ms-2">· Listing is {r.listing.status}</span>}
                     </p>

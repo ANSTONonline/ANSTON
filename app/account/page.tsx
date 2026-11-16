@@ -93,6 +93,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             </Link>
             <Link href="/account/selling" className="border py-2 rounded-lg text-center">{t.dashboard.sellingTitle}</Link>
             <Link href="/account/buying" className="border py-2 rounded-lg text-center">{t.dashboard.buyingTitle}</Link>
+            <Link href="/account/orders" className="border py-2 rounded-lg text-center">📦 {t.orders.title}</Link>
             <Link href="/messages" className="border py-2 rounded-lg text-center">
               {t.messages.title}
               {unread ? (
@@ -102,7 +103,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             <Link href="/favorites" className="border py-2 rounded-lg text-center">{t.favorites.title}</Link>
             {emailPrefs?.is_admin && (
               <Link href="/admin" className="border border-[#7A1E2B] py-2 rounded-lg text-center" dir="ltr">
-                🛡️ Admin: reports
+                🛡️ Admin: reports and members
               </Link>
             )}
             {user.email && (

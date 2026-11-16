@@ -89,4 +89,5 @@ export async function setSuspended(fd: FormData) {
   const { error } = await admin.supabase.from("profiles").update({ is_suspended: suspended }).eq("id", id);
   if (error) console.error("setSuspended", error.message);
   refresh();
+  revalidatePath(`/admin/members/${id}`);
 }
