@@ -6,7 +6,7 @@ import { requireMember } from "@/lib/member";
 import { LocalTime } from "../../listing/[id]/listing-actions";
 import AdminNav from "../admin-nav";
 
-export const metadata: Metadata = { title: "Members | ANSTON", robots: { index: false } };
+export const metadata: Metadata = { title: "Members | Anston", robots: { index: false } };
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 

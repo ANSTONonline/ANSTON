@@ -19,5 +19,5 @@ export default async function InfoPage({ page, numbered = false }: { page: TextP
 
 export async function pageTitle(page: TextPage | "faq" | "privacy" | "terms" | "cookies") {
   const t = await getDictionary(await getLocale());
-  return { title: `${t.pages[page].title} | ANSTON` };
+  return { title: `${t.pages[page].title} | Anston` };
 }

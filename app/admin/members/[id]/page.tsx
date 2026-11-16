@@ -8,7 +8,7 @@ import { ConfirmButton, LocalTime } from "../../../listing/[id]/listing-actions"
 import { setListingSuspended, setSuspended } from "../../actions";
 import AdminNav from "../../admin-nav";
 
-export const metadata: Metadata = { title: "Member | ANSTON", robots: { index: false } };
+export const metadata: Metadata = { title: "Member | Anston", robots: { index: false } };
 
 type Params = Promise<{ id: string }>;
 
