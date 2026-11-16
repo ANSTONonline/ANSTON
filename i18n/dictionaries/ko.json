@@ -159,7 +159,8 @@
       "paused": "일시 중지됨",
       "sold": "판매 완료",
       "expired": "기간 만료",
-      "removed": "삭제됨"
+      "removed": "삭제됨",
+      "suspended": "일시 중지됨"
     },
     "homemadeNotice": "보건 당국의 검사를 받지 않는 가정 주방에서 만들었어요.",
     "allergens": "알레르기 유발 성분",
@@ -177,7 +178,8 @@
     "edit": "수정",
     "refunds": "환불",
     "refundsAccepted": "{n}일 이내 환불 가능",
-    "noRefunds": "환불 불가, 최종 판매"
+    "noRefunds": "환불 불가, 최종 판매",
+    "lockedNote": "Anston이 이 상품을 검토 중이라 구매자에게 숨겨져 있습니다. 문의는 support@myanston.com으로 이메일 주세요."
   },
   "cart": {
     "title": "장바구니",
@@ -288,7 +290,11 @@
     "refundWithin": "환불 요청 가능 기간",
     "nonRefundable": "환불 불가",
     "nonRefundableHint": "모든 판매는 최종 판매예요.",
-    "chooseRegion": "주 또는 지역 선택"
+    "chooseRegion": "주 또는 지역 선택",
+    "boostTitle": "상품 부스트하기 (선택)",
+    "boostNone": "부스트 안 함",
+    "boostOption": "부스트: 최종 가격의 {n}%",
+    "boostHelp": "부스트한 상품은 추천 상품 맨 위에 \"스폰서\" 표시와 함께 보입니다. 비율이 높을수록 더 위에 표시됩니다. Anston 결제로 판매되거나 예약될 때만 비용을 내면 됩니다."
   },
   "account": {
     "title": "내 계정",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "요금",
       "body": [
-        "Anston에 상품을 등록하는 것은 무료예요.",
-        "출시 시점에는 판매 수수료가 없어요. 앞으로 수수료가 생기면 등록 전에 분명하게 안내해 드릴게요."
+        "Anston에 상품을 올리는 것은 무료이며 판매 수수료도 없습니다.",
+        "부스트는 선택 사항입니다. 상품을 올릴 때 비율을 고르면 추천 상품 맨 위에 표시됩니다. Anston 결제로 판매되거나 예약될 때만 최종 가격의 해당 비율을 내면 됩니다.",
+        "새로운 수수료는 상품을 올리기 전에 항상 명확히 안내해 드립니다."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "배송 완료",
       "completed": "완료"
     }
+  },
+  "boost": {
+    "sponsored": "스폰서"
+  },
+  "reviews": {
+    "title": "후기",
+    "leaveTitle": "판매자 후기 남기기",
+    "yours": "내 후기",
+    "rating": "내 평점",
+    "stars": "별 5개 중 {n}개",
+    "comment": "경험을 공유해 주세요 (선택)",
+    "submit": "후기 등록",
+    "thanks": "후기를 남겨 주셔서 감사합니다!",
+    "none": "아직 후기가 없습니다.",
+    "count": "후기 {n}개",
+    "one": "후기 1개"
+  },
+  "seller": {
+    "memberSince": "{date}부터 회원",
+    "listings": "@{username}님의 상품",
+    "noListings": "현재 판매 중인 상품이 없습니다.",
+    "viewProfile": "판매자 프로필과 후기 보기"
   }
 }

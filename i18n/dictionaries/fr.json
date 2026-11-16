@@ -159,7 +159,8 @@
       "paused": "en pause",
       "sold": "vendue",
       "expired": "expirée",
-      "removed": "retirée"
+      "removed": "retirée",
+      "suspended": "suspendue"
     },
     "homemadeNotice": "Préparé dans une cuisine familiale qui n'est pas inspectée par les services sanitaires.",
     "allergens": "Allergènes",
@@ -177,7 +178,8 @@
     "edit": "Modifier",
     "refunds": "Remboursements",
     "refundsAccepted": "Acceptés sous {n} jours",
-    "noRefunds": "Pas de remboursement, vente définitive"
+    "noRefunds": "Pas de remboursement, vente définitive",
+    "lockedNote": "Anston examine cette annonce, elle est donc masquée aux acheteurs. Des questions ? Écrivez à support@myanston.com."
   },
   "cart": {
     "title": "Votre panier",
@@ -288,7 +290,11 @@
     "refundWithin": "Les acheteurs peuvent demander sous",
     "nonRefundable": "Pas de remboursement",
     "nonRefundableHint": "Toutes les ventes sont définitives.",
-    "chooseRegion": "Choisissez un État ou une région"
+    "chooseRegion": "Choisissez un État ou une région",
+    "boostTitle": "Mettez votre annonce en avant (facultatif)",
+    "boostNone": "Pas de mise en avant",
+    "boostOption": "Mise en avant : {n} % du prix final",
+    "boostHelp": "Les annonces mises en avant apparaissent en premier dans les Annonces à la une, avec la mention « Sponsorisé ». Plus le pourcentage est élevé, plus elles apparaissent haut. Vous ne payez que si l'article est vendu ou réservé via le paiement Anston."
   },
   "account": {
     "title": "Votre compte",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Tarifs",
       "body": [
-        "Publier sur Anston est gratuit.",
-        "Aucuns frais de vente au lancement. Tout frais futur sera clairement indiqué avant la publication."
+        "Publier sur Anston est gratuit et il n'y a pas de frais de vente.",
+        "La mise en avant est facultative. Choisissez un pourcentage lors de la publication et votre annonce apparaîtra en premier dans les Annonces à la une. Vous ne payez ce pourcentage du prix final que si l'article est vendu ou réservé via le paiement Anston.",
+        "Tout nouveau frais sera clairement indiqué avant que vous publiiez."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Livré",
       "completed": "Terminé"
     }
+  },
+  "boost": {
+    "sponsored": "Sponsorisé"
+  },
+  "reviews": {
+    "title": "Avis",
+    "leaveTitle": "Évaluez le vendeur",
+    "yours": "Votre avis",
+    "rating": "Votre note",
+    "stars": "{n} étoiles sur 5",
+    "comment": "Partagez votre expérience (facultatif)",
+    "submit": "Publier l'avis",
+    "thanks": "Merci pour votre avis !",
+    "none": "Pas encore d'avis.",
+    "count": "{n} avis",
+    "one": "1 avis"
+  },
+  "seller": {
+    "memberSince": "Membre depuis le {date}",
+    "listings": "Annonces de @{username}",
+    "noListings": "Aucune annonce active pour le moment.",
+    "viewProfile": "Voir le profil et les avis du vendeur"
   }
 }

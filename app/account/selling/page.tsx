@@ -132,6 +132,8 @@ export default async function SellingPage() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
+                  {l.status !== "removed" && l.status !== "suspended" && (
+                    <>
                   <Link href={`/listing/${l.id}/edit`} className={small}>✏️ {t.listing.edit}</Link>
                   {winners.has(l.id) && (
                     <MessageButton listingId={l.id} buyerId={winners.get(l.id)!} label={d.messageWinner} />
@@ -143,6 +145,8 @@ export default async function SellingPage() {
                   )}
                   {l.status !== "sold" && (
                     <StatusButton action={setListingStatus} id={l.id} status="sold" label={t.listing.markSold} />
+                  )}
+                    </>
                   )}
                   <form action={deleteListing}>
                     <input type="hidden" name="id" value={l.id} />

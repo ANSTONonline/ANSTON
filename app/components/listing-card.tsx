@@ -23,7 +23,9 @@ export function actionLabel(listing: Listing, t: Dictionary) {
   return t.listing.makeOffer;
 }
 
-export default function ListingCard({ listing, t }: { listing: Listing; t: Dictionary }) {
+// sponsored: show the "Sponsored" label on boosted listings (used where boosts
+// change the order, like Featured Listings).
+export default function ListingCard({ listing, t, sponsored = false }: { listing: Listing; t: Dictionary; sponsored?: boolean }) {
   return (
     <div className="border rounded-xl overflow-hidden hover:shadow-md transition flex flex-col">
       <div className="relative h-40 bg-gray-100 flex items-center justify-center text-5xl">
@@ -45,7 +47,12 @@ export default function ListingCard({ listing, t }: { listing: Listing; t: Dicti
         />
       </div>
       <div className="p-4 flex flex-col flex-1">
-        <p className="text-xs text-gray-500 mb-1">{listing.categoryName ?? t.categories[listing.category]}</p>
+        <p className="text-xs text-gray-500 mb-1">
+          {listing.categoryName ?? t.categories[listing.category]}
+          {sponsored && (listing.boostBps ?? 0) > 0 && (
+            <span className="ms-2 text-[11px] font-medium text-amber-800 bg-amber-100 rounded px-1.5 py-0.5">{t.boost.sponsored}</span>
+          )}
+        </p>
         <Link href={`/listing/${listing.id}`} className="font-semibold mb-1 hover:text-[#7A1E2B] line-clamp-2">
           {listing.title}
         </Link>

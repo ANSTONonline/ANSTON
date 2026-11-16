@@ -159,7 +159,8 @@
       "paused": "paused",
       "sold": "sold",
       "expired": "expired",
-      "removed": "removed"
+      "removed": "removed",
+      "suspended": "suspended"
     },
     "homemadeNotice": "Made in a home kitchen that is not inspected by the health department.",
     "allergens": "Allergens",
@@ -177,7 +178,8 @@
     "edit": "Edit",
     "refunds": "Refunds",
     "refundsAccepted": "Accepted within {n} days",
-    "noRefunds": "No refunds, all sales final"
+    "noRefunds": "No refunds, all sales final",
+    "lockedNote": "Anston is reviewing this listing, so it's hidden from buyers. Questions? Email support@myanston.com."
   },
   "cart": {
     "title": "Your cart",
@@ -288,7 +290,11 @@
     "refundWithin": "Buyers can ask within",
     "nonRefundable": "No refunds",
     "nonRefundableHint": "All sales are final.",
-    "chooseRegion": "Choose a state or region"
+    "chooseRegion": "Choose a state or region",
+    "boostTitle": "Boost your listing (optional)",
+    "boostNone": "No boost",
+    "boostOption": "Boost: {n}% of the final price",
+    "boostHelp": "Boosted listings show first in Featured Listings, marked \"Sponsored\". Higher boosts show higher. You pay the boost only if the item sells or is booked through Anston checkout."
   },
   "account": {
     "title": "Your account",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Pricing",
       "body": [
-        "Listing on Anston is free.",
-        "There are no selling fees at launch. Any future fees will be shown clearly before you list."
+        "Listing on Anston is free, and there are no selling fees.",
+        "Boosting is optional. Choose a percentage when you list, and your listing shows first in Featured Listings. You pay that percentage of the final price only if it sells or is booked through Anston checkout.",
+        "Any new fees will be shown clearly before you list."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Delivered",
       "completed": "Completed"
     }
+  },
+  "boost": {
+    "sponsored": "Sponsored"
+  },
+  "reviews": {
+    "title": "Reviews",
+    "leaveTitle": "Review the seller",
+    "yours": "Your review",
+    "rating": "Your rating",
+    "stars": "{n} out of 5 stars",
+    "comment": "Tell others about your experience (optional)",
+    "submit": "Post review",
+    "thanks": "Thanks for your review!",
+    "none": "No reviews yet.",
+    "count": "{n} reviews",
+    "one": "1 review"
+  },
+  "seller": {
+    "memberSince": "Member since {date}",
+    "listings": "Listings from @{username}",
+    "noListings": "No active listings right now.",
+    "viewProfile": "See the seller's profile and reviews"
   }
 }

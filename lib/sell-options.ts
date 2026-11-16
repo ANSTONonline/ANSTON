@@ -6,6 +6,8 @@ export const RATE_UNITS = ["hour", "day", "week", "month"] as const;
 export const AUCTION_DAYS = [1, 3, 5, 7, 10];
 // How long buyers have to ask for a refund, when the seller offers refunds.
 export const REFUND_DAYS = [3, 7, 14, 30];
+// Boost choices in basis points (500 = 5% of the final price).
+export const BOOST_OPTIONS = [200, 500, 1000, 1500, 2000];
 export const SESSION_MINUTES = [30, 45, 60, 90, 120, 180, 240, 480];
 
 // Countries in the location menu (ISO codes; names come from the browser in

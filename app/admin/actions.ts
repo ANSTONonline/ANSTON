@@ -30,7 +30,7 @@ export async function resolveReport(fd: FormData) {
   const supabase = admin.supabase;
   const id = text(fd, "id");
   const outcome = text(fd, "outcome");
-  if (!isId(id) || !["dismiss", "remove", "suspend"].includes(outcome)) return;
+  if (!isId(id) || !["dismiss", "hold", "remove", "suspend"].includes(outcome)) return;
 
   const { data: report } = await supabase
     .from("reports")
@@ -48,7 +48,9 @@ export async function resolveReport(fd: FormData) {
 
   const listing = report.listing as unknown as { seller_id: string } | null;
   if (report.listing_id) {
-    const { error } = await supabase.from("listings").update({ status: "removed" }).eq("id", report.listing_id);
+    // "hold" suspends the listing while you look into it; the others remove it.
+    const status = outcome === "hold" ? "suspended" : "removed";
+    const { error } = await supabase.from("listings").update({ status }).eq("id", report.listing_id);
     if (error) console.error("resolveReport remove", error.message);
     await supabase
       .from("reports")
@@ -69,6 +71,22 @@ export async function resolveReport(fd: FormData) {
       .in("status", ["active", "paused", "draft"]);
   }
   refresh(report.listing_id);
+}
+
+// Suspend a listing (hidden while you review it) or bring it back.
+export async function setListingSuspended(fd: FormData) {
+  const admin = await requireAdmin();
+  const id = text(fd, "id");
+  const suspended = text(fd, "suspended") === "true";
+  if (!isId(id)) return;
+  const { error } = await admin.supabase
+    .from("listings")
+    .update({ status: suspended ? "suspended" : "active" })
+    .eq("id", id);
+  if (error) console.error("setListingSuspended", error.message);
+  refresh(id);
+  const back = text(fd, "back");
+  if (back.startsWith("/admin/members/")) revalidatePath(back);
 }
 
 // Undo tools, for mistakes.

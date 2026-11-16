@@ -159,7 +159,8 @@
       "paused": "dijeda",
       "sold": "terjual",
       "expired": "kedaluwarsa",
-      "removed": "dihapus"
+      "removed": "dihapus",
+      "suspended": "ditangguhkan"
     },
     "homemadeNotice": "Dibuat di dapur rumahan yang tidak diperiksa oleh dinas kesehatan.",
     "allergens": "Alergen",
@@ -177,7 +178,8 @@
     "edit": "Edit",
     "refunds": "Pengembalian dana",
     "refundsAccepted": "Diterima dalam {n} hari",
-    "noRefunds": "Tanpa pengembalian dana, penjualan final"
+    "noRefunds": "Tanpa pengembalian dana, penjualan final",
+    "lockedNote": "Anston sedang meninjau iklan ini, jadi iklan disembunyikan dari pembeli. Ada pertanyaan? Email support@myanston.com."
   },
   "cart": {
     "title": "Keranjang Anda",
@@ -288,7 +290,11 @@
     "refundWithin": "Pembeli bisa meminta dalam",
     "nonRefundable": "Tanpa pengembalian dana",
     "nonRefundableHint": "Semua penjualan bersifat final.",
-    "chooseRegion": "Pilih provinsi atau wilayah"
+    "chooseRegion": "Pilih provinsi atau wilayah",
+    "boostTitle": "Promosikan iklan Anda (opsional)",
+    "boostNone": "Tanpa promosi",
+    "boostOption": "Promosi: {n}% dari harga akhir",
+    "boostHelp": "Iklan yang dipromosikan tampil paling atas di Iklan Unggulan dengan label \"Bersponsor\". Semakin tinggi persentasenya, semakin atas posisinya. Anda hanya membayar jika barang terjual atau dipesan melalui checkout Anston."
   },
   "account": {
     "title": "Akun Anda",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Biaya",
       "body": [
-        "Memasang iklan di Anston gratis.",
-        "Tidak ada biaya penjualan saat peluncuran. Biaya apa pun di masa depan akan ditampilkan dengan jelas sebelum Anda memasang iklan."
+        "Memasang iklan di Anston gratis, dan tidak ada biaya penjualan.",
+        "Promosi bersifat opsional. Pilih persentase saat memasang iklan, dan iklan Anda tampil paling atas di Iklan Unggulan. Anda hanya membayar persentase dari harga akhir itu jika terjual atau dipesan melalui checkout Anston.",
+        "Biaya baru apa pun akan ditampilkan dengan jelas sebelum Anda memasang iklan."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Diterima",
       "completed": "Selesai"
     }
+  },
+  "boost": {
+    "sponsored": "Bersponsor"
+  },
+  "reviews": {
+    "title": "Ulasan",
+    "leaveTitle": "Ulas penjual",
+    "yours": "Ulasan Anda",
+    "rating": "Rating Anda",
+    "stars": "{n} dari 5 bintang",
+    "comment": "Ceritakan pengalaman Anda (opsional)",
+    "submit": "Kirim ulasan",
+    "thanks": "Terima kasih atas ulasan Anda!",
+    "none": "Belum ada ulasan.",
+    "count": "{n} ulasan",
+    "one": "1 ulasan"
+  },
+  "seller": {
+    "memberSince": "Anggota sejak {date}",
+    "listings": "Iklan dari @{username}",
+    "noListings": "Belum ada iklan aktif.",
+    "viewProfile": "Lihat profil dan ulasan penjual"
   }
 }

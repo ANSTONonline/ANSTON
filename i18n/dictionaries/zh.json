@@ -159,7 +159,8 @@
       "paused": "已暂停",
       "sold": "已售出",
       "expired": "已过期",
-      "removed": "已删除"
+      "removed": "已删除",
+      "suspended": "已暂停"
     },
     "homemadeNotice": "由未经卫生部门检查的家庭厨房制作。",
     "allergens": "过敏原",
@@ -177,7 +178,8 @@
     "edit": "编辑",
     "refunds": "退款",
     "refundsAccepted": "{n} 天内可退款",
-    "noRefunds": "不退款，售出即为最终交易"
+    "noRefunds": "不退款，售出即为最终交易",
+    "lockedNote": "Anston 正在审核此商品，因此暂时对买家隐藏。如有疑问，请发邮件至 support@myanston.com。"
   },
   "cart": {
     "title": "购物车",
@@ -288,7 +290,11 @@
     "refundWithin": "买家可在以下时间内申请",
     "nonRefundable": "不退款",
     "nonRefundableHint": "所有交易一经售出概不退款。",
-    "chooseRegion": "选择州或地区"
+    "chooseRegion": "选择州或地区",
+    "boostTitle": "推广您的商品（可选）",
+    "boostNone": "不推广",
+    "boostOption": "推广：最终价格的 {n}%",
+    "boostHelp": "推广的商品会优先显示在精选商品中，并标注\"赞助\"。推广比例越高，排名越靠前。只有当商品通过 Anston 结账售出或被预订时，您才需支付推广费用。"
   },
   "account": {
     "title": "我的账户",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "收费标准",
       "body": [
-        "在 Anston 发布商品是免费的。",
-        "上线初期不收取任何销售费用。未来如有收费，会在发布前清楚说明。"
+        "在 Anston 发布商品免费，且没有销售佣金。",
+        "推广是可选的。发布时选择一个比例，您的商品将优先显示在精选商品中。只有当商品通过 Anston 结账售出或被预订时，您才需支付最终价格的该比例。",
+        "任何新费用都会在您发布前清楚显示。"
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "已送达",
       "completed": "已完成"
     }
+  },
+  "boost": {
+    "sponsored": "赞助"
+  },
+  "reviews": {
+    "title": "评价",
+    "leaveTitle": "评价卖家",
+    "yours": "您的评价",
+    "rating": "您的评分",
+    "stars": "{n} 星（满分 5 星）",
+    "comment": "向其他人分享您的体验（可选）",
+    "submit": "发布评价",
+    "thanks": "感谢您的评价！",
+    "none": "暂无评价。",
+    "count": "{n} 条评价",
+    "one": "1 条评价"
+  },
+  "seller": {
+    "memberSince": "{date} 加入",
+    "listings": "@{username} 的商品",
+    "noListings": "目前没有在售商品。",
+    "viewProfile": "查看卖家主页和评价"
   }
 }

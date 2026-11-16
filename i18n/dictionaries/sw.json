@@ -159,7 +159,8 @@
       "paused": "limesitishwa",
       "sold": "limeuzwa",
       "expired": "limeisha muda",
-      "removed": "limeondolewa"
+      "removed": "limeondolewa",
+      "suspended": "limesimamishwa"
     },
     "homemadeNotice": "Kimetengenezwa katika jiko la nyumbani ambalo halikaguliwi na idara ya afya.",
     "allergens": "Vizio",
@@ -177,7 +178,8 @@
     "edit": "Hariri",
     "refunds": "Kurejeshewa pesa",
     "refundsAccepted": "Kunakubaliwa ndani ya siku {n}",
-    "noRefunds": "Hakuna kurejesha pesa, mauzo ni ya mwisho"
+    "noRefunds": "Hakuna kurejesha pesa, mauzo ni ya mwisho",
+    "lockedNote": "Anston inakagua tangazo hili, kwa hiyo limefichwa kwa wanunuzi. Una swali? Tuma barua pepe kwa support@myanston.com."
   },
   "cart": {
     "title": "Kikapu chako",
@@ -288,7 +290,11 @@
     "refundWithin": "Wanunuzi wanaweza kuomba ndani ya",
     "nonRefundable": "Hakuna kurejesha pesa",
     "nonRefundableHint": "Mauzo yote ni ya mwisho.",
-    "chooseRegion": "Chagua jimbo au mkoa"
+    "chooseRegion": "Chagua jimbo au mkoa",
+    "boostTitle": "Pandisha tangazo lako (si lazima)",
+    "boostNone": "Bila kupandisha",
+    "boostOption": "Pandisha: {n}% ya bei ya mwisho",
+    "boostHelp": "Matangazo yaliyopandishwa huonekana kwanza kwenye Matangazo Maalum, yakiwa na alama ya \"Limedhaminiwa\". Asilimia kubwa huonekana juu zaidi. Unalipa tu ikiwa bidhaa itauzwa au kuhifadhiwa kupitia malipo ya Anston."
   },
   "account": {
     "title": "Akaunti yako",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Bei",
       "body": [
-        "Kuweka tangazo kwenye Anston ni bure.",
-        "Hakuna ada za mauzo wakati wa uzinduzi. Ada zozote za baadaye zitaonyeshwa wazi kabla hujaweka tangazo."
+        "Kuweka tangazo kwenye Anston ni bure, na hakuna ada za mauzo.",
+        "Kupandisha ni hiari. Chagua asilimia unapoweka tangazo, na tangazo lako litaonekana kwanza kwenye Matangazo Maalum. Unalipa asilimia hiyo ya bei ya mwisho tu ikiwa litauzwa au kuhifadhiwa kupitia malipo ya Anston.",
+        "Ada zozote mpya zitaonyeshwa wazi kabla hujaweka tangazo."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Imefika",
       "completed": "Imekamilika"
     }
+  },
+  "boost": {
+    "sponsored": "Limedhaminiwa"
+  },
+  "reviews": {
+    "title": "Maoni",
+    "leaveTitle": "Toa maoni kuhusu muuzaji",
+    "yours": "Maoni yako",
+    "rating": "Ukadiriaji wako",
+    "stars": "Nyota {n} kati ya 5",
+    "comment": "Waambie wengine kuhusu uzoefu wako (si lazima)",
+    "submit": "Chapisha maoni",
+    "thanks": "Asante kwa maoni yako!",
+    "none": "Bado hakuna maoni.",
+    "count": "Maoni {n}",
+    "one": "Maoni 1"
+  },
+  "seller": {
+    "memberSince": "Mwanachama tangu {date}",
+    "listings": "Matangazo ya @{username}",
+    "noListings": "Hakuna matangazo yanayoendelea kwa sasa.",
+    "viewProfile": "Tazama wasifu na maoni ya muuzaji"
   }
 }

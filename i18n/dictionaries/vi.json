@@ -159,7 +159,8 @@
       "paused": "tạm dừng",
       "sold": "đã bán",
       "expired": "hết hạn",
-      "removed": "đã gỡ"
+      "removed": "đã gỡ",
+      "suspended": "bị tạm ngưng"
     },
     "homemadeNotice": "Được làm trong bếp gia đình không được cơ quan y tế kiểm tra.",
     "allergens": "Chất gây dị ứng",
@@ -177,7 +178,8 @@
     "edit": "Sửa",
     "refunds": "Hoàn tiền",
     "refundsAccepted": "Chấp nhận trong {n} ngày",
-    "noRefunds": "Không hoàn tiền, bán là chốt"
+    "noRefunds": "Không hoàn tiền, bán là chốt",
+    "lockedNote": "Anston đang xem xét tin này nên tin đang bị ẩn với người mua. Có câu hỏi? Email support@myanston.com."
   },
   "cart": {
     "title": "Giỏ hàng của bạn",
@@ -288,7 +290,11 @@
     "refundWithin": "Người mua có thể yêu cầu trong vòng",
     "nonRefundable": "Không hoàn tiền",
     "nonRefundableHint": "Mọi giao dịch là cuối cùng.",
-    "chooseRegion": "Chọn tỉnh, bang hoặc khu vực"
+    "chooseRegion": "Chọn tỉnh, bang hoặc khu vực",
+    "boostTitle": "Đẩy tin của bạn (không bắt buộc)",
+    "boostNone": "Không đẩy tin",
+    "boostOption": "Đẩy tin: {n}% giá cuối cùng",
+    "boostHelp": "Tin được đẩy sẽ hiện đầu tiên trong Tin nổi bật, kèm nhãn \"Được tài trợ\". Tỷ lệ càng cao thì càng hiện lên trên. Bạn chỉ trả phí nếu món hàng được bán hoặc đặt qua thanh toán Anston."
   },
   "account": {
     "title": "Tài khoản của bạn",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Phí",
       "body": [
-        "Đăng tin trên Anston là miễn phí.",
-        "Khi ra mắt không có phí bán hàng. Mọi khoản phí trong tương lai sẽ được thông báo rõ trước khi bạn đăng tin."
+        "Đăng tin trên Anston là miễn phí và không có phí bán hàng.",
+        "Đẩy tin là tùy chọn. Chọn một tỷ lệ khi đăng và tin của bạn sẽ hiện đầu tiên trong Tin nổi bật. Bạn chỉ trả tỷ lệ đó của giá cuối cùng nếu món hàng được bán hoặc đặt qua thanh toán Anston.",
+        "Mọi khoản phí mới sẽ được hiển thị rõ ràng trước khi bạn đăng tin."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Đã giao",
       "completed": "Hoàn tất"
     }
+  },
+  "boost": {
+    "sponsored": "Được tài trợ"
+  },
+  "reviews": {
+    "title": "Đánh giá",
+    "leaveTitle": "Đánh giá người bán",
+    "yours": "Đánh giá của bạn",
+    "rating": "Số sao của bạn",
+    "stars": "{n} trên 5 sao",
+    "comment": "Chia sẻ trải nghiệm của bạn (không bắt buộc)",
+    "submit": "Đăng đánh giá",
+    "thanks": "Cảm ơn bạn đã đánh giá!",
+    "none": "Chưa có đánh giá nào.",
+    "count": "{n} đánh giá",
+    "one": "1 đánh giá"
+  },
+  "seller": {
+    "memberSince": "Thành viên từ {date}",
+    "listings": "Tin đăng của @{username}",
+    "noListings": "Hiện chưa có tin đăng nào.",
+    "viewProfile": "Xem hồ sơ và đánh giá của người bán"
   }
 }

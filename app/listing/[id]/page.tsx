@@ -8,6 +8,7 @@ import { formatPrice, isFuture } from "@/lib/listings";
 import { getMember } from "@/lib/member";
 import { createClient } from "@/lib/supabase/server";
 import { deleteListing, setListingStatus } from "../actions";
+import { setListingSuspended } from "../../admin/actions";
 import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, ReportForm, ReserveForm } from "./listing-actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -29,6 +30,9 @@ export default async function ListingPage({
   const member = await getMember();
   const isOwner = Boolean(member && listing.sellerId === member.user.id);
   const isActive = !listing.status || listing.status === "active";
+  const isAdmin = Boolean(member?.profile?.is_admin);
+  // Suspended and removed listings are locked: their seller can only delete them.
+  const isLocked = listing.status === "removed" || listing.status === "suspended";
   const money = (cents: number) => formatPrice(cents, listing.currency);
   const canAct = Boolean(member?.complete) && !isOwner && isActive;
   const fromDatabase = Boolean(listing.sellerId);
@@ -64,6 +68,7 @@ export default async function ListingPage({
       {!isActive && listing.status && (
         <p className="mt-4 bg-gray-100 border rounded-lg p-3 text-gray-700">
           {t.listing.statusNote.replace("{status}", t.listing.statuses[listing.status as keyof typeof t.listing.statuses] ?? listing.status)}
+          {isOwner && isLocked && <span className="block text-sm mt-1">{t.listing.lockedNote}</span>}
         </p>
       )}
 
@@ -86,9 +91,18 @@ export default async function ListingPage({
           </p>
           <h1 className="text-3xl font-bold mb-2">{listing.title}</h1>
           {listing.sellerUsername && (
-            <p className="text-sm text-gray-600 mb-1">{t.listing.by.replace("{username}", listing.sellerUsername)}</p>
+            <p className="text-sm text-gray-600 mb-1">
+              <Link href={`/seller/${listing.sellerUsername}`} className="hover:underline">
+                {t.listing.by.replace("{username}", listing.sellerUsername)}
+              </Link>
+              {listing.reviews > 0 && (
+                <span className="ms-2">
+                  <span className="text-amber-500">★</span> {listing.rating.toFixed(1)} ({listing.reviews} {t.featured.reviews})
+                </span>
+              )}
+            </p>
           )}
-          {listing.reviews > 0 && (
+          {!listing.sellerUsername && listing.reviews > 0 && (
             <p className="text-gray-600 mb-2">
               ⭐ {listing.rating} ({listing.reviews} {t.featured.reviews})
             </p>
@@ -199,12 +213,12 @@ export default async function ListingPage({
               <div className="border rounded-xl p-4 space-y-3 bg-gray-50">
                 <p className="font-medium">{t.listing.yourListing}</p>
                 <div className="flex flex-wrap gap-2">
-                  {listing.status !== "removed" && (
+                  {!isLocked && (
                   <Link href={`/listing/${listing.id}/edit`} className="bg-[#7A1E2B] text-white rounded-lg px-3 py-2 text-sm">
                     ✏️ {t.listing.edit}
                   </Link>
                   )}
-                  {listing.status !== "active" && listing.status !== "removed" && (
+                  {listing.status !== "active" && !isLocked && (
                     <form action={setListingStatus}>
                       <input type="hidden" name="id" value={listing.id} />
                       <input type="hidden" name="status" value="active" />
@@ -218,7 +232,7 @@ export default async function ListingPage({
                       <button className="border rounded-lg px-3 py-2 text-sm bg-white">{t.listing.pause}</button>
                     </form>
                   )}
-                  {listing.status !== "sold" && listing.status !== "removed" && (
+                  {listing.status !== "sold" && !isLocked && (
                     <form action={setListingStatus}>
                       <input type="hidden" name="id" value={listing.id} />
                       <input type="hidden" name="status" value="sold" />
@@ -238,6 +252,25 @@ export default async function ListingPage({
                 <Link href="/account/selling" className="text-sm text-[#7A1E2B] hover:underline">
                   {t.listing.manage}
                 </Link>
+              </div>
+            )}
+
+            {isAdmin && fromDatabase && !isOwner && (listing.status === "active" || listing.status === "suspended") && (
+              <div className="border border-gray-900 rounded-xl p-4 mt-4 space-y-2" dir="ltr">
+                <p className="font-medium text-sm">🛡️ Admin</p>
+                <form action={setListingSuspended}>
+                  <input type="hidden" name="id" value={listing.id} />
+                  <input type="hidden" name="suspended" value={listing.status === "active" ? "true" : "false"} />
+                  <ConfirmButton
+                    message={listing.status === "active" ? "Suspend this listing? It will be hidden from buyers until you unsuspend it." : "Unsuspend this listing and make it active again?"}
+                    className={listing.status === "active" ? "border border-red-300 text-red-700 rounded-lg px-3 py-1.5 text-sm" : "border rounded-lg px-3 py-1.5 text-sm"}
+                  >
+                    {listing.status === "active" ? "Suspend listing" : "Unsuspend listing"}
+                  </ConfirmButton>
+                </form>
+                {listing.sellerId && (
+                  <a href={`/admin/members/${listing.sellerId}`} className="text-sm underline">View seller in admin</a>
+                )}
               </div>
             )}
           </div>

@@ -5,7 +5,7 @@ import { getLocale } from "@/i18n/server";
 import { formatPrice } from "@/lib/listings";
 import { requireMember } from "@/lib/member";
 import { ConfirmButton, LocalTime } from "../../../listing/[id]/listing-actions";
-import { setSuspended } from "../../actions";
+import { setListingSuspended, setSuspended } from "../../actions";
 import AdminNav from "../../admin-nav";
 
 export const metadata: Metadata = { title: "Member | ANSTON", robots: { index: false } };
@@ -190,8 +190,18 @@ export default async function MemberPage({ params }: { params: Params }) {
               {L.map((l) => (
                 <li key={l.id} className="py-2 flex flex-wrap items-center gap-x-3 gap-y-1">
                   <ListingLink listing={l} />
-                  <Pill tone={l.status === "removed" ? "red" : l.status === "active" ? "green" : "gray"}>{l.status}</Pill>
+                  <Pill tone={l.status === "removed" || l.status === "suspended" ? "red" : l.status === "active" ? "green" : "gray"}>{l.status}</Pill>
                   <span className="text-gray-500 ms-auto">{time(l.created_at, false)}</span>
+                  {(l.status === "active" || l.status === "suspended") && (
+                    <form action={setListingSuspended}>
+                      <input type="hidden" name="id" value={l.id} />
+                      <input type="hidden" name="suspended" value={l.status === "active" ? "true" : "false"} />
+                      <input type="hidden" name="back" value={`/admin/members/${m.id}`} />
+                      <button type="submit" className="text-xs border rounded px-2 py-0.5">
+                        {l.status === "active" ? "Suspend" : "Unsuspend"}
+                      </button>
+                    </form>
+                  )}
                 </li>
               ))}
             </ul>
