@@ -173,13 +173,21 @@
       "amount": "Saisissez un montant supérieur à zéro.",
       "notAvailable": "Cette annonce n'est plus disponible.",
       "message": "Écrivez un message.",
-      "generic": "Un problème est survenu. Veuillez réessayer."
+      "generic": "Un problème est survenu. Veuillez réessayer.",
+      "slot": "Ce créneau n'est plus disponible. Veuillez en choisir un autre."
     },
     "edit": "Modifier",
     "refunds": "Remboursements",
     "refundsAccepted": "Acceptés sous {n} jours",
     "noRefunds": "Pas de remboursement, vente définitive",
-    "lockedNote": "Anston examine cette annonce, elle est donc masquée aux acheteurs. Des questions ? Écrivez à support@myanston.com."
+    "lockedNote": "Anston examine cette annonce, elle est donc masquée aux acheteurs. Des questions ? Écrivez à support@myanston.com.",
+    "chooseDay": "Choisissez un jour",
+    "chooseTime": "Choisissez une heure",
+    "loadingTimes": "Chargement des créneaux…",
+    "noTimes": "Aucun créneau libre ce jour-là. Essayez un autre jour.",
+    "yourTimeZone": "Les heures sont affichées dans votre fuseau horaire.",
+    "hours": "Horaires",
+    "hoursZone": "Fuseau horaire du vendeur : {zone}"
   },
   "cart": {
     "title": "Votre panier",
@@ -275,7 +283,8 @@
       "generic": "Un problème est survenu. Veuillez réessayer.",
       "region": "Choisissez un État ou une région dans le pays sélectionné.",
       "cityMismatch": "Cette ville ne se trouve pas dans l'État et le pays choisis. Vérifiez votre localisation.",
-      "refund": "Indiquez si vous acceptez les remboursements."
+      "refund": "Indiquez si vous acceptez les remboursements.",
+      "availability": "Choisissez au moins un jour, avec des horaires assez longs pour une séance."
     },
     "editTitle": "Modifier l'annonce",
     "saveChanges": "Enregistrer les modifications",
@@ -294,7 +303,13 @@
     "boostTitle": "Mettez votre annonce en avant (facultatif)",
     "boostNone": "Pas de mise en avant",
     "boostOption": "Mise en avant : {n} % du prix final",
-    "boostHelp": "Les annonces mises en avant apparaissent en premier dans les Annonces à la une, avec la mention « Sponsorisé ». Plus le pourcentage est élevé, plus elles apparaissent haut. Vous ne payez que si l'article est vendu ou réservé via le paiement Anston."
+    "boostHelp": "Les annonces mises en avant apparaissent en premier dans les Annonces à la une, avec la mention « Sponsorisé ». Plus le pourcentage est élevé, plus elles apparaissent haut. Vous ne payez que si l'article est vendu ou réservé via le paiement Anston.",
+    "availability": "Horaires de la semaine",
+    "availabilityHelp": "Cochez les jours où vous acceptez des réservations et indiquez vos horaires. Les acheteurs ne peuvent réserver que les créneaux libres.",
+    "from": "De",
+    "to": "À",
+    "closed": "Fermé",
+    "timeZoneNote": "Les horaires sont dans votre fuseau horaire ({zone})."
   },
   "account": {
     "title": "Votre compte",

@@ -173,13 +173,21 @@
       "amount": "Please enter an amount above zero.",
       "notAvailable": "This listing isn't available anymore.",
       "message": "Please write a message.",
-      "generic": "Something went wrong. Please try again."
+      "generic": "Something went wrong. Please try again.",
+      "slot": "That time isn't available anymore. Please choose another one."
     },
     "edit": "Edit",
     "refunds": "Refunds",
     "refundsAccepted": "Accepted within {n} days",
     "noRefunds": "No refunds, all sales final",
-    "lockedNote": "Anston is reviewing this listing, so it's hidden from buyers. Questions? Email support@myanston.com."
+    "lockedNote": "Anston is reviewing this listing, so it's hidden from buyers. Questions? Email support@myanston.com.",
+    "chooseDay": "Choose a day",
+    "chooseTime": "Choose a time",
+    "loadingTimes": "Loading open times…",
+    "noTimes": "No open times on this day. Try another day.",
+    "yourTimeZone": "Times are shown in your time zone.",
+    "hours": "Hours",
+    "hoursZone": "Seller's time zone: {zone}"
   },
   "cart": {
     "title": "Your cart",
@@ -275,7 +283,8 @@
       "generic": "Something went wrong. Please try again.",
       "region": "Please choose a state or region in the country you picked.",
       "cityMismatch": "That city isn't in the state and country you picked. Please check your location.",
-      "refund": "Please choose whether you accept refunds."
+      "refund": "Please choose whether you accept refunds.",
+      "availability": "Choose at least one day, with hours long enough for one session."
     },
     "editTitle": "Edit listing",
     "saveChanges": "Save changes",
@@ -294,7 +303,13 @@
     "boostTitle": "Boost your listing (optional)",
     "boostNone": "No boost",
     "boostOption": "Boost: {n}% of the final price",
-    "boostHelp": "Boosted listings show first in Featured Listings, marked \"Sponsored\". Higher boosts show higher. You pay the boost only if the item sells or is booked through Anston checkout."
+    "boostHelp": "Boosted listings show first in Featured Listings, marked \"Sponsored\". Higher boosts show higher. You pay the boost only if the item sells or is booked through Anston checkout.",
+    "availability": "Weekly hours",
+    "availabilityHelp": "Tick the days you take bookings and set your hours. Buyers can only book open times.",
+    "from": "From",
+    "to": "To",
+    "closed": "Closed",
+    "timeZoneNote": "Times are in your time zone ({zone})."
   },
   "account": {
     "title": "Your account",

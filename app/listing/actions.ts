@@ -7,6 +7,7 @@ import { requireMember } from "@/lib/member";
 
 export type ListingErrorCode =
   | "bidLow"
+  | "slot"
   | "auctionClosed"
   | "ownListing"
   | "datesTaken"
@@ -115,6 +116,7 @@ export async function requestReservation(
   });
   if (error) {
     if (error.code === "23P01") return { error: "datesTaken" };
+    if (error.message.includes("outside_availability")) return { error: "slot" };
     console.error("requestReservation", error.message);
     return { error: "generic" };
   }

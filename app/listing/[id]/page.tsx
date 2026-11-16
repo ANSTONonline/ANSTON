@@ -9,9 +9,40 @@ import { getMember } from "@/lib/member";
 import { createClient } from "@/lib/supabase/server";
 import { deleteListing, setListingStatus } from "../actions";
 import { setListingSuspended } from "../../admin/actions";
+import { WEEKDAYS, todayIn, type Availability } from "@/lib/availability";
 import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, ReportForm, ReserveForm } from "./listing-actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+// The seller's weekly hours, in their time zone.
+function WeeklyHours({ availability, timeZone, locale, title, zoneNote }: {
+  availability: Availability;
+  timeZone: string;
+  locale: string;
+  title: string;
+  zoneNote: string;
+}) {
+  const fmt = (min: number) =>
+    new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit", timeZone: "UTC" }).format(
+      new Date(Date.UTC(2024, 0, 1, 0, min)),
+    );
+  const day = (d: number) =>
+    new Intl.DateTimeFormat(locale, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2024, 0, 7 + d)));
+  return (
+    <div className="border rounded-xl p-4 text-sm">
+      <p className="font-medium mb-2">🕒 {title}</p>
+      <dl className="space-y-1">
+        {WEEKDAYS.filter((d) => availability[String(d)]).map((d) => (
+          <div key={d} className="flex justify-between gap-3">
+            <dt className="text-gray-600">{day(d)}</dt>
+            <dd dir="ltr">{availability[String(d)].map(([a, b]) => `${fmt(a)} – ${fmt(b)}`).join(", ")}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="text-xs text-gray-500 mt-2">{zoneNote.replace("{zone}", timeZone.replace(/_/g, " "))}</p>
+    </div>
+  );
+}
 
 export default async function ListingPage({
   params,
@@ -187,12 +218,32 @@ export default async function ListingPage({
             {canAct && listing.rental && (
               <ReserveForm listingId={listing.id} mode="rental" text={t.listing} note={`${money(listing.rental.rateCents)} / ${rentalUnit}`} />
             )}
+            {listing.booking?.availability && listing.booking.timeZone && (
+              <WeeklyHours
+                availability={listing.booking.availability}
+                timeZone={listing.booking.timeZone}
+                locale={locale}
+                title={t.listing.hours}
+                zoneNote={t.listing.hoursZone}
+              />
+            )}
             {canAct && listing.booking && (
               <ReserveForm
                 listingId={listing.id}
                 mode="booking"
                 text={t.listing}
                 note={t.sell.minutes.replace("{n}", String(listing.booking.sessionMinutes))}
+                slots={
+                  listing.booking.availability && listing.booking.timeZone
+                    ? {
+                        locale,
+                        today: todayIn(listing.booking.timeZone),
+                        lastDay: new Date(Date.parse(todayIn(listing.booking.timeZone) + "T00:00:00Z") + 90 * 86400000)
+                          .toISOString()
+                          .slice(0, 10),
+                      }
+                    : undefined
+                }
               />
             )}
             {canAct && <MessageForm listingId={listing.id} text={t.listing} />}

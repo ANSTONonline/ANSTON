@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { WEEKDAYS, readAvailability, timeFromMinutes } from "@/lib/availability";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { getCategories, photoUrl } from "@/lib/catalog";
 import { requireMember } from "@/lib/member";
@@ -16,6 +17,8 @@ type ModeRow = {
   rate_unit: string | null;
   deposit_cents: number | null;
   session_minutes: number | null;
+  availability: unknown;
+  time_zone: string | null;
 };
 
 const money = (c: number | null) => (c ? (c / 100).toFixed(2) : "");
@@ -88,6 +91,19 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     food_rules: "on",
     license_confirm: "on",
   };
+  // Weekly hours for services (older listings have none, so the form shows the defaults).
+  const hours = readAvailability(booking?.availability);
+  if (booking && hours) {
+    values.time_zone = booking.time_zone ?? "";
+    for (const day of WEEKDAYS) {
+      const window = hours[String(day)]?.[0];
+      values[`avail_${day}_on`] = window ? "on" : "";
+      if (window) {
+        values[`avail_${day}_from`] = timeFromMinutes(window[0]);
+        values[`avail_${day}_to`] = timeFromMinutes(window[1]);
+      }
+    }
+  }
 
   const editing: EditingListing = {
     listingId: id,

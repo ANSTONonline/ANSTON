@@ -173,13 +173,21 @@
       "amount": "Masukkan jumlah lebih dari nol.",
       "notAvailable": "Iklan ini sudah tidak tersedia.",
       "message": "Silakan tulis pesan.",
-      "generic": "Terjadi kesalahan. Silakan coba lagi."
+      "generic": "Terjadi kesalahan. Silakan coba lagi.",
+      "slot": "Waktu itu sudah tidak tersedia. Silakan pilih waktu lain."
     },
     "edit": "Edit",
     "refunds": "Pengembalian dana",
     "refundsAccepted": "Diterima dalam {n} hari",
     "noRefunds": "Tanpa pengembalian dana, penjualan final",
-    "lockedNote": "Anston sedang meninjau iklan ini, jadi iklan disembunyikan dari pembeli. Ada pertanyaan? Email support@myanston.com."
+    "lockedNote": "Anston sedang meninjau iklan ini, jadi iklan disembunyikan dari pembeli. Ada pertanyaan? Email support@myanston.com.",
+    "chooseDay": "Pilih hari",
+    "chooseTime": "Pilih waktu",
+    "loadingTimes": "Memuat waktu yang tersedia…",
+    "noTimes": "Tidak ada waktu tersedia di hari ini. Coba hari lain.",
+    "yourTimeZone": "Waktu ditampilkan dalam zona waktu Anda.",
+    "hours": "Jam operasional",
+    "hoursZone": "Zona waktu penjual: {zone}"
   },
   "cart": {
     "title": "Keranjang Anda",
@@ -275,7 +283,8 @@
       "generic": "Terjadi kesalahan. Silakan coba lagi.",
       "region": "Pilih provinsi atau wilayah di negara yang Anda pilih.",
       "cityMismatch": "Kota itu tidak ada di provinsi dan negara yang Anda pilih. Periksa lokasi Anda.",
-      "refund": "Pilih apakah Anda menerima pengembalian dana."
+      "refund": "Pilih apakah Anda menerima pengembalian dana.",
+      "availability": "Pilih minimal satu hari, dengan jam yang cukup untuk satu sesi."
     },
     "editTitle": "Edit iklan",
     "saveChanges": "Simpan perubahan",
@@ -294,7 +303,13 @@
     "boostTitle": "Promosikan iklan Anda (opsional)",
     "boostNone": "Tanpa promosi",
     "boostOption": "Promosi: {n}% dari harga akhir",
-    "boostHelp": "Iklan yang dipromosikan tampil paling atas di Iklan Unggulan dengan label \"Bersponsor\". Semakin tinggi persentasenya, semakin atas posisinya. Anda hanya membayar jika barang terjual atau dipesan melalui checkout Anston."
+    "boostHelp": "Iklan yang dipromosikan tampil paling atas di Iklan Unggulan dengan label \"Bersponsor\". Semakin tinggi persentasenya, semakin atas posisinya. Anda hanya membayar jika barang terjual atau dipesan melalui checkout Anston.",
+    "availability": "Jam operasional mingguan",
+    "availabilityHelp": "Centang hari Anda menerima pemesanan dan atur jamnya. Pembeli hanya bisa memesan waktu yang tersedia.",
+    "from": "Dari",
+    "to": "Sampai",
+    "closed": "Tutup",
+    "timeZoneNote": "Waktu mengikuti zona waktu Anda ({zone})."
   },
   "account": {
     "title": "Akun Anda",

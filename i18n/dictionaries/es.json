@@ -173,13 +173,21 @@
       "amount": "Escribe una cantidad mayor que cero.",
       "notAvailable": "Este anuncio ya no está disponible.",
       "message": "Escribe un mensaje.",
-      "generic": "Algo salió mal. Inténtalo de nuevo."
+      "generic": "Algo salió mal. Inténtalo de nuevo.",
+      "slot": "Esa hora ya no está disponible. Elige otra."
     },
     "edit": "Editar",
     "refunds": "Reembolsos",
     "refundsAccepted": "Se aceptan dentro de {n} días",
     "noRefunds": "Sin reembolsos, venta final",
-    "lockedNote": "Anston está revisando este anuncio, por eso está oculto para los compradores. ¿Preguntas? Escribe a support@myanston.com."
+    "lockedNote": "Anston está revisando este anuncio, por eso está oculto para los compradores. ¿Preguntas? Escribe a support@myanston.com.",
+    "chooseDay": "Elige un día",
+    "chooseTime": "Elige una hora",
+    "loadingTimes": "Cargando horas disponibles…",
+    "noTimes": "No hay horas disponibles este día. Prueba otro día.",
+    "yourTimeZone": "Las horas se muestran en tu zona horaria.",
+    "hours": "Horario",
+    "hoursZone": "Zona horaria del vendedor: {zone}"
   },
   "cart": {
     "title": "Tu carrito",
@@ -275,7 +283,8 @@
       "generic": "Algo salió mal. Inténtalo de nuevo.",
       "region": "Elige un estado o región del país que seleccionaste.",
       "cityMismatch": "Esa ciudad no está en el estado y país que elegiste. Revisa tu ubicación.",
-      "refund": "Elige si aceptas reembolsos."
+      "refund": "Elige si aceptas reembolsos.",
+      "availability": "Elige al menos un día, con un horario que alcance para una sesión."
     },
     "editTitle": "Editar anuncio",
     "saveChanges": "Guardar cambios",
@@ -294,7 +303,13 @@
     "boostTitle": "Destaca tu anuncio (opcional)",
     "boostNone": "Sin destacar",
     "boostOption": "Destacar: {n}% del precio final",
-    "boostHelp": "Los anuncios destacados aparecen primero en Anuncios destacados, marcados como \"Patrocinado\". Cuanto mayor el porcentaje, más arriba aparecen. Solo pagas si el artículo se vende o se reserva mediante el pago de Anston."
+    "boostHelp": "Los anuncios destacados aparecen primero en Anuncios destacados, marcados como \"Patrocinado\". Cuanto mayor el porcentaje, más arriba aparecen. Solo pagas si el artículo se vende o se reserva mediante el pago de Anston.",
+    "availability": "Horario semanal",
+    "availabilityHelp": "Marca los días en que aceptas reservas y define tu horario. Los compradores solo pueden reservar horas disponibles.",
+    "from": "Desde",
+    "to": "Hasta",
+    "closed": "Cerrado",
+    "timeZoneNote": "Las horas están en tu zona horaria ({zone})."
   },
   "account": {
     "title": "Tu cuenta",

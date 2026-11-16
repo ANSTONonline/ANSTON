@@ -3,6 +3,7 @@
 // to the sample listings in lib/listings.ts.
 
 import type { PlaceFilter } from "@/lib/location-filter";
+import { readAvailability } from "@/lib/availability";
 import { cache } from "react";
 import type { Locale } from "@/i18n/config";
 import { SUPABASE_URL, createClient, supabaseConfigured } from "@/lib/supabase/server";
@@ -96,7 +97,8 @@ export const LISTING_SELECT = `
   ships, local_pickup, attributes, created_at, seller_id, refund_policy, refund_days, boost_bps,
   category:categories ( * ),
   listing_modes ( mode, price_cents, accepts_offers, start_price_cents, buy_now_price_cents,
-                  min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes ),
+                  min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes,
+                  availability, time_zone ),
   listing_images ( storage_path, position ),
   seller:profiles!listings_seller_id_fkey ( username, rating_avg, rating_count )
 `;
@@ -113,6 +115,8 @@ type ModeRow = {
   rate_unit: "hour" | "day" | "week" | "month" | null;
   deposit_cents: number | null;
   session_minutes: number | null;
+  availability?: unknown;
+  time_zone?: string | null;
 };
 
 export type ListingRow = {
@@ -219,7 +223,14 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
     rental: rental
       ? { rateCents: rental.rate_cents ?? 0, unit: rental.rate_unit ?? "day", depositCents: rental.deposit_cents }
       : undefined,
-    booking: booking ? { priceCents: booking.price_cents ?? 0, sessionMinutes: booking.session_minutes ?? 60 } : undefined,
+    booking: booking
+      ? {
+          priceCents: booking.price_cents ?? 0,
+          sessionMinutes: booking.session_minutes ?? 60,
+          availability: readAvailability(booking.availability),
+          timeZone: booking.time_zone ?? null,
+        }
+      : undefined,
   };
 }
 

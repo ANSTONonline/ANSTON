@@ -6,6 +6,7 @@ import { getLocale } from "@/i18n/server";
 import { MAX_PHOTOS, PHOTO_BUCKET, getCategories, type DbMode } from "@/lib/catalog";
 import { requireMember } from "@/lib/member";
 import { checkLocation } from "@/lib/places";
+import { WEEKDAYS, isTimeZone, minutesFromTime, type Availability } from "@/lib/availability";
 import { AUCTION_DAYS, CONDITIONS, CURRENCIES, RATE_UNITS, BOOST_OPTIONS, REFUND_DAYS, SESSION_MINUTES } from "@/lib/sell-options";
 
 export type SellErrorCode =
@@ -21,6 +22,7 @@ export type SellErrorCode =
   | "region"
   | "cityMismatch"
   | "refund"
+  | "availability"
   | "generic";
 
 export type SellState = { error?: SellErrorCode; values?: Record<string, string> };
@@ -61,6 +63,8 @@ type ModeRow = {
   rate_unit: string | null;
   deposit_cents: number | null;
   session_minutes: number | null;
+  availability: Availability | null;
+  time_zone: string | null;
 };
 
 const emptyMode = (mode: DbMode): ModeRow => ({
@@ -75,6 +79,8 @@ const emptyMode = (mode: DbMode): ModeRow => ({
   rate_unit: null,
   deposit_cents: null,
   session_minutes: null,
+  availability: null,
+  time_zone: null,
 });
 
 type ParsedListing = {
@@ -169,7 +175,18 @@ async function readListingForm(
     const price = cents(text(fd, "booking_price"));
     if (!price) return { error: "price" };
     const minutes = SESSION_MINUTES.includes(Number(text(fd, "booking_minutes"))) ? Number(text(fd, "booking_minutes")) : 60;
-    modes.push({ ...emptyMode("booking"), price_cents: price, session_minutes: minutes });
+    // Weekly hours: one time range per ticked day, in the seller's time zone.
+    const availability: Availability = {};
+    for (const day of WEEKDAYS) {
+      if (!checked(fd, `avail_${day}_on`)) continue;
+      const from = minutesFromTime(text(fd, `avail_${day}_from`));
+      const to = minutesFromTime(text(fd, `avail_${day}_to`));
+      if (from === null || to === null || to - from < minutes) return { error: "availability" };
+      availability[String(day)] = [[from, to]];
+    }
+    if (Object.keys(availability).length === 0) return { error: "availability" };
+    const tz = isTimeZone(text(fd, "time_zone")) ? text(fd, "time_zone") : "UTC";
+    modes.push({ ...emptyMode("booking"), price_cents: price, session_minutes: minutes, availability, time_zone: tz });
   }
 
   return {

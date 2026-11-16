@@ -173,13 +173,21 @@
       "amount": "Sıfırdan büyük bir tutar girin.",
       "notAvailable": "Bu ilan artık mevcut değil.",
       "message": "Lütfen bir mesaj yazın.",
-      "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+      "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+      "slot": "Bu saat artık müsait değil. Lütfen başka bir saat seçin."
     },
     "edit": "Düzenle",
     "refunds": "İade",
     "refundsAccepted": "{n} gün içinde kabul edilir",
     "noRefunds": "İade yok, tüm satışlar kesin",
-    "lockedNote": "Anston bu ilanı inceliyor, bu yüzden alıcılardan gizlendi. Sorunuz mu var? support@myanston.com adresine yazın."
+    "lockedNote": "Anston bu ilanı inceliyor, bu yüzden alıcılardan gizlendi. Sorunuz mu var? support@myanston.com adresine yazın.",
+    "chooseDay": "Gün seçin",
+    "chooseTime": "Saat seçin",
+    "loadingTimes": "Boş saatler yükleniyor…",
+    "noTimes": "Bu günde boş saat yok. Başka bir gün deneyin.",
+    "yourTimeZone": "Saatler sizin saat diliminizde gösterilir.",
+    "hours": "Çalışma saatleri",
+    "hoursZone": "Satıcının saat dilimi: {zone}"
   },
   "cart": {
     "title": "Sepetiniz",
@@ -275,7 +283,8 @@
       "generic": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
       "region": "Lütfen seçtiğiniz ülkedeki bir eyalet veya bölgeyi seçin.",
       "cityMismatch": "Bu şehir seçtiğiniz eyalet ve ülkede değil. Lütfen konumunuzu kontrol edin.",
-      "refund": "Lütfen iade kabul edip etmediğinizi seçin."
+      "refund": "Lütfen iade kabul edip etmediğinizi seçin.",
+      "availability": "Bir seansa yetecek saatlerle en az bir gün seçin."
     },
     "editTitle": "İlanı düzenle",
     "saveChanges": "Değişiklikleri kaydet",
@@ -294,7 +303,13 @@
     "boostTitle": "İlanınızı öne çıkarın (isteğe bağlı)",
     "boostNone": "Öne çıkarma yok",
     "boostOption": "Öne çıkarma: son fiyatın %{n}'i",
-    "boostHelp": "Öne çıkarılan ilanlar Öne Çıkan İlanlar'da \"Sponsorlu\" etiketiyle en üstte görünür. Oran ne kadar yüksekse o kadar üstte görünür. Yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz."
+    "boostHelp": "Öne çıkarılan ilanlar Öne Çıkan İlanlar'da \"Sponsorlu\" etiketiyle en üstte görünür. Oran ne kadar yüksekse o kadar üstte görünür. Yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz.",
+    "availability": "Haftalık saatler",
+    "availabilityHelp": "Rezervasyon aldığınız günleri işaretleyin ve saatlerinizi belirleyin. Alıcılar yalnızca boş saatleri rezerve edebilir.",
+    "from": "Başlangıç",
+    "to": "Bitiş",
+    "closed": "Kapalı",
+    "timeZoneNote": "Saatler kendi saat diliminizdedir ({zone})."
   },
   "account": {
     "title": "Hesabınız",

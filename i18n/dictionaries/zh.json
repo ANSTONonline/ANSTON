@@ -173,13 +173,21 @@
       "amount": "请输入大于零的金额。",
       "notAvailable": "此商品已不再提供。",
       "message": "请输入消息内容。",
-      "generic": "出了点问题，请重试。"
+      "generic": "出了点问题，请重试。",
+      "slot": "该时间已不可预订，请选择其他时间。"
     },
     "edit": "编辑",
     "refunds": "退款",
     "refundsAccepted": "{n} 天内可退款",
     "noRefunds": "不退款，售出即为最终交易",
-    "lockedNote": "Anston 正在审核此商品，因此暂时对买家隐藏。如有疑问，请发邮件至 support@myanston.com。"
+    "lockedNote": "Anston 正在审核此商品，因此暂时对买家隐藏。如有疑问，请发邮件至 support@myanston.com。",
+    "chooseDay": "选择日期",
+    "chooseTime": "选择时间",
+    "loadingTimes": "正在加载可预订时间…",
+    "noTimes": "这一天没有可预订的时间，请换一天试试。",
+    "yourTimeZone": "时间以您的时区显示。",
+    "hours": "营业时间",
+    "hoursZone": "卖家时区：{zone}"
   },
   "cart": {
     "title": "购物车",
@@ -275,7 +283,8 @@
       "generic": "出了点问题，请重试。",
       "region": "请选择所选国家/地区内的州或地区。",
       "cityMismatch": "该城市不在你选择的州和国家/地区内，请检查位置。",
-      "refund": "请选择是否接受退款。"
+      "refund": "请选择是否接受退款。",
+      "availability": "请至少选择一天，且时长足够一次服务。"
     },
     "editTitle": "编辑商品",
     "saveChanges": "保存更改",
@@ -294,7 +303,13 @@
     "boostTitle": "推广您的商品（可选）",
     "boostNone": "不推广",
     "boostOption": "推广：最终价格的 {n}%",
-    "boostHelp": "推广的商品会优先显示在精选商品中，并标注\"赞助\"。推广比例越高，排名越靠前。只有当商品通过 Anston 结账售出或被预订时，您才需支付推广费用。"
+    "boostHelp": "推广的商品会优先显示在精选商品中，并标注\"赞助\"。推广比例越高，排名越靠前。只有当商品通过 Anston 结账售出或被预订时，您才需支付推广费用。",
+    "availability": "每周营业时间",
+    "availabilityHelp": "勾选您接受预订的日子并设置时间。买家只能预订空闲时段。",
+    "from": "从",
+    "to": "至",
+    "closed": "休息",
+    "timeZoneNote": "时间以您的时区为准（{zone}）。"
   },
   "account": {
     "title": "我的账户",

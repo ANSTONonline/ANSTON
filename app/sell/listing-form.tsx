@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { DEFAULT_HOURS, WEEKDAYS } from "@/lib/availability";
 import { startTransition, useActionState, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Dictionary } from "@/i18n/server";
 import type { Category, DbMode } from "@/lib/catalog";
@@ -253,6 +254,78 @@ function LocationFields({
   );
 }
 
+// Weekly hours for services: tick the days you work and set the hours.
+function AvailabilityFields({ text, locale, values }: { text: Text; locale: string; values: Record<string, string> }) {
+  const editing = WEEKDAYS.some((d) => values[`avail_${d}_on`] !== undefined);
+  const [on, setOn] = useState<Record<number, boolean>>(() =>
+    Object.fromEntries(
+      WEEKDAYS.map((d) => [d, editing ? values[`avail_${d}_on`] === "on" : DEFAULT_HOURS.days.includes(d)]),
+    ),
+  );
+  // The browser knows the seller's time zone; the server checks it.
+  const timeZone = useSyncExternalStore(
+    noSubscribe,
+    () => Intl.DateTimeFormat().resolvedOptions().timeZone,
+    () => "",
+  );
+  const dayName = (d: number) => {
+    try {
+      return new Intl.DateTimeFormat(locale, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2024, 0, 7 + d)));
+    } catch {
+      return String(d);
+    }
+  };
+  return (
+    <div className="space-y-2">
+      <p className={label}>{text.availability}</p>
+      <p className="text-xs text-gray-500">{text.availabilityHelp}</p>
+      <input type="hidden" name="time_zone" value={values.time_zone || timeZone} />
+      <div className="space-y-2">
+        {WEEKDAYS.map((d) => (
+          <div key={d} className="flex flex-wrap items-center gap-2 text-sm">
+            <label className="flex items-center gap-2 w-36">
+              <input
+                type="checkbox"
+                name={`avail_${d}_on`}
+                checked={on[d]}
+                onChange={(e) => setOn({ ...on, [d]: e.target.checked })}
+                className="w-4 h-4 accent-[#7A1E2B]"
+              />
+              <span suppressHydrationWarning>{dayName(d)}</span>
+            </label>
+            {on[d] ? (
+              <>
+                <input
+                  type="time"
+                  name={`avail_${d}_from`}
+                  defaultValue={values[`avail_${d}_from`] ?? DEFAULT_HOURS.from}
+                  required
+                  aria-label={`${dayName(d)} ${text.from}`}
+                  className="border rounded-lg px-2 py-1"
+                />
+                <span className="text-gray-500">–</span>
+                <input
+                  type="time"
+                  name={`avail_${d}_to`}
+                  defaultValue={values[`avail_${d}_to`] ?? DEFAULT_HOURS.to}
+                  required
+                  aria-label={`${dayName(d)} ${text.to}`}
+                  className="border rounded-lg px-2 py-1"
+                />
+              </>
+            ) : (
+              <span className="text-gray-400">{text.closed}</span>
+            )}
+          </div>
+        ))}
+      </div>
+      {(values.time_zone || timeZone) && (
+        <p className="text-xs text-gray-500">{text.timeZoneNote.replace("{zone}", values.time_zone || timeZone)}</p>
+      )}
+    </div>
+  );
+}
+
 export default function ListingForm({
   text,
   categories,
@@ -489,6 +562,9 @@ export default function ListingForm({
                       <option key={m} value={m}>{text.minutes.replace("{n}", String(m))}</option>
                     ))}
                   </select>
+                </div>
+                <div className="sm:col-span-2">
+                  <AvailabilityFields text={text} locale={locale} values={v} />
                 </div>
               </>,
             )}

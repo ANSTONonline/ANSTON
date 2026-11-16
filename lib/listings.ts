@@ -73,7 +73,13 @@ export type Listing = {
     endsAt: string;
   };
   rental?: { rateCents: number; unit: "hour" | "day" | "week" | "month"; depositCents: number | null };
-  booking?: { priceCents: number; sessionMinutes: number };
+  booking?: {
+    priceCents: number;
+    sessionMinutes: number;
+    // Weekly hours in the seller's time zone; null on older listings.
+    availability?: import("@/lib/availability").Availability | null;
+    timeZone?: string | null;
+  };
 };
 
 type SampleListing = Omit<Listing, "currency" | "images">;

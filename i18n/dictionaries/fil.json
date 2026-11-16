@@ -173,13 +173,21 @@
       "amount": "Maglagay ng halagang higit sa zero.",
       "notAvailable": "Hindi na available ang listing na ito.",
       "message": "Pakisulat ng mensahe.",
-      "generic": "May nangyaring mali. Pakisubukang muli."
+      "generic": "May nangyaring mali. Pakisubukang muli.",
+      "slot": "Hindi na bakante ang oras na iyon. Pumili ng iba."
     },
     "edit": "I-edit",
     "refunds": "Refund",
     "refundsAccepted": "Tinatanggap sa loob ng {n} araw",
     "noRefunds": "Walang refund, final ang benta",
-    "lockedNote": "Sinusuri ng Anston ang listing na ito, kaya nakatago ito sa mga mamimili. May tanong? Mag-email sa support@myanston.com."
+    "lockedNote": "Sinusuri ng Anston ang listing na ito, kaya nakatago ito sa mga mamimili. May tanong? Mag-email sa support@myanston.com.",
+    "chooseDay": "Pumili ng araw",
+    "chooseTime": "Pumili ng oras",
+    "loadingTimes": "Nilo-load ang mga bakanteng oras…",
+    "noTimes": "Walang bakanteng oras sa araw na ito. Subukan ang ibang araw.",
+    "yourTimeZone": "Ipinapakita ang oras ayon sa time zone mo.",
+    "hours": "Oras",
+    "hoursZone": "Time zone ng nagbebenta: {zone}"
   },
   "cart": {
     "title": "Ang cart mo",
@@ -275,7 +283,8 @@
       "generic": "May nangyaring mali. Pakisubukang muli.",
       "region": "Pumili ng estado o rehiyon sa bansang pinili mo.",
       "cityMismatch": "Wala ang lungsod na iyan sa estado at bansang pinili mo. Pakitingnan ang lokasyon mo.",
-      "refund": "Piliin kung tumatanggap ka ng refund."
+      "refund": "Piliin kung tumatanggap ka ng refund.",
+      "availability": "Pumili ng kahit isang araw, na may sapat na oras para sa isang session."
     },
     "editTitle": "I-edit ang listing",
     "saveChanges": "I-save ang mga pagbabago",
@@ -294,7 +303,13 @@
     "boostTitle": "I-boost ang listing mo (opsyonal)",
     "boostNone": "Walang boost",
     "boostOption": "Boost: {n}% ng huling presyo",
-    "boostHelp": "Unang lumalabas sa Mga Tampok na Listing ang mga naka-boost na listing, may markang \"Sponsored\". Mas mataas ang boost, mas nasa itaas. Magbabayad ka lang kung maibenta o ma-book ito sa checkout ng Anston."
+    "boostHelp": "Unang lumalabas sa Mga Tampok na Listing ang mga naka-boost na listing, may markang \"Sponsored\". Mas mataas ang boost, mas nasa itaas. Magbabayad ka lang kung maibenta o ma-book ito sa checkout ng Anston.",
+    "availability": "Lingguhang oras",
+    "availabilityHelp": "Lagyan ng tsek ang mga araw na tumatanggap ka ng booking at itakda ang oras mo. Sa mga bakanteng oras lang makakapag-book ang mga mamimili.",
+    "from": "Mula",
+    "to": "Hanggang",
+    "closed": "Sarado",
+    "timeZoneNote": "Ang oras ay ayon sa time zone mo ({zone})."
   },
   "account": {
     "title": "Ang account mo",

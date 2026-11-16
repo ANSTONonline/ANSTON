@@ -173,13 +173,21 @@
       "amount": "Weka kiasi kikubwa kuliko sifuri.",
       "notAvailable": "Tangazo hili halipatikani tena.",
       "message": "Tafadhali andika ujumbe.",
-      "generic": "Hitilafu imetokea. Tafadhali jaribu tena."
+      "generic": "Hitilafu imetokea. Tafadhali jaribu tena.",
+      "slot": "Saa hiyo haipatikani tena. Tafadhali chagua nyingine."
     },
     "edit": "Hariri",
     "refunds": "Kurejeshewa pesa",
     "refundsAccepted": "Kunakubaliwa ndani ya siku {n}",
     "noRefunds": "Hakuna kurejesha pesa, mauzo ni ya mwisho",
-    "lockedNote": "Anston inakagua tangazo hili, kwa hiyo limefichwa kwa wanunuzi. Una swali? Tuma barua pepe kwa support@myanston.com."
+    "lockedNote": "Anston inakagua tangazo hili, kwa hiyo limefichwa kwa wanunuzi. Una swali? Tuma barua pepe kwa support@myanston.com.",
+    "chooseDay": "Chagua siku",
+    "chooseTime": "Chagua saa",
+    "loadingTimes": "Inapakia saa zilizo wazi…",
+    "noTimes": "Hakuna saa zilizo wazi siku hii. Jaribu siku nyingine.",
+    "yourTimeZone": "Saa zinaonyeshwa kwa saa za eneo lako.",
+    "hours": "Saa za kazi",
+    "hoursZone": "Saa za eneo la muuzaji: {zone}"
   },
   "cart": {
     "title": "Kikapu chako",
@@ -275,7 +283,8 @@
       "generic": "Hitilafu imetokea. Tafadhali jaribu tena.",
       "region": "Tafadhali chagua jimbo au mkoa ndani ya nchi uliyochagua.",
       "cityMismatch": "Jiji hilo haliko katika jimbo na nchi uliyochagua. Tafadhali angalia mahali ulipo.",
-      "refund": "Tafadhali chagua kama unakubali kurejesha pesa."
+      "refund": "Tafadhali chagua kama unakubali kurejesha pesa.",
+      "availability": "Chagua angalau siku moja, yenye saa za kutosha kwa kipindi kimoja."
     },
     "editTitle": "Hariri tangazo",
     "saveChanges": "Hifadhi mabadiliko",
@@ -294,7 +303,13 @@
     "boostTitle": "Pandisha tangazo lako (si lazima)",
     "boostNone": "Bila kupandisha",
     "boostOption": "Pandisha: {n}% ya bei ya mwisho",
-    "boostHelp": "Matangazo yaliyopandishwa huonekana kwanza kwenye Matangazo Maalum, yakiwa na alama ya \"Limedhaminiwa\". Asilimia kubwa huonekana juu zaidi. Unalipa tu ikiwa bidhaa itauzwa au kuhifadhiwa kupitia malipo ya Anston."
+    "boostHelp": "Matangazo yaliyopandishwa huonekana kwanza kwenye Matangazo Maalum, yakiwa na alama ya \"Limedhaminiwa\". Asilimia kubwa huonekana juu zaidi. Unalipa tu ikiwa bidhaa itauzwa au kuhifadhiwa kupitia malipo ya Anston.",
+    "availability": "Saa za kila wiki",
+    "availabilityHelp": "Chagua siku unazopokea uhifadhi na weka saa zako. Wanunuzi wanaweza kuhifadhi saa zilizo wazi tu.",
+    "from": "Kuanzia",
+    "to": "Hadi",
+    "closed": "Imefungwa",
+    "timeZoneNote": "Saa ziko kwenye saa za eneo lako ({zone})."
   },
   "account": {
     "title": "Akaunti yako",
