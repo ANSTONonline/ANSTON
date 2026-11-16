@@ -159,7 +159,8 @@
       "paused": "naka-pause",
       "sold": "nabenta",
       "expired": "expired",
-      "removed": "inalis"
+      "removed": "inalis",
+      "suspended": "suspendido"
     },
     "homemadeNotice": "Ginawa sa kusina ng bahay na hindi sinusuri ng health department.",
     "allergens": "Mga allergen",
@@ -177,7 +178,8 @@
     "edit": "I-edit",
     "refunds": "Refund",
     "refundsAccepted": "Tinatanggap sa loob ng {n} araw",
-    "noRefunds": "Walang refund, final ang benta"
+    "noRefunds": "Walang refund, final ang benta",
+    "lockedNote": "Sinusuri ng Anston ang listing na ito, kaya nakatago ito sa mga mamimili. May tanong? Mag-email sa support@myanston.com."
   },
   "cart": {
     "title": "Ang cart mo",
@@ -288,7 +290,11 @@
     "refundWithin": "Puwedeng humingi sa loob ng",
     "nonRefundable": "Walang refund",
     "nonRefundableHint": "Lahat ng benta ay final.",
-    "chooseRegion": "Pumili ng estado o rehiyon"
+    "chooseRegion": "Pumili ng estado o rehiyon",
+    "boostTitle": "I-boost ang listing mo (opsyonal)",
+    "boostNone": "Walang boost",
+    "boostOption": "Boost: {n}% ng huling presyo",
+    "boostHelp": "Unang lumalabas sa Mga Tampok na Listing ang mga naka-boost na listing, may markang \"Sponsored\". Mas mataas ang boost, mas nasa itaas. Magbabayad ka lang kung maibenta o ma-book ito sa checkout ng Anston."
   },
   "account": {
     "title": "Ang account mo",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Presyo",
       "body": [
-        "Libre ang mag-post sa Anston.",
-        "Walang selling fee sa paglulunsad. Malinaw na ipapakita ang anumang fee sa hinaharap bago ka mag-post."
+        "Libre ang pag-post sa Anston, at walang bayad sa pagbebenta.",
+        "Opsyonal ang pag-boost. Pumili ng porsyento kapag nagpo-post, at unang lalabas ang listing mo sa Mga Tampok na Listing. Babayaran mo lang ang porsyentong iyon ng huling presyo kung maibenta o ma-book ito sa checkout ng Anston.",
+        "Malinaw na ipapakita ang anumang bagong bayarin bago ka mag-post."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Naihatid",
       "completed": "Kumpleto"
     }
+  },
+  "boost": {
+    "sponsored": "Sponsored"
+  },
+  "reviews": {
+    "title": "Mga review",
+    "leaveTitle": "I-review ang nagbebenta",
+    "yours": "Ang review mo",
+    "rating": "Ang rating mo",
+    "stars": "{n} sa 5 bituin",
+    "comment": "Ikuwento ang karanasan mo (opsyonal)",
+    "submit": "I-post ang review",
+    "thanks": "Salamat sa review mo!",
+    "none": "Wala pang review.",
+    "count": "{n} review",
+    "one": "1 review"
+  },
+  "seller": {
+    "memberSince": "Miyembro mula {date}",
+    "listings": "Mga listing ni @{username}",
+    "noListings": "Walang aktibong listing sa ngayon.",
+    "viewProfile": "Tingnan ang profile at mga review ng nagbebenta"
   }
 }

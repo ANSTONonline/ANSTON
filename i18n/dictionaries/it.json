@@ -159,7 +159,8 @@
       "paused": "in pausa",
       "sold": "venduto",
       "expired": "scaduto",
-      "removed": "rimosso"
+      "removed": "rimosso",
+      "suspended": "sospeso"
     },
     "homemadeNotice": "Preparato in una cucina domestica non ispezionata dalle autorità sanitarie.",
     "allergens": "Allergeni",
@@ -177,7 +178,8 @@
     "edit": "Modifica",
     "refunds": "Rimborsi",
     "refundsAccepted": "Accettati entro {n} giorni",
-    "noRefunds": "Nessun rimborso, vendita definitiva"
+    "noRefunds": "Nessun rimborso, vendita definitiva",
+    "lockedNote": "Anston sta esaminando questo annuncio, quindi è nascosto agli acquirenti. Domande? Scrivi a support@myanston.com."
   },
   "cart": {
     "title": "Il tuo carrello",
@@ -288,7 +290,11 @@
     "refundWithin": "Gli acquirenti possono chiederlo entro",
     "nonRefundable": "Nessun rimborso",
     "nonRefundableHint": "Tutte le vendite sono definitive.",
-    "chooseRegion": "Scegli uno stato o una regione"
+    "chooseRegion": "Scegli uno stato o una regione",
+    "boostTitle": "Metti in evidenza il tuo annuncio (facoltativo)",
+    "boostNone": "Nessuna promozione",
+    "boostOption": "In evidenza: {n}% del prezzo finale",
+    "boostHelp": "Gli annunci in evidenza compaiono per primi negli Annunci in evidenza, con l'etichetta \"Sponsorizzato\". Più alta è la percentuale, più in alto compaiono. Paghi solo se l'articolo viene venduto o prenotato tramite il pagamento Anston."
   },
   "account": {
     "title": "Il tuo account",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Prezzi",
       "body": [
-        "Pubblicare su Anston è gratuito.",
-        "Al lancio non ci sono commissioni di vendita. Eventuali commissioni future saranno indicate chiaramente prima della pubblicazione."
+        "Pubblicare su Anston è gratis e non ci sono commissioni di vendita.",
+        "La promozione è facoltativa. Scegli una percentuale quando pubblichi e il tuo annuncio comparirà per primo negli Annunci in evidenza. Paghi quella percentuale del prezzo finale solo se viene venduto o prenotato tramite il pagamento Anston.",
+        "Eventuali nuove commissioni saranno mostrate chiaramente prima della pubblicazione."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Consegnato",
       "completed": "Completato"
     }
+  },
+  "boost": {
+    "sponsored": "Sponsorizzato"
+  },
+  "reviews": {
+    "title": "Recensioni",
+    "leaveTitle": "Recensisci il venditore",
+    "yours": "La tua recensione",
+    "rating": "Il tuo voto",
+    "stars": "{n} stelle su 5",
+    "comment": "Racconta la tua esperienza (facoltativo)",
+    "submit": "Pubblica recensione",
+    "thanks": "Grazie per la recensione!",
+    "none": "Ancora nessuna recensione.",
+    "count": "{n} recensioni",
+    "one": "1 recensione"
+  },
+  "seller": {
+    "memberSince": "Membro dal {date}",
+    "listings": "Annunci di @{username}",
+    "noListings": "Nessun annuncio attivo al momento.",
+    "viewProfile": "Vedi profilo e recensioni del venditore"
   }
 }

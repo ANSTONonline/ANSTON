@@ -6,7 +6,7 @@ import { getLocale } from "@/i18n/server";
 import { MAX_PHOTOS, PHOTO_BUCKET, getCategories, type DbMode } from "@/lib/catalog";
 import { requireMember } from "@/lib/member";
 import { checkLocation } from "@/lib/places";
-import { AUCTION_DAYS, CONDITIONS, CURRENCIES, RATE_UNITS, REFUND_DAYS, SESSION_MINUTES } from "@/lib/sell-options";
+import { AUCTION_DAYS, CONDITIONS, CURRENCIES, RATE_UNITS, BOOST_OPTIONS, REFUND_DAYS, SESSION_MINUTES } from "@/lib/sell-options";
 
 export type SellErrorCode =
   | "title"
@@ -109,6 +109,7 @@ async function readListingForm(
   const refund = text(fd, "refund");
   if (refund !== "refundable" && refund !== "non_refundable") return { error: "refund" };
   const refundDays = REFUND_DAYS.includes(Number(text(fd, "refund_days"))) ? Number(text(fd, "refund_days")) : 14;
+  const boostBps = BOOST_OPTIONS.includes(Number(text(fd, "boost"))) ? Number(text(fd, "boost")) : 0;
 
   const currency = CURRENCIES.includes(text(fd, "currency")) ? text(fd, "currency") : "USD";
   const condition = (CONDITIONS as readonly string[]).includes(text(fd, "condition")) ? text(fd, "condition") : "not_applicable";
@@ -185,6 +186,7 @@ async function readListingForm(
       city: place.city,
       refund_policy: refund,
       refund_days: refund === "refundable" ? refundDays : null,
+      boost_bps: boostBps,
       ships: checked(fd, "ships"),
       local_pickup: checked(fd, "local_pickup"),
     },

@@ -55,6 +55,8 @@ export type Listing = {
   images: string[]; // public photo URLs, first one is the cover
   // Filled in for listings from the database:
   sellerId?: string;
+  // Boost the seller pays when it sells, in basis points (500 = 5%).
+  boostBps?: number;
   sellerUsername?: string;
   status?: string;
   condition?: string;

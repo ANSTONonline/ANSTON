@@ -30,7 +30,7 @@ export default async function Home() {
     { label: t.featured.offer, href: "/browse?mode=offer" },
   ];
 
-  const featured = await findListings(locale, { limit: 8 });
+  const featured = await findListings(locale, { limit: 8, featured: true });
 
   return (
     <main className="flex-1">
@@ -99,7 +99,7 @@ export default async function Home() {
         {featured.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {featured.map((item) => (
-              <ListingCard key={item.id} listing={item} t={t} />
+              <ListingCard key={item.id} listing={item} t={t} sponsored />
             ))}
           </div>
         ) : (

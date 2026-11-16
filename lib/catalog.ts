@@ -92,7 +92,7 @@ export async function getCategories(locale: Locale): Promise<Category[]> {
 // ---------------------------------------------------------------------------
 export const LISTING_SELECT = `
   id, title, description, status, currency, condition, quantity, city, region, country_code,
-  ships, local_pickup, attributes, created_at, seller_id, refund_policy, refund_days,
+  ships, local_pickup, attributes, created_at, seller_id, refund_policy, refund_days, boost_bps,
   category:categories ( * ),
   listing_modes ( mode, price_cents, accepts_offers, start_price_cents, buy_now_price_cents,
                   min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes ),
@@ -132,6 +132,7 @@ export type ListingRow = {
   refund_days: number | null;
   created_at: string;
   seller_id: string;
+  boost_bps?: number | null;
   category: (CategoryRow & { parent_id: number | null }) | null;
   listing_modes: ModeRow[];
   listing_images: { storage_path: string; position: number }[];
@@ -193,6 +194,7 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
     emoji: cat?.icon ?? "📦",
     images,
     sellerId: row.seller_id,
+    boostBps: row.boost_bps ?? 0,
     sellerUsername: row.seller?.username ?? undefined,
     status: row.status,
     condition: row.condition,
@@ -249,7 +251,7 @@ function cleanSearch(q: string) {
 
 export async function findListings(
   locale: Locale,
-  filters: { mode?: Mode; category?: CategorySlug; q?: string; limit?: number } = {},
+  filters: { mode?: Mode; category?: CategorySlug; q?: string; limit?: number; featured?: boolean } = {},
 ): Promise<Listing[]> {
   if (!supabaseConfigured()) {
     const results = getSampleListings(filters);
@@ -280,6 +282,8 @@ export async function findListings(
   if (q) {
     query = query.or(`title.ilike."%${q}%",description.ilike."%${q}%",city.ilike."%${q}%",region.ilike."%${q}%"`);
   }
+  // Featured Listings put boosted listings first, highest boost first.
+  if (filters.featured) query = query.order("boost_bps", { ascending: false });
   const { data, error } = await query.order("created_at", { ascending: false }).limit(filters.limit ?? 60);
   if (error) {
     console.error("findListings", error.message);

@@ -159,7 +159,8 @@
       "paused": "duraklatıldı",
       "sold": "satıldı",
       "expired": "süresi doldu",
-      "removed": "kaldırıldı"
+      "removed": "kaldırıldı",
+      "suspended": "askıya alındı"
     },
     "homemadeNotice": "Sağlık kurumlarınca denetlenmeyen bir ev mutfağında hazırlanmıştır.",
     "allergens": "Alerjenler",
@@ -177,7 +178,8 @@
     "edit": "Düzenle",
     "refunds": "İade",
     "refundsAccepted": "{n} gün içinde kabul edilir",
-    "noRefunds": "İade yok, tüm satışlar kesin"
+    "noRefunds": "İade yok, tüm satışlar kesin",
+    "lockedNote": "Anston bu ilanı inceliyor, bu yüzden alıcılardan gizlendi. Sorunuz mu var? support@myanston.com adresine yazın."
   },
   "cart": {
     "title": "Sepetiniz",
@@ -288,7 +290,11 @@
     "refundWithin": "Alıcılar şu süre içinde isteyebilir",
     "nonRefundable": "İade yok",
     "nonRefundableHint": "Tüm satışlar kesindir.",
-    "chooseRegion": "Eyalet veya bölge seçin"
+    "chooseRegion": "Eyalet veya bölge seçin",
+    "boostTitle": "İlanınızı öne çıkarın (isteğe bağlı)",
+    "boostNone": "Öne çıkarma yok",
+    "boostOption": "Öne çıkarma: son fiyatın %{n}'i",
+    "boostHelp": "Öne çıkarılan ilanlar Öne Çıkan İlanlar'da \"Sponsorlu\" etiketiyle en üstte görünür. Oran ne kadar yüksekse o kadar üstte görünür. Yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz."
   },
   "account": {
     "title": "Hesabınız",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Ücretler",
       "body": [
-        "Anston'da ilan vermek ücretsizdir.",
-        "Lansmanda satış ücreti yoktur. Gelecekteki ücretler, ilan vermeden önce açıkça gösterilecektir."
+        "Anston'da ilan vermek ücretsizdir ve satış ücreti yoktur.",
+        "Öne çıkarma isteğe bağlıdır. İlan verirken bir oran seçin, ilanınız Öne Çıkan İlanlar'da en üstte görünsün. Son fiyatın bu oranını yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz.",
+        "Yeni ücretler, ilan vermeden önce açıkça gösterilecektir."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Teslim edildi",
       "completed": "Tamamlandı"
     }
+  },
+  "boost": {
+    "sponsored": "Sponsorlu"
+  },
+  "reviews": {
+    "title": "Değerlendirmeler",
+    "leaveTitle": "Satıcıyı değerlendirin",
+    "yours": "Değerlendirmeniz",
+    "rating": "Puanınız",
+    "stars": "5 üzerinden {n} yıldız",
+    "comment": "Deneyiminizi anlatın (isteğe bağlı)",
+    "submit": "Değerlendirmeyi paylaş",
+    "thanks": "Değerlendirmeniz için teşekkürler!",
+    "none": "Henüz değerlendirme yok.",
+    "count": "{n} değerlendirme",
+    "one": "1 değerlendirme"
+  },
+  "seller": {
+    "memberSince": "{date} tarihinden beri üye",
+    "listings": "@{username} kullanıcısının ilanları",
+    "noListings": "Şu anda aktif ilan yok.",
+    "viewProfile": "Satıcının profilini ve değerlendirmelerini gör"
   }
 }

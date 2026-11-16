@@ -6,7 +6,8 @@ import { requireMember } from "@/lib/member";
 import { CARRIERS, orderSteps, trackingUrl, type OrderStatus } from "@/lib/orders";
 import { ConfirmButton, LocalTime } from "../../../listing/[id]/listing-actions";
 import { openConversation } from "../../../messages/actions";
-import { confirmReceived, markShipped } from "../actions";
+import { confirmReceived, leaveReview, markShipped } from "../actions";
+import StarPicker from "./star-picker";
 import { StatusBadge } from "../status-badge";
 
 type Params = Promise<{ id: string }>;
@@ -78,6 +79,16 @@ export default async function OrderPage({ params, searchParams }: { params: Para
     completed: order.completed_at,
   };
   const canShip = isSeller && ships && (order.status === "paid" || order.status === "fulfilled");
+  const canReview = isBuyer && (order.status === "fulfilled" || order.status === "completed");
+  const { data: myReview } = canReview
+    ? await member.supabase
+        .from("reviews")
+        .select("rating, comment")
+        .eq("order_id", order.id)
+        .eq("reviewer_id", member.user.id)
+        .maybeSingle()
+    : { data: null };
+  const r = t.reviews;
 
   return (
     <main className="flex-1 px-4 sm:px-8 py-12 max-w-2xl mx-auto w-full">
@@ -91,6 +102,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
 
       {flags.shipped && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.shippedSaved}</p>}
       {flags.received && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.receivedSaved}</p>}
+      {flags.reviewed && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{r.thanks}</p>}
       {flags.error && <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">{o.error}</p>}
 
       {/* Progress tracker */}
@@ -185,6 +197,33 @@ export default async function OrderPage({ params, searchParams }: { params: Para
           </form>
         )}
       </div>
+
+      {canReview && (
+        <div className="border rounded-xl p-5 space-y-3 mb-4">
+          <h2 className="font-semibold">{myReview ? r.yours : r.leaveTitle}</h2>
+          {myReview ? (
+            <div>
+              <p className="text-amber-500 text-lg" aria-label={r.stars.replace("{n}", String(myReview.rating))}>
+                {"★".repeat(myReview.rating)}<span className="text-gray-300">{"★".repeat(5 - myReview.rating)}</span>
+              </p>
+              {myReview.comment && <p className="text-sm text-gray-700 whitespace-pre-line mt-1">{myReview.comment}</p>}
+            </div>
+          ) : (
+            <form action={leaveReview} className="space-y-3">
+              <input type="hidden" name="id" value={order.id} />
+              <StarPicker label={r.rating} starsLabel={r.stars} />
+              <label className="block text-sm">
+                {r.comment}
+                <textarea name="comment" maxLength={2000} rows={3} className="mt-1 w-full border rounded-lg px-3 py-2" />
+              </label>
+              <button type="submit" className="bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm">{r.submit}</button>
+            </form>
+          )}
+          {order.seller?.username && (
+            <Link href={`/seller/${order.seller.username}`} className="text-sm text-[#7A1E2B] hover:underline">{t.seller.viewProfile}</Link>
+          )}
+        </div>
+      )}
 
       {order.listing && (isBuyer || isSeller) && (
         <form action={openConversation}>

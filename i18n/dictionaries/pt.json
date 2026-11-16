@@ -159,7 +159,8 @@
       "paused": "pausado",
       "sold": "vendido",
       "expired": "expirado",
-      "removed": "removido"
+      "removed": "removido",
+      "suspended": "suspenso"
     },
     "homemadeNotice": "Feito em uma cozinha caseira que não é inspecionada pela vigilância sanitária.",
     "allergens": "Alérgenos",
@@ -177,7 +178,8 @@
     "edit": "Editar",
     "refunds": "Reembolsos",
     "refundsAccepted": "Aceitos em até {n} dias",
-    "noRefunds": "Sem reembolso, venda final"
+    "noRefunds": "Sem reembolso, venda final",
+    "lockedNote": "A Anston está analisando este anúncio, por isso ele está oculto para os compradores. Dúvidas? Escreva para support@myanston.com."
   },
   "cart": {
     "title": "Seu carrinho",
@@ -288,7 +290,11 @@
     "refundWithin": "Os compradores podem pedir em até",
     "nonRefundable": "Sem reembolso",
     "nonRefundableHint": "Todas as vendas são finais.",
-    "chooseRegion": "Escolha um estado ou região"
+    "chooseRegion": "Escolha um estado ou região",
+    "boostTitle": "Impulsione seu anúncio (opcional)",
+    "boostNone": "Sem impulso",
+    "boostOption": "Impulso: {n}% do preço final",
+    "boostHelp": "Anúncios impulsionados aparecem primeiro em Anúncios em destaque, marcados como \"Patrocinado\". Quanto maior a porcentagem, mais alto aparecem. Você só paga se o item for vendido ou reservado pelo pagamento da Anston."
   },
   "account": {
     "title": "Sua conta",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Preços",
       "body": [
-        "Anunciar na Anston é grátis.",
-        "Não há taxas de venda no lançamento. Qualquer taxa futura será mostrada com clareza antes de você anunciar."
+        "Anunciar na Anston é grátis e não há taxas de venda.",
+        "Impulsionar é opcional. Escolha uma porcentagem ao anunciar e seu anúncio aparecerá primeiro em Anúncios em destaque. Você só paga essa porcentagem do preço final se for vendido ou reservado pelo pagamento da Anston.",
+        "Qualquer nova taxa será mostrada claramente antes de você anunciar."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Entregue",
       "completed": "Concluído"
     }
+  },
+  "boost": {
+    "sponsored": "Patrocinado"
+  },
+  "reviews": {
+    "title": "Avaliações",
+    "leaveTitle": "Avalie o vendedor",
+    "yours": "Sua avaliação",
+    "rating": "Sua nota",
+    "stars": "{n} de 5 estrelas",
+    "comment": "Conte sua experiência (opcional)",
+    "submit": "Publicar avaliação",
+    "thanks": "Obrigado pela sua avaliação!",
+    "none": "Ainda não há avaliações.",
+    "count": "{n} avaliações",
+    "one": "1 avaliação"
+  },
+  "seller": {
+    "memberSince": "Membro desde {date}",
+    "listings": "Anúncios de @{username}",
+    "noListings": "Nenhum anúncio ativo no momento.",
+    "viewProfile": "Ver o perfil e as avaliações do vendedor"
   }
 }

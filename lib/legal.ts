@@ -190,12 +190,14 @@ export const termsOfService: LegalDoc = {
       heading: "6. Fees",
       paragraphs: [
         "Listing on Anston is currently free and there are no selling fees. If we add fees in the future, we will show them clearly before you list or buy, and they will not apply to deals completed before the change.",
+        "Boosting is optional. If you boost a listing, it is shown higher in Featured Listings and marked \"Sponsored\", and you agree to pay Anston the percentage you chose of the item's final price (not including shipping or tax) if it sells or is booked through Anston checkout. The boost fee is taken from your payout. Boosting changes where a listing is shown, not whether it sells, and we may limit or remove boosts on listings that break these Terms.",
       ],
     },
     {
       heading: "7. Your content",
       paragraphs: [
         "You keep ownership of the listings, photos, messages and reviews you post (\"your content\"). By posting it, you give Anston a worldwide, non-exclusive, royalty-free license to host, store, display, reproduce, translate, and adapt it as needed to run and promote the Service. This license ends when you delete your content, except for copies kept for legal reasons or already shared by other users.",
+        "Reviews must be honest and about a real purchase or booking. Only the buyer of an order can review its seller, once per order. We may remove reviews that are fake, abusive, off-topic, or that share someone's personal information.",
         "You are responsible for your content. Don't post anything false, misleading, hateful, harassing, or that breaks someone else's rights or the law.",
       ],
     },

@@ -10,7 +10,7 @@ import {
   CONDITIONS,
   CURRENCIES,
   RATE_UNITS,
-  REFUND_DAYS,
+  BOOST_OPTIONS, REFUND_DAYS,
   SESSION_MINUTES,
 } from "@/lib/sell-options";
 import { createListing, discardPhoto, updateListing, type SellState } from "./actions";
@@ -556,6 +556,19 @@ export default function ListingForm({
               <span className="block text-gray-500">{text.nonRefundableHint}</span>
             </span>
           </label>
+        </div>
+      )}
+
+      {category && (
+        <div className={section}>
+          <h2 className="font-semibold">{text.boostTitle}</h2>
+          <p className="text-sm text-gray-600">{text.boostHelp}</p>
+          <select id="boost" name="boost" defaultValue={v.boost ?? "0"} className={`${input} sm:w-72`} aria-label={text.boostTitle}>
+            <option value="0">{text.boostNone}</option>
+            {BOOST_OPTIONS.map((bps) => (
+              <option key={bps} value={bps}>{text.boostOption.replace("{n}", String(bps / 100))}</option>
+            ))}
+          </select>
         </div>
       )}
 

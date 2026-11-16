@@ -36,7 +36,7 @@ const danger = "border border-red-300 text-red-700 rounded-lg px-3 py-1.5 text-s
 
 function OutcomeButton({ id, outcome, label, confirm, className }: {
   id: string;
-  outcome: "dismiss" | "remove" | "suspend";
+  outcome: "dismiss" | "hold" | "remove" | "suspend";
   label: string;
   confirm?: string;
   className: string;
@@ -91,7 +91,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
       <AdminNav current="reports" />
       <h1 className="text-3xl font-bold mb-2">Reports</h1>
       <p className="text-gray-600 mb-6">
-        Listings people flagged. Removing a listing hides it from everyone and closes all its reports.
+        Listings people flagged. Suspending a listing hides it while you look into it; removing it is for good. Either one closes all its reports.
         Suspending also removes all of the seller&apos;s listings and stops them from bidding, offering or messaging.
       </p>
       <div className="flex gap-2 mb-6">
@@ -151,6 +151,9 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
                   {view === "open" ? (
                     <>
                       <OutcomeButton id={r.id} outcome="dismiss" label="Dismiss (nothing wrong)" className={btn} />
+                      {r.listing && r.listing.status !== "suspended" && (
+                        <OutcomeButton id={r.id} outcome="hold" label="Suspend listing" className={btn} />
+                      )}
                       {r.listing && (
                         <OutcomeButton
                           id={r.id}
@@ -172,7 +175,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Search
                     </>
                   ) : (
                     <>
-                      {r.listing?.status === "removed" && (
+                      {(r.listing?.status === "removed" || r.listing?.status === "suspended") && (
                         <form action={restoreListing}>
                           <input type="hidden" name="id" value={r.listing.id} />
                           <ConfirmButton message="Make this listing active again?" className={btn}>

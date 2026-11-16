@@ -159,7 +159,8 @@
       "paused": "pausiert",
       "sold": "verkauft",
       "expired": "abgelaufen",
-      "removed": "entfernt"
+      "removed": "entfernt",
+      "suspended": "gesperrt"
     },
     "homemadeNotice": "In einer privaten Küche zubereitet, die nicht vom Gesundheitsamt kontrolliert wird.",
     "allergens": "Allergene",
@@ -177,7 +178,8 @@
     "edit": "Bearbeiten",
     "refunds": "Rückerstattung",
     "refundsAccepted": "Möglich innerhalb von {n} Tagen",
-    "noRefunds": "Keine Rückerstattung, alle Verkäufe endgültig"
+    "noRefunds": "Keine Rückerstattung, alle Verkäufe endgültig",
+    "lockedNote": "Anston prüft diese Anzeige, deshalb ist sie für Käufer ausgeblendet. Fragen? Schreib an support@myanston.com."
   },
   "cart": {
     "title": "Dein Warenkorb",
@@ -288,7 +290,11 @@
     "refundWithin": "Käufer können sie verlangen innerhalb von",
     "nonRefundable": "Keine Rückerstattung",
     "nonRefundableHint": "Alle Verkäufe sind endgültig.",
-    "chooseRegion": "Bundesland oder Region wählen"
+    "chooseRegion": "Bundesland oder Region wählen",
+    "boostTitle": "Anzeige hervorheben (optional)",
+    "boostNone": "Nicht hervorheben",
+    "boostOption": "Hervorheben: {n} % des Endpreises",
+    "boostHelp": "Hervorgehobene Anzeigen erscheinen zuerst unter Empfohlene Anzeigen, gekennzeichnet als „Gesponsert“. Je höher der Prozentsatz, desto weiter oben. Du zahlst nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird."
   },
   "account": {
     "title": "Dein Konto",
@@ -395,8 +401,9 @@
     "pricing": {
       "title": "Preise",
       "body": [
-        "Inserieren auf Anston ist kostenlos.",
-        "Zum Start gibt es keine Verkaufsgebühren. Künftige Gebühren werden vor dem Inserieren klar angezeigt."
+        "Anzeigen auf Anston sind kostenlos, und es gibt keine Verkaufsgebühren.",
+        "Hervorheben ist optional. Wähle beim Einstellen einen Prozentsatz, und deine Anzeige erscheint zuerst unter Empfohlene Anzeigen. Du zahlst diesen Prozentsatz vom Endpreis nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird.",
+        "Neue Gebühren zeigen wir dir immer deutlich, bevor du etwas einstellst."
       ]
     },
     "faq": {
@@ -529,5 +536,27 @@
       "delivered": "Zugestellt",
       "completed": "Abgeschlossen"
     }
+  },
+  "boost": {
+    "sponsored": "Gesponsert"
+  },
+  "reviews": {
+    "title": "Bewertungen",
+    "leaveTitle": "Verkäufer bewerten",
+    "yours": "Deine Bewertung",
+    "rating": "Deine Bewertung",
+    "stars": "{n} von 5 Sternen",
+    "comment": "Erzähl anderen von deiner Erfahrung (optional)",
+    "submit": "Bewertung veröffentlichen",
+    "thanks": "Danke für deine Bewertung!",
+    "none": "Noch keine Bewertungen.",
+    "count": "{n} Bewertungen",
+    "one": "1 Bewertung"
+  },
+  "seller": {
+    "memberSince": "Mitglied seit {date}",
+    "listings": "Anzeigen von @{username}",
+    "noListings": "Gerade keine aktiven Anzeigen.",
+    "viewProfile": "Profil und Bewertungen des Verkäufers ansehen"
   }
 }

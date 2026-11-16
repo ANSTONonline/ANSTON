@@ -39,3 +39,29 @@ export async function confirmReceived(fd: FormData) {
   revalidatePath("/account/orders");
   redirect(`/account/orders/${id}?received=1`);
 }
+
+// Buyer: rate the seller once the order has shipped. The database checks the
+// order, that this member is its buyer, and allows one review per order.
+export async function leaveReview(fd: FormData) {
+  const member = await requireMember();
+  const id = text(fd, "id");
+  const rating = Number(text(fd, "rating"));
+  const comment = text(fd, "comment").slice(0, 2000);
+  if (!isId(id)) return;
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5) redirect(`/account/orders/${id}?error=1`);
+  const { data: order } = await member.supabase.from("orders").select("buyer_id, seller_id").eq("id", id).maybeSingle();
+  if (!order || order.buyer_id !== member.user.id) redirect(`/account/orders/${id}?error=1`);
+  const { error } = await member.supabase.from("reviews").insert({
+    order_id: id,
+    reviewer_id: member.user.id,
+    reviewee_id: order.seller_id,
+    rating,
+    comment: comment || null,
+  });
+  if (error) {
+    console.error("leaveReview", error.message);
+    redirect(`/account/orders/${id}?error=1`);
+  }
+  revalidatePath(`/account/orders/${id}`);
+  redirect(`/account/orders/${id}?reviewed=1`);
+}

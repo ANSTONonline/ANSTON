@@ -31,7 +31,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     .from("listings")
     .select(
       `id, seller_id, category_id, title, description, condition, currency, quantity, attributes,
-       country_code, region, city, ships, local_pickup, refund_policy, refund_days,
+       country_code, region, city, ships, local_pickup, refund_policy, refund_days, boost_bps,
        listing_modes ( * ), listing_images ( storage_path, position )`,
     )
     .eq("id", id)
@@ -81,6 +81,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     booking_minutes: String(booking?.session_minutes ?? 60),
     refund: listing.refund_policy ?? "",
     refund_days: String(listing.refund_days ?? 14),
+    boost: String(listing.boost_bps ?? 0),
     homemade: on(attributes.homemade === true),
     allergens: typeof attributes.allergens === "string" ? attributes.allergens : "",
     // They confirmed these when they first listed it.
