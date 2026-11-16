@@ -7,7 +7,6 @@ export type Mode = "buy" | "bid" | "rent" | "offer" | "services";
 export type CategorySlug =
   | "vehicles"
   | "homes"
-  | "boats"
   | "clothes"
   | "jewelry"
   | "accessories"
@@ -21,7 +20,6 @@ export type CategorySlug =
 export const categorySlugs: CategorySlug[] = [
   "vehicles",
   "homes",
-  "boats",
   "clothes",
   "jewelry",
   "accessories",
@@ -163,7 +161,7 @@ const samples: SampleListing[] = [
     id: "pontoon-boat-weekend",
     title: "Pontoon Boat - 10 Passengers",
     description: "Perfect for lake days. Life jackets and cooler included.",
-    category: "boats",
+    category: "vehicles",
     modes: ["rent"],
     priceCents: 35000,
     priceUnit: "day",

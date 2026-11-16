@@ -9,9 +9,8 @@ export default async function Home() {
   const t = await getDictionary(locale);
 
   const categories = [
-    { slug: "vehicles", name: t.categories.vehicles, emoji: "🚗", color: "bg-blue-500" },
+    { slug: "vehicles", name: t.categories.vehicles, emoji: "🚤", color: "bg-blue-500" },
     { slug: "homes", name: t.categories.homes, emoji: "🏠", color: "bg-green-500" },
-    { slug: "boats", name: t.categories.boats, emoji: "🚤", color: "bg-cyan-500" },
     { slug: "clothes", name: t.categories.clothes, emoji: "👕", color: "bg-purple-500" },
     { slug: "jewelry", name: t.categories.jewelry, emoji: "💍", color: "bg-pink-500" },
     { slug: "accessories", name: t.categories.accessories, emoji: "🎒", color: "bg-orange-500" },
