@@ -22,7 +22,7 @@
   "hero": {
     "tagline": "Everything you need, all in one place",
     "modes": "Buy it. Sell it. Bid on it. Rent it. Book it.",
-    "startSelling": "Start Selling",
+    "startSelling": "Start Listing",
     "browse": "Browse Listings"
   },
   "categories": {
