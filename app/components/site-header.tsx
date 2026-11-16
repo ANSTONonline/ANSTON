@@ -54,7 +54,7 @@ export default function SiteHeader({ t, locale, place }: { t: Dictionary; locale
           aria-label={t.header.listItem}
         >
           <span className="sm:hidden">+</span>
-          <span className="hidden sm:inline">{t.header.listItem}</span>
+          <span className="hidden sm:inline">{t.header.list}</span>
         </Link>
         <HeaderCounts favoritesLabel={t.header.favorites} cartLabel={t.header.cart} />
         <Link href="/messages" className="text-xl" aria-label={t.header.messages} title={t.header.messages}>
