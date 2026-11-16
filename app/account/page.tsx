@@ -56,7 +56,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
     // Asked for separately so the page still works if this column is missing.
     const { data: emailPrefs } = await supabase
       .from("profiles")
-      .select("email_notifications")
+      .select("email_notifications, is_admin")
       .eq("id", user.id)
       .maybeSingle();
     const contact = user.email || user.phone || "";
@@ -100,6 +100,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
               ) : null}
             </Link>
             <Link href="/favorites" className="border py-2 rounded-lg text-center">{t.favorites.title}</Link>
+            {emailPrefs?.is_admin && (
+              <Link href="/admin" className="border border-[#7A1E2B] py-2 rounded-lg text-center" dir="ltr">
+                🛡️ Admin: reports
+              </Link>
+            )}
             {user.email && (
               <Link href="/account/reset-password" className="border py-2 rounded-lg text-center">
                 {t.account.changePassword}

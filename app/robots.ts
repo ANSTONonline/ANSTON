@@ -16,6 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         "/auth",
         "/api",
         "/listing/*/edit",
+        "/admin",
       ],
     },
     sitemap: "https://www.myanston.com/sitemap.xml",

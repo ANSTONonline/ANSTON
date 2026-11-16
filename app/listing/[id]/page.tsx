@@ -199,10 +199,12 @@ export default async function ListingPage({
               <div className="border rounded-xl p-4 space-y-3 bg-gray-50">
                 <p className="font-medium">{t.listing.yourListing}</p>
                 <div className="flex flex-wrap gap-2">
+                  {listing.status !== "removed" && (
                   <Link href={`/listing/${listing.id}/edit`} className="bg-[#7A1E2B] text-white rounded-lg px-3 py-2 text-sm">
                     ✏️ {t.listing.edit}
                   </Link>
-                  {listing.status !== "active" && (
+                  )}
+                  {listing.status !== "active" && listing.status !== "removed" && (
                     <form action={setListingStatus}>
                       <input type="hidden" name="id" value={listing.id} />
                       <input type="hidden" name="status" value="active" />
@@ -216,7 +218,7 @@ export default async function ListingPage({
                       <button className="border rounded-lg px-3 py-2 text-sm bg-white">{t.listing.pause}</button>
                     </form>
                   )}
-                  {listing.status !== "sold" && (
+                  {listing.status !== "sold" && listing.status !== "removed" && (
                     <form action={setListingStatus}>
                       <input type="hidden" name="id" value={listing.id} />
                       <input type="hidden" name="status" value="sold" />
