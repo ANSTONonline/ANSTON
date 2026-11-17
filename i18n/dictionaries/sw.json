@@ -572,7 +572,11 @@
     "memberSince": "Mwanachama tangu {date}",
     "listings": "Matangazo ya @{username}",
     "noListings": "Hakuna matangazo yanayoendelea kwa sasa.",
-    "viewProfile": "Tazama wasifu na maoni ya muuzaji"
+    "viewProfile": "Tazama wasifu na maoni ya muuzaji",
+    "viewMine": "Tazama wasifu wako",
+    "mineNote": "Hivi ndivyo wengine wanavyoona wasifu wako.",
+    "manage": "Simamia matangazo yako",
+    "sold": "Vimeuzwa"
   },
   "location": {
     "all": "Maeneo yote",

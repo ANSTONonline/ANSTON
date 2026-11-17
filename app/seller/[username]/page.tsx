@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import ListingCard from "../../components/listing-card";
 import { getDictionary, getLocale } from "@/i18n/server";
@@ -33,6 +34,8 @@ export default async function SellerPage({ params }: { params: Params }) {
   const found = await loadProfile(username);
   if (!found) notFound();
   const { supabase, profile } = found;
+  const { data: viewer } = await supabase.auth.getUser();
+  const isMe = viewer.user?.id === profile.id;
   const locale = await getLocale();
   const t = await getDictionary(locale);
   const r = t.reviews;
@@ -50,12 +53,22 @@ export default async function SellerPage({ params }: { params: Params }) {
   type Review = { id: string; rating: number; comment: string | null; created_at: string; reviewer: { username: string | null } | null };
   const reviews = (reviewRows ?? []) as unknown as Review[];
   const active = listings.filter((l) => l.status === "active");
+  const sold = listings.filter((l) => l.status === "sold");
   const place = [profile.city, profile.region, profile.country_code].filter(Boolean).join(", ");
   const [sinceBefore, sinceAfter] = t.seller.memberSince.split("{date}");
   const countLabel = profile.rating_count === 1 ? r.one : r.count.replace("{n}", String(profile.rating_count));
 
   return (
     <main className="flex-1 px-4 sm:px-8 py-10 max-w-5xl mx-auto w-full">
+      {isMe && (
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-[#7A1E2B]/5 border border-[#7A1E2B]/30 rounded-xl p-4 mb-6 text-sm">
+          <p>👁 {t.seller.mineNote}</p>
+          <div className="flex gap-2">
+            <Link href="/account/selling" className="bg-[#7A1E2B] text-white rounded-lg px-3 py-1.5">{t.seller.manage}</Link>
+            <Link href="/account" className="border rounded-lg px-3 py-1.5 bg-white">{t.account.title}</Link>
+          </div>
+        </div>
+      )}
       <div className="flex items-center gap-4 mb-8">
         <span className="w-16 h-16 rounded-full bg-[#7A1E2B] text-white flex items-center justify-center text-2xl font-bold shrink-0">
           {profile.username!.charAt(0).toUpperCase()}
@@ -88,6 +101,15 @@ export default async function SellerPage({ params }: { params: Params }) {
           </div>
         )}
       </section>
+
+      {sold.length > 0 && (
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold mb-4">{t.seller.sold} <span className="text-gray-500 font-normal text-base">({sold.length})</span></h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 opacity-80">
+            {sold.map((item) => <ListingCard key={item.id} listing={item} t={t} />)}
+          </div>
+        </section>
+      )}
 
       <section>
         <h2 className="text-xl font-semibold mb-4">{r.title}</h2>

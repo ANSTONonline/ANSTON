@@ -572,7 +572,11 @@
     "memberSince": "Miyembro mula {date}",
     "listings": "Mga listing ni @{username}",
     "noListings": "Walang aktibong listing sa ngayon.",
-    "viewProfile": "Tingnan ang profile at mga review ng nagbebenta"
+    "viewProfile": "Tingnan ang profile at mga review ng nagbebenta",
+    "viewMine": "Tingnan ang profile mo",
+    "mineNote": "Ganito ang hitsura ng profile mo sa ibang tao.",
+    "manage": "Pamahalaan ang mga listing mo",
+    "sold": "Naibenta na"
   },
   "location": {
     "all": "Lahat ng lokasyon",

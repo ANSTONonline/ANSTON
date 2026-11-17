@@ -572,7 +572,11 @@
     "memberSince": "{date} 加入",
     "listings": "@{username} 的商品",
     "noListings": "目前没有在售商品。",
-    "viewProfile": "查看卖家主页和评价"
+    "viewProfile": "查看卖家主页和评价",
+    "viewMine": "查看您的主页",
+    "mineNote": "这是其他人看到的您的主页。",
+    "manage": "管理您的商品",
+    "sold": "已售出"
   },
   "location": {
     "all": "所有地区",

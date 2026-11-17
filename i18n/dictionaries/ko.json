@@ -572,7 +572,11 @@
     "memberSince": "{date}부터 회원",
     "listings": "@{username}님의 상품",
     "noListings": "현재 판매 중인 상품이 없습니다.",
-    "viewProfile": "판매자 프로필과 후기 보기"
+    "viewProfile": "판매자 프로필과 후기 보기",
+    "viewMine": "내 프로필 보기",
+    "mineNote": "다른 사람에게 보이는 내 프로필입니다.",
+    "manage": "내 상품 관리",
+    "sold": "판매 완료"
   },
   "location": {
     "all": "모든 지역",

@@ -572,7 +572,11 @@
     "memberSince": "Thành viên từ {date}",
     "listings": "Tin đăng của @{username}",
     "noListings": "Hiện chưa có tin đăng nào.",
-    "viewProfile": "Xem hồ sơ và đánh giá của người bán"
+    "viewProfile": "Xem hồ sơ và đánh giá của người bán",
+    "viewMine": "Xem hồ sơ của bạn",
+    "mineNote": "Đây là hồ sơ của bạn khi người khác xem.",
+    "manage": "Quản lý tin đăng",
+    "sold": "Đã bán"
   },
   "location": {
     "all": "Mọi địa điểm",

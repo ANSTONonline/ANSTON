@@ -572,7 +572,11 @@
     "memberSince": "Member since {date}",
     "listings": "Listings from @{username}",
     "noListings": "No active listings right now.",
-    "viewProfile": "See the seller's profile and reviews"
+    "viewProfile": "See the seller's profile and reviews",
+    "viewMine": "View your profile",
+    "mineNote": "This is your profile as other people see it.",
+    "manage": "Manage your listings",
+    "sold": "Sold"
   },
   "location": {
     "all": "All locations",

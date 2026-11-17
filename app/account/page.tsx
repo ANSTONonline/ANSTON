@@ -88,6 +88,12 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             </Link>
           </div>
           <div className="flex flex-col gap-2">
+            <Link
+              href={`/seller/${profile.username}`}
+              className="border border-[#7A1E2B] text-[#7A1E2B] py-2 rounded-lg text-center font-medium"
+            >
+              👁 {t.seller.viewMine}
+            </Link>
             <Link href="/sell" className="bg-[#7A1E2B] text-white py-2 rounded-lg text-center font-medium">
               {t.header.listItem}
             </Link>
