@@ -346,6 +346,7 @@ export default function ListingForm({
   const v = state.values ?? editing?.values ?? {};
   const auctionLocked = Boolean(editing?.auctionLocked);
   const [categoryId, setCategoryId] = useState(v.category ?? "");
+  const [ships, setShips] = useState(v.ships === "on");
   const category = categories.find((c) => String(c.id) === categoryId);
   const allowed = category?.allowedModes ?? [];
   const isFood = category?.slug === "food";
@@ -663,9 +664,29 @@ export default function ListingForm({
               {text.localPickup}
             </label>
             <label className="flex items-center gap-2">
-              <input type="checkbox" name="ships" defaultChecked={v.ships === "on"} className="w-4 h-4 accent-[#7A1E2B]" />
+              <input
+                type="checkbox"
+                name="ships"
+                checked={ships}
+                onChange={(e) => setShips(e.target.checked)}
+                className="w-4 h-4 accent-[#7A1E2B]"
+              />
               {text.ships}
             </label>
+          </div>
+        )}
+        {category && !isService && ships && (
+          <div className="sm:w-64">
+            <label className={label} htmlFor="shipping_price">{text.shippingPrice}</label>
+            <input
+              id="shipping_price"
+              name="shipping_price"
+              inputMode="decimal"
+              defaultValue={v.shipping_price ?? ""}
+              placeholder="0.00"
+              className={input}
+            />
+            <p className="text-xs text-gray-500 mt-1">{text.shippingPriceHelp}</p>
           </div>
         )}
         {category?.requiresLicense && (

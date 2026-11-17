@@ -100,6 +100,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             <Link href="/account/selling" className="border py-2 rounded-lg text-center">{t.dashboard.sellingTitle}</Link>
             <Link href="/account/buying" className="border py-2 rounded-lg text-center">{t.dashboard.buyingTitle}</Link>
             <Link href="/account/orders" className="border py-2 rounded-lg text-center">📦 {t.orders.title}</Link>
+            <Link href="/account/payouts" className="border py-2 rounded-lg text-center">💳 {t.payouts.title}</Link>
             <Link href="/messages" className="border py-2 rounded-lg text-center">
               {t.messages.title}
               {unread ? (

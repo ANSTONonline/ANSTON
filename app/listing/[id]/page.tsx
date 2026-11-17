@@ -9,6 +9,7 @@ import { getMember } from "@/lib/member";
 import { createClient } from "@/lib/supabase/server";
 import { deleteListing, setListingStatus } from "../actions";
 import { setListingSuspended } from "../../admin/actions";
+import { startCheckout } from "../../checkout/actions";
 import { WEEKDAYS, todayIn, type Availability } from "@/lib/availability";
 import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, ReportForm, ReserveForm } from "./listing-actions";
 
@@ -52,7 +53,7 @@ export default async function ListingPage({
   searchParams: SearchParams;
 }) {
   const { id } = await params;
-  const { created, updated } = await searchParams;
+  const { created, updated, pay } = await searchParams;
   const locale = await getLocale();
   const t = await getDictionary(locale);
   const listing = await findListing(locale, id);
@@ -67,6 +68,30 @@ export default async function ListingPage({
   const money = (cents: number) => formatPrice(cents, listing.currency);
   const canAct = Boolean(member?.complete) && !isOwner && isActive;
   const fromDatabase = Boolean(listing.sellerId);
+
+  // Online payment: can buyers pay this seller, and does this buyer have an accepted offer?
+  let sellerPaid = false;
+  let acceptedOfferId: string | null = null;
+  if (fromDatabase && listing.sale && isActive && !isOwner) {
+    const supabase = await createClient();
+    const [{ data: ready }, offer] = await Promise.all([
+      supabase.rpc("seller_accepts_payments", { p_seller: listing.sellerId }),
+      member
+        ? supabase
+            .from("offers")
+            .select("id")
+            .eq("listing_id", listing.id)
+            .eq("buyer_id", member.user.id)
+            .eq("status", "accepted")
+            .order("created_at", { ascending: false })
+            .limit(1)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
+    ]);
+    sellerPaid = Boolean(ready);
+    acceptedOfferId = (offer.data as { id: string } | null)?.id ?? null;
+  }
+  const payMessage = typeof pay === "string" ? (t.checkout.errors as Record<string, string>)[pay] : undefined;
 
   let bidCount = 0;
   if (listing.auction && fromDatabase) {
@@ -206,6 +231,39 @@ export default async function ListingPage({
               />
             )}
 
+            {payMessage && (
+              <p role={pay === "cancelled" ? "status" : "alert"} className={`rounded-lg p-3 text-sm border ${pay === "cancelled" ? "bg-gray-50 border-gray-200 text-gray-700" : "bg-red-50 border-red-200 text-red-700"}`}>
+                {payMessage}
+              </p>
+            )}
+            {listing.sale && fromDatabase && isActive && !isOwner && (
+              sellerPaid ? (
+                <div className="border rounded-xl p-4 space-y-3">
+                  {acceptedOfferId && <p className="text-sm text-green-700 font-medium">✅ {t.checkout.offerAccepted}</p>}
+                  {listing.ships && (
+                    <p className="text-sm text-gray-600">
+                      🚚 {listing.shippingCents ? t.checkout.shippingCost.replace("{price}", money(listing.shippingCents)) : t.checkout.freeShipping}
+                    </p>
+                  )}
+                  {member?.complete ? (
+                    <form action={startCheckout}>
+                      <input type="hidden" name="listing" value={listing.id} />
+                      {acceptedOfferId && <input type="hidden" name="offer" value={acceptedOfferId} />}
+                      <button type="submit" className="w-full bg-[#7A1E2B] text-white rounded-lg py-3 font-semibold">
+                        {acceptedOfferId ? t.checkout.payOffer : t.checkout.buyNow}
+                      </button>
+                    </form>
+                  ) : (
+                    <Link href="/account" className="block text-center w-full bg-[#7A1E2B] text-white rounded-lg py-3 font-semibold">
+                      {t.checkout.signInToBuy}
+                    </Link>
+                  )}
+                  <p className="text-xs text-gray-500">🔒 {t.checkout.secure}</p>
+                </div>
+              ) : (
+                <p className="text-sm text-gray-600 border rounded-xl p-4">{t.checkout.sellerNotReady}</p>
+              )
+            )}
             {canAct && listing.auction && auctionOpen && (
               <BidForm
                 listingId={listing.id}

@@ -309,7 +309,9 @@
     "from": "De",
     "to": "À",
     "closed": "Fermé",
-    "timeZoneNote": "Les horaires sont dans votre fuseau horaire ({zone})."
+    "timeZoneNote": "Les horaires sont dans votre fuseau horaire ({zone}).",
+    "shippingPrice": "Frais de livraison",
+    "shippingPriceHelp": "Laissez vide pour la livraison gratuite. L'acheteur les paie lors du paiement."
   },
   "account": {
     "title": "Votre compte",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Tarifs",
       "body": [
-        "Publier sur Anston est gratuit et il n'y a pas de frais de vente.",
+        "Publier sur Anston est gratuit et Anston ne prend aucune commission sur les ventes. Pour les paiements en ligne, Stripe facture au vendeur ses frais standard de traitement de carte.",
         "La mise en avant est facultative. Choisissez un pourcentage lors de la publication et votre annonce apparaîtra en premier dans les Annonces à la une. Vous ne payez ce pourcentage du prix final que si l'article est vendu ou réservé via le paiement Anston.",
         "Tout nouveau frais sera clairement indiqué avant que vous publiiez."
       ]
@@ -590,5 +592,49 @@
     "reset": "Voir tous les lieux",
     "showing": "Annonces à {place}",
     "noneHere": "Pas encore d'annonces ici. Essayez une zone plus large ou affichez tous les lieux."
+  },
+  "payouts": {
+    "title": "Être payé",
+    "intro": "Connectez un compte Stripe pour que les acheteurs vous paient sur Anston. L'argent de vos ventes va directement sur votre compte bancaire.",
+    "notAvailable": "Les paiements en ligne ne sont pas encore activés. Revenez bientôt.",
+    "error": "Un problème est survenu avec Stripe. Veuillez réessayer.",
+    "ready": "Vous pouvez être payé sur Anston",
+    "readyNote": "Les acheteurs peuvent payer vos annonces en ligne, et Stripe envoie l'argent sur votre compte bancaire.",
+    "payoutsPending": "Les acheteurs peuvent vous payer. Stripe vérifie encore vos coordonnées bancaires avant votre premier virement.",
+    "openStripe": "Ouvrir votre tableau de bord Stripe",
+    "pending": "Presque terminé",
+    "pendingNote": "Stripe a besoin de quelques informations de plus avant que les acheteurs puissent vous payer.",
+    "finish": "Terminer la configuration",
+    "point1": "Stripe demande votre pièce d'identité et vos coordonnées bancaires sur sa propre page sécurisée. Anston ne les voit jamais.",
+    "point2": "Vous obtenez votre propre compte Stripe gratuit pour suivre ventes, remboursements et virements.",
+    "point3": "Stripe vire vos gains sur votre compte bancaire régulièrement.",
+    "start": "Configurer les paiements avec Stripe",
+    "fees": "Stripe prélève ses frais standard sur chaque vente (aux États-Unis, 2,9 % + 30 ¢ par paiement par carte), plus la mise en avant choisie. Publier sur Anston reste gratuit.",
+    "bannerTitle": "Soyez payé en ligne :",
+    "bannerText": "configurez vos paiements pour que les acheteurs vous paient sur Anston."
+  },
+  "checkout": {
+    "buyNow": "Acheter maintenant",
+    "payOffer": "Payer maintenant",
+    "offerAccepted": "Votre offre a été acceptée. Payez maintenant pour finaliser l'achat.",
+    "signInToBuy": "Connectez-vous pour acheter",
+    "secure": "Paiement sécurisé par Stripe. Anston ne voit jamais votre carte.",
+    "sellerNotReady": "Ce vendeur n'a pas encore activé les paiements en ligne. Envoyez-lui un message pour organiser le paiement.",
+    "shippingCost": "Livraison : {price}",
+    "freeShipping": "Livraison gratuite",
+    "paidThanks": "Paiement reçu ! Merci pour votre commande. Le vendeur a été prévenu.",
+    "paymentPending": "Nous confirmons votre paiement avec Stripe. Actualisez la page dans un instant.",
+    "shipTo": "Livrer à",
+    "errors": {
+      "seller": "Ce vendeur ne peut pas recevoir de paiement en ligne pour l'instant. Envoyez-lui un message.",
+      "soldout": "Désolé, cet article vient d'être épuisé.",
+      "unavailable": "Cette annonce n'est plus disponible.",
+      "own": "Vous ne pouvez pas acheter votre propre annonce.",
+      "offer": "Cette offre n'est pas acceptée, elle ne peut donc pas être payée.",
+      "suspended": "Votre compte est suspendu.",
+      "setup": "Les paiements en ligne ne sont pas encore activés. Revenez bientôt.",
+      "error": "Un problème est survenu au démarrage du paiement. Veuillez réessayer.",
+      "cancelled": "Paiement annulé. Vous n'avez pas été débité."
+    }
   }
 }

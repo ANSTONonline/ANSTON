@@ -309,7 +309,9 @@
     "from": "Dalle",
     "to": "Alle",
     "closed": "Chiuso",
-    "timeZoneNote": "Gli orari sono nel tuo fuso orario ({zone})."
+    "timeZoneNote": "Gli orari sono nel tuo fuso orario ({zone}).",
+    "shippingPrice": "Costo di spedizione",
+    "shippingPriceHelp": "Lascia vuoto per la spedizione gratuita. L'acquirente lo paga al checkout."
   },
   "account": {
     "title": "Il tuo account",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Prezzi",
       "body": [
-        "Pubblicare su Anston è gratis e non ci sono commissioni di vendita.",
+        "Pubblicare su Anston è gratis e Anston non applica commissioni sulle vendite. Per i pagamenti online, Stripe addebita al venditore la sua commissione standard per le carte.",
         "La promozione è facoltativa. Scegli una percentuale quando pubblichi e il tuo annuncio comparirà per primo negli Annunci in evidenza. Paghi quella percentuale del prezzo finale solo se viene venduto o prenotato tramite il pagamento Anston.",
         "Eventuali nuove commissioni saranno mostrate chiaramente prima della pubblicazione."
       ]
@@ -590,5 +592,49 @@
     "reset": "Mostra tutte le località",
     "showing": "Annunci a {place}",
     "noneHere": "Ancora nessun annuncio qui. Prova un'area più ampia o mostra tutte le località."
+  },
+  "payouts": {
+    "title": "Ricevi pagamenti",
+    "intro": "Collega un account Stripe così gli acquirenti possono pagarti su Anston. Il denaro delle vendite va direttamente sul tuo conto.",
+    "notAvailable": "I pagamenti online non sono ancora attivi. Torna presto.",
+    "error": "Si è verificato un problema con Stripe. Riprova.",
+    "ready": "Puoi ricevere pagamenti su Anston",
+    "readyNote": "Gli acquirenti possono pagare i tuoi annunci online e Stripe invia il denaro sul tuo conto.",
+    "payoutsPending": "Gli acquirenti possono già pagarti. Stripe sta ancora verificando i tuoi dati bancari prima del primo accredito.",
+    "openStripe": "Apri la dashboard di Stripe",
+    "pending": "Ci sei quasi",
+    "pendingNote": "Stripe ha bisogno di qualche altro dato prima che gli acquirenti possano pagarti.",
+    "finish": "Completa la configurazione",
+    "point1": "Stripe chiede il tuo documento e i dati bancari sulla sua pagina sicura. Anston non li vede mai.",
+    "point2": "Ottieni un tuo account Stripe gratuito per seguire vendite, rimborsi e accrediti.",
+    "point3": "Stripe invia regolarmente i tuoi guadagni sul tuo conto.",
+    "start": "Configura i pagamenti con Stripe",
+    "fees": "Stripe applica la sua commissione standard su ogni vendita (negli USA 2,9% + 30¢ per pagamento con carta), più l'eventuale promozione scelta. Pubblicare su Anston resta gratis.",
+    "bannerTitle": "Ricevi pagamenti online:",
+    "bannerText": "configura i pagamenti così gli acquirenti possono pagarti su Anston."
+  },
+  "checkout": {
+    "buyNow": "Compra ora",
+    "payOffer": "Paga ora",
+    "offerAccepted": "La tua offerta è stata accettata. Paga ora per completare l'acquisto.",
+    "signInToBuy": "Accedi per acquistare",
+    "secure": "Pagamento sicuro con Stripe. Anston non vede mai i dati della tua carta.",
+    "sellerNotReady": "Questo venditore non ha ancora attivato i pagamenti online. Scrivigli per accordarvi sul pagamento.",
+    "shippingCost": "Spedizione: {price}",
+    "freeShipping": "Spedizione gratuita",
+    "paidThanks": "Pagamento ricevuto! Grazie per l'ordine. Il venditore è stato avvisato.",
+    "paymentPending": "Stiamo confermando il pagamento con Stripe. Aggiorna la pagina tra poco.",
+    "shipTo": "Spedisci a",
+    "errors": {
+      "seller": "Questo venditore ora non può ricevere pagamenti online. Scrivigli un messaggio.",
+      "soldout": "Spiacenti, questo articolo è appena esaurito.",
+      "unavailable": "Questo annuncio non è più disponibile.",
+      "own": "Non puoi acquistare il tuo annuncio.",
+      "offer": "Questa offerta non è accettata, quindi non può essere pagata.",
+      "suspended": "Il tuo account è sospeso.",
+      "setup": "I pagamenti online non sono ancora attivi. Torna presto.",
+      "error": "Si è verificato un problema nell'avvio del pagamento. Riprova.",
+      "cancelled": "Pagamento annullato. Non ti è stato addebitato nulla."
+    }
   }
 }

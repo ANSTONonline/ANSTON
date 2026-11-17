@@ -309,7 +309,9 @@
     "from": "Kuanzia",
     "to": "Hadi",
     "closed": "Imefungwa",
-    "timeZoneNote": "Saa ziko kwenye saa za eneo lako ({zone})."
+    "timeZoneNote": "Saa ziko kwenye saa za eneo lako ({zone}).",
+    "shippingPrice": "Bei ya usafirishaji",
+    "shippingPriceHelp": "Acha wazi kwa usafirishaji bure. Mnunuzi hulipa wakati wa malipo."
   },
   "account": {
     "title": "Akaunti yako",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Bei",
       "body": [
-        "Kuweka tangazo kwenye Anston ni bure, na hakuna ada za mauzo.",
+        "Kuweka tangazo kwenye Anston ni bure, na Anston haitozi ada ya mauzo. Kwa malipo ya mtandaoni, Stripe humtoza muuzaji ada yake ya kawaida ya kadi.",
         "Kupandisha ni hiari. Chagua asilimia unapoweka tangazo, na tangazo lako litaonekana kwanza kwenye Matangazo Maalum. Unalipa asilimia hiyo ya bei ya mwisho tu ikiwa litauzwa au kuhifadhiwa kupitia malipo ya Anston.",
         "Ada zozote mpya zitaonyeshwa wazi kabla hujaweka tangazo."
       ]
@@ -590,5 +592,49 @@
     "reset": "Onyesha maeneo yote",
     "showing": "Matangazo katika {place}",
     "noneHere": "Bado hakuna matangazo hapa. Jaribu eneo pana zaidi au onyesha maeneo yote."
+  },
+  "payouts": {
+    "title": "Pokea malipo",
+    "intro": "Unganisha akaunti ya Stripe ili wanunuzi wakulipe kwenye Anston. Pesa za mauzo yako huenda moja kwa moja benki kwako.",
+    "notAvailable": "Malipo ya mtandaoni bado hayajawashwa. Tafadhali angalia tena baadaye.",
+    "error": "Hitilafu imetokea wakati wa kuunganisha na Stripe. Tafadhali jaribu tena.",
+    "ready": "Unaweza kupokea malipo kwenye Anston",
+    "readyNote": "Wanunuzi wanaweza kulipia matangazo yako mtandaoni, na Stripe hutuma pesa benki kwako.",
+    "payoutsPending": "Wanunuzi sasa wanaweza kukulipa. Stripe bado inakagua taarifa zako za benki kabla ya malipo ya kwanza.",
+    "openStripe": "Fungua dashibodi yako ya Stripe",
+    "pending": "Karibu umemaliza",
+    "pendingNote": "Stripe inahitaji taarifa chache zaidi kabla wanunuzi hawajaweza kukulipa.",
+    "finish": "Maliza kuweka",
+    "point1": "Stripe huomba kitambulisho na taarifa za benki kwenye ukurasa wake salama. Anston haizioni kamwe.",
+    "point2": "Unapata akaunti yako ya bure ya Stripe kufuatilia mauzo, marejesho na malipo.",
+    "point3": "Stripe hutuma mapato yako benki mara kwa mara.",
+    "start": "Weka malipo kupitia Stripe",
+    "fees": "Stripe hutoza ada yake ya kawaida kwa kila mauzo (Marekani, 2.9% + 30¢ kwa kila malipo ya kadi), pamoja na upandishaji uliouchagua. Kuweka tangazo kwenye Anston kunabaki bure.",
+    "bannerTitle": "Pokea malipo mtandaoni:",
+    "bannerText": "weka malipo ili wanunuzi wakulipe kwenye Anston."
+  },
+  "checkout": {
+    "buyNow": "Nunua sasa",
+    "payOffer": "Lipa sasa",
+    "offerAccepted": "Ofa yako imekubaliwa. Lipa sasa ili kukamilisha ununuzi.",
+    "signInToBuy": "Ingia ili ununue",
+    "secure": "Malipo salama kupitia Stripe. Anston haioni taarifa za kadi yako kamwe.",
+    "sellerNotReady": "Muuzaji huyu bado hajaweka malipo ya mtandaoni. Mtumie ujumbe kupanga malipo.",
+    "shippingCost": "Usafirishaji: {price}",
+    "freeShipping": "Usafirishaji bure",
+    "paidThanks": "Malipo yamepokelewa! Asante kwa oda yako. Muuzaji amearifiwa.",
+    "paymentPending": "Tunathibitisha malipo yako na Stripe. Onyesha upya ukurasa baada ya muda mfupi.",
+    "shipTo": "Tuma kwa",
+    "errors": {
+      "seller": "Muuzaji huyu hawezi kupokea malipo ya mtandaoni kwa sasa. Mtumie ujumbe badala yake.",
+      "soldout": "Samahani, bidhaa hii imeisha sasa hivi.",
+      "unavailable": "Tangazo hili halipatikani tena.",
+      "own": "Huwezi kununua tangazo lako mwenyewe.",
+      "offer": "Ofa hiyo haijakubaliwa, kwa hiyo haiwezi kulipwa.",
+      "suspended": "Akaunti yako imesimamishwa.",
+      "setup": "Malipo ya mtandaoni bado hayajawashwa. Tafadhali angalia tena baadaye.",
+      "error": "Hitilafu imetokea wakati wa kuanza malipo. Tafadhali jaribu tena.",
+      "cancelled": "Malipo yameghairiwa. Hujatozwa chochote."
+    }
   }
 }

@@ -309,7 +309,9 @@
     "from": "Das",
     "to": "Às",
     "closed": "Fechado",
-    "timeZoneNote": "Os horários estão no seu fuso horário ({zone})."
+    "timeZoneNote": "Os horários estão no seu fuso horário ({zone}).",
+    "shippingPrice": "Valor do frete",
+    "shippingPriceHelp": "Deixe vazio para frete grátis. O comprador paga no checkout."
   },
   "account": {
     "title": "Sua conta",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Preços",
       "body": [
-        "Anunciar na Anston é grátis e não há taxas de venda.",
+        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda. Nos pagamentos online, a Stripe cobra do vendedor sua taxa padrão de processamento de cartão.",
         "Impulsionar é opcional. Escolha uma porcentagem ao anunciar e seu anúncio aparecerá primeiro em Anúncios em destaque. Você só paga essa porcentagem do preço final se for vendido ou reservado pelo pagamento da Anston.",
         "Qualquer nova taxa será mostrada claramente antes de você anunciar."
       ]
@@ -590,5 +592,49 @@
     "reset": "Ver todos os locais",
     "showing": "Anúncios em {place}",
     "noneHere": "Ainda não há anúncios aqui. Tente uma área maior ou veja todos os locais."
+  },
+  "payouts": {
+    "title": "Receber",
+    "intro": "Conecte uma conta Stripe para que os compradores paguem você na Anston. O dinheiro das vendas vai direto para o seu banco.",
+    "notAvailable": "Os pagamentos online ainda não estão ativados. Volte em breve.",
+    "error": "Algo deu errado ao conectar com a Stripe. Tente novamente.",
+    "ready": "Você já pode receber na Anston",
+    "readyNote": "Os compradores podem pagar seus anúncios online, e a Stripe envia o dinheiro para o seu banco.",
+    "payoutsPending": "Os compradores já podem pagar você. A Stripe ainda está verificando seus dados bancários antes do primeiro repasse.",
+    "openStripe": "Abrir seu painel da Stripe",
+    "pending": "Quase lá",
+    "pendingNote": "A Stripe precisa de mais alguns dados antes que os compradores possam pagar você.",
+    "finish": "Concluir configuração",
+    "point1": "A Stripe pede seu documento e seus dados bancários em uma página segura própria. A Anston nunca os vê.",
+    "point2": "Você ganha sua própria conta Stripe gratuita para acompanhar vendas, reembolsos e repasses.",
+    "point3": "A Stripe envia seus ganhos para o seu banco regularmente.",
+    "start": "Configurar recebimentos com a Stripe",
+    "fees": "A Stripe cobra sua taxa padrão em cada venda (nos EUA, 2,9% + 30¢ por pagamento com cartão), mais o impulso que você escolher. Anunciar na Anston continua grátis.",
+    "bannerTitle": "Receba online:",
+    "bannerText": "configure seus recebimentos para que os compradores paguem você na Anston."
+  },
+  "checkout": {
+    "buyNow": "Comprar agora",
+    "payOffer": "Pagar agora",
+    "offerAccepted": "Sua oferta foi aceita. Pague agora para concluir a compra.",
+    "signInToBuy": "Entre para comprar",
+    "secure": "Pagamento seguro pela Stripe. A Anston nunca vê os dados do seu cartão.",
+    "sellerNotReady": "Este vendedor ainda não configurou pagamentos online. Envie uma mensagem para combinar o pagamento.",
+    "shippingCost": "Frete: {price}",
+    "freeShipping": "Frete grátis",
+    "paidThanks": "Pagamento recebido! Obrigado pelo pedido. O vendedor foi avisado.",
+    "paymentPending": "Estamos confirmando seu pagamento com a Stripe. Atualize a página em instantes.",
+    "shipTo": "Enviar para",
+    "errors": {
+      "seller": "Este vendedor não pode receber pagamentos online agora. Envie uma mensagem.",
+      "soldout": "Desculpe, este item acabou de esgotar.",
+      "unavailable": "Este anúncio não está mais disponível.",
+      "own": "Você não pode comprar seu próprio anúncio.",
+      "offer": "Essa oferta não foi aceita, então não pode ser paga.",
+      "suspended": "Sua conta está suspensa.",
+      "setup": "Os pagamentos online ainda não estão ativados. Volte em breve.",
+      "error": "Algo deu errado ao iniciar o pagamento. Tente novamente.",
+      "cancelled": "Pagamento cancelado. Você não foi cobrado."
+    }
   }
 }
