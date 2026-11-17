@@ -309,7 +309,9 @@
     "from": "Desde",
     "to": "Hasta",
     "closed": "Cerrado",
-    "timeZoneNote": "Las horas están en tu zona horaria ({zone})."
+    "timeZoneNote": "Las horas están en tu zona horaria ({zone}).",
+    "shippingPrice": "Precio de envío",
+    "shippingPriceHelp": "Déjalo vacío para envío gratis. El comprador lo paga al pagar."
   },
   "account": {
     "title": "Tu cuenta",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Precios",
       "body": [
-        "Publicar en Anston es gratis y no hay comisiones por venta.",
+        "Publicar en Anston es gratis y Anston no cobra comisión por venta. En los pagos en línea, Stripe cobra al vendedor su comisión estándar por procesar la tarjeta.",
         "Destacar es opcional. Elige un porcentaje al publicar y tu anuncio aparecerá primero en Anuncios destacados. Solo pagas ese porcentaje del precio final si se vende o se reserva mediante el pago de Anston.",
         "Cualquier nueva tarifa se mostrará claramente antes de publicar."
       ]
@@ -590,5 +592,49 @@
     "reset": "Ver todas las ubicaciones",
     "showing": "Anuncios en {place}",
     "noneHere": "Aún no hay anuncios aquí. Prueba un área más amplia o ve todas las ubicaciones."
+  },
+  "payouts": {
+    "title": "Cobrar",
+    "intro": "Conecta una cuenta de Stripe para que los compradores te paguen en Anston. El dinero de tus ventas va directo a tu banco.",
+    "notAvailable": "Los pagos en línea aún no están activados. Vuelve pronto.",
+    "error": "Hubo un problema al conectar con Stripe. Inténtalo de nuevo.",
+    "ready": "Ya puedes cobrar en Anston",
+    "readyNote": "Los compradores pueden pagar tus anuncios en línea y Stripe envía el dinero a tu banco.",
+    "payoutsPending": "Ya pueden pagarte. Stripe aún está verificando tus datos bancarios antes de enviar tu primer pago.",
+    "openStripe": "Abrir tu panel de Stripe",
+    "pending": "Casi listo",
+    "pendingNote": "Stripe necesita algunos datos más antes de que los compradores puedan pagarte.",
+    "finish": "Terminar la configuración",
+    "point1": "Stripe pide tu identificación y datos bancarios en su propia página segura. Anston nunca los ve.",
+    "point2": "Obtienes tu propia cuenta gratuita de Stripe para ver ventas, reembolsos y pagos.",
+    "point3": "Stripe envía tus ganancias a tu banco con regularidad.",
+    "start": "Configurar pagos con Stripe",
+    "fees": "Stripe cobra su comisión estándar en cada venta (en EE. UU., 2.9% + 30¢ por pago con tarjeta), más cualquier destacado que elijas. Publicar en Anston sigue siendo gratis.",
+    "bannerTitle": "Cobra en línea:",
+    "bannerText": "configura tus pagos para que los compradores te paguen en Anston."
+  },
+  "checkout": {
+    "buyNow": "Comprar ahora",
+    "payOffer": "Pagar ahora",
+    "offerAccepted": "Tu oferta fue aceptada. Paga ahora para completar la compra.",
+    "signInToBuy": "Inicia sesión para comprar",
+    "secure": "Pago seguro con Stripe. Anston nunca ve los datos de tu tarjeta.",
+    "sellerNotReady": "Este vendedor aún no configuró pagos en línea. Envíale un mensaje para acordar el pago.",
+    "shippingCost": "Envío: {price}",
+    "freeShipping": "Envío gratis",
+    "paidThanks": "¡Pago recibido! Gracias por tu pedido. Avisamos al vendedor.",
+    "paymentPending": "Estamos confirmando tu pago con Stripe. Actualiza esta página en un momento.",
+    "shipTo": "Enviar a",
+    "errors": {
+      "seller": "Este vendedor no puede recibir pagos en línea ahora. Envíale un mensaje.",
+      "soldout": "Lo sentimos, este artículo se acaba de agotar.",
+      "unavailable": "Este anuncio ya no está disponible.",
+      "own": "No puedes comprar tu propio anuncio.",
+      "offer": "Esa oferta no está aceptada, así que no se puede pagar.",
+      "suspended": "Tu cuenta está suspendida.",
+      "setup": "Los pagos en línea aún no están activados. Vuelve pronto.",
+      "error": "Hubo un problema al iniciar el pago. Inténtalo de nuevo.",
+      "cancelled": "Pago cancelado. No se te cobró nada."
+    }
   }
 }

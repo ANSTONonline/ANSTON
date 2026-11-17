@@ -309,7 +309,9 @@
     "from": "Từ",
     "to": "Đến",
     "closed": "Nghỉ",
-    "timeZoneNote": "Giờ tính theo múi giờ của bạn ({zone})."
+    "timeZoneNote": "Giờ tính theo múi giờ của bạn ({zone}).",
+    "shippingPrice": "Phí vận chuyển",
+    "shippingPriceHelp": "Để trống nếu miễn phí vận chuyển. Người mua trả khi thanh toán."
   },
   "account": {
     "title": "Tài khoản của bạn",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Phí",
       "body": [
-        "Đăng tin trên Anston là miễn phí và không có phí bán hàng.",
+        "Đăng tin trên Anston là miễn phí và Anston không thu phí bán hàng. Với thanh toán trực tuyến, Stripe thu của người bán phí xử lý thẻ tiêu chuẩn.",
         "Đẩy tin là tùy chọn. Chọn một tỷ lệ khi đăng và tin của bạn sẽ hiện đầu tiên trong Tin nổi bật. Bạn chỉ trả tỷ lệ đó của giá cuối cùng nếu món hàng được bán hoặc đặt qua thanh toán Anston.",
         "Mọi khoản phí mới sẽ được hiển thị rõ ràng trước khi bạn đăng tin."
       ]
@@ -590,5 +592,49 @@
     "reset": "Xem mọi địa điểm",
     "showing": "Tin đăng tại {place}",
     "noneHere": "Chưa có tin đăng nào ở đây. Hãy thử khu vực rộng hơn hoặc xem mọi địa điểm."
+  },
+  "payouts": {
+    "title": "Nhận tiền",
+    "intro": "Kết nối tài khoản Stripe để người mua có thể thanh toán cho bạn trên Anston. Tiền bán hàng chuyển thẳng vào ngân hàng của bạn.",
+    "notAvailable": "Thanh toán trực tuyến chưa được bật. Vui lòng quay lại sau.",
+    "error": "Đã có lỗi khi kết nối với Stripe. Vui lòng thử lại.",
+    "ready": "Bạn đã có thể nhận tiền trên Anston",
+    "readyNote": "Người mua có thể thanh toán tin đăng của bạn trực tuyến, và Stripe chuyển tiền vào ngân hàng của bạn.",
+    "payoutsPending": "Người mua đã có thể thanh toán cho bạn. Stripe vẫn đang kiểm tra thông tin ngân hàng trước khi chuyển khoản đầu tiên.",
+    "openStripe": "Mở bảng điều khiển Stripe",
+    "pending": "Sắp xong",
+    "pendingNote": "Stripe cần thêm vài thông tin trước khi người mua có thể thanh toán cho bạn.",
+    "finish": "Hoàn tất thiết lập",
+    "point1": "Stripe yêu cầu giấy tờ tùy thân và thông tin ngân hàng trên trang bảo mật của họ. Anston không bao giờ thấy những thông tin này.",
+    "point2": "Bạn có tài khoản Stripe miễn phí riêng để theo dõi doanh thu, hoàn tiền và chuyển khoản.",
+    "point3": "Stripe chuyển thu nhập vào ngân hàng của bạn định kỳ.",
+    "start": "Thiết lập nhận tiền với Stripe",
+    "fees": "Stripe thu phí xử lý tiêu chuẩn trên mỗi giao dịch (ở Mỹ là 2,9% + 30¢ mỗi lần thanh toán thẻ), cộng phí đẩy tin bạn chọn. Đăng tin trên Anston vẫn miễn phí.",
+    "bannerTitle": "Nhận tiền trực tuyến:",
+    "bannerText": "thiết lập nhận tiền để người mua có thể thanh toán cho bạn trên Anston."
+  },
+  "checkout": {
+    "buyNow": "Mua ngay",
+    "payOffer": "Thanh toán ngay",
+    "offerAccepted": "Lời đề nghị của bạn đã được chấp nhận. Thanh toán ngay để hoàn tất.",
+    "signInToBuy": "Đăng nhập để mua",
+    "secure": "Thanh toán an toàn qua Stripe. Anston không bao giờ thấy thông tin thẻ của bạn.",
+    "sellerNotReady": "Người bán này chưa thiết lập thanh toán trực tuyến. Hãy nhắn tin để thỏa thuận cách thanh toán.",
+    "shippingCost": "Phí vận chuyển: {price}",
+    "freeShipping": "Miễn phí vận chuyển",
+    "paidThanks": "Đã nhận thanh toán! Cảm ơn bạn đã đặt hàng. Người bán đã được thông báo.",
+    "paymentPending": "Chúng tôi đang xác nhận thanh toán với Stripe. Hãy tải lại trang sau giây lát.",
+    "shipTo": "Giao đến",
+    "errors": {
+      "seller": "Người bán này hiện chưa nhận được thanh toán trực tuyến. Hãy nhắn tin cho họ.",
+      "soldout": "Xin lỗi, món hàng này vừa hết.",
+      "unavailable": "Tin đăng này không còn nữa.",
+      "own": "Bạn không thể mua tin đăng của chính mình.",
+      "offer": "Lời đề nghị đó chưa được chấp nhận nên không thể thanh toán.",
+      "suspended": "Tài khoản của bạn đã bị tạm khóa.",
+      "setup": "Thanh toán trực tuyến chưa được bật. Vui lòng quay lại sau.",
+      "error": "Đã có lỗi khi bắt đầu thanh toán. Vui lòng thử lại.",
+      "cancelled": "Đã hủy thanh toán. Bạn chưa bị trừ tiền."
+    }
   }
 }

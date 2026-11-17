@@ -205,6 +205,7 @@ async function readListingForm(
       refund_days: refund === "refundable" ? refundDays : null,
       boost_bps: boostBps,
       ships: checked(fd, "ships"),
+      shipping_cents: checked(fd, "ships") ? cents(text(fd, "shipping_price")) ?? 0 : 0,
       local_pickup: checked(fd, "local_pickup"),
     },
     modes,

@@ -309,7 +309,9 @@
     "from": "Başlangıç",
     "to": "Bitiş",
     "closed": "Kapalı",
-    "timeZoneNote": "Saatler kendi saat diliminizdedir ({zone})."
+    "timeZoneNote": "Saatler kendi saat diliminizdedir ({zone}).",
+    "shippingPrice": "Kargo ücreti",
+    "shippingPriceHelp": "Ücretsiz kargo için boş bırak. Alıcı ödeme sırasında öder."
   },
   "account": {
     "title": "Hesabınız",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Ücretler",
       "body": [
-        "Anston'da ilan vermek ücretsizdir ve satış ücreti yoktur.",
+        "Anston'da ilan vermek ücretsizdir ve Anston satış ücreti almaz. Çevrimiçi ödemelerde Stripe, satıcıdan standart kart işlem ücretini alır.",
         "Öne çıkarma isteğe bağlıdır. İlan verirken bir oran seçin, ilanınız Öne Çıkan İlanlar'da en üstte görünsün. Son fiyatın bu oranını yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz.",
         "Yeni ücretler, ilan vermeden önce açıkça gösterilecektir."
       ]
@@ -590,5 +592,49 @@
     "reset": "Tüm konumları göster",
     "showing": "{place} konumundaki ilanlar",
     "noneHere": "Burada henüz ilan yok. Daha geniş bir alan deneyin veya tüm konumları gösterin."
+  },
+  "payouts": {
+    "title": "Ödeme al",
+    "intro": "Alıcıların sana Anston'da ödeme yapabilmesi için bir Stripe hesabı bağla. Satışlarından gelen para doğrudan bankana gider.",
+    "notAvailable": "Çevrimiçi ödemeler henüz açılmadı. Lütfen kısa süre sonra tekrar bak.",
+    "error": "Stripe'a bağlanırken bir sorun oluştu. Lütfen tekrar dene.",
+    "ready": "Anston'da ödeme alabilirsin",
+    "readyNote": "Alıcılar ilanlarının ödemesini çevrimiçi yapabilir, Stripe da parayı bankana gönderir.",
+    "payoutsPending": "Alıcılar artık sana ödeme yapabilir. Stripe ilk ödemeyi göndermeden önce banka bilgilerini hâlâ kontrol ediyor.",
+    "openStripe": "Stripe panelini aç",
+    "pending": "Neredeyse bitti",
+    "pendingNote": "Alıcıların sana ödeme yapabilmesi için Stripe'ın birkaç bilgiye daha ihtiyacı var.",
+    "finish": "Kurulumu tamamla",
+    "point1": "Stripe kimliğini ve banka bilgilerini kendi güvenli sayfasında ister. Anston bunları asla görmez.",
+    "point2": "Satışları, iadeleri ve ödemeleri takip etmek için kendi ücretsiz Stripe hesabını alırsın.",
+    "point3": "Stripe kazancını düzenli olarak bankana gönderir.",
+    "start": "Stripe ile ödemeleri ayarla",
+    "fees": "Stripe her satıştan standart işlem ücretini alır (ABD'de kart ödemesi başına %2,9 + 30¢), ayrıca seçtiğin öne çıkarma ücreti. Anston'da ilan vermek ücretsiz kalır.",
+    "bannerTitle": "Çevrimiçi ödeme al:",
+    "bannerText": "alıcıların sana Anston'da ödeme yapabilmesi için ödemeleri ayarla."
+  },
+  "checkout": {
+    "buyNow": "Hemen al",
+    "payOffer": "Şimdi öde",
+    "offerAccepted": "Teklifin kabul edildi. Satın almayı tamamlamak için şimdi öde.",
+    "signInToBuy": "Satın almak için giriş yap",
+    "secure": "Stripe ile güvenli ödeme. Anston kart bilgilerini asla görmez.",
+    "sellerNotReady": "Bu satıcı henüz çevrimiçi ödeme ayarlamadı. Ödemeyi ayarlamak için ona mesaj gönder.",
+    "shippingCost": "Kargo: {price}",
+    "freeShipping": "Ücretsiz kargo",
+    "paidThanks": "Ödeme alındı! Siparişin için teşekkürler. Satıcıya haber verildi.",
+    "paymentPending": "Ödemeni Stripe ile doğruluyoruz. Birazdan sayfayı yenile.",
+    "shipTo": "Teslimat adresi",
+    "errors": {
+      "seller": "Bu satıcı şu anda çevrimiçi ödeme alamıyor. Bunun yerine ona mesaj gönder.",
+      "soldout": "Üzgünüz, bu ürün az önce tükendi.",
+      "unavailable": "Bu ilan artık mevcut değil.",
+      "own": "Kendi ilanını satın alamazsın.",
+      "offer": "Bu teklif kabul edilmedi, bu yüzden ödenemez.",
+      "suspended": "Hesabın askıya alındı.",
+      "setup": "Çevrimiçi ödemeler henüz açılmadı. Lütfen kısa süre sonra tekrar bak.",
+      "error": "Ödeme başlatılırken bir sorun oluştu. Lütfen tekrar dene.",
+      "cancelled": "Ödeme iptal edildi. Senden ücret alınmadı."
+    }
   }
 }

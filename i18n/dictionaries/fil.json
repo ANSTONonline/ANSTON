@@ -309,7 +309,9 @@
     "from": "Mula",
     "to": "Hanggang",
     "closed": "Sarado",
-    "timeZoneNote": "Ang oras ay ayon sa time zone mo ({zone})."
+    "timeZoneNote": "Ang oras ay ayon sa time zone mo ({zone}).",
+    "shippingPrice": "Presyo ng shipping",
+    "shippingPriceHelp": "Iwanang blangko para sa libreng shipping. Babayaran ito ng mamimili sa checkout."
   },
   "account": {
     "title": "Ang account mo",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Presyo",
       "body": [
-        "Libre ang pag-post sa Anston, at walang bayad sa pagbebenta.",
+        "Libre ang pag-post sa Anston, at walang kinukuhang selling fee ang Anston. Sa online na bayad, kumukuha ang Stripe ng karaniwang card processing fee mula sa nagbebenta.",
         "Opsyonal ang pag-boost. Pumili ng porsyento kapag nagpo-post, at unang lalabas ang listing mo sa Mga Tampok na Listing. Babayaran mo lang ang porsyentong iyon ng huling presyo kung maibenta o ma-book ito sa checkout ng Anston.",
         "Malinaw na ipapakita ang anumang bagong bayarin bago ka mag-post."
       ]
@@ -590,5 +592,49 @@
     "reset": "Ipakita ang lahat ng lokasyon",
     "showing": "Mga listing sa {place}",
     "noneHere": "Wala pang listing dito. Subukan ang mas malawak na lugar o ipakita ang lahat ng lokasyon."
+  },
+  "payouts": {
+    "title": "Mabayaran",
+    "intro": "Ikonekta ang Stripe account para makabayad sa iyo ang mga mamimili sa Anston. Diretso sa bangko mo ang pera mula sa benta.",
+    "notAvailable": "Hindi pa naka-on ang online na bayad. Bumalik ulit sa lalong madaling panahon.",
+    "error": "Nagkaproblema sa pagkonekta sa Stripe. Pakisubukang muli.",
+    "ready": "Puwede ka nang mabayaran sa Anston",
+    "readyNote": "Puwedeng magbayad online ang mga mamimili sa mga listing mo, at ipapadala ng Stripe ang pera sa bangko mo.",
+    "payoutsPending": "Puwede ka nang bayaran ng mga mamimili. Sinusuri pa ng Stripe ang bank details mo bago ang unang payout.",
+    "openStripe": "Buksan ang Stripe dashboard mo",
+    "pending": "Malapit na",
+    "pendingNote": "Kailangan pa ng Stripe ng ilang detalye bago ka mabayaran ng mga mamimili.",
+    "finish": "Tapusin ang setup",
+    "point1": "Hinihingi ng Stripe ang ID at bank details mo sa sarili nitong secure na page. Hindi ito nakikita ng Anston.",
+    "point2": "Magkakaroon ka ng sariling libreng Stripe account para makita ang benta, refund at payout.",
+    "point3": "Regular na ipinapadala ng Stripe ang kita mo sa bangko mo.",
+    "start": "I-set up ang payout sa Stripe",
+    "fees": "Kumukuha ang Stripe ng karaniwang processing fee sa bawat benta (sa US, 2.9% + 30¢ bawat card payment), dagdag ang boost na pinili mo. Libre pa rin ang pag-post sa Anston.",
+    "bannerTitle": "Mabayaran online:",
+    "bannerText": "i-set up ang payout para makabayad sa iyo ang mga mamimili sa Anston."
+  },
+  "checkout": {
+    "buyNow": "Bilhin ngayon",
+    "payOffer": "Magbayad ngayon",
+    "offerAccepted": "Tinanggap ang alok mo. Magbayad ngayon para makumpleto ang pagbili.",
+    "signInToBuy": "Mag-sign in para bumili",
+    "secure": "Ligtas na checkout gamit ang Stripe. Hindi nakikita ng Anston ang detalye ng card mo.",
+    "sellerNotReady": "Hindi pa nagse-set up ng online na bayad ang nagbebentang ito. Mag-message para mapag-usapan ang bayad.",
+    "shippingCost": "Shipping: {price}",
+    "freeShipping": "Libreng shipping",
+    "paidThanks": "Natanggap ang bayad! Salamat sa order mo. Naabisuhan na ang nagbebenta.",
+    "paymentPending": "Kinukumpirma namin ang bayad mo sa Stripe. I-refresh ang page maya-maya.",
+    "shipTo": "Ipadala sa",
+    "errors": {
+      "seller": "Hindi pa makatanggap ng online na bayad ang nagbebentang ito. Mag-message na lang.",
+      "soldout": "Pasensya, naubos na ang item na ito.",
+      "unavailable": "Hindi na available ang listing na ito.",
+      "own": "Hindi mo puwedeng bilhin ang sarili mong listing.",
+      "offer": "Hindi tinanggap ang alok na iyon kaya hindi ito mababayaran.",
+      "suspended": "Suspendido ang account mo.",
+      "setup": "Hindi pa naka-on ang online na bayad. Bumalik ulit sa lalong madaling panahon.",
+      "error": "Nagkaproblema sa pagsisimula ng checkout. Pakisubukang muli.",
+      "cancelled": "Kinansela ang checkout. Hindi ka siningil."
+    }
   }
 }

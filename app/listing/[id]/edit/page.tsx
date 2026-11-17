@@ -34,7 +34,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     .from("listings")
     .select(
       `id, seller_id, category_id, title, description, condition, currency, quantity, attributes,
-       country_code, region, city, ships, local_pickup, refund_policy, refund_days, boost_bps,
+       country_code, region, city, ships, local_pickup, shipping_cents, refund_policy, refund_days, boost_bps,
        listing_modes ( * ), listing_images ( storage_path, position )`,
     )
     .eq("id", id)
@@ -67,6 +67,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     region: regionCodeFor(listing.country_code, listing.region),
     city: listing.city ?? "",
     ships: on(listing.ships),
+    shipping_price: listing.shipping_cents ? (Number(listing.shipping_cents) / 100).toFixed(2) : "",
     local_pickup: on(listing.local_pickup),
     mode_sale: on(Boolean(sale)),
     sale_price: money(sale?.price_cents ?? null),

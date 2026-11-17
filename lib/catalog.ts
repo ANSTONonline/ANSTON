@@ -94,7 +94,7 @@ export async function getCategories(locale: Locale): Promise<Category[]> {
 // ---------------------------------------------------------------------------
 export const LISTING_SELECT = `
   id, title, description, status, currency, condition, quantity, city, region, country_code,
-  ships, local_pickup, attributes, created_at, seller_id, refund_policy, refund_days, boost_bps,
+  ships, local_pickup, shipping_cents, attributes, created_at, seller_id, refund_policy, refund_days, boost_bps,
   category:categories ( * ),
   listing_modes ( mode, price_cents, accepts_offers, start_price_cents, buy_now_price_cents,
                   min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes,
@@ -131,6 +131,7 @@ export type ListingRow = {
   region: string | null;
   country_code: string;
   ships: boolean;
+  shipping_cents?: number | null;
   local_pickup: boolean;
   attributes: Record<string, unknown>;
   refund_policy: "refundable" | "non_refundable" | null;
@@ -205,6 +206,7 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
     condition: row.condition,
     createdAt: row.created_at,
     ships: row.ships,
+    shippingCents: row.shipping_cents ?? 0,
     localPickup: row.local_pickup,
     attributes: row.attributes,
     refundPolicy: row.refund_policy,

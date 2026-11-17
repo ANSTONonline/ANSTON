@@ -9,6 +9,8 @@ import { openConversation } from "../../../messages/actions";
 import { confirmReceived, leaveReview, markShipped } from "../actions";
 import StarPicker from "./star-picker";
 import { StatusBadge } from "../status-badge";
+import { recordPayment } from "@/lib/checkout";
+import { paymentsConfigured } from "@/lib/stripe";
 
 type Params = Promise<{ id: string }>;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -30,6 +32,9 @@ type Order = {
   shipped_at: string | null;
   delivered_at: string | null;
   completed_at: string | null;
+  ship_to: { name?: string | null; address?: Record<string, string | null> | null } | null;
+  stripe_account_id: string | null;
+  stripe_checkout_session_id: string | null;
   buyer_id: string;
   seller_id: string;
   listing: { id: string; title: string } | null;
@@ -52,6 +57,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
     .select(
       `id, mode, status, quantity, currency, subtotal_cents, shipping_cents, tax_cents, total_cents,
        carrier, tracking_number, created_at, paid_at, shipped_at, delivered_at, completed_at, buyer_id, seller_id,
+       ship_to, stripe_account_id, stripe_checkout_session_id,
        listing:listings ( id, title ),
        buyer:profiles!orders_buyer_id_fkey ( username ),
        seller:profiles!orders_seller_id_fkey ( username )`,
@@ -59,8 +65,27 @@ export default async function OrderPage({ params, searchParams }: { params: Para
     .eq("id", id)
     .maybeSingle();
   if (error) console.error("order", error.message);
-  const order = data as unknown as Order | null;
+  let order = data as unknown as Order | null;
   if (!order) notFound();
+
+  // Back from Stripe Checkout: confirm the payment with Stripe and record it.
+  const sessionId = typeof flags.session_id === "string" ? flags.session_id : "";
+  if (sessionId && order.status === "pending_payment" && order.buyer_id === member.user.id && order.stripe_account_id
+      && sessionId === order.stripe_checkout_session_id && paymentsConfigured()) {
+    try {
+      if (await recordPayment(member.supabase, order.id, sessionId, order.stripe_account_id)) {
+        // A different query on purpose: Next.js reuses identical requests within one page load.
+        const { data: fresh } = await member.supabase
+          .from("orders")
+          .select("status, paid_at, ship_to")
+          .eq("id", order.id)
+          .single();
+        if (fresh) order = { ...order, ...(fresh as Pick<Order, "status" | "paid_at" | "ship_to">) };
+      }
+    } catch (e) {
+      console.error("recordPayment", e instanceof Error ? e.message : e);
+    }
+  }
 
   const isSeller = order.seller_id === member.user.id;
   const isBuyer = order.buyer_id === member.user.id;
@@ -100,6 +125,8 @@ export default async function OrderPage({ params, searchParams }: { params: Para
         <StatusBadge status={order.status} label={o.status[order.status]} />
       </div>
 
+      {sessionId && order.status === "paid" && isBuyer && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">🎉 {t.checkout.paidThanks}</p>}
+      {sessionId && order.status === "pending_payment" && isBuyer && <p role="status" className="mb-4 bg-amber-50 border border-amber-200 text-amber-800 rounded-lg p-3 text-sm">{t.checkout.paymentPending}</p>}
       {flags.shipped && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.shippedSaved}</p>}
       {flags.received && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.receivedSaved}</p>}
       {flags.reviewed && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{r.thanks}</p>}
@@ -146,6 +173,18 @@ export default async function OrderPage({ params, searchParams }: { params: Para
           <div className="flex justify-between font-semibold border-t pt-2"><dt>{o.total}</dt><dd>{money(order.total_cents)}</dd></div>
         </dl>
       </div>
+
+      {order.ship_to?.address && (isSeller || isBuyer) && (
+        <div className="border rounded-xl p-5 mb-4 text-sm">
+          <h2 className="font-semibold mb-2">📦 {t.checkout.shipTo}</h2>
+          <address className="not-italic leading-relaxed" dir="ltr">
+            {order.ship_to.name && <>{order.ship_to.name}<br /></>}
+            {[order.ship_to.address.line1, order.ship_to.address.line2].filter(Boolean).join(", ")}<br />
+            {[order.ship_to.address.city, order.ship_to.address.state, order.ship_to.address.postal_code].filter(Boolean).join(", ")}<br />
+            {order.ship_to.address.country}
+          </address>
+        </div>
+      )}
 
       <div className="border rounded-xl p-5 space-y-3 mb-4">
         <h2 className="font-semibold">{o.tracking}</h2>

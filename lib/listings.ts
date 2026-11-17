@@ -60,6 +60,7 @@ export type Listing = {
   condition?: string;
   createdAt?: string;
   ships?: boolean;
+  shippingCents?: number;
   localPickup?: boolean;
   attributes?: Record<string, unknown>;
   refundPolicy?: "refundable" | "non_refundable" | null;

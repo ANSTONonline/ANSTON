@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { startCheckout } from "../../checkout/actions";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { formatPrice } from "@/lib/listings";
 import { requireMember } from "@/lib/member";
@@ -133,6 +134,13 @@ export default async function BuyingPage() {
                       <input type="hidden" name="id" value={o.id} />
                       <input type="hidden" name="status" value="withdrawn" />
                       <button type="submit" className="border rounded-lg px-3 py-1.5 text-sm">{d.withdraw}</button>
+                    </form>
+                  )}
+                  {o.status === "accepted" && o.listing && (
+                    <form action={startCheckout}>
+                      <input type="hidden" name="listing" value={o.listing.id} />
+                      <input type="hidden" name="offer" value={o.id} />
+                      <button type="submit" className="bg-[#7A1E2B] text-white rounded-lg px-3 py-1.5 text-sm">{t.checkout.payOffer}</button>
                     </form>
                   )}
                   {o.listing && <MessageSeller listingId={o.listing.id} label={d.messageSeller} />}

@@ -3,7 +3,7 @@
 // in other languages show a short note saying so (see i18n dictionaries).
 // When anything here changes, update EFFECTIVE_DATE.
 
-export const EFFECTIVE_DATE = "November 16, 2026";
+export const EFFECTIVE_DATE = "November 17, 2026";
 export const CONTACT_EMAIL = "support@myanston.com";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[]; after?: string[] };
@@ -25,7 +25,7 @@ export const privacyPolicy: LegalDoc = {
         "Activity on the marketplace: bids, offers, rental and booking requests (including the dates and notes you send), favorites, and reviews.",
         "Messages you send to other users through Anston.",
         "Reports you send us about listings or users, and anything you write to support@myanston.com.",
-        "Payment details, once checkout is available: payments will be handled by a payment provider (such as Stripe). We will not store your full card number.",
+        "Payment details: card payments are handled by Stripe on Stripe's own secure pages. We never see or store your full card number. We keep a record of each order (items, amounts, status, and the shipping address you enter at checkout so the seller can ship it). Sellers who set up payouts give their identity and bank details to Stripe, not to us.",
       ],
     },
     {
@@ -67,7 +67,7 @@ export const privacyPolicy: LegalDoc = {
         "Google: only if you choose to sign in with Google.",
         "Resend: delivers activity emails (servers in the United States).",
         "Email and text message providers that deliver verification messages and support email.",
-        "A payment provider such as Stripe, once checkout is available.",
+        "Stripe: processes payments and seller payouts, and verifies sellers' identities. Stripe handles that information under its own privacy policy (stripe.com/privacy).",
       ],
       after: [
         "We may also share information if the law requires it, to protect the safety of our users or the public, to investigate fraud or violations of our Terms, or as part of a merger or sale of our business (in which case this policy will continue to protect your information).",
@@ -145,7 +145,9 @@ export const termsOfService: LegalDoc = {
       heading: "2. Anston is a marketplace",
       paragraphs: [
         "Anston provides a place for people to list, find and arrange deals with each other. Unless we clearly say otherwise, we are not the buyer, seller, renter, landlord or service provider, and we are not a party to the deals between users. We do not own, inspect, or guarantee the items and services listed, and we do not employ the people who offer services. Users are responsible for their listings, their deals and their conduct.",
-        "Until checkout is available on Anston, buyers and sellers arrange payment and handover between themselves. Please meet in safe, public places, inspect items before paying, and never send money to someone you don't trust.",
+        "Buyers can pay sellers who have set up payouts through Anston checkout, which is run by Stripe. Payment goes to the seller's Stripe account, not to Anston, except for any boost fee the seller chose. For sellers who haven't set up payouts, and for deals arranged in person, buyers and sellers arrange payment and handover between themselves: please meet in safe, public places, inspect items before paying, and never send money to someone you don't trust.",
+        "Payment processing services for sellers on Anston are provided by Stripe and are subject to the Stripe Connected Account Agreement, which includes the Stripe Terms of Service (together, the \"Stripe Services Agreement\"). By setting up payouts, you agree to be bound by the Stripe Services Agreement, as Stripe may change it from time to time. As a condition of Anston enabling payment processing through Stripe, you agree to give Anston accurate and complete information about you and your business, and you authorize Anston to share it and transaction information related to your use of the payment processing services provided by Stripe.",
+        "Sellers are responsible for honoring their refund policy, for refunds and disputes on their sales, and for any taxes on their income. Refunds and disputes are handled through the seller's Stripe account.",
       ],
     },
     {
@@ -189,7 +191,7 @@ export const termsOfService: LegalDoc = {
     {
       heading: "6. Fees",
       paragraphs: [
-        "Listing on Anston is currently free and there are no selling fees. If we add fees in the future, we will show them clearly before you list or buy, and they will not apply to deals completed before the change.",
+        "Listing on Anston is free, and Anston charges no selling fee. When a sale is paid through Anston checkout, Stripe charges the seller its standard processing fee (shown in the seller's Stripe account; in the US, currently 2.9% + 30¢ per card payment). If we add fees in the future, we will show them clearly before you list or buy, and they will not apply to deals completed before the change.",
         "Boosting is optional. If you boost a listing, it is shown higher in Featured Listings and marked \"Sponsored\", and you agree to pay Anston the percentage you chose of the item's final price (not including shipping or tax) if it sells or is booked through Anston checkout. The boost fee is taken from your payout. Boosting changes where a listing is shown, not whether it sells, and we may limit or remove boosts on listings that break these Terms.",
       ],
     },

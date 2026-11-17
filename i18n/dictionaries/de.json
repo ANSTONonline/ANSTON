@@ -309,7 +309,9 @@
     "from": "Von",
     "to": "Bis",
     "closed": "Geschlossen",
-    "timeZoneNote": "Die Zeiten gelten in deiner Zeitzone ({zone})."
+    "timeZoneNote": "Die Zeiten gelten in deiner Zeitzone ({zone}).",
+    "shippingPrice": "Versandkosten",
+    "shippingPriceHelp": "Leer lassen für kostenlosen Versand. Käufer zahlen sie beim Bezahlen."
   },
   "account": {
     "title": "Dein Konto",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Preise",
       "body": [
-        "Anzeigen auf Anston sind kostenlos, und es gibt keine Verkaufsgebühren.",
+        "Inserieren auf Anston ist kostenlos, und Anston verlangt keine Verkaufsgebühr. Bei Online-Zahlungen berechnet Stripe dem Verkäufer seine übliche Gebühr für Kartenzahlungen.",
         "Hervorheben ist optional. Wähle beim Einstellen einen Prozentsatz, und deine Anzeige erscheint zuerst unter Empfohlene Anzeigen. Du zahlst diesen Prozentsatz vom Endpreis nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird.",
         "Neue Gebühren zeigen wir dir immer deutlich, bevor du etwas einstellst."
       ]
@@ -590,5 +592,49 @@
     "reset": "Alle Orte anzeigen",
     "showing": "Anzeigen in {place}",
     "noneHere": "Hier gibt es noch keine Anzeigen. Wähle ein größeres Gebiet oder zeig alle Orte an."
+  },
+  "payouts": {
+    "title": "Geld erhalten",
+    "intro": "Verbinde ein Stripe-Konto, damit Käufer dich auf Anston bezahlen können. Das Geld aus deinen Verkäufen geht direkt auf dein Bankkonto.",
+    "notAvailable": "Online-Zahlungen sind noch nicht freigeschaltet. Schau bald wieder vorbei.",
+    "error": "Bei der Verbindung mit Stripe ist etwas schiefgelaufen. Bitte versuche es erneut.",
+    "ready": "Du kannst auf Anston Geld erhalten",
+    "readyNote": "Käufer können deine Anzeigen online bezahlen, und Stripe überweist das Geld auf dein Bankkonto.",
+    "payoutsPending": "Käufer können dich jetzt bezahlen. Stripe prüft noch deine Bankdaten, bevor die erste Auszahlung kommt.",
+    "openStripe": "Dein Stripe-Dashboard öffnen",
+    "pending": "Fast geschafft",
+    "pendingNote": "Stripe braucht noch ein paar Angaben, bevor Käufer dich bezahlen können.",
+    "finish": "Einrichtung abschließen",
+    "point1": "Stripe fragt deinen Ausweis und deine Bankdaten auf seiner eigenen sicheren Seite ab. Anston sieht sie nie.",
+    "point2": "Du bekommst dein eigenes kostenloses Stripe-Konto für Verkäufe, Erstattungen und Auszahlungen.",
+    "point3": "Stripe überweist deine Einnahmen regelmäßig auf dein Bankkonto.",
+    "start": "Auszahlungen mit Stripe einrichten",
+    "fees": "Stripe berechnet bei jedem Verkauf seine Standardgebühr (in den USA 2,9 % + 30 ¢ pro Kartenzahlung), plus die gewählte Hervorhebung. Inserieren auf Anston bleibt kostenlos.",
+    "bannerTitle": "Online bezahlt werden:",
+    "bannerText": "richte Auszahlungen ein, damit Käufer dich auf Anston bezahlen können."
+  },
+  "checkout": {
+    "buyNow": "Jetzt kaufen",
+    "payOffer": "Jetzt bezahlen",
+    "offerAccepted": "Dein Angebot wurde angenommen. Bezahle jetzt, um den Kauf abzuschließen.",
+    "signInToBuy": "Zum Kaufen anmelden",
+    "secure": "Sichere Zahlung über Stripe. Anston sieht deine Kartendaten nie.",
+    "sellerNotReady": "Dieser Verkäufer hat noch keine Online-Zahlungen eingerichtet. Schreib ihm, um die Bezahlung zu vereinbaren.",
+    "shippingCost": "Versand: {price}",
+    "freeShipping": "Kostenloser Versand",
+    "paidThanks": "Zahlung erhalten! Danke für deine Bestellung. Der Verkäufer wurde benachrichtigt.",
+    "paymentPending": "Wir bestätigen deine Zahlung mit Stripe. Lade die Seite gleich neu.",
+    "shipTo": "Lieferadresse",
+    "errors": {
+      "seller": "Dieser Verkäufer kann gerade keine Online-Zahlungen annehmen. Schreib ihm stattdessen.",
+      "soldout": "Sorry, dieser Artikel ist gerade ausverkauft.",
+      "unavailable": "Diese Anzeige ist nicht mehr verfügbar.",
+      "own": "Du kannst deine eigene Anzeige nicht kaufen.",
+      "offer": "Dieses Angebot ist nicht angenommen und kann daher nicht bezahlt werden.",
+      "suspended": "Dein Konto ist gesperrt.",
+      "setup": "Online-Zahlungen sind noch nicht freigeschaltet. Schau bald wieder vorbei.",
+      "error": "Beim Start der Zahlung ist etwas schiefgelaufen. Bitte versuche es erneut.",
+      "cancelled": "Zahlung abgebrochen. Dir wurde nichts berechnet."
+    }
   }
 }

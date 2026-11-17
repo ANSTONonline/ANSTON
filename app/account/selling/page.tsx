@@ -64,6 +64,7 @@ export default async function SellingPage() {
   const t = await getDictionary(locale);
   const d = t.dashboard;
   const { supabase, user } = await requireMember();
+  const { data: payout } = await supabase.from("payout_accounts").select("charges_enabled").eq("user_id", user.id).maybeSingle();
 
   const listings = await findSellerListings(locale, user.id);
 
@@ -98,6 +99,11 @@ export default async function SellingPage() {
 
   return (
     <main className="flex-1 px-4 sm:px-8 py-10 max-w-4xl mx-auto w-full space-y-10">
+      {!payout?.charges_enabled && (
+        <Link href="/account/payouts" className="block border border-[#7A1E2B]/40 bg-[#7A1E2B]/5 rounded-xl p-4 text-sm hover:bg-[#7A1E2B]/10">
+          💳 <span className="font-semibold">{t.payouts.bannerTitle}</span> {t.payouts.bannerText}
+        </Link>
+      )}
       <div className="flex items-center justify-between gap-4">
         <h1 className="text-3xl font-bold">{d.sellingTitle}</h1>
         <Link href="/sell" className="bg-[#7A1E2B] text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">

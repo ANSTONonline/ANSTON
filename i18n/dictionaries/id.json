@@ -309,7 +309,9 @@
     "from": "Dari",
     "to": "Sampai",
     "closed": "Tutup",
-    "timeZoneNote": "Waktu mengikuti zona waktu Anda ({zone})."
+    "timeZoneNote": "Waktu mengikuti zona waktu Anda ({zone}).",
+    "shippingPrice": "Ongkos kirim",
+    "shippingPriceHelp": "Kosongkan untuk gratis ongkir. Pembeli membayarnya saat checkout."
   },
   "account": {
     "title": "Akun Anda",
@@ -416,7 +418,7 @@
     "pricing": {
       "title": "Biaya",
       "body": [
-        "Memasang iklan di Anston gratis, dan tidak ada biaya penjualan.",
+        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan. Untuk pembayaran online, Stripe mengenakan biaya pemrosesan kartu standar kepada penjual.",
         "Promosi bersifat opsional. Pilih persentase saat memasang iklan, dan iklan Anda tampil paling atas di Iklan Unggulan. Anda hanya membayar persentase dari harga akhir itu jika terjual atau dipesan melalui checkout Anston.",
         "Biaya baru apa pun akan ditampilkan dengan jelas sebelum Anda memasang iklan."
       ]
@@ -590,5 +592,49 @@
     "reset": "Tampilkan semua lokasi",
     "showing": "Menampilkan iklan di {place}",
     "noneHere": "Belum ada iklan di sini. Coba area yang lebih luas atau tampilkan semua lokasi."
+  },
+  "payouts": {
+    "title": "Terima pembayaran",
+    "intro": "Hubungkan akun Stripe agar pembeli bisa membayar Anda di Anston. Uang hasil penjualan langsung masuk ke rekening bank Anda.",
+    "notAvailable": "Pembayaran online belum aktif. Silakan cek lagi nanti.",
+    "error": "Terjadi kesalahan saat menghubungkan ke Stripe. Silakan coba lagi.",
+    "ready": "Anda bisa menerima pembayaran di Anston",
+    "readyNote": "Pembeli bisa membayar iklan Anda secara online, dan Stripe mengirim uangnya ke rekening Anda.",
+    "payoutsPending": "Pembeli sudah bisa membayar Anda. Stripe masih memeriksa data bank Anda sebelum mengirim pencairan pertama.",
+    "openStripe": "Buka dasbor Stripe Anda",
+    "pending": "Hampir selesai",
+    "pendingNote": "Stripe butuh beberapa data lagi sebelum pembeli bisa membayar Anda.",
+    "finish": "Selesaikan penyiapan",
+    "point1": "Stripe meminta identitas dan data bank Anda di halaman amannya sendiri. Anston tidak pernah melihatnya.",
+    "point2": "Anda mendapat akun Stripe gratis sendiri untuk memantau penjualan, refund, dan pencairan.",
+    "point3": "Stripe mengirim penghasilan Anda ke rekening secara berkala.",
+    "start": "Siapkan pencairan dengan Stripe",
+    "fees": "Stripe mengenakan biaya pemrosesan standar pada setiap penjualan (di AS, 2,9% + 30¢ per pembayaran kartu), ditambah promosi yang Anda pilih. Memasang iklan di Anston tetap gratis.",
+    "bannerTitle": "Terima pembayaran online:",
+    "bannerText": "siapkan pencairan agar pembeli bisa membayar Anda di Anston."
+  },
+  "checkout": {
+    "buyNow": "Beli sekarang",
+    "payOffer": "Bayar sekarang",
+    "offerAccepted": "Penawaran Anda diterima. Bayar sekarang untuk menyelesaikan pembelian.",
+    "signInToBuy": "Masuk untuk membeli",
+    "secure": "Pembayaran aman oleh Stripe. Anston tidak pernah melihat data kartu Anda.",
+    "sellerNotReady": "Penjual ini belum menyiapkan pembayaran online. Kirim pesan untuk mengatur pembayaran.",
+    "shippingCost": "Ongkos kirim: {price}",
+    "freeShipping": "Gratis ongkir",
+    "paidThanks": "Pembayaran diterima! Terima kasih atas pesanan Anda. Penjual sudah diberi tahu.",
+    "paymentPending": "Kami sedang mengonfirmasi pembayaran Anda dengan Stripe. Muat ulang halaman sebentar lagi.",
+    "shipTo": "Kirim ke",
+    "errors": {
+      "seller": "Penjual ini belum bisa menerima pembayaran online. Kirim pesan saja.",
+      "soldout": "Maaf, barang ini baru saja habis.",
+      "unavailable": "Iklan ini sudah tidak tersedia.",
+      "own": "Anda tidak bisa membeli iklan Anda sendiri.",
+      "offer": "Penawaran itu belum diterima, jadi tidak bisa dibayar.",
+      "suspended": "Akun Anda ditangguhkan.",
+      "setup": "Pembayaran online belum aktif. Silakan cek lagi nanti.",
+      "error": "Terjadi kesalahan saat memulai pembayaran. Silakan coba lagi.",
+      "cancelled": "Pembayaran dibatalkan. Anda tidak dikenai biaya."
+    }
   }
 }
