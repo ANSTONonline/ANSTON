@@ -572,7 +572,11 @@
     "memberSince": "Anggota sejak {date}",
     "listings": "Iklan dari @{username}",
     "noListings": "Belum ada iklan aktif.",
-    "viewProfile": "Lihat profil dan ulasan penjual"
+    "viewProfile": "Lihat profil dan ulasan penjual",
+    "viewMine": "Lihat profil Anda",
+    "mineNote": "Begini profil Anda terlihat oleh orang lain.",
+    "manage": "Kelola iklan Anda",
+    "sold": "Terjual"
   },
   "location": {
     "all": "Semua lokasi",

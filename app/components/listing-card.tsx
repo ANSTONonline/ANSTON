@@ -36,9 +36,13 @@ export default function ListingCard({ listing, t, sponsored = false }: { listing
           <span aria-hidden="true">{listing.emoji}</span>
         )}
         <Link href={`/listing/${listing.id}`} className="absolute inset-0" aria-label={listing.title} />
-        <span className="absolute top-2 start-2 bg-[#7A1E2B] text-white text-xs px-2 py-1 rounded">
-          {modeLabel(listing, t)}
-        </span>
+        {listing.status === "sold" ? (
+          <span className="absolute top-2 start-2 bg-gray-800 text-white text-xs px-2 py-1 rounded">{t.seller.sold}</span>
+        ) : (
+          <span className="absolute top-2 start-2 bg-[#7A1E2B] text-white text-xs px-2 py-1 rounded">
+            {modeLabel(listing, t)}
+          </span>
+        )}
         <FavoriteButton
           id={listing.id}
           saveLabel={t.featured.save}
@@ -64,7 +68,9 @@ export default function ListingCard({ listing, t, sponsored = false }: { listing
         {listing.location && <p className="text-sm text-gray-500 mb-3" dir="ltr">📍 {listing.location}</p>}
         <div className="flex items-center justify-between gap-2 mt-auto">
           <span className="font-bold" dir="ltr">{priceLabel(listing, t)}</span>
-          {listing.modes.includes("buy") ? (
+          {listing.status === "sold" ? (
+            <span className="text-xs text-gray-500">{t.seller.sold}</span>
+          ) : listing.modes.includes("buy") ? (
             <AddToCartButton
               id={listing.id}
               label={t.featured.addToCart}

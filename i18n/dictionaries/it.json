@@ -572,7 +572,11 @@
     "memberSince": "Membro dal {date}",
     "listings": "Annunci di @{username}",
     "noListings": "Nessun annuncio attivo al momento.",
-    "viewProfile": "Vedi profilo e recensioni del venditore"
+    "viewProfile": "Vedi profilo e recensioni del venditore",
+    "viewMine": "Vedi il tuo profilo",
+    "mineNote": "Ecco il tuo profilo come lo vedono gli altri.",
+    "manage": "Gestisci i tuoi annunci",
+    "sold": "Venduti"
   },
   "location": {
     "all": "Tutte le località",

@@ -572,7 +572,11 @@
     "memberSince": "{date} tarihinden beri üye",
     "listings": "@{username} kullanıcısının ilanları",
     "noListings": "Şu anda aktif ilan yok.",
-    "viewProfile": "Satıcının profilini ve değerlendirmelerini gör"
+    "viewProfile": "Satıcının profilini ve değerlendirmelerini gör",
+    "viewMine": "Profilini görüntüle",
+    "mineNote": "Profilin başkalarına böyle görünüyor.",
+    "manage": "İlanlarını yönet",
+    "sold": "Satıldı"
   },
   "location": {
     "all": "Tüm konumlar",

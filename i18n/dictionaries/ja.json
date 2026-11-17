@@ -572,7 +572,11 @@
     "memberSince": "{date} から利用",
     "listings": "@{username} の出品",
     "noListings": "現在出品中の商品はありません。",
-    "viewProfile": "出品者のプロフィールとレビューを見る"
+    "viewProfile": "出品者のプロフィールとレビューを見る",
+    "viewMine": "プロフィールを見る",
+    "mineNote": "これは他の人から見たあなたのプロフィールです。",
+    "manage": "出品を管理",
+    "sold": "売り切れ"
   },
   "location": {
     "all": "すべての地域",
