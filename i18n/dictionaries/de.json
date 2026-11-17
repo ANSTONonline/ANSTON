@@ -173,13 +173,21 @@
       "amount": "Gib einen Betrag über null ein.",
       "notAvailable": "Dieses Angebot ist nicht mehr verfügbar.",
       "message": "Bitte schreib eine Nachricht.",
-      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+      "slot": "Diese Zeit ist nicht mehr frei. Bitte wähle eine andere."
     },
     "edit": "Bearbeiten",
     "refunds": "Rückerstattung",
     "refundsAccepted": "Möglich innerhalb von {n} Tagen",
     "noRefunds": "Keine Rückerstattung, alle Verkäufe endgültig",
-    "lockedNote": "Anston prüft diese Anzeige, deshalb ist sie für Käufer ausgeblendet. Fragen? Schreib an support@myanston.com."
+    "lockedNote": "Anston prüft diese Anzeige, deshalb ist sie für Käufer ausgeblendet. Fragen? Schreib an support@myanston.com.",
+    "chooseDay": "Tag wählen",
+    "chooseTime": "Uhrzeit wählen",
+    "loadingTimes": "Freie Zeiten werden geladen…",
+    "noTimes": "An diesem Tag sind keine Zeiten frei. Probier einen anderen Tag.",
+    "yourTimeZone": "Die Zeiten werden in deiner Zeitzone angezeigt.",
+    "hours": "Öffnungszeiten",
+    "hoursZone": "Zeitzone des Verkäufers: {zone}"
   },
   "cart": {
     "title": "Dein Warenkorb",
@@ -275,7 +283,8 @@
       "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
       "region": "Bitte wähle ein Bundesland oder eine Region im gewählten Land.",
       "cityMismatch": "Diese Stadt liegt nicht im gewählten Bundesland und Land. Bitte prüfe deinen Standort.",
-      "refund": "Bitte wähle, ob du Rückerstattungen annimmst."
+      "refund": "Bitte wähle, ob du Rückerstattungen annimmst.",
+      "availability": "Wähle mindestens einen Tag mit genug Zeit für einen Termin."
     },
     "editTitle": "Angebot bearbeiten",
     "saveChanges": "Änderungen speichern",
@@ -294,7 +303,13 @@
     "boostTitle": "Anzeige hervorheben (optional)",
     "boostNone": "Nicht hervorheben",
     "boostOption": "Hervorheben: {n} % des Endpreises",
-    "boostHelp": "Hervorgehobene Anzeigen erscheinen zuerst unter Empfohlene Anzeigen, gekennzeichnet als „Gesponsert“. Je höher der Prozentsatz, desto weiter oben. Du zahlst nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird."
+    "boostHelp": "Hervorgehobene Anzeigen erscheinen zuerst unter Empfohlene Anzeigen, gekennzeichnet als „Gesponsert“. Je höher der Prozentsatz, desto weiter oben. Du zahlst nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird.",
+    "availability": "Wöchentliche Zeiten",
+    "availabilityHelp": "Wähle die Tage, an denen du Buchungen annimmst, und lege deine Zeiten fest. Käufer können nur freie Zeiten buchen.",
+    "from": "Von",
+    "to": "Bis",
+    "closed": "Geschlossen",
+    "timeZoneNote": "Die Zeiten gelten in deiner Zeitzone ({zone})."
   },
   "account": {
     "title": "Dein Konto",

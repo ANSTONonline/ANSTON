@@ -173,13 +173,21 @@
       "amount": "Digite um valor maior que zero.",
       "notAvailable": "Este anúncio não está mais disponível.",
       "message": "Escreva uma mensagem.",
-      "generic": "Algo deu errado. Tente novamente."
+      "generic": "Algo deu errado. Tente novamente.",
+      "slot": "Esse horário não está mais disponível. Escolha outro."
     },
     "edit": "Editar",
     "refunds": "Reembolsos",
     "refundsAccepted": "Aceitos em até {n} dias",
     "noRefunds": "Sem reembolso, venda final",
-    "lockedNote": "A Anston está analisando este anúncio, por isso ele está oculto para os compradores. Dúvidas? Escreva para support@myanston.com."
+    "lockedNote": "A Anston está analisando este anúncio, por isso ele está oculto para os compradores. Dúvidas? Escreva para support@myanston.com.",
+    "chooseDay": "Escolha um dia",
+    "chooseTime": "Escolha um horário",
+    "loadingTimes": "Carregando horários livres…",
+    "noTimes": "Não há horários livres neste dia. Tente outro dia.",
+    "yourTimeZone": "Os horários são mostrados no seu fuso horário.",
+    "hours": "Horário",
+    "hoursZone": "Fuso horário do vendedor: {zone}"
   },
   "cart": {
     "title": "Seu carrinho",
@@ -275,7 +283,8 @@
       "generic": "Algo deu errado. Tente novamente.",
       "region": "Escolha um estado ou região do país selecionado.",
       "cityMismatch": "Essa cidade não fica no estado e país escolhidos. Confira sua localização.",
-      "refund": "Escolha se você aceita reembolsos."
+      "refund": "Escolha se você aceita reembolsos.",
+      "availability": "Escolha pelo menos um dia, com horário suficiente para uma sessão."
     },
     "editTitle": "Editar anúncio",
     "saveChanges": "Salvar alterações",
@@ -294,7 +303,13 @@
     "boostTitle": "Impulsione seu anúncio (opcional)",
     "boostNone": "Sem impulso",
     "boostOption": "Impulso: {n}% do preço final",
-    "boostHelp": "Anúncios impulsionados aparecem primeiro em Anúncios em destaque, marcados como \"Patrocinado\". Quanto maior a porcentagem, mais alto aparecem. Você só paga se o item for vendido ou reservado pelo pagamento da Anston."
+    "boostHelp": "Anúncios impulsionados aparecem primeiro em Anúncios em destaque, marcados como \"Patrocinado\". Quanto maior a porcentagem, mais alto aparecem. Você só paga se o item for vendido ou reservado pelo pagamento da Anston.",
+    "availability": "Horário semanal",
+    "availabilityHelp": "Marque os dias em que você aceita reservas e defina seus horários. Os compradores só podem reservar horários livres.",
+    "from": "Das",
+    "to": "Às",
+    "closed": "Fechado",
+    "timeZoneNote": "Os horários estão no seu fuso horário ({zone})."
   },
   "account": {
     "title": "Sua conta",

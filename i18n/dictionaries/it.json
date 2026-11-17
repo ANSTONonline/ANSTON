@@ -173,13 +173,21 @@
       "amount": "Inserisci un importo maggiore di zero.",
       "notAvailable": "Questo annuncio non è più disponibile.",
       "message": "Scrivi un messaggio.",
-      "generic": "Qualcosa è andato storto. Riprova."
+      "generic": "Qualcosa è andato storto. Riprova.",
+      "slot": "Questo orario non è più disponibile. Scegline un altro."
     },
     "edit": "Modifica",
     "refunds": "Rimborsi",
     "refundsAccepted": "Accettati entro {n} giorni",
     "noRefunds": "Nessun rimborso, vendita definitiva",
-    "lockedNote": "Anston sta esaminando questo annuncio, quindi è nascosto agli acquirenti. Domande? Scrivi a support@myanston.com."
+    "lockedNote": "Anston sta esaminando questo annuncio, quindi è nascosto agli acquirenti. Domande? Scrivi a support@myanston.com.",
+    "chooseDay": "Scegli un giorno",
+    "chooseTime": "Scegli un orario",
+    "loadingTimes": "Caricamento orari liberi…",
+    "noTimes": "Nessun orario libero in questo giorno. Prova un altro giorno.",
+    "yourTimeZone": "Gli orari sono mostrati nel tuo fuso orario.",
+    "hours": "Orari",
+    "hoursZone": "Fuso orario del venditore: {zone}"
   },
   "cart": {
     "title": "Il tuo carrello",
@@ -275,7 +283,8 @@
       "generic": "Qualcosa è andato storto. Riprova.",
       "region": "Scegli uno stato o una regione del paese selezionato.",
       "cityMismatch": "Quella città non si trova nello stato e nel paese scelti. Controlla la posizione.",
-      "refund": "Indica se accetti rimborsi."
+      "refund": "Indica se accetti rimborsi.",
+      "availability": "Scegli almeno un giorno, con orari sufficienti per una sessione."
     },
     "editTitle": "Modifica annuncio",
     "saveChanges": "Salva modifiche",
@@ -294,7 +303,13 @@
     "boostTitle": "Metti in evidenza il tuo annuncio (facoltativo)",
     "boostNone": "Nessuna promozione",
     "boostOption": "In evidenza: {n}% del prezzo finale",
-    "boostHelp": "Gli annunci in evidenza compaiono per primi negli Annunci in evidenza, con l'etichetta \"Sponsorizzato\". Più alta è la percentuale, più in alto compaiono. Paghi solo se l'articolo viene venduto o prenotato tramite il pagamento Anston."
+    "boostHelp": "Gli annunci in evidenza compaiono per primi negli Annunci in evidenza, con l'etichetta \"Sponsorizzato\". Più alta è la percentuale, più in alto compaiono. Paghi solo se l'articolo viene venduto o prenotato tramite il pagamento Anston.",
+    "availability": "Orari settimanali",
+    "availabilityHelp": "Seleziona i giorni in cui accetti prenotazioni e imposta gli orari. Gli acquirenti possono prenotare solo gli orari liberi.",
+    "from": "Dalle",
+    "to": "Alle",
+    "closed": "Chiuso",
+    "timeZoneNote": "Gli orari sono nel tuo fuso orario ({zone})."
   },
   "account": {
     "title": "Il tuo account",

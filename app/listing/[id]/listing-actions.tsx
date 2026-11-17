@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import type { Dictionary } from "@/i18n/server";
 import {
   makeOffer,
@@ -136,26 +136,113 @@ function withIsoTimes(fd: FormData) {
   return fd;
 }
 
+// Day picker plus the open times on that day, fetched from the server. The
+// chosen time goes in a hidden "start" field.
+function SlotPicker({ listingId, text, locale, today, lastDay }: {
+  listingId: string;
+  text: Text;
+  locale: string;
+  today: string;
+  lastDay: string;
+}) {
+  const [date, setDate] = useState("");
+  const [loaded, setLoaded] = useState<{ date: string; slots: string[] } | null>(null);
+  const [chosen, setChosen] = useState("");
+
+  useEffect(() => {
+    if (!date) return;
+    let cancelled = false;
+    fetch(`/api/listings/${listingId}/slots?date=${date}`)
+      .then((r) => (r.ok ? r.json() : { slots: [] }))
+      .then((d: { slots: string[] }) => !cancelled && setLoaded({ date, slots: d.slots ?? [] }))
+      .catch(() => !cancelled && setLoaded({ date, slots: [] }));
+    return () => {
+      cancelled = true;
+    };
+  }, [date, listingId]);
+
+  const slots = loaded?.date === date ? loaded.slots : null;
+  const timeLabel = (iso: string) => new Date(iso).toLocaleTimeString(locale, { hour: "numeric", minute: "2-digit" });
+  return (
+    <div className="space-y-2">
+      <div>
+        <label className="block text-sm" htmlFor="booking-date">{text.chooseDay}</label>
+        <input
+          id="booking-date"
+          type="date"
+          min={today}
+          max={lastDay}
+          value={date}
+          onChange={(e) => {
+            setDate(e.target.value);
+            setChosen("");
+          }}
+          required
+          className={input}
+        />
+      </div>
+      {date && (
+        <fieldset>
+          <legend className="block text-sm mb-1">{text.chooseTime}</legend>
+          {slots === null ? (
+            <p className="text-sm text-gray-500">{text.loadingTimes}</p>
+          ) : slots.length === 0 ? (
+            <p className="text-sm text-gray-500">{text.noTimes}</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {slots.map((iso) => (
+                <label key={iso} className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="slot"
+                    value={iso}
+                    checked={chosen === iso}
+                    onChange={() => setChosen(iso)}
+                    required
+                    className="sr-only peer"
+                  />
+                  <span className="block border rounded-lg px-3 py-1.5 text-sm peer-checked:bg-[#7A1E2B] peer-checked:text-white peer-checked:border-[#7A1E2B] peer-focus-visible:outline peer-focus-visible:outline-2">
+                    {timeLabel(iso)}
+                  </span>
+                </label>
+              ))}
+            </div>
+          )}
+          <p className="text-xs text-gray-500 mt-1">{text.yourTimeZone}</p>
+        </fieldset>
+      )}
+      <input type="hidden" name="start" value={chosen} />
+    </div>
+  );
+}
+
 export function ReserveForm({
   listingId,
   mode,
   text,
   note,
+  slots,
 }: {
   listingId: string;
   mode: "rental" | "booking";
   text: Text;
   note?: string;
+  // Services with weekly hours: pick from open times instead of typing a date.
+  slots?: { locale: string; today: string; lastDay: string };
 }) {
   const [state, action, pending] = useActionState(requestReservation.bind(null, listingId, mode), {});
   return (
     <form action={(fd) => action(withIsoTimes(fd))} className={box}>
       <p className="font-medium">{mode === "rental" ? text.rentTitle : text.bookTitle}</p>
       <div className={mode === "rental" ? "grid sm:grid-cols-2 gap-3" : ""}>
+        {slots ? (
+          <SlotPicker listingId={listingId} text={text} {...slots} />
+        ) : (
         <div>
           <label className="block text-sm" htmlFor={`${mode}-start`}>{mode === "rental" ? text.start : text.when}</label>
           <input id={`${mode}-start`} name="start" type="datetime-local" required className={input} />
         </div>
+        )}
         {mode === "rental" && (
           <div>
             <label className="block text-sm" htmlFor="rental-end">{text.end}</label>
