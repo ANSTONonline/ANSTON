@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Preços",
       "body": [
-        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda. Nos pagamentos online, a Stripe cobra do vendedor sua taxa padrão de processamento de cartão.",
+        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda dos vendedores (a Stripe cobra do vendedor sua taxa padrão de cartão nas vendas online). Os compradores pagam uma taxa de serviço ao pagar online: 7% em itens abaixo de $50, 5% de $50 a $500 e 3% acima de $500, sempre mostrada antes do pagamento.",
         "Impulsionar é opcional. Escolha uma porcentagem ao anunciar e seu anúncio aparecerá primeiro em Anúncios em destaque. Você só paga essa porcentagem do preço final se for vendido ou reservado pelo pagamento da Anston.",
         "Qualquer nova taxa será mostrada claramente antes de você anunciar."
       ]
@@ -635,6 +635,9 @@
       "setup": "Os pagamentos online ainda não estão ativados. Volte em breve.",
       "error": "Algo deu errado ao iniciar o pagamento. Tente novamente.",
       "cancelled": "Pagamento cancelado. Você não foi cobrado."
-    }
+    },
+    "item": "Item",
+    "serviceFee": "Taxa de serviço ({n}%)",
+    "serviceFeePlain": "Taxa de serviço"
   }
 }

@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Ücretler",
       "body": [
-        "Anston'da ilan vermek ücretsizdir ve Anston satış ücreti almaz. Çevrimiçi ödemelerde Stripe, satıcıdan standart kart işlem ücretini alır.",
+        "Anston'da ilan vermek ücretsizdir ve Anston satıcılardan satış ücreti almaz (Stripe çevrimiçi satışlarda satıcıdan standart kart ücretini alır). Alıcılar çevrimiçi ödemede hizmet bedeli öder: 50 $ altındaki ürünlerde %7, 50 $ ile 500 $ arasında %5 ve 500 $ üzerinde %3; ödemeden önce her zaman gösterilir.",
         "Öne çıkarma isteğe bağlıdır. İlan verirken bir oran seçin, ilanınız Öne Çıkan İlanlar'da en üstte görünsün. Son fiyatın bu oranını yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz.",
         "Yeni ücretler, ilan vermeden önce açıkça gösterilecektir."
       ]
@@ -635,6 +635,9 @@
       "setup": "Çevrimiçi ödemeler henüz açılmadı. Lütfen kısa süre sonra tekrar bak.",
       "error": "Ödeme başlatılırken bir sorun oluştu. Lütfen tekrar dene.",
       "cancelled": "Ödeme iptal edildi. Senden ücret alınmadı."
-    }
+    },
+    "item": "Ürün",
+    "serviceFee": "Hizmet bedeli (%{n})",
+    "serviceFeePlain": "Hizmet bedeli"
   }
 }

@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Bei",
       "body": [
-        "Kuweka tangazo kwenye Anston ni bure, na Anston haitozi ada ya mauzo. Kwa malipo ya mtandaoni, Stripe humtoza muuzaji ada yake ya kawaida ya kadi.",
+        "Kuweka tangazo kwenye Anston ni bure, na Anston haiwatozi wauzaji ada ya mauzo (Stripe humtoza muuzaji ada yake ya kawaida ya kadi kwa mauzo ya mtandaoni). Wanunuzi hulipa ada ya huduma wanapolipa mtandaoni: 7% kwa bidhaa chini ya $50, 5% kutoka $50 hadi $500, na 3% zaidi ya $500, ikionyeshwa kila mara kabla ya kulipa.",
         "Kupandisha ni hiari. Chagua asilimia unapoweka tangazo, na tangazo lako litaonekana kwanza kwenye Matangazo Maalum. Unalipa asilimia hiyo ya bei ya mwisho tu ikiwa litauzwa au kuhifadhiwa kupitia malipo ya Anston.",
         "Ada zozote mpya zitaonyeshwa wazi kabla hujaweka tangazo."
       ]
@@ -635,6 +635,9 @@
       "setup": "Malipo ya mtandaoni bado hayajawashwa. Tafadhali angalia tena baadaye.",
       "error": "Hitilafu imetokea wakati wa kuanza malipo. Tafadhali jaribu tena.",
       "cancelled": "Malipo yameghairiwa. Hujatozwa chochote."
-    }
+    },
+    "item": "Bidhaa",
+    "serviceFee": "Ada ya huduma ({n}%)",
+    "serviceFeePlain": "Ada ya huduma"
   }
 }

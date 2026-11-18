@@ -43,7 +43,19 @@ export async function startPayoutSetup() {
     });
     onboardingUrl = link.url;
   } catch (e) {
-    console.error("startPayoutSetup", e instanceof Error ? e.message : e);
+    const message = e instanceof Error ? e.message : String(e);
+    console.error("startPayoutSetup", message);
+    // Say which step failed, so an admin can fix it. Secrets are scrubbed.
+    const type = (e as { type?: string })?.type ?? "";
+    const code =
+      type === "StripeAuthenticationError" ? "key"
+      : type === "StripePermissionError" ? "permission"
+      : type.startsWith("Stripe") ? "stripe"
+      : /does not exist|schema cache/i.test(message) ? "database"
+      : /not_allowed/i.test(message) ? "secret"
+      : "unknown";
+    const detail = message.replace(/(sk|rk|pk)_(test|live)_[A-Za-z0-9*]+/g, "[key]").slice(0, 200);
+    redirect(`/account/payouts?error=stripe&why=${code}&detail=${encodeURIComponent(detail)}`);
   }
   redirect(onboardingUrl || "/account/payouts?error=stripe");
 }

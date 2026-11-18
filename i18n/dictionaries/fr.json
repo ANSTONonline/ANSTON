@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Tarifs",
       "body": [
-        "Publier sur Anston est gratuit et Anston ne prend aucune commission sur les ventes. Pour les paiements en ligne, Stripe facture au vendeur ses frais standard de traitement de carte.",
+        "Publier sur Anston est gratuit et Anston ne prend aucune commission aux vendeurs (Stripe facture au vendeur ses frais standard de carte sur les ventes en ligne). Les acheteurs paient des frais de service lors d'un paiement en ligne : 7 % sous 50 $, 5 % de 50 $ à 500 $ et 3 % au-delà de 500 $, toujours affichés avant le paiement.",
         "La mise en avant est facultative. Choisissez un pourcentage lors de la publication et votre annonce apparaîtra en premier dans les Annonces à la une. Vous ne payez ce pourcentage du prix final que si l'article est vendu ou réservé via le paiement Anston.",
         "Tout nouveau frais sera clairement indiqué avant que vous publiiez."
       ]
@@ -635,6 +635,9 @@
       "setup": "Les paiements en ligne ne sont pas encore activés. Revenez bientôt.",
       "error": "Un problème est survenu au démarrage du paiement. Veuillez réessayer.",
       "cancelled": "Paiement annulé. Vous n'avez pas été débité."
-    }
+    },
+    "item": "Article",
+    "serviceFee": "Frais de service ({n} %)",
+    "serviceFeePlain": "Frais de service"
   }
 }
