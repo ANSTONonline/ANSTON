@@ -196,7 +196,8 @@
     "remove": "Remove",
     "total": "Total",
     "checkout": "Checkout",
-    "checkoutSoon": "Checkout opens soon. We're setting up secure payments."
+    "buyNow": "Buy now",
+    "payEach": "Each item is paid straight to its seller, so check out one item at a time with Buy now."
   },
   "favorites": {
     "title": "Saved listings",

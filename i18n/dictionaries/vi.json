@@ -196,7 +196,8 @@
     "remove": "Xóa",
     "total": "Tổng",
     "checkout": "Thanh toán",
-    "checkoutSoon": "Thanh toán sắp mở. Chúng tôi đang thiết lập thanh toán an toàn."
+    "buyNow": "Mua ngay",
+    "payEach": "Mỗi món được thanh toán thẳng cho người bán, nên hãy thanh toán từng món bằng Mua ngay."
   },
   "favorites": {
     "title": "Tin đã lưu",

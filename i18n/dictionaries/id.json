@@ -196,7 +196,8 @@
     "remove": "Hapus",
     "total": "Total",
     "checkout": "Bayar",
-    "checkoutSoon": "Pembayaran segera dibuka. Kami sedang menyiapkan pembayaran yang aman."
+    "buyNow": "Beli sekarang",
+    "payEach": "Setiap barang dibayar langsung ke penjualnya, jadi checkout satu per satu dengan Beli sekarang."
   },
   "favorites": {
     "title": "Iklan tersimpan",

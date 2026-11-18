@@ -196,7 +196,8 @@
     "remove": "Retirer",
     "total": "Total",
     "checkout": "Payer",
-    "checkoutSoon": "Le paiement ouvrira bientôt. Nous mettons en place des paiements sécurisés."
+    "buyNow": "Acheter",
+    "payEach": "Chaque article est payé directement à son vendeur : réglez-les un par un avec Acheter."
   },
   "favorites": {
     "title": "Annonces enregistrées",

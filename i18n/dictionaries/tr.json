@@ -196,7 +196,8 @@
     "remove": "Kaldır",
     "total": "Toplam",
     "checkout": "Ödemeye geç",
-    "checkoutSoon": "Ödeme yakında açılıyor. Güvenli ödemeleri hazırlıyoruz."
+    "buyNow": "Hemen al",
+    "payEach": "Her ürünün ödemesi doğrudan satıcısına gider; ürünleri tek tek Hemen al ile satın alın."
   },
   "favorites": {
     "title": "Kaydedilen ilanlar",

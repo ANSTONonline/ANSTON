@@ -196,7 +196,8 @@
     "remove": "Quitar",
     "total": "Total",
     "checkout": "Pagar",
-    "checkoutSoon": "El pago se abrirá pronto. Estamos configurando pagos seguros."
+    "buyNow": "Comprar ahora",
+    "payEach": "Cada artículo se paga directamente a su vendedor, así que compra uno a la vez con Comprar ahora."
   },
   "favorites": {
     "title": "Anuncios guardados",

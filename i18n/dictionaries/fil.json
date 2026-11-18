@@ -196,7 +196,8 @@
     "remove": "Alisin",
     "total": "Kabuuan",
     "checkout": "Mag-checkout",
-    "checkoutSoon": "Malapit nang magbukas ang checkout. Inaayos namin ang ligtas na pagbabayad."
+    "buyNow": "Bilhin na",
+    "payEach": "Direktang binabayaran sa nagbebenta ang bawat item, kaya isa-isang mag-checkout gamit ang Bilhin na."
   },
   "favorites": {
     "title": "Mga naka-save na listing",
