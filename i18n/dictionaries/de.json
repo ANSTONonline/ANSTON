@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Preise",
       "body": [
-        "Inserieren auf Anston ist kostenlos, und Anston verlangt von Verkäufern keine Verkaufsgebühr (Stripe berechnet Verkäufern bei Online-Verkäufen seine übliche Kartengebühr). Käufer zahlen bei Online-Zahlung eine Servicegebühr: 7 % bei Artikeln unter 50 $, 5 % von 50 $ bis 500 $ und 3 % über 500 $ – immer vor dem Bezahlen angezeigt.",
+        "Inserieren auf Anston ist kostenlos, und Anston verlangt von Verkäufern keine Verkaufsgebühr. Verkäufer erhalten den Preis plus Versand, abzüglich der Kartengebühr auf ihren Anteil. Käufer zahlen bei Online-Zahlung eine Servicegebühr: 7 % bei Artikeln unter 50 $, 5 % von 50 $ bis 500 $ und 3 % über 500 $ – immer vor dem Bezahlen angezeigt.",
         "Hervorheben ist optional. Wähle beim Einstellen einen Prozentsatz, und deine Anzeige erscheint zuerst unter Empfohlene Anzeigen. Du zahlst diesen Prozentsatz vom Endpreis nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird.",
         "Neue Gebühren zeigen wir dir immer deutlich, bevor du etwas einstellst."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Versendet",
       "delivered": "Zugestellt",
       "completed": "Abgeschlossen"
-    }
+    },
+    "payoutHeld": "Das Geld für diesen Verkauf wird zurückgehalten, bis du Folgendes einrichtest:",
+    "payoutSent": "Das Geld für diesen Verkauf wurde an dein Stripe-Konto gesendet und geht nach dem Auszahlungsplan auf dein Bankkonto."
   },
   "boost": {
     "sponsored": "Gesponsert"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Geld erhalten",
-    "intro": "Verbinde ein Stripe-Konto, damit Käufer dich auf Anston bezahlen können. Das Geld aus deinen Verkäufen geht direkt auf dein Bankkonto.",
+    "intro": "Hinterlege einmal deine Bankdaten und Anston schickt dir das Geld aus deinen Verkäufen. Käufer können dich schon jetzt bezahlen; bis du fertig bist, wird dein Geld sicher für dich aufbewahrt.",
     "notAvailable": "Online-Zahlungen sind noch nicht freigeschaltet. Schau bald wieder vorbei.",
     "error": "Bei der Verbindung mit Stripe ist etwas schiefgelaufen. Bitte versuche es erneut.",
-    "ready": "Du kannst auf Anston Geld erhalten",
-    "readyNote": "Käufer können deine Anzeigen online bezahlen, und Stripe überweist das Geld auf dein Bankkonto.",
-    "payoutsPending": "Käufer können dich jetzt bezahlen. Stripe prüft noch deine Bankdaten, bevor die erste Auszahlung kommt.",
-    "openStripe": "Dein Stripe-Dashboard öffnen",
+    "ready": "Alles bereit",
+    "readyNote": "Das Geld aus deinen Verkäufen geht automatisch auf dein Bankkonto.",
+    "payoutsPending": "Eingerichtet. Stripe prüft vor deiner ersten Auszahlung noch deine Bankdaten.",
+    "openStripe": "Auszahlungen ansehen",
     "pending": "Fast geschafft",
-    "pendingNote": "Stripe braucht noch ein paar Angaben, bevor Käufer dich bezahlen können.",
+    "pendingNote": "Stripe braucht noch ein paar Angaben, bevor es dir Geld senden kann.",
     "finish": "Einrichtung abschließen",
-    "point1": "Stripe fragt deinen Ausweis und deine Bankdaten auf seiner eigenen sicheren Seite ab. Anston sieht sie nie.",
-    "point2": "Du bekommst dein eigenes kostenloses Stripe-Konto für Verkäufe, Erstattungen und Auszahlungen.",
-    "point3": "Stripe überweist deine Einnahmen regelmäßig auf dein Bankkonto.",
-    "start": "Auszahlungen mit Stripe einrichten",
-    "fees": "Stripe berechnet bei jedem Verkauf seine Standardgebühr (in den USA 2,9 % + 30 ¢ pro Kartenzahlung), plus die gewählte Hervorhebung. Inserieren auf Anston bleibt kostenlos.",
-    "bannerTitle": "Online bezahlt werden:",
-    "bannerText": "richte Auszahlungen ein, damit Käufer dich auf Anston bezahlen können.",
+    "start": "Bankdaten hinzufügen",
+    "fees": "Pro Verkauf erhältst du den Preis plus Versand, abzüglich der Kartengebühr (in den USA 2,9 % + 30 ¢) und deines gewählten Boosts. Inserieren auf Anston bleibt kostenlos.",
+    "bannerTitle": "Geld erhalten:",
+    "bannerText": "hinterlege deine Bankdaten, damit das Geld aus deinen Verkäufen bei dir ankommt.",
     "country": "Land, in dem du ausgezahlt wirst",
     "countryNote": "Wo du oder dein Unternehmen ansässig ist. Kann später nicht geändert werden.",
-    "countryMissing": "Bitte wähle dein Land."
+    "countryMissing": "Bitte wähle dein Land.",
+    "secureNote": "Dauert etwa 5 Minuten auf der sicheren Seite von Stripe. Anston sieht weder deinen Ausweis noch deine Bankdaten.",
+    "heldCount": "Verkäufe, deren Geld auf dich wartet: {n}. Hinterlege deine Bankdaten, um es zu erhalten."
   },
   "checkout": {
     "buyNow": "Jetzt kaufen",

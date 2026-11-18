@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Tarifs",
       "body": [
-        "Publier sur Anston est gratuit et Anston ne prend aucune commission aux vendeurs (Stripe facture au vendeur ses frais standard de carte sur les ventes en ligne). Les acheteurs paient des frais de service lors d'un paiement en ligne : 7 % sous 50 $, 5 % de 50 $ à 500 $ et 3 % au-delà de 500 $, toujours affichés avant le paiement.",
+        "Publier sur Anston est gratuit et Anston ne prend aucune commission aux vendeurs. Les vendeurs reçoivent le prix plus la livraison, moins les frais de carte sur leur part. Les acheteurs paient des frais de service lors d'un paiement en ligne : 7 % sous 50 $, 5 % de 50 $ à 500 $ et 3 % au-delà de 500 $, toujours affichés avant le paiement.",
         "La mise en avant est facultative. Choisissez un pourcentage lors de la publication et votre annonce apparaîtra en premier dans les Annonces à la une. Vous ne payez ce pourcentage du prix final que si l'article est vendu ou réservé via le paiement Anston.",
         "Tout nouveau frais sera clairement indiqué avant que vous publiiez."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Expédié",
       "delivered": "Livré",
       "completed": "Terminé"
-    }
+    },
+    "payoutHeld": "L'argent de cette vente est gardé pour vous jusqu'à ce que vous configuriez",
+    "payoutSent": "L'argent de cette vente a été envoyé sur votre compte Stripe et arrivera sur votre compte bancaire selon son calendrier de virements."
   },
   "boost": {
     "sponsored": "Sponsorisé"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Être payé",
-    "intro": "Connectez un compte Stripe pour que les acheteurs vous paient sur Anston. L'argent de vos ventes va directement sur votre compte bancaire.",
+    "intro": "Ajoutez vos coordonnées bancaires une fois et Anston vous envoie l'argent de vos ventes. Les acheteurs peuvent déjà vous payer ; en attendant, votre argent est gardé pour vous.",
     "notAvailable": "Les paiements en ligne ne sont pas encore activés. Revenez bientôt.",
     "error": "Un problème est survenu avec Stripe. Veuillez réessayer.",
-    "ready": "Vous pouvez être payé sur Anston",
-    "readyNote": "Les acheteurs peuvent payer vos annonces en ligne, et Stripe envoie l'argent sur votre compte bancaire.",
-    "payoutsPending": "Les acheteurs peuvent vous payer. Stripe vérifie encore vos coordonnées bancaires avant votre premier virement.",
-    "openStripe": "Ouvrir votre tableau de bord Stripe",
+    "ready": "Tout est prêt",
+    "readyNote": "L'argent de vos ventes est envoyé automatiquement sur votre compte bancaire.",
+    "payoutsPending": "C'est configuré. Stripe vérifie encore vos coordonnées bancaires avant votre premier virement.",
+    "openStripe": "Voir mes virements",
     "pending": "Presque terminé",
-    "pendingNote": "Stripe a besoin de quelques informations de plus avant que les acheteurs puissent vous payer.",
+    "pendingNote": "Stripe a besoin de quelques informations de plus avant de vous envoyer de l'argent.",
     "finish": "Terminer la configuration",
-    "point1": "Stripe demande votre pièce d'identité et vos coordonnées bancaires sur sa propre page sécurisée. Anston ne les voit jamais.",
-    "point2": "Vous obtenez votre propre compte Stripe gratuit pour suivre ventes, remboursements et virements.",
-    "point3": "Stripe vire vos gains sur votre compte bancaire régulièrement.",
-    "start": "Configurer les paiements avec Stripe",
-    "fees": "Stripe prélève ses frais standard sur chaque vente (aux États-Unis, 2,9 % + 30 ¢ par paiement par carte), plus la mise en avant choisie. Publier sur Anston reste gratuit.",
-    "bannerTitle": "Soyez payé en ligne :",
-    "bannerText": "configurez vos paiements pour que les acheteurs vous paient sur Anston.",
+    "start": "Ajouter mes coordonnées bancaires",
+    "fees": "Pour chaque vente, vous recevez le prix plus la livraison, moins les frais de carte (aux États-Unis, 2,9 % + 30 ¢) et la mise en avant choisie. Publier sur Anston reste gratuit.",
+    "bannerTitle": "Être payé :",
+    "bannerText": "ajoutez vos coordonnées bancaires pour recevoir l'argent de vos ventes.",
     "country": "Pays où vous serez payé",
     "countryNote": "Là où vous ou votre entreprise êtes établis. Impossible de le modifier ensuite.",
-    "countryMissing": "Veuillez choisir votre pays."
+    "countryMissing": "Veuillez choisir votre pays.",
+    "secureNote": "Environ 5 minutes sur la page sécurisée de Stripe. Anston ne voit jamais votre pièce d'identité ni vos coordonnées bancaires.",
+    "heldCount": "Ventes en attente de paiement : {n}. Ajoutez vos coordonnées bancaires pour recevoir l'argent."
   },
   "checkout": {
     "buyNow": "Acheter maintenant",

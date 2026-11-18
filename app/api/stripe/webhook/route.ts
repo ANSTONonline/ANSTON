@@ -1,7 +1,7 @@
 import type Stripe from "stripe";
 import { createClient as createPlainClient } from "@supabase/supabase-js";
 import { recordSession } from "@/lib/checkout";
-import { serverSecret, stripe } from "@/lib/stripe";
+import { stripe } from "@/lib/stripe";
 import { SUPABASE_KEY, SUPABASE_URL } from "@/lib/supabase/server";
 
 // Stripe tells us here when a Checkout payment finishes or a seller's account
@@ -26,14 +26,6 @@ export async function POST(request: Request) {
       const session = event.data.object as Stripe.Checkout.Session;
       const orderId = session.metadata?.anston_order_id;
       if (orderId) await recordSession(supabase, orderId, session);
-    } else if (event.type === "account.updated") {
-      const account = event.data.object as Stripe.Account;
-      await supabase.rpc("refresh_payout_account", {
-        p_account: account.id,
-        p_charges: Boolean(account.charges_enabled),
-        p_payouts: Boolean(account.payouts_enabled),
-        p_secret: serverSecret(),
-      });
     }
   } catch (e) {
     console.error("stripe webhook", e instanceof Error ? e.message : e);

@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Prezzi",
       "body": [
-        "Pubblicare su Anston è gratis e Anston non applica commissioni ai venditori (Stripe addebita al venditore la sua commissione standard per le carte sulle vendite online). Gli acquirenti pagano una commissione di servizio quando pagano online: 7% sotto i 50 $, 5% da 50 $ a 500 $ e 3% oltre i 500 $, sempre mostrata prima del pagamento.",
+        "Pubblicare su Anston è gratis e Anston non applica commissioni ai venditori. I venditori ricevono il prezzo più la spedizione, meno la commissione della carta sulla loro parte. Gli acquirenti pagano una commissione di servizio quando pagano online: 7% sotto i 50 $, 5% da 50 $ a 500 $ e 3% oltre i 500 $, sempre mostrata prima del pagamento.",
         "La promozione è facoltativa. Scegli una percentuale quando pubblichi e il tuo annuncio comparirà per primo negli Annunci in evidenza. Paghi quella percentuale del prezzo finale solo se viene venduto o prenotato tramite il pagamento Anston.",
         "Eventuali nuove commissioni saranno mostrate chiaramente prima della pubblicazione."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Spedito",
       "delivered": "Consegnato",
       "completed": "Completato"
-    }
+    },
+    "payoutHeld": "Il denaro di questa vendita è trattenuto finché non configuri",
+    "payoutSent": "Il denaro di questa vendita è stato inviato al tuo account Stripe e arriverà in banca secondo il calendario dei pagamenti."
   },
   "boost": {
     "sponsored": "Sponsorizzato"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Ricevi pagamenti",
-    "intro": "Collega un account Stripe così gli acquirenti possono pagarti su Anston. Il denaro delle vendite va direttamente sul tuo conto.",
+    "intro": "Aggiungi una volta i tuoi dati bancari e Anston ti invia il denaro delle vendite. Gli acquirenti possono già pagarti; finché non hai finito, il tuo denaro è custodito per te.",
     "notAvailable": "I pagamenti online non sono ancora attivi. Torna presto.",
     "error": "Si è verificato un problema con Stripe. Riprova.",
-    "ready": "Puoi ricevere pagamenti su Anston",
-    "readyNote": "Gli acquirenti possono pagare i tuoi annunci online e Stripe invia il denaro sul tuo conto.",
-    "payoutsPending": "Gli acquirenti possono già pagarti. Stripe sta ancora verificando i tuoi dati bancari prima del primo accredito.",
-    "openStripe": "Apri la dashboard di Stripe",
+    "ready": "Tutto pronto",
+    "readyNote": "Il denaro delle tue vendite viene inviato automaticamente alla tua banca.",
+    "payoutsPending": "Configurato. Stripe sta ancora verificando i tuoi dati bancari prima del primo pagamento.",
+    "openStripe": "Vedi i tuoi pagamenti",
     "pending": "Ci sei quasi",
-    "pendingNote": "Stripe ha bisogno di qualche altro dato prima che gli acquirenti possano pagarti.",
+    "pendingNote": "Stripe ha bisogno di qualche altro dato prima di inviarti denaro.",
     "finish": "Completa la configurazione",
-    "point1": "Stripe chiede il tuo documento e i dati bancari sulla sua pagina sicura. Anston non li vede mai.",
-    "point2": "Ottieni un tuo account Stripe gratuito per seguire vendite, rimborsi e accrediti.",
-    "point3": "Stripe invia regolarmente i tuoi guadagni sul tuo conto.",
-    "start": "Configura i pagamenti con Stripe",
-    "fees": "Stripe applica la sua commissione standard su ogni vendita (negli USA 2,9% + 30¢ per pagamento con carta), più l'eventuale promozione scelta. Pubblicare su Anston resta gratis.",
-    "bannerTitle": "Ricevi pagamenti online:",
-    "bannerText": "configura i pagamenti così gli acquirenti possono pagarti su Anston.",
+    "start": "Aggiungi dati bancari",
+    "fees": "Per ogni vendita ricevi il prezzo più la spedizione, meno la commissione della carta (negli USA 2,9% + 30¢) e la promozione scelta. Pubblicare su Anston resta gratis.",
+    "bannerTitle": "Ricevi i pagamenti:",
+    "bannerText": "aggiungi i tuoi dati bancari per ricevere il denaro delle vendite.",
     "country": "Paese in cui riceverai i pagamenti",
     "countryNote": "Dove hai sede tu o la tua attività. Non si può cambiare in seguito.",
-    "countryMissing": "Scegli il tuo paese."
+    "countryMissing": "Scegli il tuo paese.",
+    "secureNote": "Circa 5 minuti sulla pagina sicura di Stripe. Anston non vede mai il tuo documento né i tuoi dati bancari.",
+    "heldCount": "Vendite in attesa di pagamento a te: {n}. Aggiungi i dati bancari per ricevere il denaro."
   },
   "checkout": {
     "buyNow": "Compra ora",

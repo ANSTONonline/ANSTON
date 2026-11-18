@@ -34,7 +34,7 @@ type Order = {
   delivered_at: string | null;
   completed_at: string | null;
   ship_to: { name?: string | null; address?: Record<string, string | null> | null } | null;
-  stripe_account_id: string | null;
+  payout_status: "none" | "held" | "sent";
   stripe_checkout_session_id: string | null;
   buyer_id: string;
   seller_id: string;
@@ -58,7 +58,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
     .select(
       `id, mode, status, quantity, currency, subtotal_cents, shipping_cents, tax_cents, service_fee_cents, total_cents,
        carrier, tracking_number, created_at, paid_at, shipped_at, delivered_at, completed_at, buyer_id, seller_id,
-       ship_to, stripe_account_id, stripe_checkout_session_id,
+       ship_to, payout_status, stripe_checkout_session_id,
        listing:listings ( id, title ),
        buyer:profiles!orders_buyer_id_fkey ( username ),
        seller:profiles!orders_seller_id_fkey ( username )`,
@@ -71,10 +71,10 @@ export default async function OrderPage({ params, searchParams }: { params: Para
 
   // Back from Stripe Checkout: confirm the payment with Stripe and record it.
   const sessionId = typeof flags.session_id === "string" ? flags.session_id : "";
-  if (sessionId && order.status === "pending_payment" && order.buyer_id === member.user.id && order.stripe_account_id
+  if (sessionId && order.status === "pending_payment" && order.buyer_id === member.user.id
       && sessionId === order.stripe_checkout_session_id && paymentsConfigured()) {
     try {
-      if (await recordPayment(member.supabase, order.id, sessionId, order.stripe_account_id)) {
+      if (await recordPayment(member.supabase, order.id, sessionId)) {
         // A different query on purpose: Next.js reuses identical requests within one page load.
         const { data: fresh } = await member.supabase
           .from("orders")
@@ -128,6 +128,14 @@ export default async function OrderPage({ params, searchParams }: { params: Para
 
       {sessionId && order.status === "paid" && isBuyer && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">🎉 {t.checkout.paidThanks}</p>}
       {sessionId && order.status === "pending_payment" && isBuyer && <p role="status" className="mb-4 bg-amber-50 border border-amber-200 text-amber-800 rounded-lg p-3 text-sm">{t.checkout.paymentPending}</p>}
+      {isSeller && order.payout_status === "held" && (
+        <Link href="/account/payouts" className="block mb-4 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-3 text-sm hover:bg-amber-100">
+          💰 {o.payoutHeld} <span className="underline font-medium">{t.payouts.title}</span>
+        </Link>
+      )}
+      {isSeller && order.payout_status === "sent" && (
+        <p className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">💸 {o.payoutSent}</p>
+      )}
       {flags.shipped && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.shippedSaved}</p>}
       {flags.received && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.receivedSaved}</p>}
       {flags.reviewed && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{r.thanks}</p>}

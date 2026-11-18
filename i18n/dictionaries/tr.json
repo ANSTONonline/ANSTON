@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Ücretler",
       "body": [
-        "Anston'da ilan vermek ücretsizdir ve Anston satıcılardan satış ücreti almaz (Stripe çevrimiçi satışlarda satıcıdan standart kart ücretini alır). Alıcılar çevrimiçi ödemede hizmet bedeli öder: 50 $ altındaki ürünlerde %7, 50 $ ile 500 $ arasında %5 ve 500 $ üzerinde %3; ödemeden önce her zaman gösterilir.",
+        "Anston'da ilan vermek ücretsizdir ve Anston satıcılardan satış ücreti almaz. Satıcılar fiyat artı kargoyu, kendi paylarındaki kart ücreti düşülerek alır. Alıcılar çevrimiçi ödemede hizmet bedeli öder: 50 $ altındaki ürünlerde %7, 50 $ ile 500 $ arasında %5 ve 500 $ üzerinde %3; ödemeden önce her zaman gösterilir.",
         "Öne çıkarma isteğe bağlıdır. İlan verirken bir oran seçin, ilanınız Öne Çıkan İlanlar'da en üstte görünsün. Son fiyatın bu oranını yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz.",
         "Yeni ücretler, ilan vermeden önce açıkça gösterilecektir."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Kargolandı",
       "delivered": "Teslim edildi",
       "completed": "Tamamlandı"
-    }
+    },
+    "payoutHeld": "Bu satışın parası, siz şunu kurana kadar bekletiliyor:",
+    "payoutSent": "Bu satışın parası Stripe hesabınıza gönderildi ve ödeme takvimine göre bankanıza geçecek."
   },
   "boost": {
     "sponsored": "Sponsorlu"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Ödeme al",
-    "intro": "Alıcıların sana Anston'da ödeme yapabilmesi için bir Stripe hesabı bağla. Satışlarından gelen para doğrudan bankana gider.",
+    "intro": "Banka bilgilerinizi bir kez ekleyin, Anston satışlarınızın parasını size göndersin. Alıcılar şimdiden size ödeme yapabilir; kurulumu bitirene kadar paranız sizin için güvenle tutulur.",
     "notAvailable": "Çevrimiçi ödemeler henüz açılmadı. Lütfen kısa süre sonra tekrar bak.",
     "error": "Stripe'a bağlanırken bir sorun oluştu. Lütfen tekrar dene.",
-    "ready": "Anston'da ödeme alabilirsin",
-    "readyNote": "Alıcılar ilanlarının ödemesini çevrimiçi yapabilir, Stripe da parayı bankana gönderir.",
-    "payoutsPending": "Alıcılar artık sana ödeme yapabilir. Stripe ilk ödemeyi göndermeden önce banka bilgilerini hâlâ kontrol ediyor.",
-    "openStripe": "Stripe panelini aç",
+    "ready": "Her şey hazır",
+    "readyNote": "Satışlarınızın parası otomatik olarak bankanıza gönderilir.",
+    "payoutsPending": "Kurulum tamam. Stripe ilk ödemeden önce banka bilgilerinizi hâlâ kontrol ediyor.",
+    "openStripe": "Ödemelerinizi görün",
     "pending": "Neredeyse bitti",
-    "pendingNote": "Alıcıların sana ödeme yapabilmesi için Stripe'ın birkaç bilgiye daha ihtiyacı var.",
+    "pendingNote": "Stripe size para gönderebilmek için birkaç bilgiye daha ihtiyaç duyuyor.",
     "finish": "Kurulumu tamamla",
-    "point1": "Stripe kimliğini ve banka bilgilerini kendi güvenli sayfasında ister. Anston bunları asla görmez.",
-    "point2": "Satışları, iadeleri ve ödemeleri takip etmek için kendi ücretsiz Stripe hesabını alırsın.",
-    "point3": "Stripe kazancını düzenli olarak bankana gönderir.",
-    "start": "Stripe ile ödemeleri ayarla",
-    "fees": "Stripe her satıştan standart işlem ücretini alır (ABD'de kart ödemesi başına %2,9 + 30¢), ayrıca seçtiğin öne çıkarma ücreti. Anston'da ilan vermek ücretsiz kalır.",
-    "bannerTitle": "Çevrimiçi ödeme al:",
-    "bannerText": "alıcıların sana Anston'da ödeme yapabilmesi için ödemeleri ayarla.",
+    "start": "Banka bilgilerini ekle",
+    "fees": "Her satışta fiyat artı kargo ücretini, kart işlem ücreti (ABD'de %2,9 + 30¢) ve seçtiğiniz öne çıkarma düşülerek alırsınız. Anston'da ilan vermek ücretsiz kalır.",
+    "bannerTitle": "Ödeme alın:",
+    "bannerText": "satışlarınızın parası size ulaşsın diye banka bilgilerinizi ekleyin.",
     "country": "Ödeme alacağınız ülke",
     "countryNote": "Sizin veya işletmenizin bulunduğu yer. Daha sonra değiştirilemez.",
-    "countryMissing": "Lütfen ülkenizi seçin."
+    "countryMissing": "Lütfen ülkenizi seçin.",
+    "secureNote": "Stripe'ın güvenli sayfasında yaklaşık 5 dakika sürer. Anston kimliğinizi veya banka bilgilerinizi asla görmez.",
+    "heldCount": "Size ödenmeyi bekleyen satışlar: {n}. Parayı almak için banka bilgilerinizi ekleyin."
   },
   "checkout": {
     "buyNow": "Hemen al",

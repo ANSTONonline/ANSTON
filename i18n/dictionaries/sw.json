@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Bei",
       "body": [
-        "Kuweka tangazo kwenye Anston ni bure, na Anston haiwatozi wauzaji ada ya mauzo (Stripe humtoza muuzaji ada yake ya kawaida ya kadi kwa mauzo ya mtandaoni). Wanunuzi hulipa ada ya huduma wanapolipa mtandaoni: 7% kwa bidhaa chini ya $50, 5% kutoka $50 hadi $500, na 3% zaidi ya $500, ikionyeshwa kila mara kabla ya kulipa.",
+        "Kuweka tangazo kwenye Anston ni bure, na Anston haiwatozi wauzaji ada ya mauzo. Wauzaji hupokea bei pamoja na usafirishaji, ukiondoa ada ya kadi kwenye sehemu yao. Wanunuzi hulipa ada ya huduma wanapolipa mtandaoni: 7% kwa bidhaa chini ya $50, 5% kutoka $50 hadi $500, na 3% zaidi ya $500, ikionyeshwa kila mara kabla ya kulipa.",
         "Kupandisha ni hiari. Chagua asilimia unapoweka tangazo, na tangazo lako litaonekana kwanza kwenye Matangazo Maalum. Unalipa asilimia hiyo ya bei ya mwisho tu ikiwa litauzwa au kuhifadhiwa kupitia malipo ya Anston.",
         "Ada zozote mpya zitaonyeshwa wazi kabla hujaweka tangazo."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Imetumwa",
       "delivered": "Imefika",
       "completed": "Imekamilika"
-    }
+    },
+    "payoutHeld": "Pesa za mauzo haya zimeshikiliwa hadi utakapoweka",
+    "payoutSent": "Pesa za mauzo haya zimetumwa kwenye akaunti yako ya Stripe na zitaingia benki kwa ratiba ya malipo."
   },
   "boost": {
     "sponsored": "Limedhaminiwa"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Pokea malipo",
-    "intro": "Unganisha akaunti ya Stripe ili wanunuzi wakulipe kwenye Anston. Pesa za mauzo yako huenda moja kwa moja benki kwako.",
+    "intro": "Weka taarifa za benki mara moja na Anston itakutumia pesa za mauzo yako. Wanunuzi wanaweza kukulipa sasa hivi; hadi utakapomaliza, pesa zako zinahifadhiwa salama kwa ajili yako.",
     "notAvailable": "Malipo ya mtandaoni bado hayajawashwa. Tafadhali angalia tena baadaye.",
     "error": "Hitilafu imetokea wakati wa kuunganisha na Stripe. Tafadhali jaribu tena.",
-    "ready": "Unaweza kupokea malipo kwenye Anston",
-    "readyNote": "Wanunuzi wanaweza kulipia matangazo yako mtandaoni, na Stripe hutuma pesa benki kwako.",
-    "payoutsPending": "Wanunuzi sasa wanaweza kukulipa. Stripe bado inakagua taarifa zako za benki kabla ya malipo ya kwanza.",
-    "openStripe": "Fungua dashibodi yako ya Stripe",
+    "ready": "Uko tayari",
+    "readyNote": "Pesa za mauzo yako hutumwa benki kwako moja kwa moja.",
+    "payoutsPending": "Umeshaweka. Stripe bado inakagua taarifa zako za benki kabla ya malipo ya kwanza.",
+    "openStripe": "Tazama malipo yako",
     "pending": "Karibu umemaliza",
-    "pendingNote": "Stripe inahitaji taarifa chache zaidi kabla wanunuzi hawajaweza kukulipa.",
+    "pendingNote": "Stripe inahitaji taarifa chache zaidi kabla ya kukutumia pesa.",
     "finish": "Maliza kuweka",
-    "point1": "Stripe huomba kitambulisho na taarifa za benki kwenye ukurasa wake salama. Anston haizioni kamwe.",
-    "point2": "Unapata akaunti yako ya bure ya Stripe kufuatilia mauzo, marejesho na malipo.",
-    "point3": "Stripe hutuma mapato yako benki mara kwa mara.",
-    "start": "Weka malipo kupitia Stripe",
-    "fees": "Stripe hutoza ada yake ya kawaida kwa kila mauzo (Marekani, 2.9% + 30¢ kwa kila malipo ya kadi), pamoja na upandishaji uliouchagua. Kuweka tangazo kwenye Anston kunabaki bure.",
-    "bannerTitle": "Pokea malipo mtandaoni:",
-    "bannerText": "weka malipo ili wanunuzi wakulipe kwenye Anston.",
+    "start": "Weka taarifa za benki",
+    "fees": "Kwa kila mauzo unapokea bei pamoja na usafirishaji, ukiondoa ada ya kadi (Marekani, 2.9% + 30¢) na kukuza ulikochagua. Kuweka tangazo kwenye Anston bado ni bure.",
+    "bannerTitle": "Pokea malipo:",
+    "bannerText": "weka taarifa zako za benki ili pesa za mauzo zikufikie.",
     "country": "Nchi utakapolipwa",
     "countryNote": "Mahali ulipo wewe au biashara yako. Haiwezi kubadilishwa baadaye.",
-    "countryMissing": "Tafadhali chagua nchi yako."
+    "countryMissing": "Tafadhali chagua nchi yako.",
+    "secureNote": "Huchukua takriban dakika 5 kwenye ukurasa salama wa Stripe. Anston haioni kamwe kitambulisho chako wala taarifa zako za benki.",
+    "heldCount": "Mauzo yanayosubiri kulipwa kwako: {n}. Weka taarifa za benki ili kupokea pesa."
   },
   "checkout": {
     "buyNow": "Nunua sasa",

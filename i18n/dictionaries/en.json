@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Pricing",
       "body": [
-        "Listing on Anston is free, and Anston charges sellers no selling fee (Stripe charges sellers its standard card processing fee on online sales). Buyers pay a service fee when they pay online: 7% on items under $50, 5% from $50 to $500, and 3% over $500, always shown before paying.",
+        "Listing on Anston is free, and Anston charges sellers no selling fee. Sellers receive the price plus shipping, minus the card processing fee on their share. Buyers pay a service fee when they pay online: 7% on items under $50, 5% from $50 to $500, and 3% over $500, always shown before paying.",
         "Boosting is optional. Choose a percentage when you list, and your listing shows first in Featured Listings. You pay that percentage of the final price only if it sells or is booked through Anston checkout.",
         "Any new fees will be shown clearly before you list."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Shipped",
       "delivered": "Delivered",
       "completed": "Completed"
-    }
+    },
+    "payoutHeld": "Your money for this sale is on hold until you set up",
+    "payoutSent": "Your money for this sale has been sent to your Stripe account and goes to your bank on its payout schedule."
   },
   "boost": {
     "sponsored": "Sponsored"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Get paid",
-    "intro": "Connect a Stripe account so buyers can pay you on Anston. Money from your sales goes straight to your bank.",
+    "intro": "Add your bank details once and Anston sends you the money from your sales. Buyers can already pay you; until you're set up, your money is held safely for you.",
     "notAvailable": "Online payments aren't switched on yet. Please check back soon.",
     "error": "Something went wrong connecting to Stripe. Please try again.",
-    "ready": "You can get paid on Anston",
-    "readyNote": "Buyers can pay for your listings online, and Stripe sends the money to your bank.",
-    "payoutsPending": "Buyers can pay you now. Stripe is still checking your bank details before it sends your first payout.",
-    "openStripe": "Open your Stripe dashboard",
+    "ready": "You're all set",
+    "readyNote": "Money from your sales is sent to your bank automatically.",
+    "payoutsPending": "You're set up. Stripe is still checking your bank details before your first payout.",
+    "openStripe": "View your payouts",
     "pending": "Almost there",
-    "pendingNote": "Stripe needs a few more details before buyers can pay you.",
+    "pendingNote": "Stripe needs a few more details before it can send you money.",
     "finish": "Finish setting up",
-    "point1": "Stripe asks for your ID and bank details on its own secure page. Anston never sees them.",
-    "point2": "You get your own free Stripe account to track sales, refunds and payouts.",
-    "point3": "Stripe sends your earnings to your bank on a regular schedule.",
-    "start": "Set up payouts with Stripe",
-    "fees": "Stripe charges its standard processing fee on each sale (in the US, 2.9% + 30¢ per card payment), plus any boost you chose. Listing on Anston stays free.",
-    "bannerTitle": "Get paid online:",
-    "bannerText": "set up payouts so buyers can pay you on Anston.",
+    "start": "Add bank details",
+    "fees": "For each sale you receive the price plus shipping, minus the card processing fee (in the US, 2.9% + 30¢) and any boost you chose. Listing on Anston stays free.",
+    "bannerTitle": "Get paid:",
+    "bannerText": "add your bank details so the money from your sales reaches you.",
     "country": "Country where you'll get paid",
     "countryNote": "Where you or your business is based. This can't be changed later.",
-    "countryMissing": "Please choose your country."
+    "countryMissing": "Please choose your country.",
+    "secureNote": "Takes about 5 minutes on Stripe's secure page. Anston never sees your ID or bank details.",
+    "heldCount": "Sales waiting to be paid out to you: {n}. Add your bank details to receive the money."
   },
   "checkout": {
     "buyNow": "Buy now",

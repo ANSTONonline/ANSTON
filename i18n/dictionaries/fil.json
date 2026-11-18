@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Presyo",
       "body": [
-        "Libre ang pag-post sa Anston, at walang selling fee na sinisingil ang Anston sa mga nagbebenta (sa online na benta, kumukuha ang Stripe ng karaniwang card fee mula sa nagbebenta). Nagbabayad ang mga mamimili ng service fee kapag nagbayad online: 7% sa mga item na mas mababa sa $50, 5% mula $50 hanggang $500, at 3% kapag lampas $500, laging ipinapakita bago magbayad.",
+        "Libre ang pag-post sa Anston, at walang selling fee na sinisingil ang Anston sa mga nagbebenta. Natatanggap ng nagbebenta ang presyo at shipping, bawas ang card fee sa bahagi nila. Nagbabayad ang mga mamimili ng service fee kapag nagbayad online: 7% sa mga item na mas mababa sa $50, 5% mula $50 hanggang $500, at 3% kapag lampas $500, laging ipinapakita bago magbayad.",
         "Opsyonal ang pag-boost. Pumili ng porsyento kapag nagpo-post, at unang lalabas ang listing mo sa Mga Tampok na Listing. Babayaran mo lang ang porsyentong iyon ng huling presyo kung maibenta o ma-book ito sa checkout ng Anston.",
         "Malinaw na ipapakita ang anumang bagong bayarin bago ka mag-post."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Naipadala",
       "delivered": "Naihatid",
       "completed": "Kumpleto"
-    }
+    },
+    "payoutHeld": "Naka-hold ang pera para sa bentang ito hanggang ma-set up mo ang",
+    "payoutSent": "Naipadala na ang pera para sa bentang ito sa Stripe account mo at papasok sa bangko mo ayon sa payout schedule."
   },
   "boost": {
     "sponsored": "Sponsored"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Mabayaran",
-    "intro": "Ikonekta ang Stripe account para makabayad sa iyo ang mga mamimili sa Anston. Diretso sa bangko mo ang pera mula sa benta.",
+    "intro": "Idagdag minsan ang bank details mo at ipapadala ng Anston ang pera mula sa mga benta mo. Puwede ka nang bayaran ng mga mamimili; habang hindi ka pa naka-set up, ligtas na itinatabi ang pera mo.",
     "notAvailable": "Hindi pa naka-on ang online na bayad. Bumalik ulit sa lalong madaling panahon.",
     "error": "Nagkaproblema sa pagkonekta sa Stripe. Pakisubukang muli.",
-    "ready": "Puwede ka nang mabayaran sa Anston",
-    "readyNote": "Puwedeng magbayad online ang mga mamimili sa mga listing mo, at ipapadala ng Stripe ang pera sa bangko mo.",
-    "payoutsPending": "Puwede ka nang bayaran ng mga mamimili. Sinusuri pa ng Stripe ang bank details mo bago ang unang payout.",
-    "openStripe": "Buksan ang Stripe dashboard mo",
+    "ready": "Handa ka na",
+    "readyNote": "Awtomatikong ipinapadala sa bangko mo ang pera mula sa mga benta mo.",
+    "payoutsPending": "Naka-set up ka na. Sinusuri pa ng Stripe ang bank details mo bago ang unang payout.",
+    "openStripe": "Tingnan ang mga payout mo",
     "pending": "Malapit na",
-    "pendingNote": "Kailangan pa ng Stripe ng ilang detalye bago ka mabayaran ng mga mamimili.",
+    "pendingNote": "Kailangan ng Stripe ng ilang detalye pa bago ka padalhan ng pera.",
     "finish": "Tapusin ang setup",
-    "point1": "Hinihingi ng Stripe ang ID at bank details mo sa sarili nitong secure na page. Hindi ito nakikita ng Anston.",
-    "point2": "Magkakaroon ka ng sariling libreng Stripe account para makita ang benta, refund at payout.",
-    "point3": "Regular na ipinapadala ng Stripe ang kita mo sa bangko mo.",
-    "start": "I-set up ang payout sa Stripe",
-    "fees": "Kumukuha ang Stripe ng karaniwang processing fee sa bawat benta (sa US, 2.9% + 30¢ bawat card payment), dagdag ang boost na pinili mo. Libre pa rin ang pag-post sa Anston.",
-    "bannerTitle": "Mabayaran online:",
-    "bannerText": "i-set up ang payout para makabayad sa iyo ang mga mamimili sa Anston.",
+    "start": "Idagdag ang bank details",
+    "fees": "Sa bawat benta, matatanggap mo ang presyo at shipping, bawas ang card processing fee (sa US, 2.9% + 30¢) at anumang boost na pinili mo. Libre pa rin ang pag-post sa Anston.",
+    "bannerTitle": "Mabayaran:",
+    "bannerText": "idagdag ang bank details mo para makarating sa iyo ang pera ng mga benta mo.",
     "country": "Bansa kung saan ka mababayaran",
     "countryNote": "Kung saan ka o ang negosyo mo nakabase. Hindi na ito mababago mamaya.",
-    "countryMissing": "Pumili ng iyong bansa."
+    "countryMissing": "Pumili ng iyong bansa.",
+    "secureNote": "Mga 5 minuto sa secure na page ng Stripe. Hindi kailanman nakikita ng Anston ang ID o bank details mo.",
+    "heldCount": "Mga benta na naghihintay ng payout sa iyo: {n}. Idagdag ang bank details mo para matanggap ang pera."
   },
   "checkout": {
     "buyNow": "Bilhin ngayon",
