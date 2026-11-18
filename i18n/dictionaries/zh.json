@@ -196,7 +196,8 @@
     "remove": "移除",
     "total": "合计",
     "checkout": "结算",
-    "checkoutSoon": "结算功能即将开放，我们正在设置安全支付。"
+    "buyNow": "立即购买",
+    "payEach": "每件商品的货款直接付给对应卖家，请使用“立即购买”逐件结账。"
   },
   "favorites": {
     "title": "收藏的商品",

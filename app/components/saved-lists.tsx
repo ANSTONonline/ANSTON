@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useList } from "./store";
 import { FavoriteButton } from "./list-buttons";
 import { formatPrice } from "@/lib/listings";
+import { startCheckout } from "@/app/checkout/actions";
 
 type Card = {
   id: string;
@@ -26,7 +27,8 @@ type CartText = {
   remove: string;
   total: string;
   checkout: string;
-  checkoutSoon: string;
+  buyNow: string;
+  payEach: string;
 };
 
 // Fetches card details for the saved ids. Listings that were deleted simply
@@ -91,6 +93,8 @@ export function CartView({ text }: { text: CartText }) {
   // One total per currency.
   const totals = new Map<string, number>();
   for (const c of cards) if (!c.sold) totals.set(c.currency, (totals.get(c.currency) ?? 0) + c.priceCents);
+  // Each item is paid straight to its own seller, so items check out one at a time.
+  const forSale = cards.filter((c) => !c.sold);
 
   return (
     <div className="grid md:grid-cols-3 gap-8">
@@ -107,6 +111,14 @@ export function CartView({ text }: { text: CartText }) {
             </div>
             <div className="text-end">
               <p className={`font-bold ${c.sold ? "line-through text-gray-400" : ""}`} dir="ltr">{c.price}</p>
+              {!c.sold && (
+                <form action={startCheckout} className="mt-1">
+                  <input type="hidden" name="listing" value={c.id} />
+                  <button type="submit" className="text-sm bg-[#7A1E2B] text-white rounded-md px-3 py-1 font-medium">
+                    {text.buyNow}
+                  </button>
+                </form>
+              )}
               <button type="button" onClick={() => cart.remove(c.id)} className="text-sm text-[#7A1E2B] hover:underline">
                 {text.remove}
               </button>
@@ -123,10 +135,16 @@ export function CartView({ text }: { text: CartText }) {
             ))}
           </span>
         </div>
-        <button type="button" disabled className="w-full bg-[#7A1E2B] text-white py-3 rounded-lg font-medium opacity-60 cursor-not-allowed">
-          {text.checkout}
-        </button>
-        <p className="text-xs text-gray-500 mt-3">{text.checkoutSoon}</p>
+        {forSale.length === 1 ? (
+          <form action={startCheckout}>
+            <input type="hidden" name="listing" value={forSale[0].id} />
+            <button type="submit" className="w-full bg-[#7A1E2B] text-white py-3 rounded-lg font-medium">
+              {text.checkout}
+            </button>
+          </form>
+        ) : (
+          forSale.length > 1 && <p className="text-sm text-gray-600">{text.payEach}</p>
+        )}
       </div>
     </div>
   );

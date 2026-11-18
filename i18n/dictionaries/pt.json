@@ -196,7 +196,8 @@
     "remove": "Remover",
     "total": "Total",
     "checkout": "Finalizar compra",
-    "checkoutSoon": "O pagamento abre em breve. Estamos configurando pagamentos seguros."
+    "buyNow": "Comprar agora",
+    "payEach": "Cada item é pago direto ao vendedor, então finalize um de cada vez com Comprar agora."
   },
   "favorites": {
     "title": "Anúncios salvos",

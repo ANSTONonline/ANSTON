@@ -196,7 +196,8 @@
     "remove": "Entfernen",
     "total": "Summe",
     "checkout": "Zur Kasse",
-    "checkoutSoon": "Die Kasse öffnet bald. Wir richten gerade sichere Zahlungen ein."
+    "buyNow": "Jetzt kaufen",
+    "payEach": "Jeder Artikel wird direkt an seinen Verkäufer bezahlt – kaufe ihn einzeln mit „Jetzt kaufen“."
   },
   "favorites": {
     "title": "Gemerkte Angebote",
