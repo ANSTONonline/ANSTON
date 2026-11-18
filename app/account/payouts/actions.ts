@@ -20,10 +20,14 @@ export async function startPayoutSetup() {
   let onboardingUrl = "";
   try {
     if (!accountId) {
-      const account = await stripe().accounts.create({
-        type: "standard",
-        email: member.user.email ?? undefined,
-        business_profile: { url: `${siteUrl()}/seller/${member.profile?.username ?? ""}` },
+      // Stripe's Accounts v2: the seller gets the full Stripe Dashboard, and
+      // Stripe collects its fees from them and covers losses (direct charges).
+      const account = await stripe().v2.core.accounts.create({
+        contact_email: member.user.email ?? undefined,
+        display_name: member.profile?.display_name || member.profile?.username || undefined,
+        dashboard: "full",
+        defaults: { responsibilities: { fees_collector: "stripe", losses_collector: "stripe" } },
+        configuration: { merchant: { capabilities: { card_payments: { requested: true } } } },
         metadata: { anston_user_id: member.user.id },
       });
       accountId = account.id;
@@ -35,11 +39,15 @@ export async function startPayoutSetup() {
       });
       if (error) throw new Error(error.message);
     }
-    const link = await stripe().accountLinks.create({
+    const link = await stripe().v2.core.accountLinks.create({
       account: accountId,
-      type: "account_onboarding",
-      refresh_url: `${siteUrl()}/account/payouts?refresh=1`,
-      return_url: `${siteUrl()}/account/payouts?returned=1`,
+      use_case: {
+        type: "account_onboarding",
+        account_onboarding: {
+          refresh_url: `${siteUrl()}/account/payouts?refresh=1`,
+          return_url: `${siteUrl()}/account/payouts?returned=1`,
+        },
+      },
     });
     onboardingUrl = link.url;
   } catch (e) {

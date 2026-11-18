@@ -36,11 +36,12 @@ export function siteUrl() {
 
 // Is this Stripe account ready to take payments for this Anston member?
 export async function readyAccount(accountId: string, memberId: string) {
-  const account = await stripe().accounts.retrieve(accountId);
+  const account = await stripe().v2.core.accounts.retrieve(accountId, { include: ["configuration.merchant", "identity"] });
+  const caps = account.configuration?.merchant?.capabilities;
   return {
     account,
     belongsToMember: account.metadata?.anston_user_id === memberId,
-    chargesEnabled: Boolean(account.charges_enabled),
-    payoutsEnabled: Boolean(account.payouts_enabled),
+    chargesEnabled: caps?.card_payments?.status === "active",
+    payoutsEnabled: caps?.stripe_balance?.payouts?.status === "active",
   };
 }

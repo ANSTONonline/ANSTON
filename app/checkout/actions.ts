@@ -84,7 +84,7 @@ export async function startCheckout(fd: FormData) {
         ],
         ...(order.ships
           ? {
-              shipping_address_collection: { allowed_countries: [status.account.country as "US"].filter(Boolean) },
+              shipping_address_collection: { allowed_countries: [status.account.identity?.country?.toUpperCase() as "US"].filter(Boolean) },
               shipping_options: [
                 {
                   shipping_rate_data: {
