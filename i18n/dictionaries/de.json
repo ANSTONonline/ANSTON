@@ -611,7 +611,10 @@
     "start": "Auszahlungen mit Stripe einrichten",
     "fees": "Stripe berechnet bei jedem Verkauf seine Standardgebühr (in den USA 2,9 % + 30 ¢ pro Kartenzahlung), plus die gewählte Hervorhebung. Inserieren auf Anston bleibt kostenlos.",
     "bannerTitle": "Online bezahlt werden:",
-    "bannerText": "richte Auszahlungen ein, damit Käufer dich auf Anston bezahlen können."
+    "bannerText": "richte Auszahlungen ein, damit Käufer dich auf Anston bezahlen können.",
+    "country": "Land, in dem du ausgezahlt wirst",
+    "countryNote": "Wo du oder dein Unternehmen ansässig ist. Kann später nicht geändert werden.",
+    "countryMissing": "Bitte wähle dein Land."
   },
   "checkout": {
     "buyNow": "Jetzt kaufen",

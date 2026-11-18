@@ -611,7 +611,10 @@
     "start": "Weka malipo kupitia Stripe",
     "fees": "Stripe hutoza ada yake ya kawaida kwa kila mauzo (Marekani, 2.9% + 30¢ kwa kila malipo ya kadi), pamoja na upandishaji uliouchagua. Kuweka tangazo kwenye Anston kunabaki bure.",
     "bannerTitle": "Pokea malipo mtandaoni:",
-    "bannerText": "weka malipo ili wanunuzi wakulipe kwenye Anston."
+    "bannerText": "weka malipo ili wanunuzi wakulipe kwenye Anston.",
+    "country": "Nchi utakapolipwa",
+    "countryNote": "Mahali ulipo wewe au biashara yako. Haiwezi kubadilishwa baadaye.",
+    "countryMissing": "Tafadhali chagua nchi yako."
   },
   "checkout": {
     "buyNow": "Nunua sasa",

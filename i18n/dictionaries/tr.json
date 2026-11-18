@@ -611,7 +611,10 @@
     "start": "Stripe ile ödemeleri ayarla",
     "fees": "Stripe her satıştan standart işlem ücretini alır (ABD'de kart ödemesi başına %2,9 + 30¢), ayrıca seçtiğin öne çıkarma ücreti. Anston'da ilan vermek ücretsiz kalır.",
     "bannerTitle": "Çevrimiçi ödeme al:",
-    "bannerText": "alıcıların sana Anston'da ödeme yapabilmesi için ödemeleri ayarla."
+    "bannerText": "alıcıların sana Anston'da ödeme yapabilmesi için ödemeleri ayarla.",
+    "country": "Ödeme alacağınız ülke",
+    "countryNote": "Sizin veya işletmenizin bulunduğu yer. Daha sonra değiştirilemez.",
+    "countryMissing": "Lütfen ülkenizi seçin."
   },
   "checkout": {
     "buyNow": "Hemen al",

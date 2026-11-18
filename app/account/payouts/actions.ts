@@ -2,12 +2,12 @@
 
 import { redirect } from "next/navigation";
 import { requireMember } from "@/lib/member";
-import { paymentsConfigured, serverSecret, siteUrl, stripe } from "@/lib/stripe";
+import { STRIPE_COUNTRIES, paymentsConfigured, serverSecret, siteUrl, stripe } from "@/lib/stripe";
 
 // Send the seller to Stripe to connect (or finish connecting) their payout
 // account. Sellers get their own Stripe account; Stripe charges them its
 // normal fee on each sale.
-export async function startPayoutSetup() {
+export async function startPayoutSetup(fd: FormData) {
   const member = await requireMember();
   if (!paymentsConfigured()) redirect("/account/payouts?error=setup");
   const { data: existing } = await member.supabase
@@ -17,6 +17,9 @@ export async function startPayoutSetup() {
     .maybeSingle();
 
   let accountId = existing?.stripe_account_id ?? "";
+  // Stripe needs the seller's country before it creates the account.
+  const country = String(fd.get("country") ?? "").toUpperCase();
+  if (!accountId && !(STRIPE_COUNTRIES as readonly string[]).includes(country)) redirect("/account/payouts?error=country");
   let onboardingUrl = "";
   try {
     if (!accountId) {
@@ -26,6 +29,7 @@ export async function startPayoutSetup() {
         contact_email: member.user.email ?? undefined,
         display_name: member.profile?.display_name || member.profile?.username || undefined,
         dashboard: "full",
+        identity: { country: country.toLowerCase() },
         defaults: { responsibilities: { fees_collector: "stripe", losses_collector: "stripe" } },
         configuration: { merchant: { capabilities: { card_payments: { requested: true } } } },
         metadata: { anston_user_id: member.user.id },

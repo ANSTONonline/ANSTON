@@ -611,7 +611,10 @@
     "start": "I-set up ang payout sa Stripe",
     "fees": "Kumukuha ang Stripe ng karaniwang processing fee sa bawat benta (sa US, 2.9% + 30¢ bawat card payment), dagdag ang boost na pinili mo. Libre pa rin ang pag-post sa Anston.",
     "bannerTitle": "Mabayaran online:",
-    "bannerText": "i-set up ang payout para makabayad sa iyo ang mga mamimili sa Anston."
+    "bannerText": "i-set up ang payout para makabayad sa iyo ang mga mamimili sa Anston.",
+    "country": "Bansa kung saan ka mababayaran",
+    "countryNote": "Kung saan ka o ang negosyo mo nakabase. Hindi na ito mababago mamaya.",
+    "countryMissing": "Pumili ng iyong bansa."
   },
   "checkout": {
     "buyNow": "Bilhin ngayon",
