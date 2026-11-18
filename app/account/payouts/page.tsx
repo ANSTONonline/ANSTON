@@ -2,7 +2,8 @@ import Link from "next/link";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { requireMember } from "@/lib/member";
 import { refreshPayoutStatus } from "@/lib/payouts";
-import { paymentsConfigured } from "@/lib/stripe";
+import { STRIPE_COUNTRIES, paymentsConfigured } from "@/lib/stripe";
+import { getPlaceFilter } from "@/lib/location-filter";
 import { startPayoutSetup } from "./actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -20,7 +21,8 @@ const ADMIN_HINTS: Record<string, string> = {
 // "Get paid": connect a Stripe account so buyers can pay this seller on Anston.
 export default async function PayoutsPage({ searchParams }: { searchParams: SearchParams }) {
   const member = await requireMember();
-  const t = await getDictionary(await getLocale());
+  const locale = await getLocale();
+  const t = await getDictionary(locale);
   const p = t.payouts;
   const flags = await searchParams;
 
@@ -45,6 +47,14 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
     }
   }
 
+  // Country choices in the visitor's language; start with the browsing location if Stripe supports it.
+  const regionName = new Intl.DisplayNames([locale], { type: "region" });
+  const countries = STRIPE_COUNTRIES.map((code) => ({ code, name: regionName.of(code) ?? code })).sort((a, b) =>
+    a.name.localeCompare(b.name, locale),
+  );
+  const place = await getPlaceFilter();
+  const defaultCountry = place && (STRIPE_COUNTRIES as readonly string[]).includes(place.country) ? place.country : "US";
+
   const state = !saved ? "none" : charges ? "ready" : "pending";
   const button = "inline-block bg-[#7A1E2B] text-white rounded-lg px-5 py-2.5 font-medium";
 
@@ -55,7 +65,7 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
 
       {flags.error && (
         <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">
-          {flags.error === "setup" ? p.notAvailable : p.error}
+          {flags.error === "setup" ? p.notAvailable : flags.error === "country" ? p.countryMissing : p.error}
           {member.profile?.is_admin && typeof flags.why === "string" && (
             <span className="block mt-2 text-xs text-red-800" dir="ltr">
               Admin details: {ADMIN_HINTS[flags.why] ?? ADMIN_HINTS.unknown}
@@ -89,7 +99,16 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
               <li>{p.point2}</li>
               <li>{p.point3}</li>
             </ul>
-            <form action={startPayoutSetup}>
+            <form action={startPayoutSetup} className="space-y-4">
+              <label className="block text-sm">
+                <span className="block font-medium mb-1">{p.country}</span>
+                <select name="country" defaultValue={defaultCountry} required className="w-full border rounded-lg px-3 py-2 bg-white">
+                  {countries.map((c) => (
+                    <option key={c.code} value={c.code}>{c.name}</option>
+                  ))}
+                </select>
+                <span className="block text-xs text-gray-500 mt-1">{p.countryNote}</span>
+              </label>
               <button type="submit" className={button}>{p.start}</button>
             </form>
           </>

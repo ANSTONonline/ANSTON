@@ -45,3 +45,10 @@ export async function readyAccount(accountId: string, memberId: string) {
     payoutsEnabled: caps?.stripe_balance?.payouts?.status === "active",
   };
 }
+
+// Countries where Stripe lets sellers open an account and take payments.
+export const STRIPE_COUNTRIES = [
+  "AE", "AT", "AU", "BE", "BG", "BR", "CA", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR",
+  "GB", "GI", "GR", "HK", "HR", "HU", "IE", "IT", "JP", "LI", "LT", "LU", "LV", "MT", "MX", "MY",
+  "NL", "NO", "NZ", "PL", "PT", "RO", "SE", "SG", "SI", "SK", "TH", "US",
+] as const;

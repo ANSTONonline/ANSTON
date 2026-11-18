@@ -611,7 +611,10 @@
     "start": "通过 Stripe 设置收款",
     "fees": "Stripe 对每笔销售收取标准手续费（美国为每笔银行卡付款 2.9% + 30 美分），另加您选择的推广费用。在 Anston 发布仍然免费。",
     "bannerTitle": "在线收款：",
-    "bannerText": "设置收款，让买家可以在 Anston 上付款给您。"
+    "bannerText": "设置收款，让买家可以在 Anston 上付款给您。",
+    "country": "收款国家/地区",
+    "countryNote": "你或你的企业所在地。之后无法更改。",
+    "countryMissing": "请选择你的国家/地区。"
   },
   "checkout": {
     "buyNow": "立即购买",

@@ -611,7 +611,10 @@
     "start": "Configurar pagos con Stripe",
     "fees": "Stripe cobra su comisión estándar en cada venta (en EE. UU., 2.9% + 30¢ por pago con tarjeta), más cualquier destacado que elijas. Publicar en Anston sigue siendo gratis.",
     "bannerTitle": "Cobra en línea:",
-    "bannerText": "configura tus pagos para que los compradores te paguen en Anston."
+    "bannerText": "configura tus pagos para que los compradores te paguen en Anston.",
+    "country": "País donde recibirás los pagos",
+    "countryNote": "Donde estás tú o tu negocio. No se puede cambiar después.",
+    "countryMissing": "Elige tu país."
   },
   "checkout": {
     "buyNow": "Comprar ahora",

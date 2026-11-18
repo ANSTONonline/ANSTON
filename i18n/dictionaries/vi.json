@@ -611,7 +611,10 @@
     "start": "Thiết lập nhận tiền với Stripe",
     "fees": "Stripe thu phí xử lý tiêu chuẩn trên mỗi giao dịch (ở Mỹ là 2,9% + 30¢ mỗi lần thanh toán thẻ), cộng phí đẩy tin bạn chọn. Đăng tin trên Anston vẫn miễn phí.",
     "bannerTitle": "Nhận tiền trực tuyến:",
-    "bannerText": "thiết lập nhận tiền để người mua có thể thanh toán cho bạn trên Anston."
+    "bannerText": "thiết lập nhận tiền để người mua có thể thanh toán cho bạn trên Anston.",
+    "country": "Quốc gia nhận tiền",
+    "countryNote": "Nơi bạn hoặc doanh nghiệp của bạn đặt trụ sở. Không thể thay đổi sau này.",
+    "countryMissing": "Vui lòng chọn quốc gia."
   },
   "checkout": {
     "buyNow": "Mua ngay",

@@ -611,7 +611,10 @@
     "start": "Siapkan pencairan dengan Stripe",
     "fees": "Stripe mengenakan biaya pemrosesan standar pada setiap penjualan (di AS, 2,9% + 30¢ per pembayaran kartu), ditambah promosi yang Anda pilih. Memasang iklan di Anston tetap gratis.",
     "bannerTitle": "Terima pembayaran online:",
-    "bannerText": "siapkan pencairan agar pembeli bisa membayar Anda di Anston."
+    "bannerText": "siapkan pencairan agar pembeli bisa membayar Anda di Anston.",
+    "country": "Negara tempat Anda menerima pembayaran",
+    "countryNote": "Lokasi Anda atau bisnis Anda. Tidak bisa diubah nanti.",
+    "countryMissing": "Silakan pilih negara Anda."
   },
   "checkout": {
     "buyNow": "Beli sekarang",

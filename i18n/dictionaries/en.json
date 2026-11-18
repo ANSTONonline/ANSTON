@@ -611,7 +611,10 @@
     "start": "Set up payouts with Stripe",
     "fees": "Stripe charges its standard processing fee on each sale (in the US, 2.9% + 30¢ per card payment), plus any boost you chose. Listing on Anston stays free.",
     "bannerTitle": "Get paid online:",
-    "bannerText": "set up payouts so buyers can pay you on Anston."
+    "bannerText": "set up payouts so buyers can pay you on Anston.",
+    "country": "Country where you'll get paid",
+    "countryNote": "Where you or your business is based. This can't be changed later.",
+    "countryMissing": "Please choose your country."
   },
   "checkout": {
     "buyNow": "Buy now",

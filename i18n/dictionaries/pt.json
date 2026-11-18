@@ -611,7 +611,10 @@
     "start": "Configurar recebimentos com a Stripe",
     "fees": "A Stripe cobra sua taxa padrão em cada venda (nos EUA, 2,9% + 30¢ por pagamento com cartão), mais o impulso que você escolher. Anunciar na Anston continua grátis.",
     "bannerTitle": "Receba online:",
-    "bannerText": "configure seus recebimentos para que os compradores paguem você na Anston."
+    "bannerText": "configure seus recebimentos para que os compradores paguem você na Anston.",
+    "country": "País onde você vai receber",
+    "countryNote": "Onde você ou sua empresa está. Não pode ser alterado depois.",
+    "countryMissing": "Escolha seu país."
   },
   "checkout": {
     "buyNow": "Comprar agora",
