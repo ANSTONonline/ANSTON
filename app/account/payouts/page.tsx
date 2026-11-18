@@ -4,7 +4,7 @@ import { requireMember } from "@/lib/member";
 import { refreshPayoutStatus } from "@/lib/payouts";
 import { STRIPE_COUNTRIES, paymentsConfigured } from "@/lib/stripe";
 import { getPlaceFilter } from "@/lib/location-filter";
-import { startPayoutSetup } from "./actions";
+import { openPayoutDashboard, startPayoutSetup } from "./actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -18,7 +18,8 @@ const ADMIN_HINTS: Record<string, string> = {
   unknown: "Unexpected error. The message below has details.",
 };
 
-// "Get paid": connect a Stripe account so buyers can pay this seller on Anston.
+// "Get paid": add bank details (through Stripe) so the money from sales reaches
+// the seller. Buyers can pay before this is done; the money waits until then.
 export default async function PayoutsPage({ searchParams }: { searchParams: SearchParams }) {
   const member = await requireMember();
   const locale = await getLocale();
@@ -32,15 +33,17 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
     .eq("user_id", member.user.id)
     .maybeSingle();
 
-  // Coming back from Stripe (or still waiting): ask Stripe for the latest status.
+  // Ask Stripe for the latest status (this also sends any held money once ready).
   let charges = saved?.charges_enabled ?? false;
   let payouts = saved?.payouts_enabled ?? false;
-  if (saved && paymentsConfigured() && (!charges || !payouts || flags.returned)) {
+  let usable = true;
+  if (saved && paymentsConfigured()) {
     try {
       const status = await refreshPayoutStatus(member.user.id, saved.stripe_account_id, member.supabase);
       if (status) {
         charges = status.chargesEnabled;
         payouts = status.payoutsEnabled;
+        usable = status.usable;
       }
     } catch (e) {
       console.error("payout status", e instanceof Error ? e.message : e);
@@ -55,7 +58,14 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
   const place = await getPlaceFilter();
   const defaultCountry = place && (STRIPE_COUNTRIES as readonly string[]).includes(place.country) ? place.country : "US";
 
-  const state = !saved ? "none" : charges ? "ready" : "pending";
+  // Sales whose money is waiting for this seller.
+  const { count: held } = await member.supabase
+    .from("orders")
+    .select("id", { count: "exact", head: true })
+    .eq("seller_id", member.user.id)
+    .eq("payout_status", "held");
+
+  const state = !saved || !usable ? "none" : charges ? "ready" : "pending";
   const button = "inline-block bg-[#7A1E2B] text-white rounded-lg px-5 py-2.5 font-medium";
 
   return (
@@ -75,14 +85,20 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
         </p>
       )}
 
+      {state !== "ready" && (held ?? 0) > 0 && (
+        <p className="mb-4 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-3 text-sm font-medium">
+          💰 {p.heldCount.replace("{n}", String(held))}
+        </p>
+      )}
+
       <div className="border rounded-xl p-6 space-y-4">
         {state === "ready" ? (
           <>
             <p className="text-lg font-semibold text-green-700">✅ {p.ready}</p>
             <p className="text-sm text-gray-600">{payouts ? p.readyNote : p.payoutsPending}</p>
-            <a href="https://dashboard.stripe.com" target="_blank" rel="noopener noreferrer" className={button}>
-              {p.openStripe} ↗
-            </a>
+            <form action={openPayoutDashboard}>
+              <button type="submit" className={button}>{p.openStripe}</button>
+            </form>
           </>
         ) : state === "pending" ? (
           <>
@@ -94,11 +110,6 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
           </>
         ) : (
           <>
-            <ul className="text-sm text-gray-700 space-y-2 list-disc ps-5">
-              <li>{p.point1}</li>
-              <li>{p.point2}</li>
-              <li>{p.point3}</li>
-            </ul>
             <form action={startPayoutSetup} className="space-y-4">
               <label className="block text-sm">
                 <span className="block font-medium mb-1">{p.country}</span>
@@ -110,6 +121,7 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
                 <span className="block text-xs text-gray-500 mt-1">{p.countryNote}</span>
               </label>
               <button type="submit" className={button}>{p.start}</button>
+              <p className="text-xs text-gray-500">🔒 {p.secureNote}</p>
             </form>
           </>
         )}

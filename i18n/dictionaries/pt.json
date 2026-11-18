@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Preços",
       "body": [
-        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda dos vendedores (a Stripe cobra do vendedor sua taxa padrão de cartão nas vendas online). Os compradores pagam uma taxa de serviço ao pagar online: 7% em itens abaixo de $50, 5% de $50 a $500 e 3% acima de $500, sempre mostrada antes do pagamento.",
+        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda dos vendedores. Os vendedores recebem o preço mais o frete, menos a taxa de cartão sobre a parte deles. Os compradores pagam uma taxa de serviço ao pagar online: 7% em itens abaixo de $50, 5% de $50 a $500 e 3% acima de $500, sempre mostrada antes do pagamento.",
         "Impulsionar é opcional. Escolha uma porcentagem ao anunciar e seu anúncio aparecerá primeiro em Anúncios em destaque. Você só paga essa porcentagem do preço final se for vendido ou reservado pelo pagamento da Anston.",
         "Qualquer nova taxa será mostrada claramente antes de você anunciar."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Enviado",
       "delivered": "Entregue",
       "completed": "Concluído"
-    }
+    },
+    "payoutHeld": "O dinheiro desta venda está retido até você configurar",
+    "payoutSent": "O dinheiro desta venda foi enviado para sua conta Stripe e chegará ao seu banco conforme o calendário de repasses."
   },
   "boost": {
     "sponsored": "Patrocinado"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Receber",
-    "intro": "Conecte uma conta Stripe para que os compradores paguem você na Anston. O dinheiro das vendas vai direto para o seu banco.",
+    "intro": "Adicione seus dados bancários uma vez e a Anston envia o dinheiro das suas vendas. Os compradores já podem pagar você; até você concluir, seu dinheiro fica guardado com segurança.",
     "notAvailable": "Os pagamentos online ainda não estão ativados. Volte em breve.",
     "error": "Algo deu errado ao conectar com a Stripe. Tente novamente.",
-    "ready": "Você já pode receber na Anston",
-    "readyNote": "Os compradores podem pagar seus anúncios online, e a Stripe envia o dinheiro para o seu banco.",
-    "payoutsPending": "Os compradores já podem pagar você. A Stripe ainda está verificando seus dados bancários antes do primeiro repasse.",
-    "openStripe": "Abrir seu painel da Stripe",
+    "ready": "Tudo pronto",
+    "readyNote": "O dinheiro das suas vendas vai para o seu banco automaticamente.",
+    "payoutsPending": "Configurado. A Stripe ainda está verificando seus dados bancários antes do primeiro repasse.",
+    "openStripe": "Ver seus repasses",
     "pending": "Quase lá",
-    "pendingNote": "A Stripe precisa de mais alguns dados antes que os compradores possam pagar você.",
+    "pendingNote": "A Stripe precisa de mais alguns dados antes de enviar dinheiro para você.",
     "finish": "Concluir configuração",
-    "point1": "A Stripe pede seu documento e seus dados bancários em uma página segura própria. A Anston nunca os vê.",
-    "point2": "Você ganha sua própria conta Stripe gratuita para acompanhar vendas, reembolsos e repasses.",
-    "point3": "A Stripe envia seus ganhos para o seu banco regularmente.",
-    "start": "Configurar recebimentos com a Stripe",
-    "fees": "A Stripe cobra sua taxa padrão em cada venda (nos EUA, 2,9% + 30¢ por pagamento com cartão), mais o impulso que você escolher. Anunciar na Anston continua grátis.",
-    "bannerTitle": "Receba online:",
-    "bannerText": "configure seus recebimentos para que os compradores paguem você na Anston.",
+    "start": "Adicionar dados bancários",
+    "fees": "Em cada venda você recebe o preço mais o frete, menos a taxa de cartão (nos EUA, 2,9% + 30¢) e o impulsionamento escolhido. Anunciar na Anston continua grátis.",
+    "bannerTitle": "Receba seus pagamentos:",
+    "bannerText": "adicione seus dados bancários para receber o dinheiro das vendas.",
     "country": "País onde você vai receber",
     "countryNote": "Onde você ou sua empresa está. Não pode ser alterado depois.",
-    "countryMissing": "Escolha seu país."
+    "countryMissing": "Escolha seu país.",
+    "secureNote": "Leva cerca de 5 minutos na página segura da Stripe. A Anston nunca vê seu documento nem seus dados bancários.",
+    "heldCount": "Vendas aguardando repasse para você: {n}. Adicione seus dados bancários para receber o dinheiro."
   },
   "checkout": {
     "buyNow": "Comprar agora",

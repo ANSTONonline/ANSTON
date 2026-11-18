@@ -34,15 +34,17 @@ export function siteUrl() {
   return process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://www.myanston.com");
 }
 
-// Is this Stripe account ready to take payments for this Anston member?
+// Can this seller's Stripe account receive money from Anston?
 export async function readyAccount(accountId: string, memberId: string) {
-  const account = await stripe().v2.core.accounts.retrieve(accountId, { include: ["configuration.merchant", "identity"] });
-  const caps = account.configuration?.merchant?.capabilities;
+  const account = await stripe().v2.core.accounts.retrieve(accountId, { include: ["configuration.recipient"] });
+  const balance = account.configuration?.recipient?.capabilities?.stripe_balance;
   return {
     account,
+    // Accounts made before held payouts (full Stripe accounts) can't receive transfers.
+    usable: account.dashboard === "express" && Boolean(account.configuration?.recipient),
     belongsToMember: account.metadata?.anston_user_id === memberId,
-    chargesEnabled: caps?.card_payments?.status === "active",
-    payoutsEnabled: caps?.stripe_balance?.payouts?.status === "active",
+    chargesEnabled: balance?.stripe_transfers?.status === "active",
+    payoutsEnabled: balance?.payouts?.status === "active",
   };
 }
 

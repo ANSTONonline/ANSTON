@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Phí",
       "body": [
-        "Đăng tin trên Anston là miễn phí và Anston không thu phí bán hàng của người bán (Stripe thu của người bán phí thẻ tiêu chuẩn khi bán trực tuyến). Người mua trả phí dịch vụ khi thanh toán trực tuyến: 7% với món dưới $50, 5% từ $50 đến $500 và 3% trên $500, luôn hiển thị trước khi thanh toán.",
+        "Đăng tin trên Anston là miễn phí và Anston không thu phí bán hàng của người bán. Người bán nhận giá cộng phí vận chuyển, trừ phí thẻ trên phần của họ. Người mua trả phí dịch vụ khi thanh toán trực tuyến: 7% với món dưới $50, 5% từ $50 đến $500 và 3% trên $500, luôn hiển thị trước khi thanh toán.",
         "Đẩy tin là tùy chọn. Chọn một tỷ lệ khi đăng và tin của bạn sẽ hiện đầu tiên trong Tin nổi bật. Bạn chỉ trả tỷ lệ đó của giá cuối cùng nếu món hàng được bán hoặc đặt qua thanh toán Anston.",
         "Mọi khoản phí mới sẽ được hiển thị rõ ràng trước khi bạn đăng tin."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Đã gửi",
       "delivered": "Đã giao",
       "completed": "Hoàn tất"
-    }
+    },
+    "payoutHeld": "Tiền của đơn này đang được giữ cho đến khi bạn thiết lập",
+    "payoutSent": "Tiền của đơn này đã được gửi vào tài khoản Stripe của bạn và sẽ về ngân hàng theo lịch chi trả."
   },
   "boost": {
     "sponsored": "Được tài trợ"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Nhận tiền",
-    "intro": "Kết nối tài khoản Stripe để người mua có thể thanh toán cho bạn trên Anston. Tiền bán hàng chuyển thẳng vào ngân hàng của bạn.",
+    "intro": "Thêm thông tin ngân hàng một lần và Anston sẽ gửi tiền bán hàng cho bạn. Người mua đã có thể trả tiền cho bạn; cho đến khi bạn thiết lập xong, tiền được giữ an toàn cho bạn.",
     "notAvailable": "Thanh toán trực tuyến chưa được bật. Vui lòng quay lại sau.",
     "error": "Đã có lỗi khi kết nối với Stripe. Vui lòng thử lại.",
-    "ready": "Bạn đã có thể nhận tiền trên Anston",
-    "readyNote": "Người mua có thể thanh toán tin đăng của bạn trực tuyến, và Stripe chuyển tiền vào ngân hàng của bạn.",
-    "payoutsPending": "Người mua đã có thể thanh toán cho bạn. Stripe vẫn đang kiểm tra thông tin ngân hàng trước khi chuyển khoản đầu tiên.",
-    "openStripe": "Mở bảng điều khiển Stripe",
+    "ready": "Đã sẵn sàng",
+    "readyNote": "Tiền bán hàng được tự động chuyển vào ngân hàng của bạn.",
+    "payoutsPending": "Đã thiết lập. Stripe vẫn đang kiểm tra thông tin ngân hàng trước lần chi trả đầu tiên.",
+    "openStripe": "Xem các khoản chi trả",
     "pending": "Sắp xong",
-    "pendingNote": "Stripe cần thêm vài thông tin trước khi người mua có thể thanh toán cho bạn.",
+    "pendingNote": "Stripe cần thêm vài thông tin trước khi gửi tiền cho bạn.",
     "finish": "Hoàn tất thiết lập",
-    "point1": "Stripe yêu cầu giấy tờ tùy thân và thông tin ngân hàng trên trang bảo mật của họ. Anston không bao giờ thấy những thông tin này.",
-    "point2": "Bạn có tài khoản Stripe miễn phí riêng để theo dõi doanh thu, hoàn tiền và chuyển khoản.",
-    "point3": "Stripe chuyển thu nhập vào ngân hàng của bạn định kỳ.",
-    "start": "Thiết lập nhận tiền với Stripe",
-    "fees": "Stripe thu phí xử lý tiêu chuẩn trên mỗi giao dịch (ở Mỹ là 2,9% + 30¢ mỗi lần thanh toán thẻ), cộng phí đẩy tin bạn chọn. Đăng tin trên Anston vẫn miễn phí.",
-    "bannerTitle": "Nhận tiền trực tuyến:",
-    "bannerText": "thiết lập nhận tiền để người mua có thể thanh toán cho bạn trên Anston.",
+    "start": "Thêm thông tin ngân hàng",
+    "fees": "Mỗi đơn bán, bạn nhận giá cộng phí vận chuyển, trừ phí thẻ (ở Mỹ là 2,9% + 30¢) và gói đẩy tin đã chọn. Đăng tin trên Anston vẫn miễn phí.",
+    "bannerTitle": "Nhận tiền:",
+    "bannerText": "thêm thông tin ngân hàng để tiền bán hàng đến với bạn.",
     "country": "Quốc gia nhận tiền",
     "countryNote": "Nơi bạn hoặc doanh nghiệp của bạn đặt trụ sở. Không thể thay đổi sau này.",
-    "countryMissing": "Vui lòng chọn quốc gia."
+    "countryMissing": "Vui lòng chọn quốc gia.",
+    "secureNote": "Mất khoảng 5 phút trên trang bảo mật của Stripe. Anston không bao giờ thấy giấy tờ tùy thân hay thông tin ngân hàng của bạn.",
+    "heldCount": "Đơn bán đang chờ chi trả cho bạn: {n}. Thêm thông tin ngân hàng để nhận tiền."
   },
   "checkout": {
     "buyNow": "Mua ngay",

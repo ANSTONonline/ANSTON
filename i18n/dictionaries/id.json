@@ -419,7 +419,7 @@
     "pricing": {
       "title": "Biaya",
       "body": [
-        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan dari penjual (Stripe mengenakan biaya kartu standar kepada penjual untuk penjualan online). Pembeli membayar biaya layanan saat membayar online: 7% untuk barang di bawah $50, 5% untuk $50 sampai $500, dan 3% di atas $500, selalu ditampilkan sebelum membayar.",
+        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan dari penjual. Penjual menerima harga ditambah ongkir, dikurangi biaya kartu atas bagian mereka. Pembeli membayar biaya layanan saat membayar online: 7% untuk barang di bawah $50, 5% untuk $50 sampai $500, dan 3% di atas $500, selalu ditampilkan sebelum membayar.",
         "Promosi bersifat opsional. Pilih persentase saat memasang iklan, dan iklan Anda tampil paling atas di Iklan Unggulan. Anda hanya membayar persentase dari harga akhir itu jika terjual atau dipesan melalui checkout Anston.",
         "Biaya baru apa pun akan ditampilkan dengan jelas sebelum Anda memasang iklan."
       ]
@@ -553,7 +553,9 @@
       "shipped": "Dikirim",
       "delivered": "Diterima",
       "completed": "Selesai"
-    }
+    },
+    "payoutHeld": "Uang dari penjualan ini ditahan sampai Anda menyiapkan",
+    "payoutSent": "Uang dari penjualan ini sudah dikirim ke akun Stripe Anda dan akan masuk ke bank sesuai jadwal pembayaran."
   },
   "boost": {
     "sponsored": "Bersponsor"
@@ -596,26 +598,25 @@
   },
   "payouts": {
     "title": "Terima pembayaran",
-    "intro": "Hubungkan akun Stripe agar pembeli bisa membayar Anda di Anston. Uang hasil penjualan langsung masuk ke rekening bank Anda.",
+    "intro": "Tambahkan data bank Anda sekali dan Anston akan mengirim uang hasil penjualan Anda. Pembeli sudah bisa membayar Anda; sampai Anda selesai, uang Anda disimpan dengan aman.",
     "notAvailable": "Pembayaran online belum aktif. Silakan cek lagi nanti.",
     "error": "Terjadi kesalahan saat menghubungkan ke Stripe. Silakan coba lagi.",
-    "ready": "Anda bisa menerima pembayaran di Anston",
-    "readyNote": "Pembeli bisa membayar iklan Anda secara online, dan Stripe mengirim uangnya ke rekening Anda.",
-    "payoutsPending": "Pembeli sudah bisa membayar Anda. Stripe masih memeriksa data bank Anda sebelum mengirim pencairan pertama.",
-    "openStripe": "Buka dasbor Stripe Anda",
+    "ready": "Semua siap",
+    "readyNote": "Uang hasil penjualan Anda dikirim ke bank secara otomatis.",
+    "payoutsPending": "Sudah siap. Stripe masih memeriksa data bank Anda sebelum pembayaran pertama.",
+    "openStripe": "Lihat pembayaran Anda",
     "pending": "Hampir selesai",
-    "pendingNote": "Stripe butuh beberapa data lagi sebelum pembeli bisa membayar Anda.",
+    "pendingNote": "Stripe membutuhkan beberapa data lagi sebelum bisa mengirim uang kepada Anda.",
     "finish": "Selesaikan penyiapan",
-    "point1": "Stripe meminta identitas dan data bank Anda di halaman amannya sendiri. Anston tidak pernah melihatnya.",
-    "point2": "Anda mendapat akun Stripe gratis sendiri untuk memantau penjualan, refund, dan pencairan.",
-    "point3": "Stripe mengirim penghasilan Anda ke rekening secara berkala.",
-    "start": "Siapkan pencairan dengan Stripe",
-    "fees": "Stripe mengenakan biaya pemrosesan standar pada setiap penjualan (di AS, 2,9% + 30¢ per pembayaran kartu), ditambah promosi yang Anda pilih. Memasang iklan di Anston tetap gratis.",
-    "bannerTitle": "Terima pembayaran online:",
-    "bannerText": "siapkan pencairan agar pembeli bisa membayar Anda di Anston.",
+    "start": "Tambahkan data bank",
+    "fees": "Untuk setiap penjualan Anda menerima harga ditambah ongkir, dikurangi biaya kartu (di AS, 2,9% + 30¢) dan promosi yang Anda pilih. Memasang iklan di Anston tetap gratis.",
+    "bannerTitle": "Terima pembayaran:",
+    "bannerText": "tambahkan data bank agar uang hasil penjualan sampai ke Anda.",
     "country": "Negara tempat Anda menerima pembayaran",
     "countryNote": "Lokasi Anda atau bisnis Anda. Tidak bisa diubah nanti.",
-    "countryMissing": "Silakan pilih negara Anda."
+    "countryMissing": "Silakan pilih negara Anda.",
+    "secureNote": "Sekitar 5 menit di halaman aman Stripe. Anston tidak pernah melihat identitas atau data bank Anda.",
+    "heldCount": "Penjualan yang menunggu dibayarkan kepada Anda: {n}. Tambahkan data bank untuk menerima uangnya."
   },
   "checkout": {
     "buyNow": "Beli sekarang",
