@@ -555,7 +555,31 @@
       "completed": "Concluído"
     },
     "payoutHeld": "O dinheiro desta venda está retido até você configurar",
-    "payoutSent": "O dinheiro desta venda foi enviado para sua conta Stripe e chegará ao seu banco conforme o calendário de repasses."
+    "payoutSent": "O dinheiro desta venda foi enviado para sua conta Stripe e chegará ao seu banco conforme o calendário de repasses.",
+    "payoutOn": "O dinheiro desta venda será enviado a você em {date}, 7 dias após a compra.",
+    "refundSent": "Pedido de reembolso enviado. O vendedor vai analisá-lo.",
+    "refundDone": "Reembolso feito. O comprador recebe o dinheiro de volta.",
+    "refundClosed": "Pedido de reembolso recusado.",
+    "refundRequested": "Você pediu um reembolso. O vendedor vai analisá-lo.",
+    "refundApproved": "Este pedido foi reembolsado. O dinheiro volta ao seu cartão, normalmente em 5 a 10 dias úteis.",
+    "refundDeclined": "O vendedor recusou seu pedido de reembolso. Você pode enviar uma mensagem a ele.",
+    "refundSellerTitle": "O comprador pediu um reembolso",
+    "refundReason": "Motivo",
+    "refundNote": "O dinheiro desta venda fica retido até você decidir. Aprovar reembolsa todo o pagamento do comprador.",
+    "refundApproveAsk": "Reembolsar todo o pagamento do comprador? Isso não pode ser desfeito.",
+    "refundApprove": "Reembolsar o comprador",
+    "refundDecline": "Recusar",
+    "refundWindowClosed": "Reembolsos só podem ser pedidos até 7 dias após o pagamento.",
+    "refundTitle": "Pedir reembolso",
+    "refundUntil": "Você pode pedir reembolso até {date}.",
+    "refundDetails": "Conte ao vendedor o que aconteceu (opcional)",
+    "refundSubmit": "Enviar pedido de reembolso",
+    "refundReasons": {
+      "not_received": "O item não chegou",
+      "not_as_described": "O item não é como o descrito",
+      "changed_mind": "Mudei de ideia",
+      "other": "Outro"
+    }
   },
   "boost": {
     "sponsored": "Patrocinado"

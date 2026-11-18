@@ -555,7 +555,31 @@
       "completed": "Selesai"
     },
     "payoutHeld": "Uang dari penjualan ini ditahan sampai Anda menyiapkan",
-    "payoutSent": "Uang dari penjualan ini sudah dikirim ke akun Stripe Anda dan akan masuk ke bank sesuai jadwal pembayaran."
+    "payoutSent": "Uang dari penjualan ini sudah dikirim ke akun Stripe Anda dan akan masuk ke bank sesuai jadwal pembayaran.",
+    "payoutOn": "Uang dari penjualan ini akan dikirim kepada Anda pada {date}, 7 hari setelah pembelian.",
+    "refundSent": "Permintaan refund terkirim. Penjual akan meninjaunya.",
+    "refundDone": "Refund diberikan. Pembeli mendapatkan uangnya kembali.",
+    "refundClosed": "Permintaan refund ditolak.",
+    "refundRequested": "Anda meminta refund. Penjual akan meninjaunya.",
+    "refundApproved": "Pesanan ini sudah di-refund. Uang kembali ke kartu Anda, biasanya dalam 5 sampai 10 hari kerja.",
+    "refundDeclined": "Penjual menolak permintaan refund Anda. Anda bisa mengirim pesan kepadanya.",
+    "refundSellerTitle": "Pembeli meminta refund",
+    "refundReason": "Alasan",
+    "refundNote": "Uang dari penjualan ini tetap ditahan sampai Anda memutuskan. Menyetujui akan mengembalikan seluruh pembayaran pembeli.",
+    "refundApproveAsk": "Kembalikan seluruh pembayaran pembeli? Ini tidak bisa dibatalkan.",
+    "refundApprove": "Refund pembeli",
+    "refundDecline": "Tolak",
+    "refundWindowClosed": "Refund hanya bisa diminta dalam 7 hari setelah membayar.",
+    "refundTitle": "Minta refund",
+    "refundUntil": "Anda bisa meminta refund sampai {date}.",
+    "refundDetails": "Ceritakan kepada penjual apa yang terjadi (opsional)",
+    "refundSubmit": "Kirim permintaan refund",
+    "refundReasons": {
+      "not_received": "Barang tidak sampai",
+      "not_as_described": "Barang tidak sesuai deskripsi",
+      "changed_mind": "Saya berubah pikiran",
+      "other": "Lainnya"
+    }
   },
   "boost": {
     "sponsored": "Bersponsor"

@@ -114,7 +114,7 @@ async function readListingForm(
 
   const refund = text(fd, "refund");
   if (refund !== "refundable" && refund !== "non_refundable") return { error: "refund" };
-  const refundDays = REFUND_DAYS.includes(Number(text(fd, "refund_days"))) ? Number(text(fd, "refund_days")) : 14;
+  const refundDays = REFUND_DAYS.includes(Number(text(fd, "refund_days"))) ? Number(text(fd, "refund_days")) : 7;
   const boostBps = BOOST_OPTIONS.includes(Number(text(fd, "boost"))) ? Number(text(fd, "boost")) : 0;
 
   const currency = CURRENCIES.includes(text(fd, "currency")) ? text(fd, "currency") : "USD";

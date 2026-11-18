@@ -555,7 +555,31 @@
       "completed": "Abgeschlossen"
     },
     "payoutHeld": "Das Geld für diesen Verkauf wird zurückgehalten, bis du Folgendes einrichtest:",
-    "payoutSent": "Das Geld für diesen Verkauf wurde an dein Stripe-Konto gesendet und geht nach dem Auszahlungsplan auf dein Bankkonto."
+    "payoutSent": "Das Geld für diesen Verkauf wurde an dein Stripe-Konto gesendet und geht nach dem Auszahlungsplan auf dein Bankkonto.",
+    "payoutOn": "Das Geld für diesen Verkauf wird dir am {date} gesendet, 7 Tage nach dem Kauf.",
+    "refundSent": "Rückerstattungsanfrage gesendet. Der Verkäufer prüft sie.",
+    "refundDone": "Rückerstattung veranlasst. Der Käufer erhält sein Geld zurück.",
+    "refundClosed": "Rückerstattungsanfrage abgelehnt.",
+    "refundRequested": "Du hast eine Rückerstattung angefragt. Der Verkäufer prüft sie.",
+    "refundApproved": "Diese Bestellung wurde erstattet. Das Geld geht meist innerhalb von 5 bis 10 Werktagen zurück auf deine Karte.",
+    "refundDeclined": "Der Verkäufer hat deine Rückerstattungsanfrage abgelehnt. Du kannst ihm schreiben.",
+    "refundSellerTitle": "Der Käufer bittet um eine Rückerstattung",
+    "refundReason": "Grund",
+    "refundNote": "Das Geld für diesen Verkauf bleibt zurückgehalten, bis du entscheidest. Bei Zustimmung erhält der Käufer den vollen Betrag zurück.",
+    "refundApproveAsk": "Dem Käufer den vollen Betrag erstatten? Das kann nicht rückgängig gemacht werden.",
+    "refundApprove": "Käufer erstatten",
+    "refundDecline": "Ablehnen",
+    "refundWindowClosed": "Rückerstattungen können nur innerhalb von 7 Tagen nach der Zahlung angefragt werden.",
+    "refundTitle": "Rückerstattung anfragen",
+    "refundUntil": "Du kannst bis {date} eine Rückerstattung anfragen.",
+    "refundDetails": "Erzähl dem Verkäufer, was passiert ist (optional)",
+    "refundSubmit": "Anfrage senden",
+    "refundReasons": {
+      "not_received": "Der Artikel ist nicht angekommen",
+      "not_as_described": "Der Artikel entspricht nicht der Beschreibung",
+      "changed_mind": "Ich habe es mir anders überlegt",
+      "other": "Sonstiges"
+    }
   },
   "boost": {
     "sponsored": "Gesponsert"

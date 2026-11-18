@@ -555,7 +555,31 @@
       "completed": "已完成"
     },
     "payoutHeld": "此笔销售的货款暂时为你保留，直到你完成",
-    "payoutSent": "此笔销售的货款已发送到你的 Stripe 账户，并将按打款计划转入你的银行。"
+    "payoutSent": "此笔销售的货款已发送到你的 Stripe 账户，并将按打款计划转入你的银行。",
+    "payoutOn": "此笔销售的货款将于 {date}（购买 7 天后）发送给你。",
+    "refundSent": "退款申请已发送，卖家会进行审核。",
+    "refundDone": "已退款，买家将收回款项。",
+    "refundClosed": "退款申请已拒绝。",
+    "refundRequested": "你已申请退款，卖家会进行审核。",
+    "refundApproved": "此订单已退款。款项通常会在 5 至 10 个工作日内退回你的银行卡。",
+    "refundDeclined": "卖家拒绝了你的退款申请。你可以给卖家发消息。",
+    "refundSellerTitle": "买家申请了退款",
+    "refundReason": "原因",
+    "refundNote": "在你做出决定前，此笔销售的货款会一直保留。批准后将全额退还买家的付款。",
+    "refundApproveAsk": "确定全额退还买家的付款吗？此操作无法撤销。",
+    "refundApprove": "退款给买家",
+    "refundDecline": "拒绝",
+    "refundWindowClosed": "只能在付款后 7 天内申请退款。",
+    "refundTitle": "申请退款",
+    "refundUntil": "你可以在 {date} 之前申请退款。",
+    "refundDetails": "告诉卖家发生了什么（可选）",
+    "refundSubmit": "提交退款申请",
+    "refundReasons": {
+      "not_received": "商品没有送达",
+      "not_as_described": "商品与描述不符",
+      "changed_mind": "我改变主意了",
+      "other": "其他"
+    }
   },
   "boost": {
     "sponsored": "赞助"

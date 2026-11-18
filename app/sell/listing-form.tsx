@@ -612,7 +612,7 @@ export default function ListingForm({
           {refund === "refundable" && (
             <div className="ps-6">
               <label className={label} htmlFor="refund_days">{text.refundWithin}</label>
-              <select id="refund_days" name="refund_days" defaultValue={v.refund_days ?? "14"} className={`${input} sm:w-48`}>
+              <select id="refund_days" name="refund_days" defaultValue={v.refund_days ?? "7"} className={`${input} sm:w-48`}>
                 {REFUND_DAYS.map((d) => (
                   <option key={d} value={d}>{text.days.replace("{n}", String(d))}</option>
                 ))}

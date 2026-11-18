@@ -555,7 +555,31 @@
       "completed": "완료"
     },
     "payoutHeld": "이 판매 대금은 다음을 설정할 때까지 보류됩니다:",
-    "payoutSent": "이 판매 대금은 Stripe 계정으로 보내졌으며 지급 일정에 따라 은행으로 입금됩니다."
+    "payoutSent": "이 판매 대금은 Stripe 계정으로 보내졌으며 지급 일정에 따라 은행으로 입금됩니다.",
+    "payoutOn": "이 판매 대금은 구매 7일 후인 {date}에 보내집니다.",
+    "refundSent": "환불 요청을 보냈습니다. 판매자가 검토합니다.",
+    "refundDone": "환불했습니다. 구매자가 돈을 돌려받습니다.",
+    "refundClosed": "환불 요청을 거절했습니다.",
+    "refundRequested": "환불을 요청했습니다. 판매자가 검토합니다.",
+    "refundApproved": "이 주문은 환불되었습니다. 보통 영업일 기준 5~10일 안에 카드로 돌아갑니다.",
+    "refundDeclined": "판매자가 환불 요청을 거절했습니다. 판매자에게 메시지를 보낼 수 있습니다.",
+    "refundSellerTitle": "구매자가 환불을 요청했습니다",
+    "refundReason": "사유",
+    "refundNote": "결정할 때까지 이 판매 대금은 보류됩니다. 승인하면 구매자가 결제한 전액이 환불됩니다.",
+    "refundApproveAsk": "구매자의 결제 전액을 환불할까요? 되돌릴 수 없습니다.",
+    "refundApprove": "구매자에게 환불",
+    "refundDecline": "거절",
+    "refundWindowClosed": "환불은 결제 후 7일 이내에만 요청할 수 있습니다.",
+    "refundTitle": "환불 요청",
+    "refundUntil": "{date}까지 환불을 요청할 수 있습니다.",
+    "refundDetails": "판매자에게 무슨 일이 있었는지 알려 주세요(선택)",
+    "refundSubmit": "환불 요청 보내기",
+    "refundReasons": {
+      "not_received": "상품이 도착하지 않았어요",
+      "not_as_described": "상품이 설명과 달라요",
+      "changed_mind": "마음이 바뀌었어요",
+      "other": "기타"
+    }
   },
   "boost": {
     "sponsored": "스폰서"

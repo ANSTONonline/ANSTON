@@ -419,7 +419,7 @@ export default async function ListingPage({
             <p className="text-sm text-gray-700 mb-2">
               <span className="font-semibold">{t.listing.refunds}:</span>{" "}
               {listing.refundPolicy === "refundable"
-                ? t.listing.refundsAccepted.replace("{n}", String(listing.refundDays ?? 14))
+                ? t.listing.refundsAccepted.replace("{n}", String(Math.min(listing.refundDays ?? 7, 7)))
                 : t.listing.noRefunds}
             </p>
           )}

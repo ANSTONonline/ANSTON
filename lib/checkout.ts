@@ -1,7 +1,6 @@
 import "server-only";
 import type Stripe from "stripe";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { payOutIfReady } from "@/lib/payouts";
 import { serverSecret, stripe } from "@/lib/stripe";
 
 // Record a finished Stripe Checkout payment on its order. Used by the order
@@ -33,17 +32,6 @@ export async function recordSession(supabase: SupabaseClient, orderId: string, s
   if (error) {
     console.error("mark_order_paid", error.message);
     return false;
-  }
-  if (data) {
-    // Send the seller their money right away if they can receive it.
-    const { data: order } = await supabase.rpc("order_seller", { p_order: orderId, p_secret: serverSecret() });
-    if (typeof order === "string") {
-      try {
-        await payOutIfReady(order, supabase);
-      } catch (e) {
-        console.error("payout after sale", e instanceof Error ? e.message : e);
-      }
-    }
   }
   return Boolean(data);
 }

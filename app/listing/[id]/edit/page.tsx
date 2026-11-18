@@ -84,7 +84,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     booking_price: money(booking?.price_cents ?? null),
     booking_minutes: String(booking?.session_minutes ?? 60),
     refund: listing.refund_policy ?? "",
-    refund_days: String(listing.refund_days ?? 14),
+    refund_days: String(Math.min(listing.refund_days ?? 7, 7)),
     boost: String(listing.boost_bps ?? 0),
     homemade: on(attributes.homemade === true),
     allergens: typeof attributes.allergens === "string" ? attributes.allergens : "",
