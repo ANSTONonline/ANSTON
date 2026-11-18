@@ -7,6 +7,16 @@ import { startPayoutSetup } from "./actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
+// Shown only to admins when payout setup fails, to point at the fix.
+const ADMIN_HINTS: Record<string, string> = {
+  key: "Stripe rejected the secret key. Check STRIPE_SECRET_KEY in Vercel (it should start with sk_test_ in the sandbox), then redeploy.",
+  permission: "The Stripe key isn't allowed to do this. Use the standard secret key, not a restricted key.",
+  stripe: "Stripe refused the request. The message below says why; often Connect settings need finishing in the Stripe dashboard.",
+  database: "A database function is missing. Run the latest payments migration in the Supabase SQL Editor.",
+  secret: "The server secret doesn't match. ANSTON_SERVER_SECRET in Vercel must equal 'anston_server_secret' in Supabase Vault; redeploy after changing it.",
+  unknown: "Unexpected error. The message below has details.",
+};
+
 // "Get paid": connect a Stripe account so buyers can pay this seller on Anston.
 export default async function PayoutsPage({ searchParams }: { searchParams: SearchParams }) {
   const member = await requireMember();
@@ -46,6 +56,12 @@ export default async function PayoutsPage({ searchParams }: { searchParams: Sear
       {flags.error && (
         <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">
           {flags.error === "setup" ? p.notAvailable : p.error}
+          {member.profile?.is_admin && typeof flags.why === "string" && (
+            <span className="block mt-2 text-xs text-red-800" dir="ltr">
+              Admin details: {ADMIN_HINTS[flags.why] ?? ADMIN_HINTS.unknown}
+              {typeof flags.detail === "string" && <span className="block mt-1 font-mono break-words">{flags.detail}</span>}
+            </span>
+          )}
         </p>
       )}
 

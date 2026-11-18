@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { getLocale } from "@/i18n/server";
+import { toStripeAmount } from "@/lib/fees";
 import { requireMember } from "@/lib/member";
 import { paymentsConfigured, readyAccount, serverSecret, siteUrl, stripe } from "@/lib/stripe";
 
@@ -41,7 +42,7 @@ export async function startCheckout(fd: FormData) {
   }
   const order = (data as {
     order_id: string; stripe_account_id: string; title: string; currency: string;
-    subtotal_cents: number; shipping_cents: number; platform_fee_cents: number; ships: boolean;
+    subtotal_cents: number; shipping_cents: number; service_fee_cents: number; platform_fee_cents: number; ships: boolean;
   }[])[0];
 
   let url = "";
@@ -64,10 +65,22 @@ export async function startCheckout(fd: FormData) {
             quantity: 1,
             price_data: {
               currency,
-              unit_amount: order.subtotal_cents,
+              unit_amount: toStripeAmount(order.subtotal_cents, currency),
               product_data: { name: order.title.slice(0, 250) },
             },
           },
+          ...(order.service_fee_cents > 0
+            ? [
+                {
+                  quantity: 1,
+                  price_data: {
+                    currency,
+                    unit_amount: toStripeAmount(order.service_fee_cents, currency),
+                    product_data: { name: "Anston service fee" },
+                  },
+                },
+              ]
+            : []),
         ],
         ...(order.ships
           ? {
@@ -77,14 +90,14 @@ export async function startCheckout(fd: FormData) {
                   shipping_rate_data: {
                     type: "fixed_amount",
                     display_name: order.shipping_cents > 0 ? "Shipping" : "Free shipping",
-                    fixed_amount: { amount: order.shipping_cents, currency },
+                    fixed_amount: { amount: toStripeAmount(order.shipping_cents, currency), currency },
                   },
                 },
               ],
             }
           : {}),
         payment_intent_data: {
-          ...(order.platform_fee_cents > 0 ? { application_fee_amount: order.platform_fee_cents } : {}),
+          ...(order.platform_fee_cents > 0 ? { application_fee_amount: toStripeAmount(order.platform_fee_cents, currency) } : {}),
           metadata: { anston_order_id: order.order_id },
         },
         metadata: { anston_order_id: order.order_id },

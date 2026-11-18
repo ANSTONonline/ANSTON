@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Preise",
       "body": [
-        "Inserieren auf Anston ist kostenlos, und Anston verlangt keine Verkaufsgebühr. Bei Online-Zahlungen berechnet Stripe dem Verkäufer seine übliche Gebühr für Kartenzahlungen.",
+        "Inserieren auf Anston ist kostenlos, und Anston verlangt von Verkäufern keine Verkaufsgebühr (Stripe berechnet Verkäufern bei Online-Verkäufen seine übliche Kartengebühr). Käufer zahlen bei Online-Zahlung eine Servicegebühr: 7 % bei Artikeln unter 50 $, 5 % von 50 $ bis 500 $ und 3 % über 500 $ – immer vor dem Bezahlen angezeigt.",
         "Hervorheben ist optional. Wähle beim Einstellen einen Prozentsatz, und deine Anzeige erscheint zuerst unter Empfohlene Anzeigen. Du zahlst diesen Prozentsatz vom Endpreis nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird.",
         "Neue Gebühren zeigen wir dir immer deutlich, bevor du etwas einstellst."
       ]
@@ -635,6 +635,9 @@
       "setup": "Online-Zahlungen sind noch nicht freigeschaltet. Schau bald wieder vorbei.",
       "error": "Beim Start der Zahlung ist etwas schiefgelaufen. Bitte versuche es erneut.",
       "cancelled": "Zahlung abgebrochen. Dir wurde nichts berechnet."
-    }
+    },
+    "item": "Artikel",
+    "serviceFee": "Servicegebühr ({n} %)",
+    "serviceFeePlain": "Servicegebühr"
   }
 }

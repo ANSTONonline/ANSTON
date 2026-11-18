@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Precios",
       "body": [
-        "Publicar en Anston es gratis y Anston no cobra comisión por venta. En los pagos en línea, Stripe cobra al vendedor su comisión estándar por procesar la tarjeta.",
+        "Publicar en Anston es gratis y Anston no cobra comisión de venta a los vendedores (Stripe cobra al vendedor su comisión estándar por tarjeta en ventas en línea). Los compradores pagan una tarifa de servicio al pagar en línea: 7% en artículos de menos de $50, 5% de $50 a $500 y 3% de más de $500, siempre visible antes de pagar.",
         "Destacar es opcional. Elige un porcentaje al publicar y tu anuncio aparecerá primero en Anuncios destacados. Solo pagas ese porcentaje del precio final si se vende o se reserva mediante el pago de Anston.",
         "Cualquier nueva tarifa se mostrará claramente antes de publicar."
       ]
@@ -635,6 +635,9 @@
       "setup": "Los pagos en línea aún no están activados. Vuelve pronto.",
       "error": "Hubo un problema al iniciar el pago. Inténtalo de nuevo.",
       "cancelled": "Pago cancelado. No se te cobró nada."
-    }
+    },
+    "item": "Artículo",
+    "serviceFee": "Tarifa de servicio ({n}%)",
+    "serviceFeePlain": "Tarifa de servicio"
   }
 }

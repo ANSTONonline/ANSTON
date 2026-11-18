@@ -24,6 +24,7 @@ type Order = {
   subtotal_cents: number;
   shipping_cents: number;
   tax_cents: number;
+  service_fee_cents: number;
   total_cents: number;
   carrier: string | null;
   tracking_number: string | null;
@@ -55,7 +56,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
   const { data, error } = await member.supabase
     .from("orders")
     .select(
-      `id, mode, status, quantity, currency, subtotal_cents, shipping_cents, tax_cents, total_cents,
+      `id, mode, status, quantity, currency, subtotal_cents, shipping_cents, tax_cents, service_fee_cents, total_cents,
        carrier, tracking_number, created_at, paid_at, shipped_at, delivered_at, completed_at, buyer_id, seller_id,
        ship_to, stripe_account_id, stripe_checkout_session_id,
        listing:listings ( id, title ),
@@ -168,6 +169,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
         </p>
         <dl className="text-sm border-t pt-3 space-y-1">
           <div className="flex justify-between"><dt>{o.subtotal}</dt><dd>{money(order.subtotal_cents)}</dd></div>
+          {order.service_fee_cents > 0 && <div className="flex justify-between"><dt>{t.checkout.serviceFeePlain}</dt><dd>{money(order.service_fee_cents)}</dd></div>}
           {order.shipping_cents > 0 && <div className="flex justify-between"><dt>{o.shipping}</dt><dd>{money(order.shipping_cents)}</dd></div>}
           {order.tax_cents > 0 && <div className="flex justify-between"><dt>{o.tax}</dt><dd>{money(order.tax_cents)}</dd></div>}
           <div className="flex justify-between font-semibold border-t pt-2"><dt>{o.total}</dt><dd>{money(order.total_cents)}</dd></div>

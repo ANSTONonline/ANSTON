@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Presyo",
       "body": [
-        "Libre ang pag-post sa Anston, at walang kinukuhang selling fee ang Anston. Sa online na bayad, kumukuha ang Stripe ng karaniwang card processing fee mula sa nagbebenta.",
+        "Libre ang pag-post sa Anston, at walang selling fee na sinisingil ang Anston sa mga nagbebenta (sa online na benta, kumukuha ang Stripe ng karaniwang card fee mula sa nagbebenta). Nagbabayad ang mga mamimili ng service fee kapag nagbayad online: 7% sa mga item na mas mababa sa $50, 5% mula $50 hanggang $500, at 3% kapag lampas $500, laging ipinapakita bago magbayad.",
         "Opsyonal ang pag-boost. Pumili ng porsyento kapag nagpo-post, at unang lalabas ang listing mo sa Mga Tampok na Listing. Babayaran mo lang ang porsyentong iyon ng huling presyo kung maibenta o ma-book ito sa checkout ng Anston.",
         "Malinaw na ipapakita ang anumang bagong bayarin bago ka mag-post."
       ]
@@ -635,6 +635,9 @@
       "setup": "Hindi pa naka-on ang online na bayad. Bumalik ulit sa lalong madaling panahon.",
       "error": "Nagkaproblema sa pagsisimula ng checkout. Pakisubukang muli.",
       "cancelled": "Kinansela ang checkout. Hindi ka siningil."
-    }
+    },
+    "item": "Item",
+    "serviceFee": "Service fee ({n}%)",
+    "serviceFeePlain": "Service fee"
   }
 }

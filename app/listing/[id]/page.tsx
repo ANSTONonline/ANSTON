@@ -10,6 +10,7 @@ import { createClient } from "@/lib/supabase/server";
 import { deleteListing, setListingStatus } from "../actions";
 import { setListingSuspended } from "../../admin/actions";
 import { startCheckout } from "../../checkout/actions";
+import { buyerFeeBps, buyerFeeCents } from "@/lib/fees";
 import { WEEKDAYS, todayIn, type Availability } from "@/lib/availability";
 import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, ReportForm, ReserveForm } from "./listing-actions";
 
@@ -72,6 +73,7 @@ export default async function ListingPage({
   // Online payment: can buyers pay this seller, and does this buyer have an accepted offer?
   let sellerPaid = false;
   let acceptedOfferId: string | null = null;
+  let acceptedOfferCents: number | null = null;
   if (fromDatabase && listing.sale && isActive && !isOwner) {
     const supabase = await createClient();
     const [{ data: ready }, offer] = await Promise.all([
@@ -79,7 +81,7 @@ export default async function ListingPage({
       member
         ? supabase
             .from("offers")
-            .select("id")
+            .select("id, amount_cents")
             .eq("listing_id", listing.id)
             .eq("buyer_id", member.user.id)
             .eq("status", "accepted")
@@ -90,6 +92,7 @@ export default async function ListingPage({
     ]);
     sellerPaid = Boolean(ready);
     acceptedOfferId = (offer.data as { id: string } | null)?.id ?? null;
+    acceptedOfferCents = (offer.data as { amount_cents: number } | null)?.amount_cents ?? null;
   }
   const payMessage = typeof pay === "string" ? (t.checkout.errors as Record<string, string>)[pay] : undefined;
 
@@ -240,11 +243,27 @@ export default async function ListingPage({
               sellerPaid ? (
                 <div className="border rounded-xl p-4 space-y-3">
                   {acceptedOfferId && <p className="text-sm text-green-700 font-medium">✅ {t.checkout.offerAccepted}</p>}
-                  {listing.ships && (
-                    <p className="text-sm text-gray-600">
-                      🚚 {listing.shippingCents ? t.checkout.shippingCost.replace("{price}", money(listing.shippingCents)) : t.checkout.freeShipping}
-                    </p>
-                  )}
+                  {(() => {
+                    const itemCents = acceptedOfferCents ?? listing.sale!.priceCents;
+                    const fee = buyerFeeCents(itemCents);
+                    const ship = listing.ships ? listing.shippingCents ?? 0 : 0;
+                    return (
+                      <dl className="text-sm space-y-1">
+                        <div className="flex justify-between"><dt className="text-gray-600">{t.checkout.item}</dt><dd>{money(itemCents)}</dd></div>
+                        <div className="flex justify-between">
+                          <dt className="text-gray-600">{t.checkout.serviceFee.replace("{n}", String(buyerFeeBps(itemCents) / 100))}</dt>
+                          <dd>{money(fee)}</dd>
+                        </div>
+                        {listing.ships && (
+                          <div className="flex justify-between">
+                            <dt className="text-gray-600">🚚 {ship ? t.orders.shipping : t.checkout.freeShipping}</dt>
+                            <dd>{ship ? money(ship) : ""}</dd>
+                          </div>
+                        )}
+                        <div className="flex justify-between font-semibold border-t pt-1"><dt>{t.orders.total}</dt><dd>{money(itemCents + fee + ship)}</dd></div>
+                      </dl>
+                    );
+                  })()}
                   {member?.complete ? (
                     <form action={startCheckout}>
                       <input type="hidden" name="listing" value={listing.id} />

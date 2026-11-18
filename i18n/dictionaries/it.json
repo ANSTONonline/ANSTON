@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Prezzi",
       "body": [
-        "Pubblicare su Anston è gratis e Anston non applica commissioni sulle vendite. Per i pagamenti online, Stripe addebita al venditore la sua commissione standard per le carte.",
+        "Pubblicare su Anston è gratis e Anston non applica commissioni ai venditori (Stripe addebita al venditore la sua commissione standard per le carte sulle vendite online). Gli acquirenti pagano una commissione di servizio quando pagano online: 7% sotto i 50 $, 5% da 50 $ a 500 $ e 3% oltre i 500 $, sempre mostrata prima del pagamento.",
         "La promozione è facoltativa. Scegli una percentuale quando pubblichi e il tuo annuncio comparirà per primo negli Annunci in evidenza. Paghi quella percentuale del prezzo finale solo se viene venduto o prenotato tramite il pagamento Anston.",
         "Eventuali nuove commissioni saranno mostrate chiaramente prima della pubblicazione."
       ]
@@ -635,6 +635,9 @@
       "setup": "I pagamenti online non sono ancora attivi. Torna presto.",
       "error": "Si è verificato un problema nell'avvio del pagamento. Riprova.",
       "cancelled": "Pagamento annullato. Non ti è stato addebitato nulla."
-    }
+    },
+    "item": "Articolo",
+    "serviceFee": "Commissione di servizio ({n}%)",
+    "serviceFeePlain": "Commissione di servizio"
   }
 }

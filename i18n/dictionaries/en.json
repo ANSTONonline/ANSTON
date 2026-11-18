@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Pricing",
       "body": [
-        "Listing on Anston is free, and Anston charges no selling fee. For online payments, Stripe charges the seller its standard card processing fee.",
+        "Listing on Anston is free, and Anston charges sellers no selling fee (Stripe charges sellers its standard card processing fee on online sales). Buyers pay a service fee when they pay online: 7% on items under $50, 5% from $50 to $500, and 3% over $500, always shown before paying.",
         "Boosting is optional. Choose a percentage when you list, and your listing shows first in Featured Listings. You pay that percentage of the final price only if it sells or is booked through Anston checkout.",
         "Any new fees will be shown clearly before you list."
       ]
@@ -635,6 +635,9 @@
       "setup": "Online payments aren't switched on yet. Please check back soon.",
       "error": "Something went wrong starting checkout. Please try again.",
       "cancelled": "Checkout cancelled. You haven't been charged."
-    }
+    },
+    "item": "Item",
+    "serviceFee": "Service fee ({n}%)",
+    "serviceFeePlain": "Service fee"
   }
 }

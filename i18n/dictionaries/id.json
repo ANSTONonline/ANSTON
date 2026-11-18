@@ -418,7 +418,7 @@
     "pricing": {
       "title": "Biaya",
       "body": [
-        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan. Untuk pembayaran online, Stripe mengenakan biaya pemrosesan kartu standar kepada penjual.",
+        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan dari penjual (Stripe mengenakan biaya kartu standar kepada penjual untuk penjualan online). Pembeli membayar biaya layanan saat membayar online: 7% untuk barang di bawah $50, 5% untuk $50 sampai $500, dan 3% di atas $500, selalu ditampilkan sebelum membayar.",
         "Promosi bersifat opsional. Pilih persentase saat memasang iklan, dan iklan Anda tampil paling atas di Iklan Unggulan. Anda hanya membayar persentase dari harga akhir itu jika terjual atau dipesan melalui checkout Anston.",
         "Biaya baru apa pun akan ditampilkan dengan jelas sebelum Anda memasang iklan."
       ]
@@ -635,6 +635,9 @@
       "setup": "Pembayaran online belum aktif. Silakan cek lagi nanti.",
       "error": "Terjadi kesalahan saat memulai pembayaran. Silakan coba lagi.",
       "cancelled": "Pembayaran dibatalkan. Anda tidak dikenai biaya."
-    }
+    },
+    "item": "Barang",
+    "serviceFee": "Biaya layanan ({n}%)",
+    "serviceFeePlain": "Biaya layanan"
   }
 }

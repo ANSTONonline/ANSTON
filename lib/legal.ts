@@ -3,7 +3,7 @@
 // in other languages show a short note saying so (see i18n dictionaries).
 // When anything here changes, update EFFECTIVE_DATE.
 
-export const EFFECTIVE_DATE = "November 17, 2026";
+export const EFFECTIVE_DATE = "November 18, 2026";
 export const CONTACT_EMAIL = "support@myanston.com";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[]; after?: string[] };
@@ -191,7 +191,8 @@ export const termsOfService: LegalDoc = {
     {
       heading: "6. Fees",
       paragraphs: [
-        "Listing on Anston is free, and Anston charges no selling fee. When a sale is paid through Anston checkout, Stripe charges the seller its standard processing fee (shown in the seller's Stripe account; in the US, currently 2.9% + 30¢ per card payment). If we add fees in the future, we will show them clearly before you list or buy, and they will not apply to deals completed before the change.",
+        "Listing on Anston is free, and Anston charges sellers no selling fee. When a sale is paid through Anston checkout, Stripe charges the seller its standard processing fee (shown in the seller's Stripe account; in the US, currently 2.9% + 30¢ per card payment). If we add fees in the future, we will show them clearly before you list or buy, and they will not apply to deals completed before the change.",
+        "Buyers pay Anston a service fee on purchases made through Anston checkout. It depends on the item's price: 7% for items under 50.00, 5% from 50.00 to 500.00, and 3% above 500.00 (in the listing's currency). The fee is shown on the listing and at checkout before you pay, and is listed separately on your order.",
         "Boosting is optional. If you boost a listing, it is shown higher in Featured Listings and marked \"Sponsored\", and you agree to pay Anston the percentage you chose of the item's final price (not including shipping or tax) if it sells or is booked through Anston checkout. The boost fee is taken from your payout. Boosting changes where a listing is shown, not whether it sells, and we may limit or remove boosts on listings that break these Terms.",
       ],
     },
