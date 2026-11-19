@@ -187,7 +187,17 @@
     "noTimes": "この日は空き時間がありません。別の日をお試しください。",
     "yourTimeZone": "時間はあなたのタイムゾーンで表示されています。",
     "hours": "受付時間",
-    "hoursZone": "出品者のタイムゾーン：{zone}"
+    "hoursZone": "出品者のタイムゾーン：{zone}",
+    "calPrev": "前の月",
+    "calNext": "次の月",
+    "calBooked": "予約済み",
+    "calLength": "期間",
+    "calPickStart": "カレンダーで開始日をタップしてください。",
+    "calPickEnd": "次に終了日をタップしてください。",
+    "calStart": "開始",
+    "calEnd": "終了",
+    "calTaken": "一部の日付はすでに予約されています。別の日付を選んでください。",
+    "calClear": "日付をクリア"
   },
   "cart": {
     "title": "カート",
@@ -312,7 +322,8 @@
     "closed": "休み",
     "timeZoneNote": "時間はあなたのタイムゾーン（{zone}）です。",
     "shippingPrice": "送料",
-    "shippingPriceHelp": "送料無料の場合は空欄のままにしてください。購入者が決済時に支払います。"
+    "shippingPriceHelp": "送料無料の場合は空欄のままにしてください。購入者が決済時に支払います。",
+    "calendarHint": "日・週・月単位：借り手はカレンダーで日付を選び、合計金額を確認できます。"
   },
   "account": {
     "title": "アカウント",

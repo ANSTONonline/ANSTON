@@ -540,14 +540,20 @@ export default function ListingForm({
               text.rental,
               <>
                 {money("rental_rate", text.rate)}
-                <div>
-                  <label className={label} htmlFor="rental_unit">{text.per}</label>
-                  <select id="rental_unit" name="rental_unit" defaultValue={v.rental_unit ?? "day"} className={input}>
-                    {RATE_UNITS.map((u) => (
-                      <option key={u} value={u}>{text.units[u]}</option>
+                <fieldset>
+                  <legend className={label}>{text.per}</legend>
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {(["day", "week", "month", "hour"] as const).filter((u) => (RATE_UNITS as readonly string[]).includes(u)).map((u) => (
+                      <label key={u} className="cursor-pointer">
+                        <input type="radio" name="rental_unit" value={u} defaultChecked={(v.rental_unit ?? "day") === u} className="peer sr-only" />
+                        <span className="inline-block border rounded-full px-4 py-2 text-sm peer-checked:bg-[#7A1E2B] peer-checked:text-white peer-checked:border-[#7A1E2B] peer-focus-visible:ring-2 peer-focus-visible:ring-[#7A1E2B]/40">
+                          {text.units[u]}
+                        </span>
+                      </label>
                     ))}
-                  </select>
-                </div>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">{text.calendarHint}</p>
+                </fieldset>
                 {money("rental_deposit", text.deposit, false)}
               </>,
             )}

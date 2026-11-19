@@ -3,7 +3,7 @@ import { getDictionary, getLocale } from "@/i18n/server";
 import { findSellerListings } from "@/lib/catalog";
 import { formatPrice, isFuture } from "@/lib/listings";
 import { requireMember } from "@/lib/member";
-import { periodBounds } from "@/lib/period";
+import { isWholeDays, periodBounds } from "@/lib/period";
 import { priceLabel } from "@/lib/price-label";
 import { answerOffer, answerReservation, deleteListing, setListingStatus } from "../../listing/actions";
 import { ConfirmButton, LocalTime } from "../../listing/[id]/listing-actions";
@@ -217,7 +217,7 @@ export default async function SellingPage() {
                     </p>
                     <Link href={`/listing/${r.listing.id}`} className="text-sm text-gray-600 hover:underline">{r.listing.title}</Link>
                     <p className="text-sm text-gray-700">
-                      <LocalTime iso={start} locale={locale} /> – <LocalTime iso={end} locale={locale} />
+                      <LocalTime iso={start} locale={locale} utcDate={isWholeDays(start, end)} /> – <LocalTime iso={end} locale={locale} utcDate={isWholeDays(start, end)} />
                     </p>
                     {r.notes && <p className="text-sm text-gray-700 mt-1">“{r.notes}”</p>}
                     <p className="text-xs text-gray-500 mt-1">{d.requestStatus[r.status]}</p>

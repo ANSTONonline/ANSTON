@@ -187,7 +187,17 @@
     "noTimes": "Ngày này không còn giờ trống. Hãy thử ngày khác.",
     "yourTimeZone": "Giờ được hiển thị theo múi giờ của bạn.",
     "hours": "Giờ làm việc",
-    "hoursZone": "Múi giờ của người bán: {zone}"
+    "hoursZone": "Múi giờ của người bán: {zone}",
+    "calPrev": "Tháng trước",
+    "calNext": "Tháng sau",
+    "calBooked": "Đã đặt",
+    "calLength": "Thời gian thuê",
+    "calPickStart": "Chạm vào ngày bắt đầu trên lịch.",
+    "calPickEnd": "giờ chạm vào ngày kết thúc.",
+    "calStart": "Bắt đầu",
+    "calEnd": "Kết thúc",
+    "calTaken": "Một số ngày đó đã có người đặt. Hãy chọn ngày khác.",
+    "calClear": "Xóa ngày"
   },
   "cart": {
     "title": "Giỏ hàng của bạn",
@@ -312,7 +322,8 @@
     "closed": "Nghỉ",
     "timeZoneNote": "Giờ tính theo múi giờ của bạn ({zone}).",
     "shippingPrice": "Phí vận chuyển",
-    "shippingPriceHelp": "Để trống nếu miễn phí vận chuyển. Người mua trả khi thanh toán."
+    "shippingPriceHelp": "Để trống nếu miễn phí vận chuyển. Người mua trả khi thanh toán.",
+    "calendarHint": "Theo ngày, tuần hoặc tháng: người thuê chọn ngày trên lịch và xem tổng tiền."
   },
   "account": {
     "title": "Tài khoản của bạn",

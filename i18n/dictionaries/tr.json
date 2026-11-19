@@ -187,7 +187,17 @@
     "noTimes": "Bu günde boş saat yok. Başka bir gün deneyin.",
     "yourTimeZone": "Saatler sizin saat diliminizde gösterilir.",
     "hours": "Çalışma saatleri",
-    "hoursZone": "Satıcının saat dilimi: {zone}"
+    "hoursZone": "Satıcının saat dilimi: {zone}",
+    "calPrev": "Önceki ay",
+    "calNext": "Sonraki ay",
+    "calBooked": "Dolu",
+    "calLength": "Süre",
+    "calPickStart": "Takvimde başlangıç tarihinize dokunun.",
+    "calPickEnd": "şimdi bitiş tarihinize dokunun.",
+    "calStart": "Başlangıç",
+    "calEnd": "Bitiş",
+    "calTaken": "Bu tarihlerin bazıları zaten dolu. Başka tarihler seçin.",
+    "calClear": "Tarihleri temizle"
   },
   "cart": {
     "title": "Sepetiniz",
@@ -312,7 +322,8 @@
     "closed": "Kapalı",
     "timeZoneNote": "Saatler kendi saat diliminizdedir ({zone}).",
     "shippingPrice": "Kargo ücreti",
-    "shippingPriceHelp": "Ücretsiz kargo için boş bırak. Alıcı ödeme sırasında öder."
+    "shippingPriceHelp": "Ücretsiz kargo için boş bırak. Alıcı ödeme sırasında öder.",
+    "calendarHint": "Günlük, haftalık veya aylık: kiracılar tarihlerini takvimden seçer ve toplamı görür."
   },
   "account": {
     "title": "Hesabınız",

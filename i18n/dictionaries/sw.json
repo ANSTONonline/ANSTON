@@ -187,7 +187,17 @@
     "noTimes": "Hakuna saa zilizo wazi siku hii. Jaribu siku nyingine.",
     "yourTimeZone": "Saa zinaonyeshwa kwa saa za eneo lako.",
     "hours": "Saa za kazi",
-    "hoursZone": "Saa za eneo la muuzaji: {zone}"
+    "hoursZone": "Saa za eneo la muuzaji: {zone}",
+    "calPrev": "Mwezi uliopita",
+    "calNext": "Mwezi ujao",
+    "calBooked": "Imehifadhiwa",
+    "calLength": "Muda",
+    "calPickStart": "Gusa tarehe ya kuanza kwenye kalenda.",
+    "calPickEnd": "sasa gusa tarehe ya kumaliza.",
+    "calStart": "Kuanza",
+    "calEnd": "Kumaliza",
+    "calTaken": "Baadhi ya tarehe hizo zimeshahifadhiwa. Chagua tarehe nyingine.",
+    "calClear": "Futa tarehe"
   },
   "cart": {
     "title": "Kikapu chako",
@@ -312,7 +322,8 @@
     "closed": "Imefungwa",
     "timeZoneNote": "Saa ziko kwenye saa za eneo lako ({zone}).",
     "shippingPrice": "Bei ya usafirishaji",
-    "shippingPriceHelp": "Acha wazi kwa usafirishaji bure. Mnunuzi hulipa wakati wa malipo."
+    "shippingPriceHelp": "Acha wazi kwa usafirishaji bure. Mnunuzi hulipa wakati wa malipo.",
+    "calendarHint": "Kwa siku, wiki au mwezi: mpangaji huchagua tarehe kwenye kalenda na kuona jumla."
   },
   "account": {
     "title": "Akaunti yako",
