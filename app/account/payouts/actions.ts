@@ -33,14 +33,16 @@ export async function startPayoutSetup(fd: FormData) {
     if (!accountId) {
       // Stripe's Accounts v2: an Express account (short Anston-branded setup,
       // light dashboard) that receives transfers from Anston. Anston takes the
-      // payments and pays Stripe's fees; Stripe covers any negative balance on
-      // the seller's own account (as set in Anston's Stripe platform profile).
+      // payments, so it pays Stripe's fees and covers refunds, chargebacks and
+      // any negative balance (Stripe only allows "application" for these
+      // accounts; Anston's Stripe platform profile must say the platform is
+      // responsible for losses).
       const account = await stripe().v2.core.accounts.create({
         contact_email: member.user.email ?? undefined,
         display_name: member.profile?.display_name || member.profile?.username || undefined,
         dashboard: "express",
         identity: { country: country.toLowerCase() },
-        defaults: { responsibilities: { fees_collector: "application", losses_collector: "stripe" } },
+        defaults: { responsibilities: { fees_collector: "application", losses_collector: "application" } },
         configuration: { recipient: { capabilities: { stripe_balance: { stripe_transfers: { requested: true } } } } },
         metadata: { anston_user_id: member.user.id },
       });
