@@ -295,7 +295,8 @@
       "region": "Pilih provinsi atau wilayah di negara yang Anda pilih.",
       "cityMismatch": "Kota itu tidak ada di provinsi dan negara yang Anda pilih. Periksa lokasi Anda.",
       "refund": "Pilih apakah Anda menerima pengembalian dana.",
-      "availability": "Pilih minimal satu hari, dengan jam yang cukup untuk satu sesi."
+      "availability": "Pilih minimal satu hari, dengan jam yang cukup untuk satu sesi.",
+      "rentalDates": "Periksa tanggal tersedia: setiap rentang butuh awal dan akhir, akhir tidak boleh sebelum awal, dan tanggal harus dalam 2 tahun ke depan."
     },
     "editTitle": "Edit iklan",
     "saveChanges": "Simpan perubahan",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Waktu mengikuti zona waktu Anda ({zone}).",
     "shippingPrice": "Ongkos kirim",
     "shippingPriceHelp": "Kosongkan untuk gratis ongkir. Pembeli membayarnya saat checkout.",
-    "calendarHint": "Per hari, minggu, atau bulan: penyewa memilih tanggal di kalender dan melihat totalnya."
+    "calendarHint": "Per hari, minggu, atau bulan: penyewa memilih tanggal di kalender dan melihat totalnya.",
+    "rentalDates": "Tanggal tersedia",
+    "rentalDatesHelp": "Tambahkan tanggal penyewa bisa menginap (malam pertama sampai malam terakhir). Kosongkan jika tersedia kapan saja.",
+    "rentalFrom": "Dari",
+    "rentalTo": "Sampai (malam terakhir)",
+    "rentalRemove": "Hapus",
+    "rentalAdd": "Tambah tanggal tersedia",
+    "rentalAddMore": "Tambah tanggal lain"
   },
   "account": {
     "title": "Akun Anda",

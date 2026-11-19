@@ -295,7 +295,8 @@
       "region": "Please choose a state or region in the country you picked.",
       "cityMismatch": "That city isn't in the state and country you picked. Please check your location.",
       "refund": "Please choose whether you accept refunds.",
-      "availability": "Choose at least one day, with hours long enough for one session."
+      "availability": "Choose at least one day, with hours long enough for one session.",
+      "rentalDates": "Check the available dates: each needs a start and an end, the end can't be before the start, and dates must be within the next 2 years."
     },
     "editTitle": "Edit listing",
     "saveChanges": "Save changes",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Times are in your time zone ({zone}).",
     "shippingPrice": "Shipping price",
     "shippingPriceHelp": "Leave empty for free shipping. Buyers pay this at checkout.",
-    "calendarHint": "Per day, week or month: renters pick their dates on a calendar and see the total."
+    "calendarHint": "Per day, week or month: renters pick their dates on a calendar and see the total.",
+    "rentalDates": "Available dates",
+    "rentalDatesHelp": "Add the dates renters can stay (first night to last night). Leave empty if it's available any time.",
+    "rentalFrom": "From",
+    "rentalTo": "To (last night)",
+    "rentalRemove": "Remove",
+    "rentalAdd": "Add available dates",
+    "rentalAddMore": "Add more dates"
   },
   "account": {
     "title": "Your account",

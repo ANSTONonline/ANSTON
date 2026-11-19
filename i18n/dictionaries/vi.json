@@ -295,7 +295,8 @@
       "region": "Vui lòng chọn tỉnh, bang hoặc khu vực thuộc quốc gia đã chọn.",
       "cityMismatch": "Thành phố này không thuộc bang và quốc gia bạn đã chọn. Vui lòng kiểm tra địa điểm.",
       "refund": "Vui lòng chọn có chấp nhận hoàn tiền hay không.",
-      "availability": "Hãy chọn ít nhất một ngày, với khung giờ đủ cho một buổi."
+      "availability": "Hãy chọn ít nhất một ngày, với khung giờ đủ cho một buổi.",
+      "rentalDates": "Kiểm tra ngày còn trống: mỗi khoảng cần ngày bắt đầu và kết thúc, ngày kết thúc không được trước ngày bắt đầu và phải trong 2 năm tới."
     },
     "editTitle": "Sửa tin đăng",
     "saveChanges": "Lưu thay đổi",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Giờ tính theo múi giờ của bạn ({zone}).",
     "shippingPrice": "Phí vận chuyển",
     "shippingPriceHelp": "Để trống nếu miễn phí vận chuyển. Người mua trả khi thanh toán.",
-    "calendarHint": "Theo ngày, tuần hoặc tháng: người thuê chọn ngày trên lịch và xem tổng tiền."
+    "calendarHint": "Theo ngày, tuần hoặc tháng: người thuê chọn ngày trên lịch và xem tổng tiền.",
+    "rentalDates": "Ngày còn trống",
+    "rentalDatesHelp": "Thêm các ngày người thuê có thể ở (từ đêm đầu đến đêm cuối). Để trống nếu lúc nào cũng có thể thuê.",
+    "rentalFrom": "Từ",
+    "rentalTo": "Đến (đêm cuối)",
+    "rentalRemove": "Xóa",
+    "rentalAdd": "Thêm ngày còn trống",
+    "rentalAddMore": "Thêm ngày khác"
   },
   "account": {
     "title": "Tài khoản của bạn",

@@ -23,6 +23,7 @@ export type SellErrorCode =
   | "cityMismatch"
   | "refund"
   | "availability"
+  | "rentalDates"
   | "generic";
 
 export type SellState = { error?: SellErrorCode; values?: Record<string, string> };
@@ -65,6 +66,7 @@ type ModeRow = {
   session_minutes: number | null;
   availability: Availability | null;
   time_zone: string | null;
+  rental_dates: { from: string; to: string }[] | null;
 };
 
 const emptyMode = (mode: DbMode): ModeRow => ({
@@ -81,7 +83,34 @@ const emptyMode = (mode: DbMode): ModeRow => ({
   session_minutes: null,
   availability: null,
   time_zone: null,
+  rental_dates: null,
 });
+
+// Rental available dates arrive as JSON from the form: [{from, to}, ...],
+// first and last available nights. Empty means available any time.
+function parseRentalDates(raw: string): { from: string; to: string }[] | null | "bad" {
+  if (!raw) return null;
+  let list: unknown;
+  try {
+    list = JSON.parse(raw);
+  } catch {
+    return "bad";
+  }
+  if (!Array.isArray(list) || list.length > 20) return "bad";
+  const DATE = /^\d{4}-\d{2}-\d{2}$/;
+  const today = new Date().toISOString().slice(0, 10);
+  const latest = new Date(Date.now() + 730 * 86400000).toISOString().slice(0, 10);
+  const out: { from: string; to: string }[] = [];
+  for (const r of list) {
+    const from = String((r as { from?: unknown })?.from ?? "");
+    const to = String((r as { to?: unknown })?.to ?? "");
+    if (!from && !to) continue;
+    if (!DATE.test(from) || !DATE.test(to) || to < from || to < today || to > latest) return "bad";
+    out.push({ from, to });
+  }
+  out.sort((a, b) => a.from.localeCompare(b.from));
+  return out.length ? out : null;
+}
 
 type ParsedListing = {
   fields: Record<string, unknown>;
@@ -169,7 +198,9 @@ async function readListingForm(
     if (!rate) return { error: "price" };
     const unit = (RATE_UNITS as readonly string[]).includes(text(fd, "rental_unit")) ? text(fd, "rental_unit") : "day";
     const depositText = text(fd, "rental_deposit");
-    modes.push({ ...emptyMode("rental"), rate_cents: rate, rate_unit: unit, deposit_cents: depositText ? cents(depositText) : null });
+    const dates = unit === "hour" ? null : parseRentalDates(text(fd, "rental_dates"));
+    if (dates === "bad") return { error: "rentalDates" };
+    modes.push({ ...emptyMode("rental"), rate_cents: rate, rate_unit: unit, deposit_cents: depositText ? cents(depositText) : null, rental_dates: dates });
   }
   if (allowed("booking")) {
     const price = cents(text(fd, "booking_price"));

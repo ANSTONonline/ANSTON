@@ -295,7 +295,8 @@
       "region": "Pumili ng estado o rehiyon sa bansang pinili mo.",
       "cityMismatch": "Wala ang lungsod na iyan sa estado at bansang pinili mo. Pakitingnan ang lokasyon mo.",
       "refund": "Piliin kung tumatanggap ka ng refund.",
-      "availability": "Pumili ng kahit isang araw, na may sapat na oras para sa isang session."
+      "availability": "Pumili ng kahit isang araw, na may sapat na oras para sa isang session.",
+      "rentalDates": "Tingnan ang mga available na petsa: bawat isa ay may simula at katapusan, hindi puwedeng mauna ang katapusan sa simula, at dapat ay sa loob ng susunod na 2 taon."
     },
     "editTitle": "I-edit ang listing",
     "saveChanges": "I-save ang mga pagbabago",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Ang oras ay ayon sa time zone mo ({zone}).",
     "shippingPrice": "Presyo ng shipping",
     "shippingPriceHelp": "Iwanang blangko para sa libreng shipping. Babayaran ito ng mamimili sa checkout.",
-    "calendarHint": "Kada araw, linggo o buwan: pipili ang uupa ng mga petsa sa kalendaryo at makikita ang kabuuan."
+    "calendarHint": "Kada araw, linggo o buwan: pipili ang uupa ng mga petsa sa kalendaryo at makikita ang kabuuan.",
+    "rentalDates": "Mga available na petsa",
+    "rentalDatesHelp": "Idagdag ang mga petsang puwedeng tumira ang uupa (unang gabi hanggang huling gabi). Iwanang blangko kung available anumang oras.",
+    "rentalFrom": "Mula",
+    "rentalTo": "Hanggang (huling gabi)",
+    "rentalRemove": "Alisin",
+    "rentalAdd": "Magdagdag ng available na petsa",
+    "rentalAddMore": "Magdagdag pa ng petsa"
   },
   "account": {
     "title": "Ang account mo",

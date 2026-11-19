@@ -73,7 +73,7 @@ export type Listing = {
     buyNowCents: number | null;
     endsAt: string;
   };
-  rental?: { rateCents: number; unit: "hour" | "day" | "week" | "month"; depositCents: number | null };
+  rental?: { rateCents: number; unit: "hour" | "day" | "week" | "month"; depositCents: number | null; dates?: { from: string; to: string }[] };
   booking?: {
     priceCents: number;
     sessionMinutes: number;

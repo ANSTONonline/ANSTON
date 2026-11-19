@@ -295,7 +295,8 @@
       "region": "Tafadhali chagua jimbo au mkoa ndani ya nchi uliyochagua.",
       "cityMismatch": "Jiji hilo haliko katika jimbo na nchi uliyochagua. Tafadhali angalia mahali ulipo.",
       "refund": "Tafadhali chagua kama unakubali kurejesha pesa.",
-      "availability": "Chagua angalau siku moja, yenye saa za kutosha kwa kipindi kimoja."
+      "availability": "Chagua angalau siku moja, yenye saa za kutosha kwa kipindi kimoja.",
+      "rentalDates": "Kagua tarehe zinazopatikana: kila moja inahitaji mwanzo na mwisho, mwisho hauwezi kuwa kabla ya mwanzo, na tarehe ziwe ndani ya miaka 2 ijayo."
     },
     "editTitle": "Hariri tangazo",
     "saveChanges": "Hifadhi mabadiliko",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Saa ziko kwenye saa za eneo lako ({zone}).",
     "shippingPrice": "Bei ya usafirishaji",
     "shippingPriceHelp": "Acha wazi kwa usafirishaji bure. Mnunuzi hulipa wakati wa malipo.",
-    "calendarHint": "Kwa siku, wiki au mwezi: mpangaji huchagua tarehe kwenye kalenda na kuona jumla."
+    "calendarHint": "Kwa siku, wiki au mwezi: mpangaji huchagua tarehe kwenye kalenda na kuona jumla.",
+    "rentalDates": "Tarehe zinazopatikana",
+    "rentalDatesHelp": "Weka tarehe ambazo wapangaji wanaweza kukaa (usiku wa kwanza hadi wa mwisho). Acha wazi kama inapatikana wakati wowote.",
+    "rentalFrom": "Kuanzia",
+    "rentalTo": "Hadi (usiku wa mwisho)",
+    "rentalRemove": "Ondoa",
+    "rentalAdd": "Weka tarehe zinazopatikana",
+    "rentalAddMore": "Weka tarehe zaidi"
   },
   "account": {
     "title": "Akaunti yako",

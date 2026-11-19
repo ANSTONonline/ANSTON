@@ -98,7 +98,7 @@ export const LISTING_SELECT = `
   category:categories ( * ),
   listing_modes ( mode, price_cents, accepts_offers, start_price_cents, buy_now_price_cents,
                   min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes,
-                  availability, time_zone ),
+                  availability, time_zone, rental_dates ),
   listing_images ( storage_path, position ),
   seller:profiles!listings_seller_id_fkey ( username, rating_avg, rating_count )
 `;
@@ -117,6 +117,7 @@ type ModeRow = {
   session_minutes: number | null;
   availability?: unknown;
   time_zone?: string | null;
+  rental_dates?: { from: string; to: string }[] | null;
 };
 
 export type ListingRow = {
@@ -223,7 +224,7 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
         }
       : undefined,
     rental: rental
-      ? { rateCents: rental.rate_cents ?? 0, unit: rental.rate_unit ?? "day", depositCents: rental.deposit_cents }
+      ? { rateCents: rental.rate_cents ?? 0, unit: rental.rate_unit ?? "day", depositCents: rental.deposit_cents, dates: rental.rental_dates ?? [] }
       : undefined,
     booking: booking
       ? {
