@@ -555,7 +555,31 @@
       "completed": "Tamamlandı"
     },
     "payoutHeld": "Bu satışın parası, siz şunu kurana kadar bekletiliyor:",
-    "payoutSent": "Bu satışın parası Stripe hesabınıza gönderildi ve ödeme takvimine göre bankanıza geçecek."
+    "payoutSent": "Bu satışın parası Stripe hesabınıza gönderildi ve ödeme takvimine göre bankanıza geçecek.",
+    "payoutOn": "Bu satışın parası size {date} tarihinde, satın almadan 7 gün sonra gönderilecek.",
+    "refundSent": "İade talebi gönderildi. Satıcı inceleyecek.",
+    "refundDone": "İade yapıldı. Alıcı parasını geri alacak.",
+    "refundClosed": "İade talebi reddedildi.",
+    "refundRequested": "İade talep ettiniz. Satıcı inceleyecek.",
+    "refundApproved": "Bu sipariş iade edildi. Para genellikle 5 ila 10 iş günü içinde kartınıza geri döner.",
+    "refundDeclined": "Satıcı iade talebinizi reddetti. Ona mesaj gönderebilirsiniz.",
+    "refundSellerTitle": "Alıcı iade talep etti",
+    "refundReason": "Neden",
+    "refundNote": "Siz karar verene kadar bu satışın parası bekletilir. Onaylarsanız alıcının tüm ödemesi iade edilir.",
+    "refundApproveAsk": "Alıcının tüm ödemesi iade edilsin mi? Bu geri alınamaz.",
+    "refundApprove": "Alıcıya iade et",
+    "refundDecline": "Reddet",
+    "refundWindowClosed": "İade yalnızca ödemeden sonraki 7 gün içinde talep edilebilir.",
+    "refundTitle": "İade talep et",
+    "refundUntil": "{date} tarihine kadar iade talep edebilirsiniz.",
+    "refundDetails": "Satıcıya ne olduğunu anlatın (isteğe bağlı)",
+    "refundSubmit": "İade talebini gönder",
+    "refundReasons": {
+      "not_received": "Ürün ulaşmadı",
+      "not_as_described": "Ürün açıklamadaki gibi değil",
+      "changed_mind": "Fikrimi değiştirdim",
+      "other": "Diğer"
+    }
   },
   "boost": {
     "sponsored": "Sponsorlu"

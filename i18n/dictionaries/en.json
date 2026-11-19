@@ -555,7 +555,31 @@
       "completed": "Completed"
     },
     "payoutHeld": "Your money for this sale is on hold until you set up",
-    "payoutSent": "Your money for this sale has been sent to your Stripe account and goes to your bank on its payout schedule."
+    "payoutSent": "Your money for this sale has been sent to your Stripe account and goes to your bank on its payout schedule.",
+    "payoutOn": "Your money for this sale will be sent to you on {date}, 7 days after the purchase.",
+    "refundSent": "Refund request sent. The seller will review it.",
+    "refundDone": "Refund issued. The buyer gets their money back.",
+    "refundClosed": "Refund request declined.",
+    "refundRequested": "You asked for a refund. The seller will review it.",
+    "refundApproved": "This order was refunded. The money goes back to your card, usually within 5 to 10 business days.",
+    "refundDeclined": "The seller declined your refund request. You can message them.",
+    "refundSellerTitle": "The buyer asked for a refund",
+    "refundReason": "Reason",
+    "refundNote": "Your money for this sale stays on hold until you decide. Approving refunds the buyer's full payment.",
+    "refundApproveAsk": "Refund the buyer's full payment? This can't be undone.",
+    "refundApprove": "Refund the buyer",
+    "refundDecline": "Decline",
+    "refundWindowClosed": "Refunds can only be requested within 7 days of paying.",
+    "refundTitle": "Request a refund",
+    "refundUntil": "You can request a refund until {date}.",
+    "refundDetails": "Tell the seller what happened (optional)",
+    "refundSubmit": "Send refund request",
+    "refundReasons": {
+      "not_received": "The item didn't arrive",
+      "not_as_described": "The item isn't as described",
+      "changed_mind": "I changed my mind",
+      "other": "Other"
+    }
   },
   "boost": {
     "sponsored": "Sponsored"

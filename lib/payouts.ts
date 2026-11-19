@@ -71,14 +71,3 @@ export async function releaseHeldPayouts(sellerId: string, accountId: string, su
   }
   return sent;
 }
-
-// After a sale: if the seller can already receive money, send it now.
-export async function payOutIfReady(sellerId: string, supabase: SupabaseClient) {
-  const { data } = await supabase.rpc("seller_payout_account", { p_seller: sellerId, p_secret: serverSecret() });
-  const acct = ((data ?? []) as { stripe_account_id: string; ready: boolean }[])[0];
-  if (!acct?.ready) return;
-  const status = await readyAccount(acct.stripe_account_id, sellerId);
-  if (status.belongsToMember && status.usable && status.chargesEnabled) {
-    await releaseHeldPayouts(sellerId, acct.stripe_account_id, supabase);
-  }
-}

@@ -555,7 +555,31 @@
       "completed": "完了"
     },
     "payoutHeld": "この売上金は、次の設定が完了するまで保留されています：",
-    "payoutSent": "この売上金は Stripe アカウントに送られ、振込スケジュールに沿って銀行口座に入金されます。"
+    "payoutSent": "この売上金は Stripe アカウントに送られ、振込スケジュールに沿って銀行口座に入金されます。",
+    "payoutOn": "この売上金は購入から 7 日後の {date} に送金されます。",
+    "refundSent": "返金リクエストを送信しました。出品者が確認します。",
+    "refundDone": "返金しました。購入者に代金が戻ります。",
+    "refundClosed": "返金リクエストを却下しました。",
+    "refundRequested": "返金をリクエストしました。出品者が確認します。",
+    "refundApproved": "この注文は返金されました。通常 5〜10 営業日でカードに返金されます。",
+    "refundDeclined": "出品者が返金リクエストを却下しました。メッセージを送ることができます。",
+    "refundSellerTitle": "購入者から返金リクエストがありました",
+    "refundReason": "理由",
+    "refundNote": "決定するまで、この売上金は保留されます。承認すると購入者の支払い全額が返金されます。",
+    "refundApproveAsk": "購入者の支払い全額を返金しますか？元に戻せません。",
+    "refundApprove": "購入者に返金する",
+    "refundDecline": "却下する",
+    "refundWindowClosed": "返金リクエストは支払いから 7 日以内に限ります。",
+    "refundTitle": "返金をリクエスト",
+    "refundUntil": "{date} まで返金をリクエストできます。",
+    "refundDetails": "出品者に状況を伝えてください（任意）",
+    "refundSubmit": "返金リクエストを送信",
+    "refundReasons": {
+      "not_received": "商品が届かない",
+      "not_as_described": "商品が説明と違う",
+      "changed_mind": "気が変わった",
+      "other": "その他"
+    }
   },
   "boost": {
     "sponsored": "スポンサー"

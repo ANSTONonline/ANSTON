@@ -555,7 +555,31 @@
       "completed": "Completato"
     },
     "payoutHeld": "Il denaro di questa vendita è trattenuto finché non configuri",
-    "payoutSent": "Il denaro di questa vendita è stato inviato al tuo account Stripe e arriverà in banca secondo il calendario dei pagamenti."
+    "payoutSent": "Il denaro di questa vendita è stato inviato al tuo account Stripe e arriverà in banca secondo il calendario dei pagamenti.",
+    "payoutOn": "Il denaro di questa vendita ti sarà inviato il {date}, 7 giorni dopo l'acquisto.",
+    "refundSent": "Richiesta di rimborso inviata. Il venditore la esaminerà.",
+    "refundDone": "Rimborso emesso. L'acquirente riceve indietro il denaro.",
+    "refundClosed": "Richiesta di rimborso rifiutata.",
+    "refundRequested": "Hai chiesto un rimborso. Il venditore lo esaminerà.",
+    "refundApproved": "Questo ordine è stato rimborsato. Il denaro torna sulla tua carta, di solito entro 5-10 giorni lavorativi.",
+    "refundDeclined": "Il venditore ha rifiutato la tua richiesta di rimborso. Puoi scrivergli.",
+    "refundSellerTitle": "L'acquirente ha chiesto un rimborso",
+    "refundReason": "Motivo",
+    "refundNote": "Il denaro di questa vendita resta trattenuto finché non decidi. Approvando, l'acquirente riceve l'intero pagamento.",
+    "refundApproveAsk": "Rimborsare l'intero pagamento dell'acquirente? L'operazione è irreversibile.",
+    "refundApprove": "Rimborsa l'acquirente",
+    "refundDecline": "Rifiuta",
+    "refundWindowClosed": "I rimborsi si possono chiedere solo entro 7 giorni dal pagamento.",
+    "refundTitle": "Chiedi un rimborso",
+    "refundUntil": "Puoi chiedere un rimborso fino al {date}.",
+    "refundDetails": "Racconta al venditore cosa è successo (facoltativo)",
+    "refundSubmit": "Invia la richiesta",
+    "refundReasons": {
+      "not_received": "L'articolo non è arrivato",
+      "not_as_described": "L'articolo non corrisponde alla descrizione",
+      "changed_mind": "Ho cambiato idea",
+      "other": "Altro"
+    }
   },
   "boost": {
     "sponsored": "Sponsorizzato"

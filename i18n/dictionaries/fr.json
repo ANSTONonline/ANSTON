@@ -555,7 +555,31 @@
       "completed": "Terminé"
     },
     "payoutHeld": "L'argent de cette vente est gardé pour vous jusqu'à ce que vous configuriez",
-    "payoutSent": "L'argent de cette vente a été envoyé sur votre compte Stripe et arrivera sur votre compte bancaire selon son calendrier de virements."
+    "payoutSent": "L'argent de cette vente a été envoyé sur votre compte Stripe et arrivera sur votre compte bancaire selon son calendrier de virements.",
+    "payoutOn": "L'argent de cette vente vous sera envoyé le {date}, 7 jours après l'achat.",
+    "refundSent": "Demande de remboursement envoyée. Le vendeur va l'examiner.",
+    "refundDone": "Remboursement effectué. L'acheteur récupère son argent.",
+    "refundClosed": "Demande de remboursement refusée.",
+    "refundRequested": "Vous avez demandé un remboursement. Le vendeur va l'examiner.",
+    "refundApproved": "Cette commande a été remboursée. L'argent revient sur votre carte, généralement sous 5 à 10 jours ouvrés.",
+    "refundDeclined": "Le vendeur a refusé votre demande de remboursement. Vous pouvez lui écrire.",
+    "refundSellerTitle": "L'acheteur a demandé un remboursement",
+    "refundReason": "Motif",
+    "refundNote": "L'argent de cette vente reste bloqué jusqu'à votre décision. Accepter rembourse la totalité du paiement de l'acheteur.",
+    "refundApproveAsk": "Rembourser la totalité du paiement de l'acheteur ? C'est irréversible.",
+    "refundApprove": "Rembourser l'acheteur",
+    "refundDecline": "Refuser",
+    "refundWindowClosed": "Un remboursement ne peut être demandé que dans les 7 jours suivant le paiement.",
+    "refundTitle": "Demander un remboursement",
+    "refundUntil": "Vous pouvez demander un remboursement jusqu'au {date}.",
+    "refundDetails": "Expliquez au vendeur ce qui s'est passé (facultatif)",
+    "refundSubmit": "Envoyer la demande",
+    "refundReasons": {
+      "not_received": "L'article n'est pas arrivé",
+      "not_as_described": "L'article ne correspond pas à la description",
+      "changed_mind": "J'ai changé d'avis",
+      "other": "Autre"
+    }
   },
   "boost": {
     "sponsored": "Sponsorisé"

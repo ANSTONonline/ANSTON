@@ -555,7 +555,31 @@
       "completed": "Imekamilika"
     },
     "payoutHeld": "Pesa za mauzo haya zimeshikiliwa hadi utakapoweka",
-    "payoutSent": "Pesa za mauzo haya zimetumwa kwenye akaunti yako ya Stripe na zitaingia benki kwa ratiba ya malipo."
+    "payoutSent": "Pesa za mauzo haya zimetumwa kwenye akaunti yako ya Stripe na zitaingia benki kwa ratiba ya malipo.",
+    "payoutOn": "Pesa za mauzo haya zitatumwa kwako tarehe {date}, siku 7 baada ya ununuzi.",
+    "refundSent": "Ombi la kurejeshewa pesa limetumwa. Muuzaji atalikagua.",
+    "refundDone": "Pesa zimerejeshwa. Mnunuzi anarudishiwa pesa zake.",
+    "refundClosed": "Ombi la kurejeshewa pesa limekataliwa.",
+    "refundRequested": "Umeomba kurejeshewa pesa. Muuzaji atalikagua.",
+    "refundApproved": "Agizo hili limerejeshewa pesa. Pesa kwa kawaida hurudi kwenye kadi yako ndani ya siku 5 hadi 10 za kazi.",
+    "refundDeclined": "Muuzaji amekataa ombi lako la kurejeshewa pesa. Unaweza kumtumia ujumbe.",
+    "refundSellerTitle": "Mnunuzi ameomba kurejeshewa pesa",
+    "refundReason": "Sababu",
+    "refundNote": "Pesa za mauzo haya zinashikiliwa hadi utakapoamua. Ukikubali, mnunuzi atarejeshewa malipo yake yote.",
+    "refundApproveAsk": "Mrejeshee mnunuzi malipo yake yote? Hili haliwezi kutenduliwa.",
+    "refundApprove": "Mrejeshee mnunuzi",
+    "refundDecline": "Kataa",
+    "refundWindowClosed": "Kurejeshewa pesa kunaweza kuombwa tu ndani ya siku 7 baada ya kulipa.",
+    "refundTitle": "Omba kurejeshewa pesa",
+    "refundUntil": "Unaweza kuomba kurejeshewa pesa hadi {date}.",
+    "refundDetails": "Mweleze muuzaji kilichotokea (si lazima)",
+    "refundSubmit": "Tuma ombi",
+    "refundReasons": {
+      "not_received": "Bidhaa haikufika",
+      "not_as_described": "Bidhaa si kama ilivyoelezwa",
+      "changed_mind": "Nimebadilisha nia",
+      "other": "Nyingine"
+    }
   },
   "boost": {
     "sponsored": "Limedhaminiwa"

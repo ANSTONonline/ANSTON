@@ -555,7 +555,31 @@
       "completed": "Kumpleto"
     },
     "payoutHeld": "Naka-hold ang pera para sa bentang ito hanggang ma-set up mo ang",
-    "payoutSent": "Naipadala na ang pera para sa bentang ito sa Stripe account mo at papasok sa bangko mo ayon sa payout schedule."
+    "payoutSent": "Naipadala na ang pera para sa bentang ito sa Stripe account mo at papasok sa bangko mo ayon sa payout schedule.",
+    "payoutOn": "Ipapadala sa iyo ang pera para sa bentang ito sa {date}, 7 araw pagkatapos ng pagbili.",
+    "refundSent": "Naipadala ang refund request. Susuriin ito ng nagbebenta.",
+    "refundDone": "Na-refund na. Babalik sa mamimili ang pera niya.",
+    "refundClosed": "Tinanggihan ang refund request.",
+    "refundRequested": "Humiling ka ng refund. Susuriin ito ng nagbebenta.",
+    "refundApproved": "Na-refund ang order na ito. Karaniwang bumabalik ang pera sa card mo sa loob ng 5 hanggang 10 araw ng trabaho.",
+    "refundDeclined": "Tinanggihan ng nagbebenta ang refund request mo. Puwede mo silang i-message.",
+    "refundSellerTitle": "Humiling ng refund ang mamimili",
+    "refundReason": "Dahilan",
+    "refundNote": "Naka-hold ang pera para sa bentang ito hanggang magpasya ka. Kapag inaprubahan, ibabalik ang buong bayad ng mamimili.",
+    "refundApproveAsk": "Ibalik ang buong bayad ng mamimili? Hindi na ito mababawi.",
+    "refundApprove": "I-refund ang mamimili",
+    "refundDecline": "Tanggihan",
+    "refundWindowClosed": "Puwede lang humiling ng refund sa loob ng 7 araw pagkabayad.",
+    "refundTitle": "Humiling ng refund",
+    "refundUntil": "Puwede kang humiling ng refund hanggang {date}.",
+    "refundDetails": "Sabihin sa nagbebenta kung ano ang nangyari (opsyonal)",
+    "refundSubmit": "Ipadala ang refund request",
+    "refundReasons": {
+      "not_received": "Hindi dumating ang item",
+      "not_as_described": "Hindi tugma ang item sa paglalarawan",
+      "changed_mind": "Nagbago ang isip ko",
+      "other": "Iba pa"
+    }
   },
   "boost": {
     "sponsored": "Sponsored"

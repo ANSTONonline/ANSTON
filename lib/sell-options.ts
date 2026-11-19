@@ -5,7 +5,8 @@ export const CONDITIONS = ["new", "like_new", "good", "fair", "for_parts"] as co
 export const RATE_UNITS = ["hour", "day", "week", "month"] as const;
 export const AUCTION_DAYS = [1, 3, 5, 7, 10];
 // How long buyers have to ask for a refund, when the seller offers refunds.
-export const REFUND_DAYS = [3, 7, 14, 30];
+// Refund requests go through Anston within 7 days of paying, so 7 is the longest window.
+export const REFUND_DAYS = [1, 3, 7];
 // Boost choices in basis points (500 = 5% of the final price).
 export const BOOST_OPTIONS = [200, 500, 1000, 1500, 2000];
 export const SESSION_MINUTES = [30, 45, 60, 90, 120, 180, 240, 480];

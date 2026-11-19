@@ -555,7 +555,31 @@
       "completed": "Hoàn tất"
     },
     "payoutHeld": "Tiền của đơn này đang được giữ cho đến khi bạn thiết lập",
-    "payoutSent": "Tiền của đơn này đã được gửi vào tài khoản Stripe của bạn và sẽ về ngân hàng theo lịch chi trả."
+    "payoutSent": "Tiền của đơn này đã được gửi vào tài khoản Stripe của bạn và sẽ về ngân hàng theo lịch chi trả.",
+    "payoutOn": "Tiền của đơn này sẽ được gửi cho bạn vào {date}, 7 ngày sau khi mua.",
+    "refundSent": "Đã gửi yêu cầu hoàn tiền. Người bán sẽ xem xét.",
+    "refundDone": "Đã hoàn tiền. Người mua nhận lại tiền.",
+    "refundClosed": "Đã từ chối yêu cầu hoàn tiền.",
+    "refundRequested": "Bạn đã yêu cầu hoàn tiền. Người bán sẽ xem xét.",
+    "refundApproved": "Đơn hàng này đã được hoàn tiền. Tiền thường về thẻ của bạn trong 5 đến 10 ngày làm việc.",
+    "refundDeclined": "Người bán đã từ chối yêu cầu hoàn tiền. Bạn có thể nhắn tin cho họ.",
+    "refundSellerTitle": "Người mua đã yêu cầu hoàn tiền",
+    "refundReason": "Lý do",
+    "refundNote": "Tiền của đơn này vẫn được giữ cho đến khi bạn quyết định. Chấp thuận sẽ hoàn toàn bộ số tiền người mua đã trả.",
+    "refundApproveAsk": "Hoàn toàn bộ số tiền người mua đã trả? Không thể hoàn tác.",
+    "refundApprove": "Hoàn tiền cho người mua",
+    "refundDecline": "Từ chối",
+    "refundWindowClosed": "Chỉ có thể yêu cầu hoàn tiền trong vòng 7 ngày sau khi thanh toán.",
+    "refundTitle": "Yêu cầu hoàn tiền",
+    "refundUntil": "Bạn có thể yêu cầu hoàn tiền đến {date}.",
+    "refundDetails": "Cho người bán biết chuyện gì đã xảy ra (không bắt buộc)",
+    "refundSubmit": "Gửi yêu cầu hoàn tiền",
+    "refundReasons": {
+      "not_received": "Hàng chưa đến",
+      "not_as_described": "Hàng không đúng mô tả",
+      "changed_mind": "Tôi đổi ý",
+      "other": "Khác"
+    }
   },
   "boost": {
     "sponsored": "Được tài trợ"

@@ -6,7 +6,7 @@ import { requireMember } from "@/lib/member";
 import { CARRIERS, orderSteps, trackingUrl, type OrderStatus } from "@/lib/orders";
 import { ConfirmButton, LocalTime } from "../../../listing/[id]/listing-actions";
 import { openConversation } from "../../../messages/actions";
-import { confirmReceived, leaveReview, markShipped } from "../actions";
+import { approveRefund, confirmReceived, declineRefund, leaveReview, markShipped, requestRefund } from "../actions";
 import StarPicker from "./star-picker";
 import { StatusBadge } from "../status-badge";
 import { recordPayment } from "@/lib/checkout";
@@ -34,7 +34,7 @@ type Order = {
   delivered_at: string | null;
   completed_at: string | null;
   ship_to: { name?: string | null; address?: Record<string, string | null> | null } | null;
-  payout_status: "none" | "held" | "sent";
+  payout_status: "none" | "held" | "sent" | "refunded";
   stripe_checkout_session_id: string | null;
   buyer_id: string;
   seller_id: string;
@@ -42,6 +42,11 @@ type Order = {
   buyer: { username: string | null } | null;
   seller: { username: string | null } | null;
 };
+
+// Is this moment still before the given time? (Checked once per request.)
+function stillBefore(iso: string) {
+  return Date.now() < new Date(iso).getTime();
+}
 
 export default async function OrderPage({ params, searchParams }: { params: Params; searchParams: SearchParams }) {
   const member = await requireMember();
@@ -90,6 +95,25 @@ export default async function OrderPage({ params, searchParams }: { params: Para
 
   const isSeller = order.seller_id === member.user.id;
   const isBuyer = order.buyer_id === member.user.id;
+  const isAdmin = Boolean(member.profile?.is_admin);
+
+  // Refunds: buyers can ask within 7 days of paying; sellers' money is sent
+  // 7 days after the purchase unless a request is open.
+  const WEEK = 7 * 24 * 60 * 60 * 1000;
+  const refundUntil = order.paid_at ? new Date(new Date(order.paid_at).getTime() + WEEK).toISOString() : null;
+  const { data: refundRow } = await member.supabase
+    .from("refund_requests")
+    .select("id, reason, details, status")
+    .eq("order_id", order.id)
+    .maybeSingle();
+  const refund = refundRow as { id: string; reason: keyof typeof o.refundReasons; details: string; status: "open" | "approved" | "declined" } | null;
+  const canRequestRefund = isBuyer && !refund && refundUntil && stillBefore(refundUntil)
+    && ["paid", "fulfilled", "completed"].includes(order.status) && order.payout_status !== "sent";
+  let sellerReady = false;
+  if (isSeller && order.payout_status === "held") {
+    const { data: acct } = await member.supabase.from("payout_accounts").select("charges_enabled").eq("user_id", member.user.id).maybeSingle();
+    sellerReady = Boolean(acct?.charges_enabled);
+  }
   const { ships, steps } = orderSteps(order.mode, order.status);
   const trackLink = trackingUrl(order.carrier, order.tracking_number);
   const money = (cents: number) => <span dir="ltr">{formatPrice(cents, order.currency)}</span>;
@@ -128,10 +152,46 @@ export default async function OrderPage({ params, searchParams }: { params: Para
 
       {sessionId && order.status === "paid" && isBuyer && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">🎉 {t.checkout.paidThanks}</p>}
       {sessionId && order.status === "pending_payment" && isBuyer && <p role="status" className="mb-4 bg-amber-50 border border-amber-200 text-amber-800 rounded-lg p-3 text-sm">{t.checkout.paymentPending}</p>}
-      {isSeller && order.payout_status === "held" && (
+      {isSeller && order.payout_status === "held" && !sellerReady && (
         <Link href="/account/payouts" className="block mb-4 bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-3 text-sm hover:bg-amber-100">
           💰 {o.payoutHeld} <span className="underline font-medium">{t.payouts.title}</span>
         </Link>
+      )}
+      {isSeller && order.payout_status === "held" && sellerReady && refundUntil && refund?.status !== "open" && (
+        <p className="mb-4 bg-blue-50 border border-blue-200 text-blue-900 rounded-lg p-3 text-sm">💰 {dated(o.payoutOn, refundUntil)}</p>
+      )}
+      {flags.refund === "requested" && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.refundSent}</p>}
+      {flags.refund === "approved" && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.refundDone}</p>}
+      {flags.refund === "declined" && <p role="status" className="mb-4 bg-gray-50 border border-gray-200 text-gray-800 rounded-lg p-3 text-sm">{o.refundClosed}</p>}
+
+      {/* Refund request: what the buyer sees */}
+      {isBuyer && refund && (
+        <p className={`mb-4 rounded-lg p-3 text-sm border ${refund.status === "approved" ? "bg-green-50 border-green-200 text-green-800" : refund.status === "declined" ? "bg-gray-50 border-gray-200 text-gray-800" : "bg-amber-50 border-amber-200 text-amber-900"}`}>
+          ↩️ {refund.status === "open" ? o.refundRequested : refund.status === "approved" ? o.refundApproved : o.refundDeclined}
+        </p>
+      )}
+      {/* Refund request: the seller (or an admin) decides */}
+      {(isSeller || isAdmin) && refund?.status === "open" && (
+        <section className="mb-6 border-2 border-amber-300 bg-amber-50 rounded-xl p-5 space-y-3">
+          <h2 className="font-semibold text-amber-900">↩️ {o.refundSellerTitle}</h2>
+          <p className="text-sm"><span className="font-medium">{o.refundReason}:</span> {o.refundReasons[refund.reason]}</p>
+          {refund.details && <p className="text-sm text-gray-700 whitespace-pre-line">{refund.details}</p>}
+          <p className="text-xs text-gray-600">{o.refundNote}</p>
+          <div className="flex flex-wrap gap-2">
+            <form action={approveRefund}>
+              <input type="hidden" name="id" value={order.id} />
+              <input type="hidden" name="request" value={refund.id} />
+              <ConfirmButton message={o.refundApproveAsk} className="bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm font-medium">
+                {o.refundApprove}
+              </ConfirmButton>
+            </form>
+            <form action={declineRefund}>
+              <input type="hidden" name="id" value={order.id} />
+              <input type="hidden" name="request" value={refund.id} />
+              <button type="submit" className="border rounded-lg px-4 py-2 text-sm bg-white">{o.refundDecline}</button>
+            </form>
+          </div>
+        </section>
       )}
       {isSeller && order.payout_status === "sent" && (
         <p className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">💸 {o.payoutSent}</p>
@@ -139,7 +199,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
       {flags.shipped && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.shippedSaved}</p>}
       {flags.received && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.receivedSaved}</p>}
       {flags.reviewed && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{r.thanks}</p>}
-      {flags.error && <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">{o.error}</p>}
+      {flags.error && <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">{flags.error === "window" ? o.refundWindowClosed : o.error}</p>}
 
       {/* Progress tracker */}
       <ol className="flex items-start mb-8" aria-label={o.tracking}>
@@ -272,6 +332,29 @@ export default async function OrderPage({ params, searchParams }: { params: Para
             <Link href={`/seller/${order.seller.username}`} className="text-sm text-[#7A1E2B] hover:underline">{t.seller.viewProfile}</Link>
           )}
         </div>
+      )}
+
+      {canRequestRefund && refundUntil && (
+        <details className="mb-6 border rounded-xl p-5">
+          <summary className="font-semibold cursor-pointer">↩️ {o.refundTitle}</summary>
+          <form action={requestRefund} className="mt-4 space-y-3">
+            <input type="hidden" name="id" value={order.id} />
+            <p className="text-sm text-gray-600">{dated(o.refundUntil, refundUntil)}</p>
+            <label className="block text-sm">
+              <span className="block font-medium mb-1">{o.refundReason}</span>
+              <select name="reason" required className="w-full border rounded-lg px-3 py-2 bg-white">
+                {(Object.keys(o.refundReasons) as (keyof typeof o.refundReasons)[]).map((k) => (
+                  <option key={k} value={k}>{o.refundReasons[k]}</option>
+                ))}
+              </select>
+            </label>
+            <label className="block text-sm">
+              <span className="block font-medium mb-1">{o.refundDetails}</span>
+              <textarea name="details" rows={3} maxLength={1000} className="w-full border rounded-lg px-3 py-2" />
+            </label>
+            <button type="submit" className="bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm font-medium">{o.refundSubmit}</button>
+          </form>
+        </details>
       )}
 
       {order.listing && (isBuyer || isSeller) && (
