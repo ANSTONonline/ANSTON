@@ -373,9 +373,11 @@ export function RentalCalendar({
   locale,
   text,
   unitName,
+  available = [],
 }: {
   listingId: string;
   unit: "day" | "week" | "month";
+  available?: { from: string; to: string }[];
   rateCents: number;
   currency: string;
   depositCents?: number | null;
@@ -386,7 +388,9 @@ export function RentalCalendar({
   unitName: string;
 }) {
   const [state, action, pending] = useActionState(requestReservation.bind(null, listingId, "rental"), {});
-  const [cursor, setCursor] = useState(() => today.slice(0, 7)); // "YYYY-MM"
+  // Open on the first month the place is available.
+  const firstOpen = available.map((r) => (r.from > today ? r.from : today)).filter((d, i) => available[i].to >= today).sort()[0];
+  const [cursor, setCursor] = useState(() => (firstOpen ?? today).slice(0, 7)); // "YYYY-MM"
   const [start, setStart] = useState<string | null>(null);
   const [end, setEnd] = useState<string | null>(null);
   const [count, setCount] = useState(1);
@@ -394,8 +398,11 @@ export function RentalCalendar({
   const money = (cents: number) => new Intl.NumberFormat(locale, { style: "currency", currency }).format(cents / 100);
   const longDate = (s: string) => toDate(s).toLocaleDateString(locale, { dateStyle: "medium", timeZone: "UTC" });
 
-  // A night is taken if a live reservation covers noon UTC of that date.
+  // A night is taken if a live reservation covers noon UTC of that date, or
+  // the seller didn't list it as available.
+  const open = (s: string) => available.length === 0 || available.some((r) => r.from <= s && s <= r.to);
   const taken = (s: string) => {
+    if (!open(s)) return true;
     const t = toDate(s).getTime();
     return busy.some((b) => new Date(b.start).getTime() <= t && t < new Date(b.end).getTime());
   };
@@ -470,7 +477,7 @@ export function RentalCalendar({
               aria-label={`${longDate(d)}${isTaken ? ` (${text.calBooked})` : ""}`}
               className={`aspect-square rounded-lg ${
                 isEdge ? "bg-[#7A1E2B] text-white font-semibold" : inside ? "bg-[#7A1E2B]/15" : "hover:bg-gray-100"
-              } ${disabled ? "text-gray-300 cursor-not-allowed hover:bg-transparent" : ""} ${isTaken && !isEdge ? "line-through" : ""}`}
+              } ${disabled ? "text-gray-300 cursor-not-allowed hover:bg-transparent" : ""} ${isTaken && !isEdge && open(d) ? "line-through" : ""}`}
             >
               {i + 1}
             </button>

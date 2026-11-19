@@ -321,6 +321,7 @@ export default async function ListingPage({
                 locale={locale}
                 text={t.listing}
                 unitName={rentalUnit}
+                available={listing.rental.dates}
               />
             )}
             {canAct && listing.rental && !calendarRental && (

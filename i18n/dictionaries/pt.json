@@ -295,7 +295,8 @@
       "region": "Escolha um estado ou região do país selecionado.",
       "cityMismatch": "Essa cidade não fica no estado e país escolhidos. Confira sua localização.",
       "refund": "Escolha se você aceita reembolsos.",
-      "availability": "Escolha pelo menos um dia, com horário suficiente para uma sessão."
+      "availability": "Escolha pelo menos um dia, com horário suficiente para uma sessão.",
+      "rentalDates": "Confira as datas disponíveis: cada uma precisa de início e fim, o fim não pode ser antes do início e as datas devem estar nos próximos 2 anos."
     },
     "editTitle": "Editar anúncio",
     "saveChanges": "Salvar alterações",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Os horários estão no seu fuso horário ({zone}).",
     "shippingPrice": "Valor do frete",
     "shippingPriceHelp": "Deixe vazio para frete grátis. O comprador paga no checkout.",
-    "calendarHint": "Por dia, semana ou mês: quem aluga escolhe as datas num calendário e vê o total."
+    "calendarHint": "Por dia, semana ou mês: quem aluga escolhe as datas num calendário e vê o total.",
+    "rentalDates": "Datas disponíveis",
+    "rentalDatesHelp": "Adicione as datas em que é possível ficar (da primeira à última noite). Deixe vazio se estiver sempre disponível.",
+    "rentalFrom": "De",
+    "rentalTo": "Até (última noite)",
+    "rentalRemove": "Remover",
+    "rentalAdd": "Adicionar datas disponíveis",
+    "rentalAddMore": "Adicionar mais datas"
   },
   "account": {
     "title": "Sua conta",

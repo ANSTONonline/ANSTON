@@ -18,6 +18,7 @@ type ModeRow = {
   deposit_cents: number | null;
   session_minutes: number | null;
   availability: unknown;
+  rental_dates?: { from: string; to: string }[] | null;
   time_zone: string | null;
 };
 
@@ -80,6 +81,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     rental_rate: money(rental?.rate_cents ?? null),
     rental_unit: rental?.rate_unit ?? "day",
     rental_deposit: money(rental?.deposit_cents ?? null),
+    rental_dates: JSON.stringify(rental?.rental_dates ?? []),
     mode_booking: on(Boolean(booking)),
     booking_price: money(booking?.price_cents ?? null),
     booking_minutes: String(booking?.session_minutes ?? 60),

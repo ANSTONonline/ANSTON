@@ -126,7 +126,7 @@ export async function requestReservation(
   });
   if (error) {
     if (error.code === "23P01") return { error: "datesTaken" };
-    if (error.message.includes("outside_availability")) return { error: "slot" };
+    if (error.message.includes("outside_availability")) return { error: mode === "rental" ? "datesTaken" : "slot" };
     console.error("requestReservation", error.message);
     return { error: "generic" };
   }

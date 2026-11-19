@@ -66,6 +66,48 @@ function regionNames(locale: string) {
   }
 }
 
+// Rental available dates: rows of "from – to" (first and last nights).
+// Sent as JSON in one hidden field.
+function RentalDates({ text, initial }: { text: Text; initial: string }) {
+  const [rows, setRows] = useState<{ from: string; to: string }[]>(() => {
+    try {
+      const list = JSON.parse(initial || "[]");
+      return Array.isArray(list) ? list : [];
+    } catch {
+      return [];
+    }
+  });
+  const set = (i: number, key: "from" | "to", value: string) =>
+    setRows((r) => r.map((row, j) => (j === i ? { ...row, [key]: value } : row)));
+  return (
+    <fieldset className="space-y-2">
+      <legend className="block text-sm font-medium">{text.rentalDates}</legend>
+      <p className="text-xs text-gray-500">{text.rentalDatesHelp}</p>
+      {rows.map((row, i) => (
+        <div key={i} className="flex flex-wrap items-end gap-2">
+          <label className="text-sm">
+            {text.rentalFrom}
+            <input type="date" value={row.from} onChange={(e) => set(i, "from", e.target.value)} required className="block mt-1 border rounded-lg px-3 py-2 bg-white" />
+          </label>
+          <label className="text-sm">
+            {text.rentalTo}
+            <input type="date" value={row.to} min={row.from || undefined} onChange={(e) => set(i, "to", e.target.value)} required className="block mt-1 border rounded-lg px-3 py-2 bg-white" />
+          </label>
+          <button type="button" onClick={() => setRows((r) => r.filter((_, j) => j !== i))} className="text-sm text-[#7A1E2B] hover:underline pb-2">
+            {text.rentalRemove}
+          </button>
+        </div>
+      ))}
+      {rows.length < 20 && (
+        <button type="button" onClick={() => setRows((r) => [...r, { from: "", to: "" }])} className="border border-[#7A1E2B] text-[#7A1E2B] rounded-lg px-3 py-1.5 text-sm">
+          + {rows.length ? text.rentalAddMore : text.rentalAdd}
+        </button>
+      )}
+      <input type="hidden" name="rental_dates" value={JSON.stringify(rows)} />
+    </fieldset>
+  );
+}
+
 function Photos({ text, userId, initial = [] }: { text: Text; userId: string; initial?: Photo[] }) {
   const [photos, setPhotos] = useState<Photo[]>(initial);
   const [busy, setBusy] = useState(false);
@@ -554,6 +596,7 @@ export default function ListingForm({
                   </div>
                   <p className="text-xs text-gray-500 mt-1">{text.calendarHint}</p>
                 </fieldset>
+                <RentalDates text={text} initial={v.rental_dates ?? ""} />
                 {money("rental_deposit", text.deposit, false)}
               </>,
             )}

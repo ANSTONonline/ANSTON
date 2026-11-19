@@ -295,7 +295,8 @@
       "region": "请选择所选国家/地区内的州或地区。",
       "cityMismatch": "该城市不在你选择的州和国家/地区内，请检查位置。",
       "refund": "请选择是否接受退款。",
-      "availability": "请至少选择一天，且时长足够一次服务。"
+      "availability": "请至少选择一天，且时长足够一次服务。",
+      "rentalDates": "请检查可租日期：每段都需要开始和结束日期，结束不能早于开始，且须在未来 2 年内。"
     },
     "editTitle": "编辑商品",
     "saveChanges": "保存更改",
@@ -323,7 +324,14 @@
     "timeZoneNote": "时间以您的时区为准（{zone}）。",
     "shippingPrice": "运费",
     "shippingPriceHelp": "留空表示免运费。买家在结账时支付。",
-    "calendarHint": "按天、周或月计费：租客在日历上选择日期并查看总价。"
+    "calendarHint": "按天、周或月计费：租客在日历上选择日期并查看总价。",
+    "rentalDates": "可租日期",
+    "rentalDatesHelp": "添加租客可入住的日期（第一晚到最后一晚）。如果随时可租，请留空。",
+    "rentalFrom": "从",
+    "rentalTo": "到（最后一晚）",
+    "rentalRemove": "删除",
+    "rentalAdd": "添加可租日期",
+    "rentalAddMore": "添加更多日期"
   },
   "account": {
     "title": "我的账户",

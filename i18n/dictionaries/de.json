@@ -295,7 +295,8 @@
       "region": "Bitte wähle ein Bundesland oder eine Region im gewählten Land.",
       "cityMismatch": "Diese Stadt liegt nicht im gewählten Bundesland und Land. Bitte prüfe deinen Standort.",
       "refund": "Bitte wähle, ob du Rückerstattungen annimmst.",
-      "availability": "Wähle mindestens einen Tag mit genug Zeit für einen Termin."
+      "availability": "Wähle mindestens einen Tag mit genug Zeit für einen Termin.",
+      "rentalDates": "Prüfe die verfügbaren Daten: Jeder Zeitraum braucht Beginn und Ende, das Ende darf nicht vor dem Beginn liegen, und die Daten müssen in den nächsten 2 Jahren liegen."
     },
     "editTitle": "Angebot bearbeiten",
     "saveChanges": "Änderungen speichern",
@@ -323,7 +324,14 @@
     "timeZoneNote": "Die Zeiten gelten in deiner Zeitzone ({zone}).",
     "shippingPrice": "Versandkosten",
     "shippingPriceHelp": "Leer lassen für kostenlosen Versand. Käufer zahlen sie beim Bezahlen.",
-    "calendarHint": "Pro Tag, Woche oder Monat: Mieter wählen ihre Daten im Kalender und sehen den Gesamtpreis."
+    "calendarHint": "Pro Tag, Woche oder Monat: Mieter wählen ihre Daten im Kalender und sehen den Gesamtpreis.",
+    "rentalDates": "Verfügbare Daten",
+    "rentalDatesHelp": "Füge die Daten hinzu, an denen Mieter bleiben können (erste bis letzte Nacht). Leer lassen, wenn immer verfügbar.",
+    "rentalFrom": "Von",
+    "rentalTo": "Bis (letzte Nacht)",
+    "rentalRemove": "Entfernen",
+    "rentalAdd": "Verfügbare Daten hinzufügen",
+    "rentalAddMore": "Weitere Daten hinzufügen"
   },
   "account": {
     "title": "Dein Konto",
