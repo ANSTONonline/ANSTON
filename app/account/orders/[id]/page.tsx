@@ -11,6 +11,8 @@ import StarPicker from "./star-picker";
 import { StatusBadge } from "../status-badge";
 import { recordPayment } from "@/lib/checkout";
 import { paymentsConfigured } from "@/lib/stripe";
+import { getShipment, labelsConfigured, toCents, type Rate } from "@/lib/shippo";
+import { buyShippingLabel, getLabelRates } from "../label-actions";
 
 type Params = Promise<{ id: string }>;
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -35,6 +37,10 @@ type Order = {
   completed_at: string | null;
   ship_to: { name?: string | null; address?: Record<string, string | null> | null } | null;
   payout_status: "none" | "held" | "sent" | "refunded";
+  shippo_shipment_id: string | null;
+  label_url: string | null;
+  label_service: string | null;
+  label_cost_cents: number;
   stripe_checkout_session_id: string | null;
   buyer_id: string;
   seller_id: string;
@@ -63,7 +69,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
     .select(
       `id, mode, status, quantity, currency, subtotal_cents, shipping_cents, tax_cents, service_fee_cents, total_cents,
        carrier, tracking_number, created_at, paid_at, shipped_at, delivered_at, completed_at, buyer_id, seller_id,
-       ship_to, payout_status, stripe_checkout_session_id,
+       ship_to, payout_status, stripe_checkout_session_id, shippo_shipment_id, label_url, label_service, label_cost_cents,
        listing:listings ( id, title ),
        buyer:profiles!orders_buyer_id_fkey ( username ),
        seller:profiles!orders_seller_id_fkey ( username )`,
@@ -109,6 +115,31 @@ export default async function OrderPage({ params, searchParams }: { params: Para
   const refund = refundRow as { id: string; reason: keyof typeof o.refundReasons; details: string; status: "open" | "approved" | "declined" } | null;
   const canRequestRefund = isBuyer && !refund && refundUntil && stillBefore(refundUntil)
     && ["paid", "fulfilled", "completed"].includes(order.status) && order.payout_status !== "sent";
+  // Shipping labels: for paid orders that ship, while the seller's money is
+  // still held (the label's cost comes out of it).
+  const L = o.label;
+  const canBuyLabel = isSeller && labelsConfigured() && order.status === "paid" && Boolean(order.ship_to?.address)
+    && !order.label_url && order.payout_status === "held" && order.currency.toLowerCase() === "usd" && !refund;
+  type From = { name?: string; street1?: string; street2?: string; city?: string; state?: string; zip?: string; phone?: string };
+  let shipFrom: From = {};
+  let rates: Rate[] = [];
+  let ratesError = false;
+  if (canBuyLabel) {
+    const { data: saved } = await member.supabase.from("ship_from_addresses").select("address").eq("user_id", member.user.id).maybeSingle();
+    shipFrom = (saved?.address as From) ?? {};
+    if (flags.label === "rates" && order.shippo_shipment_id) {
+      try {
+        const { data: budget } = await member.supabase.rpc("label_budget", { p_order: order.id });
+        const shipment = await getShipment(order.shippo_shipment_id);
+        rates = (shipment.rates ?? [])
+          .filter((r) => r.currency.toUpperCase() === "USD" && (typeof budget !== "number" || toCents(r.amount) <= budget))
+          .sort((a, b) => Number(a.amount) - Number(b.amount));
+      } catch (e) {
+        console.error("shippo rates", e instanceof Error ? e.message : e);
+        ratesError = true;
+      }
+    }
+  }
   let sellerReady = false;
   if (isSeller && order.payout_status === "held") {
     const { data: acct } = await member.supabase.from("payout_accounts").select("charges_enabled").eq("user_id", member.user.id).maybeSingle();
@@ -199,7 +230,13 @@ export default async function OrderPage({ params, searchParams }: { params: Para
       {flags.shipped && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.shippedSaved}</p>}
       {flags.received && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{o.receivedSaved}</p>}
       {flags.reviewed && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">{r.thanks}</p>}
-      {flags.error && <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">{flags.error === "window" ? o.refundWindowClosed : o.error}</p>}
+      {flags.error && (
+        <p role="alert" className="mb-4 bg-red-50 border border-red-200 text-red-700 rounded-lg p-3 text-sm">
+          {flags.error === "window" ? o.refundWindowClosed : flags.error === "label" ? L.error : o.error}
+          {flags.error === "label" && typeof flags.detail === "string" && <span className="block mt-1 text-xs">{flags.detail}</span>}
+        </p>
+      )}
+      {flags.label === "bought" && <p role="status" className="mb-4 bg-green-50 border border-green-200 text-green-800 rounded-lg p-3 text-sm">🏷️ {L.bought}</p>}
 
       {/* Progress tracker */}
       <ol className="flex items-start mb-8" aria-label={o.tracking}>
@@ -274,6 +311,75 @@ export default async function OrderPage({ params, searchParams }: { params: Para
           </div>
         ) : (
           <p className="text-sm text-gray-600">{order.shipped_at ? dated(o.shippedOn, order.shipped_at) : o.noTracking}</p>
+        )}
+
+        {isSeller && order.label_url && (
+          <div className="border-t pt-4 space-y-2">
+            <p className="text-sm">🏷️ {L.labelInfo.replace("{service}", order.label_service ?? "").replace("{price}", formatPrice(order.label_cost_cents, "USD"))}</p>
+            <a href={order.label_url} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm">🖨️ {L.print} ↗</a>
+            <p className="text-xs text-gray-500">{L.costNote}</p>
+          </div>
+        )}
+
+        {canBuyLabel && (
+          <div className="border-t pt-4 space-y-3">
+            <h3 className="font-semibold">📦 {L.title}</h3>
+            <p className="text-sm text-gray-600">{L.intro}</p>
+            {flags.label === "rates" && order.shippo_shipment_id && !ratesError ? (
+              rates.length > 0 ? (
+                <form action={buyShippingLabel} className="space-y-2">
+                  <input type="hidden" name="id" value={order.id} />
+                  <p className="text-sm font-medium">{L.chooseRate}</p>
+                  {rates.map((r, i) => (
+                    <label key={r.object_id} className="flex items-center gap-3 border rounded-lg p-3 text-sm cursor-pointer has-[:checked]:border-[#7A1E2B] has-[:checked]:bg-[#7A1E2B]/5">
+                      <input type="radio" name="rate" value={r.object_id} defaultChecked={i === 0} required />
+                      <span className="flex-1">
+                        <span className="font-medium">{r.provider}</span> · {r.servicelevel?.name}
+                        {r.estimated_days ? <span className="block text-xs text-gray-500">{L.days.replace("{n}", String(r.estimated_days))}</span> : null}
+                      </span>
+                      <span className="font-semibold">{formatPrice(toCents(r.amount), "USD")}</span>
+                    </label>
+                  ))}
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <ConfirmButton message={L.buyAsk} className="bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm font-medium">{L.buy}</ConfirmButton>
+                    <Link href={`/account/orders/${order.id}`} className="text-sm text-[#7A1E2B] hover:underline">{L.change}</Link>
+                  </div>
+                </form>
+              ) : (
+                <p className="text-sm text-amber-800">{L.noRates} <Link href={`/account/orders/${order.id}`} className="underline">{L.change}</Link></p>
+              )
+            ) : (
+              <form action={getLabelRates} className="space-y-3">
+                <input type="hidden" name="id" value={order.id} />
+                <fieldset className="space-y-2">
+                  <legend className="text-sm font-medium">{L.from}</legend>
+                  <div className="grid sm:grid-cols-2 gap-2">
+                    <label className="text-sm">{L.name}<input name="name" required maxLength={100} defaultValue={shipFrom.name ?? ""} autoComplete="name" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm">{L.phone}<input name="phone" type="tel" required maxLength={30} defaultValue={shipFrom.phone ?? ""} autoComplete="tel" dir="ltr" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm sm:col-span-2">{L.street}<input name="street1" required maxLength={100} defaultValue={shipFrom.street1 ?? ""} autoComplete="address-line1" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm sm:col-span-2">{L.street2}<input name="street2" maxLength={100} defaultValue={shipFrom.street2 ?? ""} autoComplete="address-line2" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm">{L.city}<input name="city" required maxLength={100} defaultValue={shipFrom.city ?? ""} autoComplete="address-level2" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <label className="text-sm">{L.state}<input name="state" required maxLength={30} defaultValue={shipFrom.state ?? ""} autoComplete="address-level1" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                      <label className="text-sm">{L.zip}<input name="zip" required maxLength={20} defaultValue={shipFrom.zip ?? ""} autoComplete="postal-code" dir="ltr" className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset className="space-y-2">
+                  <legend className="text-sm font-medium">{L.package}</legend>
+                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                    <label className="text-sm">{L.lb}<input name="lb" type="number" min="0" max="150" step="1" defaultValue="0" required className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm">{L.oz}<input name="oz" type="number" min="0" max="15.9" step="0.1" defaultValue="8" required className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm">{L.length}<input name="length" type="number" min="0.1" max="150" step="0.1" required className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm">{L.width}<input name="width" type="number" min="0.1" max="150" step="0.1" required className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                    <label className="text-sm">{L.height}<input name="height" type="number" min="0.1" max="150" step="0.1" required className="mt-1 w-full border rounded-lg px-3 py-2" /></label>
+                  </div>
+                </fieldset>
+                <button type="submit" className="bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm font-medium">{L.seeRates}</button>
+              </form>
+            )}
+            <p className="text-xs text-gray-500 pt-2">{L.or}</p>
+          </div>
         )}
 
         {canShip && (
