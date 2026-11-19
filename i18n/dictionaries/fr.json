@@ -187,7 +187,17 @@
     "noTimes": "Aucun créneau libre ce jour-là. Essayez un autre jour.",
     "yourTimeZone": "Les heures sont affichées dans votre fuseau horaire.",
     "hours": "Horaires",
-    "hoursZone": "Fuseau horaire du vendeur : {zone}"
+    "hoursZone": "Fuseau horaire du vendeur : {zone}",
+    "calPrev": "Mois précédent",
+    "calNext": "Mois suivant",
+    "calBooked": "Réservé",
+    "calLength": "Durée",
+    "calPickStart": "Touchez votre date de début sur le calendrier.",
+    "calPickEnd": "touchez maintenant votre date de fin.",
+    "calStart": "Début",
+    "calEnd": "Fin",
+    "calTaken": "Certaines de ces dates sont déjà réservées. Choisissez d'autres dates.",
+    "calClear": "Effacer les dates"
   },
   "cart": {
     "title": "Votre panier",
@@ -312,7 +322,8 @@
     "closed": "Fermé",
     "timeZoneNote": "Les horaires sont dans votre fuseau horaire ({zone}).",
     "shippingPrice": "Frais de livraison",
-    "shippingPriceHelp": "Laissez vide pour la livraison gratuite. L'acheteur les paie lors du paiement."
+    "shippingPriceHelp": "Laissez vide pour la livraison gratuite. L'acheteur les paie lors du paiement.",
+    "calendarHint": "Par jour, semaine ou mois : le locataire choisit ses dates sur un calendrier et voit le total."
   },
   "account": {
     "title": "Votre compte",

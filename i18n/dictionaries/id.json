@@ -187,7 +187,17 @@
     "noTimes": "Tidak ada waktu tersedia di hari ini. Coba hari lain.",
     "yourTimeZone": "Waktu ditampilkan dalam zona waktu Anda.",
     "hours": "Jam operasional",
-    "hoursZone": "Zona waktu penjual: {zone}"
+    "hoursZone": "Zona waktu penjual: {zone}",
+    "calPrev": "Bulan sebelumnya",
+    "calNext": "Bulan berikutnya",
+    "calBooked": "Sudah dipesan",
+    "calLength": "Lama sewa",
+    "calPickStart": "Ketuk tanggal mulai di kalender.",
+    "calPickEnd": "sekarang ketuk tanggal selesai.",
+    "calStart": "Mulai",
+    "calEnd": "Selesai",
+    "calTaken": "Sebagian tanggal itu sudah dipesan. Pilih tanggal lain.",
+    "calClear": "Hapus tanggal"
   },
   "cart": {
     "title": "Keranjang Anda",
@@ -312,7 +322,8 @@
     "closed": "Tutup",
     "timeZoneNote": "Waktu mengikuti zona waktu Anda ({zone}).",
     "shippingPrice": "Ongkos kirim",
-    "shippingPriceHelp": "Kosongkan untuk gratis ongkir. Pembeli membayarnya saat checkout."
+    "shippingPriceHelp": "Kosongkan untuk gratis ongkir. Pembeli membayarnya saat checkout.",
+    "calendarHint": "Per hari, minggu, atau bulan: penyewa memilih tanggal di kalender dan melihat totalnya."
   },
   "account": {
     "title": "Akun Anda",

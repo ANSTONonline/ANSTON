@@ -187,7 +187,17 @@
     "noTimes": "Não há horários livres neste dia. Tente outro dia.",
     "yourTimeZone": "Os horários são mostrados no seu fuso horário.",
     "hours": "Horário",
-    "hoursZone": "Fuso horário do vendedor: {zone}"
+    "hoursZone": "Fuso horário do vendedor: {zone}",
+    "calPrev": "Mês anterior",
+    "calNext": "Próximo mês",
+    "calBooked": "Reservado",
+    "calLength": "Duração",
+    "calPickStart": "Toque na data de início no calendário.",
+    "calPickEnd": "agora toque na data de término.",
+    "calStart": "Início",
+    "calEnd": "Fim",
+    "calTaken": "Algumas dessas datas já estão reservadas. Escolha outras.",
+    "calClear": "Limpar datas"
   },
   "cart": {
     "title": "Seu carrinho",
@@ -312,7 +322,8 @@
     "closed": "Fechado",
     "timeZoneNote": "Os horários estão no seu fuso horário ({zone}).",
     "shippingPrice": "Valor do frete",
-    "shippingPriceHelp": "Deixe vazio para frete grátis. O comprador paga no checkout."
+    "shippingPriceHelp": "Deixe vazio para frete grátis. O comprador paga no checkout.",
+    "calendarHint": "Por dia, semana ou mês: quem aluga escolhe as datas num calendário e vê o total."
   },
   "account": {
     "title": "Sua conta",

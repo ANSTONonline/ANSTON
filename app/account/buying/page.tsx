@@ -3,7 +3,7 @@ import { startCheckout } from "../../checkout/actions";
 import { getDictionary, getLocale } from "@/i18n/server";
 import { formatPrice } from "@/lib/listings";
 import { requireMember } from "@/lib/member";
-import { periodBounds } from "@/lib/period";
+import { isWholeDays, periodBounds } from "@/lib/period";
 import { answerOffer, answerReservation } from "../../listing/actions";
 import { LocalTime } from "../../listing/[id]/listing-actions";
 import { openConversation } from "../../messages/actions";
@@ -164,7 +164,7 @@ export default async function BuyingPage() {
                       <Link href={`/listing/${r.listing.id}`} className="font-semibold hover:text-[#7A1E2B]">{r.listing.title}</Link>
                     )}
                     <p className="text-sm text-gray-600">
-                      <LocalTime iso={start} locale={locale} /> – <LocalTime iso={end} locale={locale} />
+                      <LocalTime iso={start} locale={locale} utcDate={isWholeDays(start, end)} /> – <LocalTime iso={end} locale={locale} utcDate={isWholeDays(start, end)} />
                     </p>
                     <p className="text-xs text-gray-500">{d.requestStatus[r.status]}</p>
                   </div>

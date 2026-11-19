@@ -187,7 +187,17 @@
     "noTimes": "No open times on this day. Try another day.",
     "yourTimeZone": "Times are shown in your time zone.",
     "hours": "Hours",
-    "hoursZone": "Seller's time zone: {zone}"
+    "hoursZone": "Seller's time zone: {zone}",
+    "calPrev": "Previous month",
+    "calNext": "Next month",
+    "calBooked": "Booked",
+    "calLength": "How long",
+    "calPickStart": "Tap your start date on the calendar.",
+    "calPickEnd": "now tap your end date.",
+    "calStart": "Start",
+    "calEnd": "End",
+    "calTaken": "Some of those dates are already booked. Pick different dates.",
+    "calClear": "Clear dates"
   },
   "cart": {
     "title": "Your cart",
@@ -312,7 +322,8 @@
     "closed": "Closed",
     "timeZoneNote": "Times are in your time zone ({zone}).",
     "shippingPrice": "Shipping price",
-    "shippingPriceHelp": "Leave empty for free shipping. Buyers pay this at checkout."
+    "shippingPriceHelp": "Leave empty for free shipping. Buyers pay this at checkout.",
+    "calendarHint": "Per day, week or month: renters pick their dates on a calendar and see the total."
   },
   "account": {
     "title": "Your account",

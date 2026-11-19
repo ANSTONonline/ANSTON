@@ -187,7 +187,17 @@
     "noTimes": "An diesem Tag sind keine Zeiten frei. Probier einen anderen Tag.",
     "yourTimeZone": "Die Zeiten werden in deiner Zeitzone angezeigt.",
     "hours": "Öffnungszeiten",
-    "hoursZone": "Zeitzone des Verkäufers: {zone}"
+    "hoursZone": "Zeitzone des Verkäufers: {zone}",
+    "calPrev": "Vorheriger Monat",
+    "calNext": "Nächster Monat",
+    "calBooked": "Belegt",
+    "calLength": "Dauer",
+    "calPickStart": "Tippe im Kalender auf dein Startdatum.",
+    "calPickEnd": "tippe jetzt auf dein Enddatum.",
+    "calStart": "Beginn",
+    "calEnd": "Ende",
+    "calTaken": "Einige dieser Tage sind schon belegt. Wähle andere Daten.",
+    "calClear": "Daten löschen"
   },
   "cart": {
     "title": "Dein Warenkorb",
@@ -312,7 +322,8 @@
     "closed": "Geschlossen",
     "timeZoneNote": "Die Zeiten gelten in deiner Zeitzone ({zone}).",
     "shippingPrice": "Versandkosten",
-    "shippingPriceHelp": "Leer lassen für kostenlosen Versand. Käufer zahlen sie beim Bezahlen."
+    "shippingPriceHelp": "Leer lassen für kostenlosen Versand. Käufer zahlen sie beim Bezahlen.",
+    "calendarHint": "Pro Tag, Woche oder Monat: Mieter wählen ihre Daten im Kalender und sehen den Gesamtpreis."
   },
   "account": {
     "title": "Dein Konto",

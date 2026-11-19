@@ -187,7 +187,17 @@
     "noTimes": "Walang bakanteng oras sa araw na ito. Subukan ang ibang araw.",
     "yourTimeZone": "Ipinapakita ang oras ayon sa time zone mo.",
     "hours": "Oras",
-    "hoursZone": "Time zone ng nagbebenta: {zone}"
+    "hoursZone": "Time zone ng nagbebenta: {zone}",
+    "calPrev": "Nakaraang buwan",
+    "calNext": "Susunod na buwan",
+    "calBooked": "Naka-book",
+    "calLength": "Gaano katagal",
+    "calPickStart": "I-tap ang petsa ng simula sa kalendaryo.",
+    "calPickEnd": "ngayon i-tap ang petsa ng pagtatapos.",
+    "calStart": "Simula",
+    "calEnd": "Katapusan",
+    "calTaken": "May mga petsang naka-book na. Pumili ng ibang petsa.",
+    "calClear": "Burahin ang mga petsa"
   },
   "cart": {
     "title": "Ang cart mo",
@@ -312,7 +322,8 @@
     "closed": "Sarado",
     "timeZoneNote": "Ang oras ay ayon sa time zone mo ({zone}).",
     "shippingPrice": "Presyo ng shipping",
-    "shippingPriceHelp": "Iwanang blangko para sa libreng shipping. Babayaran ito ng mamimili sa checkout."
+    "shippingPriceHelp": "Iwanang blangko para sa libreng shipping. Babayaran ito ng mamimili sa checkout.",
+    "calendarHint": "Kada araw, linggo o buwan: pipili ang uupa ng mga petsa sa kalendaryo at makikita ang kabuuan."
   },
   "account": {
     "title": "Ang account mo",

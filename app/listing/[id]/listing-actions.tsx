@@ -24,11 +24,12 @@ function Feedback({ state, text, success }: { state: ListingActionState; text: T
 }
 
 // Shows a time in the visitor's own time zone and language.
-export function LocalTime({ iso, locale, withTime = true }: { iso: string; locale: string; withTime?: boolean }) {
+export function LocalTime({ iso, locale, withTime = true, utcDate = false }: { iso: string; locale: string; withTime?: boolean; utcDate?: boolean }) {
   const date = new Date(iso);
+  // utcDate: a whole-day rental date, shown as the same calendar date everywhere.
   const formatted = date.toLocaleString(locale, {
     dateStyle: "medium",
-    ...(withTime ? { timeStyle: "short" } : {}),
+    ...(utcDate ? { timeZone: "UTC" } : withTime ? { timeStyle: "short" } : {}),
   });
   return (
     <time dateTime={iso} suppressHydrationWarning>
@@ -336,5 +337,198 @@ export function ConfirmButton({
     >
       {children}
     </button>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Rental calendar: for rentals priced per day, week or month. Taken dates are
+// greyed out; the renter taps a start and end date (per day) or a start date
+// and how many weeks/months. Dates are plain calendar dates ("YYYY-MM-DD").
+// ---------------------------------------------------------------------------
+const DAY_MS = 86400000;
+const toDate = (s: string) => new Date(`${s}T12:00:00.000Z`);
+const fmtDate = (d: Date) => d.toISOString().slice(0, 10);
+const addDays = (s: string, n: number) => fmtDate(new Date(toDate(s).getTime() + n * DAY_MS));
+const addUnits = (s: string, unit: "week" | "month", n: number) => {
+  const d = toDate(s);
+  if (unit === "week") d.setUTCDate(d.getUTCDate() + 7 * n);
+  else {
+    // Jan 31 + 1 month = Feb 28 (not Mar 3): stay in the target month.
+    const day = d.getUTCDate();
+    d.setUTCDate(1);
+    d.setUTCMonth(d.getUTCMonth() + n);
+    d.setUTCDate(Math.min(day, new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0, 12)).getUTCDate()));
+  }
+  return fmtDate(d);
+};
+
+export function RentalCalendar({
+  listingId,
+  unit,
+  rateCents,
+  currency,
+  depositCents,
+  busy,
+  today,
+  locale,
+  text,
+  unitName,
+}: {
+  listingId: string;
+  unit: "day" | "week" | "month";
+  rateCents: number;
+  currency: string;
+  depositCents?: number | null;
+  busy: { start: string; end: string }[];
+  today: string;
+  locale: string;
+  text: Text;
+  unitName: string;
+}) {
+  const [state, action, pending] = useActionState(requestReservation.bind(null, listingId, "rental"), {});
+  const [cursor, setCursor] = useState(() => today.slice(0, 7)); // "YYYY-MM"
+  const [start, setStart] = useState<string | null>(null);
+  const [end, setEnd] = useState<string | null>(null);
+  const [count, setCount] = useState(1);
+
+  const money = (cents: number) => new Intl.NumberFormat(locale, { style: "currency", currency }).format(cents / 100);
+  const longDate = (s: string) => toDate(s).toLocaleDateString(locale, { dateStyle: "medium", timeZone: "UTC" });
+
+  // A night is taken if a live reservation covers noon UTC of that date.
+  const taken = (s: string) => {
+    const t = toDate(s).getTime();
+    return busy.some((b) => new Date(b.start).getTime() <= t && t < new Date(b.end).getTime());
+  };
+  const rangeFree = (from: string, to: string) => {
+    for (let d = from; d < to; d = addDays(d, 1)) if (taken(d)) return false;
+    return true;
+  };
+
+  const finish = unit === "day" ? end : start ? addUnits(start, unit, count) : null;
+  const units = unit === "day" ? (start && end ? Math.round((toDate(end).getTime() - toDate(start).getTime()) / DAY_MS) : 0) : start ? count : 0;
+  const free = start && finish ? rangeFree(start, finish) : true;
+  const ready = Boolean(start && finish && units > 0 && free);
+
+  const pick = (d: string) => {
+    if (unit !== "day") {
+      setStart(d);
+      return;
+    }
+    if (!start || end || d <= start) {
+      setStart(d);
+      setEnd(null);
+    } else if (rangeFree(start, d)) {
+      setEnd(d);
+    }
+  };
+
+  // Month grid
+  const [y, m] = cursor.split("-").map(Number);
+  const first = new Date(Date.UTC(y, m - 1, 1, 12));
+  const daysInMonth = new Date(Date.UTC(y, m, 0, 12)).getUTCDate();
+  const lead = first.getUTCDay();
+  const monthLabel = first.toLocaleDateString(locale, { month: "long", year: "numeric", timeZone: "UTC" });
+  const weekdays = Array.from({ length: 7 }, (_, i) =>
+    new Date(Date.UTC(2023, 0, 1 + i, 12)).toLocaleDateString(locale, { weekday: "narrow", timeZone: "UTC" }),
+  );
+  const shift = (n: number) => {
+    const d = new Date(Date.UTC(y, m - 1 + n, 1, 12));
+    setCursor(fmtDate(d).slice(0, 7));
+  };
+  const canGoBack = cursor > today.slice(0, 7);
+  const lastMonth = addDays(today, 395).slice(0, 7);
+
+  return (
+    <form action={action} className={box}>
+      <p className="font-medium">{text.rentTitle}</p>
+      <div className="flex items-center justify-between">
+        <button type="button" onClick={() => shift(-1)} disabled={!canGoBack} aria-label={text.calPrev} className="px-3 py-1 rounded-lg border disabled:opacity-30">‹</button>
+        <p className="font-semibold capitalize">{monthLabel}</p>
+        <button type="button" onClick={() => shift(1)} disabled={cursor >= lastMonth} aria-label={text.calNext} className="px-3 py-1 rounded-lg border disabled:opacity-30">›</button>
+      </div>
+      <div className="grid grid-cols-7 gap-1 text-center text-xs text-gray-500" aria-hidden="true">
+        {weekdays.map((w, i) => <span key={i}>{w}</span>)}
+      </div>
+      <div className="grid grid-cols-7 gap-1 text-center text-sm">
+        {Array.from({ length: lead }, (_, i) => <span key={`b${i}`} />)}
+        {Array.from({ length: daysInMonth }, (_, i) => {
+          const d = `${cursor}-${String(i + 1).padStart(2, "0")}`;
+          const past = d < today;
+          const isTaken = taken(d);
+          // A taken night can still be the last day (you leave that morning).
+          const canEndHere = unit === "day" && start && !end && d > start && rangeFree(start, d);
+          const isEdge = d === start || d === finish;
+          const disabled = !isEdge && (past || (isTaken && !canEndHere));
+          const inside = start && finish && d > start && d < finish;
+          return (
+            <button
+              key={d}
+              type="button"
+              disabled={disabled}
+              onClick={() => pick(d)}
+              aria-pressed={isEdge}
+              aria-label={`${longDate(d)}${isTaken ? ` (${text.calBooked})` : ""}`}
+              className={`aspect-square rounded-lg ${
+                isEdge ? "bg-[#7A1E2B] text-white font-semibold" : inside ? "bg-[#7A1E2B]/15" : "hover:bg-gray-100"
+              } ${disabled ? "text-gray-300 cursor-not-allowed hover:bg-transparent" : ""} ${isTaken && !isEdge ? "line-through" : ""}`}
+            >
+              {i + 1}
+            </button>
+          );
+        })}
+      </div>
+      <p className="text-xs text-gray-500">
+        <span className="line-through">12</span> = {text.calBooked}
+      </p>
+
+      {unit !== "day" && (
+        <label className="block text-sm">
+          {text.calLength}
+          <select value={count} onChange={(e) => setCount(Number(e.target.value))} className={`${input} mt-1`}>
+            {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
+              <option key={n} value={n}>{n} × {unitName}</option>
+            ))}
+          </select>
+        </label>
+      )}
+
+      <div className="text-sm bg-gray-50 rounded-lg p-3 space-y-1">
+        {!start ? (
+          <p>{text.calPickStart}</p>
+        ) : unit === "day" && !end ? (
+          <p><span className="text-gray-500">{text.calStart}:</span> {longDate(start)} · {text.calPickEnd}</p>
+        ) : (
+          <>
+            <p><span className="text-gray-500">{text.calStart}:</span> {longDate(start)}</p>
+            {finish && <p><span className="text-gray-500">{text.calEnd}:</span> {longDate(finish)}</p>}
+            {free ? (
+              <p className="font-semibold pt-1">
+                {units} × {money(rateCents)}/{unitName} = {money(units * rateCents)}
+              </p>
+            ) : (
+              <p role="alert" className="text-red-700">{text.calTaken}</p>
+            )}
+          </>
+        )}
+        {depositCents ? <p className="text-xs text-gray-600">{text.deposit.replace("{amount}", money(depositCents))}</p> : null}
+      </div>
+      {start && (
+        <button type="button" onClick={() => { setStart(null); setEnd(null); }} className="text-sm text-[#7A1E2B] hover:underline">
+          {text.calClear}
+        </button>
+      )}
+
+      <input type="hidden" name="start_date" value={start ?? ""} />
+      <input type="hidden" name="end_date" value={unit === "day" ? end ?? "" : ""} />
+      <input type="hidden" name="count" value={String(count)} />
+      <label className="block text-sm" htmlFor="rental-notes">{text.notes}</label>
+      <textarea id="rental-notes" name="notes" rows={2} maxLength={1000} className={input} />
+      <Feedback state={state} text={text} success={text.requestSent} />
+      {!state.ok && (
+        <button type="submit" disabled={pending || !ready} className={primary}>
+          {text.rentNow}
+        </button>
+      )}
+    </form>
   );
 }

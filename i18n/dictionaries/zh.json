@@ -187,7 +187,17 @@
     "noTimes": "这一天没有可预订的时间，请换一天试试。",
     "yourTimeZone": "时间以您的时区显示。",
     "hours": "营业时间",
-    "hoursZone": "卖家时区：{zone}"
+    "hoursZone": "卖家时区：{zone}",
+    "calPrev": "上个月",
+    "calNext": "下个月",
+    "calBooked": "已预订",
+    "calLength": "时长",
+    "calPickStart": "在日历上点选开始日期。",
+    "calPickEnd": "再点选结束日期。",
+    "calStart": "开始",
+    "calEnd": "结束",
+    "calTaken": "部分日期已被预订，请选择其他日期。",
+    "calClear": "清除日期"
   },
   "cart": {
     "title": "购物车",
@@ -312,7 +322,8 @@
     "closed": "休息",
     "timeZoneNote": "时间以您的时区为准（{zone}）。",
     "shippingPrice": "运费",
-    "shippingPriceHelp": "留空表示免运费。买家在结账时支付。"
+    "shippingPriceHelp": "留空表示免运费。买家在结账时支付。",
+    "calendarHint": "按天、周或月计费：租客在日历上选择日期并查看总价。"
   },
   "account": {
     "title": "我的账户",

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { PHOTO_BUCKET } from "@/lib/catalog";
 import { requireMember } from "@/lib/member";
+import { wholeDayRange } from "@/lib/period";
 
 export type ListingErrorCode =
   | "bidLow"
@@ -35,7 +36,7 @@ async function loadListing(listingId: string) {
   if (!isId(listingId)) return { member, listing: null };
   const { data: listing } = await member.supabase
     .from("listings")
-    .select("id, seller_id, status, listing_modes ( mode, accepts_offers, session_minutes )")
+    .select("id, seller_id, status, listing_modes ( mode, accepts_offers, session_minutes, rate_unit )")
     .eq("id", listingId)
     .maybeSingle();
   return { member, listing };
@@ -99,12 +100,21 @@ export async function requestReservation(
   const listingMode = listing.listing_modes.find((m) => m.mode === mode);
   if (!listingMode) return { error: "notAvailable" };
 
-  const start = new Date(text(fd, "start"));
+  let start: Date;
   let end: Date;
-  if (mode === "booking") end = new Date(start.getTime() + (listingMode.session_minutes ?? 60) * 60000);
-  else end = new Date(text(fd, "end"));
-  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end <= start || start.getTime() < Date.now() - 3600000) {
-    return { error: "dates" };
+  const unit = listingMode.rate_unit ?? "day";
+  if (mode === "rental" && unit !== "hour") {
+    // Calendar rentals: whole days, stored noon UTC to noon UTC (see lib/period).
+    const range = wholeDayRange(unit as "day" | "week" | "month", text(fd, "start_date"), text(fd, "end_date"), Number(text(fd, "count")));
+    if (!range) return { error: "dates" };
+    ({ start, end } = range);
+  } else {
+    start = new Date(text(fd, "start"));
+    if (mode === "booking") end = new Date(start.getTime() + (listingMode.session_minutes ?? 60) * 60000);
+    else end = new Date(text(fd, "end"));
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end <= start || start.getTime() < Date.now() - 3600000) {
+      return { error: "dates" };
+    }
   }
 
   const { error } = await member.supabase.from("reservations").insert({

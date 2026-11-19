@@ -12,7 +12,7 @@ import { setListingSuspended } from "../../admin/actions";
 import { startCheckout } from "../../checkout/actions";
 import { buyerFeeBps, buyerFeeCents } from "@/lib/fees";
 import { WEEKDAYS, todayIn, type Availability } from "@/lib/availability";
-import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, ReportForm, ReserveForm } from "./listing-actions";
+import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, RentalCalendar, ReportForm, ReserveForm } from "./listing-actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -44,6 +44,11 @@ function WeeklyHours({ availability, timeZone, locale, title, zoneNote }: {
       <p className="text-xs text-gray-500 mt-2">{zoneNote.replace("{zone}", timeZone.replace(/_/g, " "))}</p>
     </div>
   );
+}
+
+// Today's date (UTC) for the rental calendar. Checked once per request.
+function utcToday() {
+  return new Date().toISOString().slice(0, 10);
 }
 
 export default async function ListingPage({
@@ -107,6 +112,18 @@ export default async function ListingPage({
   }
   const auctionOpen = Boolean(listing.auction && isFuture(listing.auction.endsAt));
   const rentalUnit = listing.rental ? t.sell.units[listing.rental.unit] : "";
+
+  // Rentals by the day, week or month book on a calendar: load the taken dates.
+  const calendarRental = Boolean(listing.rental && listing.rental.unit !== "hour" && fromDatabase);
+  let rentalBusy: { start: string; end: string }[] = [];
+  if (calendarRental && canAct) {
+    const supabase = member?.supabase ?? (await createClient());
+    const { data } = await supabase.rpc("rental_busy", { p_listing: listing.id });
+    rentalBusy = ((data ?? []) as { starts_at: string; ends_at: string }[]).map((r) => ({
+      start: new Date(r.starts_at).toISOString(),
+      end: new Date(r.ends_at).toISOString(),
+    }));
+  }
 
   return (
     <main className="flex-1 px-4 sm:px-8 py-10 max-w-5xl mx-auto w-full">
@@ -292,7 +309,21 @@ export default async function ListingPage({
               />
             )}
             {canAct && listing.sale?.acceptsOffers && <OfferForm listingId={listing.id} text={t.listing} />}
-            {canAct && listing.rental && (
+            {canAct && listing.rental && calendarRental && (
+              <RentalCalendar
+                listingId={listing.id}
+                unit={listing.rental.unit as "day" | "week" | "month"}
+                rateCents={listing.rental.rateCents}
+                currency={listing.currency}
+                depositCents={listing.rental.depositCents}
+                busy={rentalBusy}
+                today={utcToday()}
+                locale={locale}
+                text={t.listing}
+                unitName={rentalUnit}
+              />
+            )}
+            {canAct && listing.rental && !calendarRental && (
               <ReserveForm listingId={listing.id} mode="rental" text={t.listing} note={`${money(listing.rental.rateCents)} / ${rentalUnit}`} />
             )}
             {listing.booking?.availability && listing.booking.timeZone && (

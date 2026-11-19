@@ -187,7 +187,17 @@
     "noTimes": "이 날은 예약 가능한 시간이 없습니다. 다른 날을 선택해 보세요.",
     "yourTimeZone": "시간은 내 시간대로 표시됩니다.",
     "hours": "영업 시간",
-    "hoursZone": "판매자 시간대: {zone}"
+    "hoursZone": "판매자 시간대: {zone}",
+    "calPrev": "이전 달",
+    "calNext": "다음 달",
+    "calBooked": "예약됨",
+    "calLength": "기간",
+    "calPickStart": "달력에서 시작 날짜를 누르세요.",
+    "calPickEnd": "이제 종료 날짜를 누르세요.",
+    "calStart": "시작",
+    "calEnd": "종료",
+    "calTaken": "일부 날짜는 이미 예약되었습니다. 다른 날짜를 고르세요.",
+    "calClear": "날짜 지우기"
   },
   "cart": {
     "title": "장바구니",
@@ -312,7 +322,8 @@
     "closed": "휴무",
     "timeZoneNote": "시간은 내 시간대 기준입니다({zone}).",
     "shippingPrice": "배송비",
-    "shippingPriceHelp": "무료 배송이면 비워 두세요. 구매자가 결제할 때 냅니다."
+    "shippingPriceHelp": "무료 배송이면 비워 두세요. 구매자가 결제할 때 냅니다.",
+    "calendarHint": "일·주·월 단위: 임차인이 달력에서 날짜를 고르고 총액을 확인합니다."
   },
   "account": {
     "title": "내 계정",
