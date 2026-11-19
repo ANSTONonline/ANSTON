@@ -19,11 +19,13 @@ export async function refreshPayoutStatus(memberId: string, accountId: string, s
   return { ...status, chargesEnabled: ready };
 }
 
-type Held = { order_id: string; stripe_charge_id: string; total_cents: number; service_fee_cents: number; boost_cents: number };
+type Held = {
+  order_id: string; stripe_charge_id: string; total_cents: number; service_fee_cents: number; boost_cents: number; label_cost_cents: number;
+};
 
 // Send a seller's held money to their Stripe account. The seller gets the
-// price plus shipping, minus their boost and their share of Stripe's card
-// fee. Amounts come from Stripe's own record of the charge, in the currency
+// price plus shipping, minus their boost, their share of Stripe's card fee
+// and any shipping label they bought through Anston. Amounts come from Stripe's own record of the charge, in the currency
 // Anston was paid in. Safe to repeat: each order is sent at most once.
 export async function releaseHeldPayouts(sellerId: string, accountId: string, supabase: SupabaseClient) {
   const { data, error } = await supabase.rpc("held_payouts", { p_seller: sellerId, p_secret: serverSecret() });
@@ -38,8 +40,10 @@ export async function releaseHeldPayouts(sellerId: string, accountId: string, su
       const bt = charge.balance_transaction as Stripe.BalanceTransaction | null;
       if (!bt || typeof bt === "string" || o.total_cents <= 0) continue;
       const sellerGross = o.total_cents - o.service_fee_cents; // price + shipping (+ tax)
+      // Labels are only sold on USD orders, so their cost is in the same currency Anston was paid in.
+      const label = bt.currency === "usd" ? Number(o.label_cost_cents ?? 0) : 0;
       const amount = Math.floor(
-        (bt.amount * (sellerGross - o.boost_cents)) / o.total_cents - (bt.fee * sellerGross) / o.total_cents,
+        (bt.amount * (sellerGross - o.boost_cents)) / o.total_cents - (bt.fee * sellerGross) / o.total_cents - label,
       );
       let transferId = "";
       if (amount > 0) {
