@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "./components/site-header";
 import { getPlaceFilter, placeLabel } from "@/lib/location-filter";
 import { allCountryCodes } from "@/lib/places";
 import SiteFooter from "./components/site-footer";
+import ServiceWorker from "./components/service-worker";
 import { localeDir } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/server";
 
@@ -23,8 +24,18 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    applicationName: "Anston",
+    appleWebApp: {
+      capable: true,
+      title: "Anston",
+      statusBarStyle: "default",
+    },
   };
 }
+
+export const viewport: Viewport = {
+  themeColor: "#7A1E2B",
+};
 
 export default async function RootLayout({
   children,
@@ -54,6 +65,7 @@ export default async function RootLayout({
         />
         {children}
         <SiteFooter t={t} />
+        <ServiceWorker />
       </body>
     </html>
   );
