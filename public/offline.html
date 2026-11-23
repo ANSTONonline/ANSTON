@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#7A1E2B" />
+  <title>Anston | You're offline</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #fff; color: #171717; text-align: center; }
+    main { padding: 24px; max-width: 360px; }
+    img { width: 72px; height: 72px; }
+    h1 { color: #7A1E2B; font-size: 1.5rem; margin: 16px 0 8px; }
+    p { color: #555; line-height: 1.5; margin: 0 0 24px; }
+    button { background: #7A1E2B; color: #fff; border: 0; border-radius: 8px; padding: 12px 24px; font-size: 1rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/logo.svg" alt="Anston" />
+    <h1>You're offline</h1>
+    <p>Anston needs an internet connection. Check your connection and try again.</p>
+    <button onclick="location.reload()">Try again</button>
+  </main>
+</body>
+</html>
