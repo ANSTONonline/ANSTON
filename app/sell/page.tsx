@@ -26,6 +26,7 @@ export default async function SellPage() {
           locale={locale}
           countryCodes={allCountryCodes()}
           providerGender={member.profile?.gender ?? null}
+          businessLabel={t.header.businesses}
         />
       ) : (
         <div className="border rounded-xl p-8 bg-gray-50 text-center">

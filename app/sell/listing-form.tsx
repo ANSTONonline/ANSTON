@@ -7,6 +7,7 @@ import { SortableContext, arrayMove, rectSortingStrategy, sortableKeyboardCoordi
 import { CSS } from "@dnd-kit/utilities";
 import PhotoEditor from "./photo-editor";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { DEFAULT_HOURS, WEEKDAYS } from "@/lib/availability";
 import { startTransition, useActionState, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { Dictionary } from "@/i18n/server";
@@ -23,6 +24,8 @@ import {
 import { createListing, discardPhoto, updateListing, type SellState } from "./actions";
 
 type Text = Dictionary["sell"];
+
+const BUSINESS_CHOICE = "business-page";
 
 const MAX_PHOTOS = 8;
 const BUCKET = "listing-images";
@@ -450,6 +453,7 @@ export default function ListingForm({
   countryCodes,
   editing,
   providerGender = null,
+  businessLabel,
 }: {
   text: Text;
   categories: Category[];
@@ -458,7 +462,10 @@ export default function ListingForm({
   countryCodes: string[];
   providerGender?: string | null;
   editing?: EditingListing;
+  /** When set (new listings only), adds a "Business" choice that opens the business page setup. */
+  businessLabel?: string;
 }) {
+  const router = useRouter();
   const submit = editing ? updateListing.bind(null, editing.listingId) : createListing;
   const [state, action, pending] = useActionState<SellState, FormData>(submit, {});
   const v = state.values ?? editing?.values ?? {};
@@ -550,6 +557,10 @@ export default function ListingForm({
             required
             value={categoryId}
             onChange={(e) => {
+              if (e.target.value === BUSINESS_CHOICE) {
+                router.push("/account/business");
+                return;
+              }
               setCategoryId(e.target.value);
               const first = categories.find((c) => String(c.id) === e.target.value)?.allowedModes[0];
               setPicked(first ? { [first]: true } : {});
@@ -567,6 +578,7 @@ export default function ListingForm({
                 ))}
               </optgroup>
             )}
+            {businessLabel && <option value={BUSINESS_CHOICE}>🏢 {businessLabel}</option>}
           </select>
         </div>
         <div>
