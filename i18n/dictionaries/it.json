@@ -197,7 +197,8 @@
     "calStart": "Inizio",
     "calEnd": "Fine",
     "calTaken": "Alcune di queste date sono già prenotate. Scegline altre.",
-    "calClear": "Cancella date"
+    "calClear": "Cancella date",
+    "offerYouPay": "Se accettata, pagherai {amount} (più l'eventuale spedizione)."
   },
   "cart": {
     "title": "Il tuo carrello",
@@ -331,7 +332,8 @@
     "rentalTo": "Al (ultima notte)",
     "rentalRemove": "Rimuovi",
     "rentalAdd": "Aggiungi date disponibili",
-    "rentalAddMore": "Aggiungi altre date"
+    "rentalAddMore": "Aggiungi altre date",
+    "priceAllInHint": "Gli acquirenti vedono questo prezzo con la commissione di servizio di Anston inclusa (7% sotto i 50 $, 5% fino a 500 $, 3% oltre). Tu ricevi il tuo prezzo."
   },
   "account": {
     "title": "Il tuo account",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Prezzi",
       "body": [
-        "Pubblicare su Anston è gratis e Anston non applica commissioni ai venditori. I venditori ricevono il prezzo più la spedizione, meno la commissione della carta sulla loro parte. Gli acquirenti pagano una commissione di servizio quando pagano online: 7% sotto i 50 $, 5% da 50 $ a 500 $ e 3% oltre i 500 $, sempre mostrata prima del pagamento.",
+        "Pubblicare su Anston è gratis e Anston non applica commissioni ai venditori. I venditori ricevono il loro prezzo più la spedizione, meno la commissione della carta sulla loro parte. I prezzi che vedono gli acquirenti includono già la commissione di servizio di Anston (7% del prezzo del venditore sotto i 50 $, 5% da 50 $ a 500 $, 3% oltre): il prezzo che vedi è quello che paghi.",
         "La promozione è facoltativa. Scegli una percentuale quando pubblichi e il tuo annuncio comparirà per primo negli Annunci in evidenza. Paghi quella percentuale del prezzo finale solo se viene venduto o prenotato tramite il pagamento Anston.",
         "Eventuali nuove commissioni saranno mostrate chiaramente prima della pubblicazione."
       ]

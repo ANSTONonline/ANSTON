@@ -3,7 +3,7 @@
 // in other languages show a short note saying so (see i18n dictionaries).
 // When anything here changes, update EFFECTIVE_DATE.
 
-export const EFFECTIVE_DATE = "November 18, 2026";
+export const EFFECTIVE_DATE = "November 23, 2026";
 export const CONTACT_EMAIL = "support@myanston.com";
 
 export type LegalSection = { heading: string; paragraphs?: string[]; bullets?: string[]; after?: string[] };
@@ -192,7 +192,7 @@ export const termsOfService: LegalDoc = {
       heading: "6. Fees",
       paragraphs: [
         "Listing on Anston is free, and Anston charges sellers no selling fee. When a sale is paid through Anston checkout, the seller receives the item price plus any shipping they charged, minus the card processing fee on their share (in the US, currently 2.9% + 30¢ per card payment, set by Stripe), minus any boost fee they chose, and minus the cost of any shipping label they buy through Anston (labels are provided by Shippo and the carriers, at the price shown before buying). If we add fees in the future, we will show them clearly before you list or buy, and they will not apply to deals completed before the change.",
-        "Buyers pay Anston a service fee on purchases made through Anston checkout. It depends on the item's price: 7% for items under 50.00, 5% from 50.00 to 500.00, and 3% above 500.00 (in the listing's currency). The fee is shown on the listing and at checkout before you pay, and is listed separately on your order.",
+        "Prices shown to buyers for items bought through Anston checkout include Anston's service fee, which is based on the seller's price: 7% for items under 50.00, 5% from 50.00 to 500.00, and 3% above 500.00 (in the listing's currency). The price you see is the price you pay for the item; shipping (if any) and any taxes are shown before you pay. Sellers set and receive their own price, and the fee goes to Anston.",
         "Boosting is optional. If you boost a listing, it is shown higher in Featured Listings and marked \"Sponsored\", and you agree to pay Anston the percentage you chose of the item's final price (not including shipping or tax) if it sells or is booked through Anston checkout. The boost fee is taken from your payout. Boosting changes where a listing is shown, not whether it sells, and we may limit or remove boosts on listings that break these Terms.",
       ],
     },

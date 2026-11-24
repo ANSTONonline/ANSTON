@@ -197,7 +197,8 @@
     "calStart": "Início",
     "calEnd": "Fim",
     "calTaken": "Algumas dessas datas já estão reservadas. Escolha outras.",
-    "calClear": "Limpar datas"
+    "calClear": "Limpar datas",
+    "offerYouPay": "Se aceita, você pagará {amount} (mais o frete, se houver)."
   },
   "cart": {
     "title": "Seu carrinho",
@@ -331,7 +332,8 @@
     "rentalTo": "Até (última noite)",
     "rentalRemove": "Remover",
     "rentalAdd": "Adicionar datas disponíveis",
-    "rentalAddMore": "Adicionar mais datas"
+    "rentalAddMore": "Adicionar mais datas",
+    "priceAllInHint": "Os compradores veem este preço com a taxa de serviço da Anston incluída (7% abaixo de $50, 5% até $500, 3% acima). Você recebe o seu preço."
   },
   "account": {
     "title": "Sua conta",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Preços",
       "body": [
-        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda dos vendedores. Os vendedores recebem o preço mais o frete, menos a taxa de cartão sobre a parte deles. Os compradores pagam uma taxa de serviço ao pagar online: 7% em itens abaixo de $50, 5% de $50 a $500 e 3% acima de $500, sempre mostrada antes do pagamento.",
+        "Anunciar na Anston é grátis, e a Anston não cobra taxa de venda dos vendedores. Os vendedores recebem o seu preço mais o frete, menos a taxa de cartão sobre a parte deles. Os preços que os compradores veem já incluem a taxa de serviço da Anston (7% do preço do vendedor abaixo de $50, 5% de $50 a $500, 3% acima), então o preço que você vê é o que paga pelo item.",
         "Impulsionar é opcional. Escolha uma porcentagem ao anunciar e seu anúncio aparecerá primeiro em Anúncios em destaque. Você só paga essa porcentagem do preço final se for vendido ou reservado pelo pagamento da Anston.",
         "Qualquer nova taxa será mostrada claramente antes de você anunciar."
       ]

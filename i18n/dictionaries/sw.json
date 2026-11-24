@@ -197,7 +197,8 @@
     "calStart": "Kuanza",
     "calEnd": "Kumaliza",
     "calTaken": "Baadhi ya tarehe hizo zimeshahifadhiwa. Chagua tarehe nyingine.",
-    "calClear": "Futa tarehe"
+    "calClear": "Futa tarehe",
+    "offerYouPay": "Ikikubaliwa, utalipa {amount} (pamoja na usafirishaji, kama upo)."
   },
   "cart": {
     "title": "Kikapu chako",
@@ -331,7 +332,8 @@
     "rentalTo": "Hadi (usiku wa mwisho)",
     "rentalRemove": "Ondoa",
     "rentalAdd": "Weka tarehe zinazopatikana",
-    "rentalAddMore": "Weka tarehe zaidi"
+    "rentalAddMore": "Weka tarehe zaidi",
+    "priceAllInHint": "Wanunuzi huona bei hii ikiwa na ada ya huduma ya Anston (7% chini ya $50, 5% hadi $500, 3% zaidi). Wewe unapokea bei yako."
   },
   "account": {
     "title": "Akaunti yako",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Bei",
       "body": [
-        "Kuweka tangazo kwenye Anston ni bure, na Anston haiwatozi wauzaji ada ya mauzo. Wauzaji hupokea bei pamoja na usafirishaji, ukiondoa ada ya kadi kwenye sehemu yao. Wanunuzi hulipa ada ya huduma wanapolipa mtandaoni: 7% kwa bidhaa chini ya $50, 5% kutoka $50 hadi $500, na 3% zaidi ya $500, ikionyeshwa kila mara kabla ya kulipa.",
+        "Kuweka tangazo kwenye Anston ni bure, na Anston haiwatozi wauzaji ada ya mauzo. Wauzaji hupokea bei yao pamoja na usafirishaji, ukiondoa ada ya kadi kwenye sehemu yao. Bei wanazoona wanunuzi tayari zina ada ya huduma ya Anston (7% ya bei ya muuzaji chini ya $50, 5% kutoka $50 hadi $500, 3% zaidi), hivyo bei unayoona ndiyo unayolipa.",
         "Kupandisha ni hiari. Chagua asilimia unapoweka tangazo, na tangazo lako litaonekana kwanza kwenye Matangazo Maalum. Unalipa asilimia hiyo ya bei ya mwisho tu ikiwa litauzwa au kuhifadhiwa kupitia malipo ya Anston.",
         "Ada zozote mpya zitaonyeshwa wazi kabla hujaweka tangazo."
       ]

@@ -197,7 +197,8 @@
     "calStart": "Simula",
     "calEnd": "Katapusan",
     "calTaken": "May mga petsang naka-book na. Pumili ng ibang petsa.",
-    "calClear": "Burahin ang mga petsa"
+    "calClear": "Burahin ang mga petsa",
+    "offerYouPay": "Kapag tinanggap, magbabayad ka ng {amount} (dagdag ang shipping kung mayroon)."
   },
   "cart": {
     "title": "Ang cart mo",
@@ -331,7 +332,8 @@
     "rentalTo": "Hanggang (huling gabi)",
     "rentalRemove": "Alisin",
     "rentalAdd": "Magdagdag ng available na petsa",
-    "rentalAddMore": "Magdagdag pa ng petsa"
+    "rentalAddMore": "Magdagdag pa ng petsa",
+    "priceAllInHint": "Nakikita ng mga mamimili ang presyong ito na kasama na ang service fee ng Anston (7% sa ilalim ng $50, 5% hanggang $500, 3% kapag lampas). Matatanggap mo ang presyo mo."
   },
   "account": {
     "title": "Ang account mo",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Presyo",
       "body": [
-        "Libre ang pag-post sa Anston, at walang selling fee na sinisingil ang Anston sa mga nagbebenta. Natatanggap ng nagbebenta ang presyo at shipping, bawas ang card fee sa bahagi nila. Nagbabayad ang mga mamimili ng service fee kapag nagbayad online: 7% sa mga item na mas mababa sa $50, 5% mula $50 hanggang $500, at 3% kapag lampas $500, laging ipinapakita bago magbayad.",
+        "Libre ang pag-post sa Anston, at walang selling fee na sinisingil ang Anston sa mga nagbebenta. Natatanggap ng nagbebenta ang presyo niya at shipping, bawas ang card fee sa bahagi niya. Kasama na sa mga presyong nakikita ng mamimili ang service fee ng Anston (7% ng presyo ng nagbebenta sa ilalim ng $50, 5% mula $50 hanggang $500, 3% kapag lampas), kaya ang presyong nakikita mo ang babayaran mo.",
         "Opsyonal ang pag-boost. Pumili ng porsyento kapag nagpo-post, at unang lalabas ang listing mo sa Mga Tampok na Listing. Babayaran mo lang ang porsyentong iyon ng huling presyo kung maibenta o ma-book ito sa checkout ng Anston.",
         "Malinaw na ipapakita ang anumang bagong bayarin bago ka mag-post."
       ]

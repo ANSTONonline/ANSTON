@@ -62,22 +62,11 @@ export async function startCheckout(fd: FormData) {
             quantity: 1,
             price_data: {
               currency,
-              unit_amount: toStripeAmount(order.subtotal_cents, currency),
+              // All-in price: the seller's price with Anston's service fee included.
+              unit_amount: toStripeAmount(order.subtotal_cents + order.service_fee_cents, currency),
               product_data: { name: order.title.slice(0, 250) },
             },
           },
-          ...(order.service_fee_cents > 0
-            ? [
-                {
-                  quantity: 1,
-                  price_data: {
-                    currency,
-                    unit_amount: toStripeAmount(order.service_fee_cents, currency),
-                    product_data: { name: "Anston service fee" },
-                  },
-                },
-              ]
-            : []),
         ],
         ...(order.ships
           ? {

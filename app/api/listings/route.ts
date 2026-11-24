@@ -20,7 +20,7 @@ export async function GET(request: Request) {
         emoji: l.emoji,
         category: l.categoryName ?? t.categories[l.category],
         price: priceLabel(l, t),
-        priceCents: l.sale?.priceCents ?? l.priceCents,
+        priceCents: l.sale?.buyerCents ?? l.priceCents,
         currency: l.currency,
         location: l.location,
         sold: l.status === "sold",
