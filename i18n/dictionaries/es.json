@@ -632,7 +632,9 @@
       "costNote": "El costo de la etiqueta se descuenta de tu pago por este pedido.",
       "error": "No pudimos obtener esa etiqueta. Revisa las direcciones y los datos del paquete e inténtalo de nuevo.",
       "or": "O, si enviaste de otra forma, agrega el rastreo tú mismo:"
-    }
+    },
+    "reviewAfterReceived": "Cuando lo tengas, confírmalo abajo. Luego podrás reseñar al vendedor.",
+    "confirmPickup": "Lo recogí"
   },
   "boost": {
     "sponsored": "Patrocinado"

@@ -38,10 +38,10 @@ export async function confirmReceived(fd: FormData) {
     redirect(`/account/orders/${id}?error=1`);
   }
   revalidatePath("/account/orders");
-  redirect(`/account/orders/${id}?received=1`);
+  redirect(`/account/orders/${id}?received=1#review`);
 }
 
-// Buyer: rate the seller once the order has shipped. The database checks the
+// Buyer: rate the seller once they've received the order. The database checks the
 // order, that this member is its buyer, and allows one review per order.
 export async function leaveReview(fd: FormData) {
   const member = await requireMember();

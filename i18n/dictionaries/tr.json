@@ -632,7 +632,9 @@
       "costNote": "Etiket ücreti bu siparişin ödemesinden düşülür.",
       "error": "Etiket alınamadı. Adresleri ve paket bilgilerini kontrol edip tekrar deneyin.",
       "or": "Ya da başka bir yolla gönderdiyseniz takip numarasını kendiniz ekleyin:"
-    }
+    },
+    "reviewAfterReceived": "Elinize ulaşınca aşağıdan onaylayın. Sonra satıcıyı değerlendirebilirsiniz.",
+    "confirmPickup": "Teslim aldım"
   },
   "boost": {
     "sponsored": "Sponsorlu"

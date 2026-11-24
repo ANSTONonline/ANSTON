@@ -632,7 +632,9 @@
       "costNote": "Gharama ya lebo hukatwa kwenye malipo yako ya agizo hili.",
       "error": "Hatukuweza kupata lebo hiyo. Kagua anwani na taarifa za kifurushi, kisha ujaribu tena.",
       "or": "Au, kama ulituma kwa njia nyingine, weka namba ya ufuatiliaji mwenyewe:"
-    }
+    },
+    "reviewAfterReceived": "Ukishaipata, thibitisha hapa chini. Kisha unaweza kumpa muuzaji maoni.",
+    "confirmPickup": "Nimeichukua"
   },
   "boost": {
     "sponsored": "Limedhaminiwa"

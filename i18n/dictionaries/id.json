@@ -632,7 +632,9 @@
       "costNote": "Biaya label dipotong dari pembayaran Anda untuk pesanan ini.",
       "error": "Label tidak bisa didapat. Periksa alamat dan detail paket, lalu coba lagi.",
       "or": "Atau, jika Anda mengirim dengan cara lain, tambahkan nomor resi sendiri:"
-    }
+    },
+    "reviewAfterReceived": "Setelah diterima, konfirmasi di bawah. Lalu Anda bisa mengulas penjual.",
+    "confirmPickup": "Sudah saya ambil"
   },
   "boost": {
     "sponsored": "Bersponsor"
