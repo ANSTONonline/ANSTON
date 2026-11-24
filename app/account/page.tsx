@@ -97,6 +97,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
               👁 {t.seller.viewMine}
             </Link>
             <Link href="/account/profile" className="border py-2 rounded-lg text-center">📷 {t.profile.title}</Link>
+            <Link href="/account/business" className="border py-2 rounded-lg text-center">🏢 {t.business.myTitle}</Link>
             <Link href="/sell" className="bg-[#7A1E2B] text-white py-2 rounded-lg text-center font-medium">
               {t.header.listItem}
             </Link>

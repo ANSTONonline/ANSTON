@@ -371,7 +371,7 @@ function LocationFields({
 }
 
 // Weekly hours for services: tick the days you work and set the hours.
-function AvailabilityFields({ text, locale, values }: { text: Text; locale: string; values: Record<string, string> }) {
+export function AvailabilityFields({ text, locale, values }: { text: Text; locale: string; values: Record<string, string> }) {
   const editing = WEEKDAYS.some((d) => values[`avail_${d}_on`] !== undefined);
   const [on, setOn] = useState<Record<number, boolean>>(() =>
     Object.fromEntries(
