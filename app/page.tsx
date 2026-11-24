@@ -39,6 +39,7 @@ export default async function Home() {
     { slug: "food", name: t.categories.food, emoji: "🍲", color: "bg-red-500" },
     { slug: "services", name: t.categories.services, emoji: "🔔", color: "bg-rose-600" },
     { slug: "other", name: t.categories.other, emoji: "📦", color: "bg-indigo-600" },
+    { slug: "", href: "/businesses", name: t.header.businesses, emoji: "🏢", color: "bg-emerald-600" },
   ];
 
   const tabs = [
@@ -101,7 +102,7 @@ export default async function Home() {
           {categories.map((cat) => (
             <Link
               key={cat.name}
-              href={cat.slug ? `/browse?category=${cat.slug}` : "/browse"}
+              href={"href" in cat && cat.href ? cat.href : cat.slug ? `/browse?category=${cat.slug}` : "/browse"}
               className="border rounded-xl p-6 text-center bg-white hover:border-[#7A1E2B] hover:shadow-md transition"
             >
               <div
