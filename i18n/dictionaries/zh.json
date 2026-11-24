@@ -87,7 +87,15 @@
     "none": "没有符合搜索条件的商品。",
     "clear": "清除筛选",
     "allCategories": "全部类别",
-    "services": "服务"
+    "services": "服务",
+    "filters": "筛选",
+    "getting": "获取方式",
+    "anyWay": "任意方式",
+    "localOnly": "本地自取和服务",
+    "shipsOnly": "可邮寄给我",
+    "localIn": "正在显示 {place} 的本地商品。",
+    "pickCity": "在页面顶部选择你的城市，只看附近的商品和服务。",
+    "categories": "分类"
   },
   "listing": {
     "back": "返回浏览",

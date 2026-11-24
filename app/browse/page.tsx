@@ -20,17 +20,21 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
   const q = one(params.q)?.trim() ?? "";
   const mode = isMode(modeParam) ? modeParam : undefined;
   const category = isCategory(categoryParam) ? categoryParam : undefined;
+  const deliveryParam = one(params.get);
+  const delivery = deliveryParam === "local" || deliveryParam === "ships" ? deliveryParam : undefined;
 
   const place = await getPlaceFilter();
-  const results = await findListings(locale, { mode, category, q, place });
+  const results = await findListings(locale, { mode, category, q, place, delivery });
 
   // Build a link that changes one filter and keeps the others.
-  const href = (change: { mode?: string | null; category?: string | null }) => {
+  const href = (change: { mode?: string | null; category?: string | null; get?: string | null }) => {
     const next = new URLSearchParams();
     const m = change.mode === undefined ? mode : change.mode;
     const c = change.category === undefined ? category : change.category;
+    const g = change.get === undefined ? delivery : change.get;
     if (m) next.set("mode", m);
     if (c) next.set("category", c);
+    if (g) next.set("get", g);
     if (q) next.set("q", q);
     const s = next.toString();
     return s ? `/browse?${s}` : "/browse";
@@ -70,6 +74,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
       <Form action="/browse" className="flex gap-2 mb-6" role="search">
         {mode && <input type="hidden" name="mode" value={mode} />}
         {category && <input type="hidden" name="category" value={category} />}
+        {delivery && <input type="hidden" name="get" value={delivery} />}
         <input
           type="search"
           name="q"
@@ -91,31 +96,73 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
         ))}
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-8">
-        <Link href={href({ category: null })} className={pill(!category)}>
-          {t.browse.allCategories}
-        </Link>
-        {categorySlugs.map((c) => (
-          <Link key={c} href={href({ category: c })} className={pill(category === c)}>
-            {t.categories[c]}
-          </Link>
-        ))}
-      </div>
+      <div className="md:grid md:grid-cols-[14rem_1fr] md:gap-8">
+        {/* Sidebar filters */}
+        <aside className="mb-8 md:mb-0 space-y-6" aria-label={t.browse.filters}>
+          <section>
+            <h2 className="text-sm font-semibold text-gray-900 mb-2">{t.browse.getting}</h2>
+            <ul className="flex flex-wrap md:flex-col gap-2">
+              {([
+                [null, t.browse.anyWay],
+                ["local", `📍 ${t.browse.localOnly}`],
+                ["ships", `🚚 ${t.browse.shipsOnly}`],
+              ] as const).map(([key, label]) => (
+                <li key={label}>
+                  <Link
+                    href={href({ get: key })}
+                    aria-current={delivery === (key ?? undefined) ? "true" : undefined}
+                    className={`block rounded-lg px-3 py-2 text-sm border ${
+                      delivery === (key ?? undefined) ? "bg-[#7A1E2B] text-white border-[#7A1E2B]" : "bg-white hover:bg-gray-50"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            {delivery === "local" && (
+              <p className="mt-2 text-xs text-gray-600 bg-gray-50 border rounded-lg p-2">
+                {place ? t.browse.localIn.replace("{place}", placeLabel(place, locale)) : t.browse.pickCity}
+              </p>
+            )}
+          </section>
 
-      {results.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {results.map((l) => (
-            <ListingCard key={l.id} listing={l} t={t} />
-          ))}
+          <section>
+            <h2 className="text-sm font-semibold text-gray-900 mb-2">{t.browse.categories}</h2>
+            <ul className="flex flex-wrap md:flex-col gap-1">
+              <li>
+                <Link href={href({ category: null })} className={`block rounded-lg px-3 py-1.5 text-sm ${!category ? "bg-[#7A1E2B]/10 text-[#7A1E2B] font-medium" : "hover:bg-gray-100"}`}>
+                  {t.browse.allCategories}
+                </Link>
+              </li>
+              {categorySlugs.map((c) => (
+                <li key={c}>
+                  <Link href={href({ category: c })} className={`block rounded-lg px-3 py-1.5 text-sm ${category === c ? "bg-[#7A1E2B]/10 text-[#7A1E2B] font-medium" : "hover:bg-gray-100"}`}>
+                    {t.categories[c]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </aside>
+
+        <div>
+          {results.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {results.map((l) => (
+                <ListingCard key={l.id} listing={l} t={t} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 border rounded-xl bg-gray-50">
+              <p className="text-gray-600 mb-4">{place ? t.location.noneHere : t.browse.none}</p>
+              <Link href="/browse" className="bg-[#7A1E2B] text-white px-5 py-2 rounded-full text-sm">
+                {t.browse.clear}
+              </Link>
+            </div>
+          )}
         </div>
-      ) : (
-        <div className="text-center py-16 border rounded-xl bg-gray-50">
-          <p className="text-gray-600 mb-4">{place ? t.location.noneHere : t.browse.none}</p>
-          <Link href="/browse" className="bg-[#7A1E2B] text-white px-5 py-2 rounded-full text-sm">
-            {t.browse.clear}
-          </Link>
-        </div>
-      )}
+      </div>
     </main>
   );
 }

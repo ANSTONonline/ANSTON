@@ -87,7 +87,15 @@
     "none": "검색과 일치하는 상품이 없어요.",
     "clear": "필터 지우기",
     "allCategories": "전체 카테고리",
-    "services": "서비스"
+    "services": "서비스",
+    "filters": "필터",
+    "getting": "받는 방법",
+    "anyWay": "상관없음",
+    "localOnly": "직거래 및 지역 서비스",
+    "shipsOnly": "배송받기",
+    "localIn": "{place}의 지역 상품을 보여 드려요.",
+    "pickCity": "페이지 상단에서 도시를 선택하면 가까운 것만 볼 수 있어요.",
+    "categories": "카테고리"
   },
   "listing": {
     "back": "목록으로 돌아가기",

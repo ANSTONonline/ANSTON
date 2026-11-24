@@ -87,7 +87,15 @@
     "none": "No listings match your search.",
     "clear": "Clear filters",
     "allCategories": "All categories",
-    "services": "Services"
+    "services": "Services",
+    "filters": "Filters",
+    "getting": "How you get it",
+    "anyWay": "Any way",
+    "localOnly": "Local pickup & services",
+    "shipsOnly": "Ships to me",
+    "localIn": "Showing local listings in {place}.",
+    "pickCity": "Pick your city at the top of the page to see only what's near you.",
+    "categories": "Categories"
   },
   "listing": {
     "back": "Back to browse",

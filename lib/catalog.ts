@@ -270,10 +270,16 @@ function cleanSearch(q: string) {
 
 export async function findListings(
   locale: Locale,
-  filters: { mode?: Mode; category?: CategorySlug; q?: string; limit?: number; featured?: boolean; place?: PlaceFilter | null } = {},
+  filters: {
+    mode?: Mode; category?: CategorySlug; q?: string; limit?: number; featured?: boolean; place?: PlaceFilter | null;
+    // local: pickup available, or doesn't ship at all (services, rentals, local-only items). ships: can be shipped.
+    delivery?: "local" | "ships";
+  } = {},
 ): Promise<Listing[]> {
   if (!supabaseConfigured()) {
-    const results = getSampleListings(filters);
+    const results = getSampleListings(filters).filter((l) =>
+      filters.delivery === "local" ? l.localPickup || !l.ships : filters.delivery === "ships" ? l.ships : true,
+    );
     return filters.limit ? results.slice(0, filters.limit) : results;
   }
   const supabase = await createClient();
@@ -308,6 +314,8 @@ export async function findListings(
     if (filters.place.city) query = query.ilike("city", filters.place.city.replace(/[\\%_]/g, (ch) => `\\${ch}`));
   }
   // Featured Listings put boosted listings first, highest boost first.
+  if (filters.delivery === "local") query = query.or("local_pickup.eq.true,ships.eq.false");
+  else if (filters.delivery === "ships") query = query.eq("ships", true);
   if (filters.featured) query = query.order("boost_bps", { ascending: false });
   const { data, error } = await query.order("created_at", { ascending: false }).limit(filters.limit ?? 60);
   if (error) {

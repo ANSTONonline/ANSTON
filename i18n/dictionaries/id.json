@@ -87,7 +87,15 @@
     "none": "Tidak ada iklan yang cocok dengan pencarian Anda.",
     "clear": "Hapus filter",
     "allCategories": "Semua kategori",
-    "services": "Jasa"
+    "services": "Jasa",
+    "filters": "Filter",
+    "getting": "Cara mendapatkannya",
+    "anyWay": "Cara apa saja",
+    "localOnly": "Ambil sendiri & jasa lokal",
+    "shipsOnly": "Dikirim ke saya",
+    "localIn": "Menampilkan iklan lokal di {place}.",
+    "pickCity": "Pilih kota Anda di bagian atas halaman untuk melihat yang dekat saja.",
+    "categories": "Kategori"
   },
   "listing": {
     "back": "Kembali ke iklan",
