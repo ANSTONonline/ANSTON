@@ -20,3 +20,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Winter hero: deep red with a soft glow, falling snow. */
+.winter-hero {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.14), transparent 60%),
+    linear-gradient(180deg, #8f2433 0%, #7a1e2b 55%, #5e1520 100%);
+}
+.winter-text {
+  text-shadow: 0 1px 12px rgba(60, 8, 16, 0.55);
+}
+.snowflake {
+  position: absolute;
+  top: -10%;
+  color: #ffffff;
+  line-height: 1;
+  user-select: none;
+  animation-name: snow-fall, snow-sway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-direction: normal, alternate;
+}
+@keyframes snow-fall {
+  to { top: 110%; }
+}
+@keyframes snow-sway {
+  from { transform: translateX(-12px) rotate(0deg); }
+  to { transform: translateX(12px) rotate(180deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .snowflake { animation: none; top: auto; }
+  .snowflake:nth-child(odd) { top: 20%; }
+  .snowflake:nth-child(even) { top: 60%; }
+}
