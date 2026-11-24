@@ -278,6 +278,8 @@ export async function findListings(
     delivery?: "local" | "ships";
     // Services only: the provider's gender, as they chose to share it.
     providerGender?: "female" | "male";
+    // Services only: one service subcategory (its database slug, e.g. "tutoring").
+    subcategory?: string;
   } = {},
 ): Promise<Listing[]> {
   if (!supabaseConfigured()) {
@@ -294,7 +296,7 @@ export async function findListings(
     ? ({ buy: "sale", offer: "sale", bid: "auction", rent: "rental", services: "booking" } as const)[filters.mode]
     : null;
   let select = dbMode ? `${LISTING_SELECT}, filter_modes:listing_modes!inner ( mode, accepts_offers )` : LISTING_SELECT;
-  const byGender = filters.mode === "services" && filters.providerGender;
+  const byGender = (filters.mode === "services" || filters.category === "services") && filters.providerGender;
   if (byGender) select += ", provider:profiles!listings_seller_id_fkey!inner ( gender )";
 
   let query = supabase.from("listings").select(select).eq("status", "active");
@@ -306,7 +308,10 @@ export async function findListings(
     const rows = await loadCategoryRows();
     const slug = DB_FROM_UI[filters.category] ?? filters.category;
     const parent = rows.find((r) => r.slug === slug);
-    const ids = rows.filter((r) => r.slug === slug || (parent && r.parent_id === parent.id)).map((r) => r.id);
+    const sub = filters.subcategory ? rows.find((r) => r.slug === filters.subcategory && parent && r.parent_id === parent.id) : undefined;
+    const ids = sub
+      ? [sub.id]
+      : rows.filter((r) => r.slug === slug || (parent && r.parent_id === parent.id)).map((r) => r.id);
     query = query.in("category_id", ids.length ? ids : [-1]);
   }
   const q = filters.q ? cleanSearch(filters.q) : "";
