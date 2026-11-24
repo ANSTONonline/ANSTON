@@ -2,7 +2,7 @@ import Link from "next/link";
 import Form from "next/form";
 import ListingCard from "../components/listing-card";
 import { getDictionary, getLocale } from "@/i18n/server";
-import { findListings } from "@/lib/catalog";
+import { findListings, getCategories } from "@/lib/catalog";
 import { getPlaceFilter, placeLabel } from "@/lib/location-filter";
 import { clearPlaceFilter } from "../location-actions";
 import { categorySlugs, isCategory, isMode, type Mode } from "@/lib/listings";
@@ -22,14 +22,21 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
   const category = isCategory(categoryParam) ? categoryParam : undefined;
   const deliveryParam = one(params.get);
   const delivery = deliveryParam === "local" || deliveryParam === "ships" ? deliveryParam : undefined;
+  // Services: the provider-gender filter, and the service subcategories (Cleaning, Tutoring, ...).
+  const servicesView = mode === "services" || category === "services";
   const genderParam = one(params.provider);
-  const providerGender = mode === "services" && (genderParam === "female" || genderParam === "male") ? genderParam : undefined;
+  const providerGender = servicesView && (genderParam === "female" || genderParam === "male") ? genderParam : undefined;
+  const allCategories = category === "services" ? await getCategories(locale) : [];
+  const servicesParent = allCategories.find((c) => c.slug === "services");
+  const serviceTypes = servicesParent ? allCategories.filter((c) => c.parentId === servicesParent.id) : [];
+  const subParam = one(params.sub);
+  const sub = serviceTypes.some((c) => c.slug === subParam) ? subParam : undefined;
 
   const place = await getPlaceFilter();
-  const results = await findListings(locale, { mode, category, q, place, delivery, providerGender });
+  const results = await findListings(locale, { mode, category, q, place, delivery, providerGender, subcategory: sub });
 
   // Build a link that changes one filter and keeps the others.
-  const href = (change: { mode?: string | null; category?: string | null; get?: string | null; provider?: string | null }) => {
+  const href = (change: { mode?: string | null; category?: string | null; get?: string | null; provider?: string | null; sub?: string | null }) => {
     const next = new URLSearchParams();
     const m = change.mode === undefined ? mode : change.mode;
     const c = change.category === undefined ? category : change.category;
@@ -37,8 +44,10 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
     if (m) next.set("mode", m);
     if (c) next.set("category", c);
     if (g) next.set("get", g);
+    const sb = change.sub === undefined ? (change.category === undefined ? sub : null) : change.sub;
+    if (sb && c === "services") next.set("sub", sb);
     const pg = change.provider === undefined ? providerGender : change.provider;
-    if (pg && m === "services") next.set("provider", pg);
+    if (pg && (m === "services" || c === "services")) next.set("provider", pg);
     if (q) next.set("q", q);
     const s = next.toString();
     return s ? `/browse?${s}` : "/browse";
@@ -132,7 +141,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
             )}
           </section>
 
-          {mode === "services" && (
+          {servicesView && (
             <section>
               <h2 className="text-sm font-semibold text-gray-900 mb-2">{t.browse.provider}</h2>
               <ul className="flex flex-wrap md:flex-col gap-2">
@@ -163,9 +172,24 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
               </li>
               {categorySlugs.map((c) => (
                 <li key={c}>
-                  <Link href={href({ category: c })} className={`block rounded-lg px-3 py-1.5 text-sm ${category === c ? "bg-[#7A1E2B]/10 text-[#7A1E2B] font-medium" : "hover:bg-gray-100"}`}>
+                  <Link href={href({ category: c })} className={`block rounded-lg px-3 py-1.5 text-sm ${category === c && !(c === "services" && sub) ? "bg-[#7A1E2B]/10 text-[#7A1E2B] font-medium" : "hover:bg-gray-100"}`}>
                     {t.categories[c]}
                   </Link>
+                  {c === "services" && category === "services" && serviceTypes.length > 0 && (
+                    <ul className="mt-1 ms-3 border-s ps-2 flex flex-col gap-1">
+                      {serviceTypes.map((st) => (
+                        <li key={st.slug}>
+                          <Link
+                            href={href({ sub: st.slug })}
+                            aria-current={sub === st.slug ? "true" : undefined}
+                            className={`block rounded-lg px-3 py-1.5 text-sm ${sub === st.slug ? "bg-[#7A1E2B]/10 text-[#7A1E2B] font-medium" : "hover:bg-gray-100"}`}
+                          >
+                            {st.icon} {st.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
