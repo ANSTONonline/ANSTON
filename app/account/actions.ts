@@ -2,6 +2,7 @@
 
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { isNativeApp } from "@/lib/native-app";
 import { SUPABASE_KEY, SUPABASE_URL, createClient, supabaseConfigured } from "@/lib/supabase/server";
 import {
   MIN_AGE,
@@ -229,7 +230,7 @@ async function googleEnabled() {
 }
 
 export async function signInWithGoogle() {
-  if (!supabaseConfigured() || !(await googleEnabled())) redirect("/account?error=google");
+  if (!supabaseConfigured() || (await isNativeApp()) || !(await googleEnabled())) redirect("/account?error=google");
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",

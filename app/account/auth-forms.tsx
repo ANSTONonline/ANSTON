@@ -76,7 +76,17 @@ function TermsCheckbox({ text, legal }: { text: Text; legal: LegalLinks }) {
   );
 }
 
-export default function AuthForms({ text, legal }: { text: Text; legal: LegalLinks }) {
+// showGoogle is false inside the Anston phone app: Google blocks its sign-in
+// page in app web views, and Apple would then also require Sign in with Apple.
+export default function AuthForms({
+  text,
+  legal,
+  showGoogle = true,
+}: {
+  text: Text;
+  legal: LegalLinks;
+  showGoogle?: boolean;
+}) {
   const [tab, setTab] = useState<"logIn" | "signUp">("logIn");
   const [logInState, logInAction, loggingIn] = useActionState(logIn, {});
   const [signUpState, signUpAction, signingUp] = useActionState(signUp, {});
@@ -124,22 +134,26 @@ export default function AuthForms({ text, legal }: { text: Text; legal: LegalLin
         ))}
       </div>
 
-      <form action={signInWithGoogle}>
-        <button
-          type="submit"
-          className="w-full flex items-center justify-center gap-3 border rounded-lg py-3 font-medium hover:bg-gray-50"
-        >
-          <GoogleIcon />
-          {text.google}
-        </button>
-      </form>
-      <Agreement text={text} legal={legal} />
+      {showGoogle && (
+        <>
+          <form action={signInWithGoogle}>
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-3 border rounded-lg py-3 font-medium hover:bg-gray-50"
+            >
+              <GoogleIcon />
+              {text.google}
+            </button>
+          </form>
+          <Agreement text={text} legal={legal} />
 
-      <div className="flex items-center gap-3 my-5 text-sm text-gray-500">
-        <span className="flex-1 border-t" />
-        {text.or}
-        <span className="flex-1 border-t" />
-      </div>
+          <div className="flex items-center gap-3 my-5 text-sm text-gray-500">
+            <span className="flex-1 border-t" />
+            {text.or}
+            <span className="flex-1 border-t" />
+          </div>
+        </>
+      )}
 
       {tab === "logIn" ? (
         <form action={logInAction} className="space-y-4">
