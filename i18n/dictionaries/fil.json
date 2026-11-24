@@ -87,7 +87,15 @@
     "none": "Walang listing na tugma sa hinanap mo.",
     "clear": "Alisin ang mga filter",
     "allCategories": "Lahat ng kategorya",
-    "services": "Serbisyo"
+    "services": "Serbisyo",
+    "filters": "Mga filter",
+    "getting": "Paano mo makukuha",
+    "anyWay": "Kahit paano",
+    "localOnly": "Local pickup at mga serbisyo",
+    "shipsOnly": "Ipadala sa akin",
+    "localIn": "Ipinapakita ang mga lokal na listing sa {place}.",
+    "pickCity": "Piliin ang lungsod mo sa itaas ng page para makita lang ang malapit sa iyo.",
+    "categories": "Mga kategorya"
   },
   "listing": {
     "back": "Bumalik sa mga listing",

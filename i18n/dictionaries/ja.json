@@ -87,7 +87,15 @@
     "none": "検索に一致する出品はありません。",
     "clear": "絞り込みを解除",
     "allCategories": "すべてのカテゴリ",
-    "services": "サービス"
+    "services": "サービス",
+    "filters": "絞り込み",
+    "getting": "受け取り方法",
+    "anyWay": "指定なし",
+    "localOnly": "近くで受け取り・サービス",
+    "shipsOnly": "配送してもらう",
+    "localIn": "{place} の地元の出品を表示しています。",
+    "pickCity": "ページ上部で市区町村を選ぶと、近くのものだけ表示されます。",
+    "categories": "カテゴリ"
   },
   "listing": {
     "back": "一覧に戻る",

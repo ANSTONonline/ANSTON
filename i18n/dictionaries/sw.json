@@ -87,7 +87,15 @@
     "none": "Hakuna tangazo linalolingana na utafutaji wako.",
     "clear": "Futa vichujio",
     "allCategories": "Aina zote",
-    "services": "Huduma"
+    "services": "Huduma",
+    "filters": "Vichujio",
+    "getting": "Utakavyopata",
+    "anyWay": "Njia yoyote",
+    "localOnly": "Kuchukua karibu na huduma",
+    "shipsOnly": "Nitumiwe",
+    "localIn": "Inaonyesha matangazo ya karibu {place}.",
+    "pickCity": "Chagua mji wako juu ya ukurasa ili uone vilivyo karibu nawe tu.",
+    "categories": "Aina"
   },
   "listing": {
     "back": "Rudi kwenye matangazo",

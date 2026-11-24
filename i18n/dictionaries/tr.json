@@ -87,7 +87,15 @@
     "none": "Aramanızla eşleşen ilan yok.",
     "clear": "Filtreleri temizle",
     "allCategories": "Tüm kategoriler",
-    "services": "Hizmetler"
+    "services": "Hizmetler",
+    "filters": "Filtreler",
+    "getting": "Nasıl alırsınız",
+    "anyWay": "Fark etmez",
+    "localOnly": "Yerinden teslim ve hizmetler",
+    "shipsOnly": "Bana kargolansın",
+    "localIn": "{place} konumundaki yerel ilanlar gösteriliyor.",
+    "pickCity": "Yalnızca yakınınızdakileri görmek için sayfanın üstünden şehrinizi seçin.",
+    "categories": "Kategoriler"
   },
   "listing": {
     "back": "İlanlara dön",

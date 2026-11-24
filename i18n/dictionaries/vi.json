@@ -87,7 +87,15 @@
     "none": "Không có tin đăng nào khớp với tìm kiếm của bạn.",
     "clear": "Xóa bộ lọc",
     "allCategories": "Tất cả danh mục",
-    "services": "Dịch vụ"
+    "services": "Dịch vụ",
+    "filters": "Bộ lọc",
+    "getting": "Cách nhận hàng",
+    "anyWay": "Cách nào cũng được",
+    "localOnly": "Nhận tại chỗ & dịch vụ",
+    "shipsOnly": "Giao đến tôi",
+    "localIn": "Đang hiển thị tin địa phương ở {place}.",
+    "pickCity": "Chọn thành phố ở đầu trang để chỉ xem những gì gần bạn.",
+    "categories": "Danh mục"
   },
   "listing": {
     "back": "Quay lại danh sách",

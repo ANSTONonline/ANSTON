@@ -87,7 +87,15 @@
     "none": "Aucune annonce ne correspond à votre recherche.",
     "clear": "Effacer les filtres",
     "allCategories": "Toutes les catégories",
-    "services": "Services"
+    "services": "Services",
+    "filters": "Filtres",
+    "getting": "Comment l'obtenir",
+    "anyWay": "Peu importe",
+    "localOnly": "Retrait local et services",
+    "shipsOnly": "Livré chez moi",
+    "localIn": "Annonces locales à {place}.",
+    "pickCity": "Choisissez votre ville en haut de la page pour ne voir que ce qui est près de chez vous.",
+    "categories": "Catégories"
   },
   "listing": {
     "back": "Retour aux annonces",

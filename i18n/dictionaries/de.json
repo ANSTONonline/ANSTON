@@ -87,7 +87,15 @@
     "none": "Keine Angebote passen zu deiner Suche.",
     "clear": "Filter zurücksetzen",
     "allCategories": "Alle Kategorien",
-    "services": "Dienstleistungen"
+    "services": "Dienstleistungen",
+    "filters": "Filter",
+    "getting": "So bekommst du es",
+    "anyWay": "Egal wie",
+    "localOnly": "Abholung & lokale Dienste",
+    "shipsOnly": "Versand zu mir",
+    "localIn": "Lokale Angebote in {place}.",
+    "pickCity": "Wähle oben auf der Seite deine Stadt, um nur Angebote in deiner Nähe zu sehen.",
+    "categories": "Kategorien"
   },
   "listing": {
     "back": "Zurück zur Übersicht",
