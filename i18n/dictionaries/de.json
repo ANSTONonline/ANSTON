@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Käufer kontaktieren",
     "messageSeller": "Verkäufer kontaktieren",
-    "messageWinner": "Gewinner kontaktieren"
+    "messageWinner": "Gewinner kontaktieren",
+    "readyToShip": "Versandbereit",
+    "readyToShipHelp": "Diese Bestellungen sind bezahlt. Kaufe mit einem Klick ein Etikett von USPS, UPS oder FedEx.",
+    "buyLabel": "📦 Versandetikett kaufen"
   },
   "orders": {
     "title": "Kaufverlauf und Bestellungen",

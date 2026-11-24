@@ -520,7 +520,10 @@
     },
     "messageBuyer": "खरीदार को संदेश",
     "messageSeller": "विक्रेता को संदेश",
-    "messageWinner": "विजेता को संदेश"
+    "messageWinner": "विजेता को संदेश",
+    "readyToShip": "भेजने के लिए तैयार",
+    "readyToShipHelp": "इन ऑर्डर का भुगतान हो चुका है। एक क्लिक में USPS, UPS या FedEx लेबल खरीदें।",
+    "buyLabel": "📦 शिपिंग लेबल खरीदें"
   },
   "orders": {
     "title": "खरीद इतिहास और ऑर्डर",

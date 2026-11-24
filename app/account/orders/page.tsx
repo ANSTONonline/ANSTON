@@ -14,6 +14,8 @@ type OrderRow = {
   status: OrderStatus;
   total_cents: number;
   currency: string;
+  ship_to: unknown;
+  tracking_number: string | null;
   listing: { id: string; title: string } | null;
 };
 
@@ -26,7 +28,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Searc
 
   const { data, error } = await member.supabase
     .from("orders")
-    .select("id, created_at, status, total_cents, currency, listing:listings ( id, title )")
+    .select("id, created_at, status, total_cents, currency, ship_to, tracking_number, listing:listings ( id, title )")
     .eq(view === "sales" ? "seller_id" : "buyer_id", member.user.id)
     .order("created_at", { ascending: false })
     .limit(200);
@@ -63,6 +65,11 @@ export default async function OrdersPage({ searchParams }: { searchParams: Searc
                   <span className="font-medium text-gray-900" dir="ltr">{formatPrice(order.total_cents, order.currency)}</span>
                 </div>
               </Link>
+              {view === "sales" && order.status === "paid" && Boolean(order.ship_to) && !order.tracking_number && (
+                <Link href={`/account/orders/${order.id}#ship-label`} className="inline-block mt-2 bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm font-medium">
+                  {t.dashboard.buyLabel}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

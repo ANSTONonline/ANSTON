@@ -322,7 +322,7 @@ export default async function OrderPage({ params, searchParams }: { params: Para
         )}
 
         {canBuyLabel && (
-          <div className="border-t pt-4 space-y-3">
+          <div id="ship-label" className="border-t pt-4 space-y-3 scroll-mt-24">
             <h3 className="font-semibold">📦 {L.title}</h3>
             <p className="text-sm text-gray-600">{L.intro}</p>
             {flags.label === "rates" && order.shippo_shipment_id && !ratesError ? (

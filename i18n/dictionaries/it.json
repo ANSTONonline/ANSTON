@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Scrivi all'acquirente",
     "messageSeller": "Scrivi al venditore",
-    "messageWinner": "Scrivi al vincitore"
+    "messageWinner": "Scrivi al vincitore",
+    "readyToShip": "Pronto da spedire",
+    "readyToShipHelp": "Questi ordini sono pagati. Acquista un'etichetta USPS, UPS o FedEx con un clic.",
+    "buyLabel": "📦 Acquista etichetta"
   },
   "orders": {
     "title": "Cronologia acquisti e ordini",

@@ -520,7 +520,10 @@
     },
     "messageBuyer": "ক্রেতাকে বার্তা",
     "messageSeller": "বিক্রেতাকে বার্তা",
-    "messageWinner": "বিজয়ীকে বার্তা"
+    "messageWinner": "বিজয়ীকে বার্তা",
+    "readyToShip": "পাঠানোর জন্য প্রস্তুত",
+    "readyToShipHelp": "এই অর্ডারগুলোর টাকা দেওয়া হয়েছে। এক ক্লিকে USPS, UPS বা FedEx লেবেল কিনুন।",
+    "buyLabel": "📦 শিপিং লেবেল কিনুন"
   },
   "orders": {
     "title": "কেনাকাটার ইতিহাস ও অর্ডার",

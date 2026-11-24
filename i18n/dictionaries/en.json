@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Message buyer",
     "messageSeller": "Message seller",
-    "messageWinner": "Message winner"
+    "messageWinner": "Message winner",
+    "readyToShip": "Ready to ship",
+    "readyToShipHelp": "These orders are paid. Buy a USPS, UPS or FedEx label in one click.",
+    "buyLabel": "📦 Buy shipping label"
   },
   "orders": {
     "title": "Purchase history and orders",

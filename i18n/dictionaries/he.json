@@ -520,7 +520,10 @@
     },
     "messageBuyer": "הודעה לקונה",
     "messageSeller": "הודעה למוכר",
-    "messageWinner": "הודעה לזוכה"
+    "messageWinner": "הודעה לזוכה",
+    "readyToShip": "מוכן למשלוח",
+    "readyToShipHelp": "ההזמנות האלה שולמו. קנה תווית USPS,‏ UPS או FedEx בלחיצה אחת.",
+    "buyLabel": "📦 קניית תווית משלוח"
   },
   "orders": {
     "title": "היסטוריית רכישות והזמנות",

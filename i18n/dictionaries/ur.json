@@ -520,7 +520,10 @@
     },
     "messageBuyer": "خریدار کو پیغام",
     "messageSeller": "بیچنے والے کو پیغام",
-    "messageWinner": "جیتنے والے کو پیغام"
+    "messageWinner": "جیتنے والے کو پیغام",
+    "readyToShip": "بھیجنے کے لیے تیار",
+    "readyToShipHelp": "ان آرڈرز کی ادائیگی ہو چکی ہے۔ ایک کلک میں USPS، UPS یا FedEx لیبل خریدیں۔",
+    "buyLabel": "📦 شپنگ لیبل خریدیں"
   },
   "orders": {
     "title": "خریداری کی تاریخ اور آرڈرز",
