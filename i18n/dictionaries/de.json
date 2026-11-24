@@ -632,7 +632,9 @@
       "costNote": "Die Etikettkosten werden von deiner Auszahlung für diese Bestellung abgezogen.",
       "error": "Das Etikett konnte nicht erstellt werden. Prüfe Adressen und Paketangaben und versuche es erneut.",
       "or": "Oder, falls du anders versendet hast, trage die Sendungsnummer selbst ein:"
-    }
+    },
+    "reviewAfterReceived": "Sobald du es hast, bestätige es unten. Dann kannst du den Verkäufer bewerten.",
+    "confirmPickup": "Ich habe es abgeholt"
   },
   "boost": {
     "sponsored": "Gesponsert"

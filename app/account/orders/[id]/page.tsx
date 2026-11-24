@@ -160,7 +160,8 @@ export default async function OrderPage({ params, searchParams }: { params: Para
     completed: order.completed_at,
   };
   const canShip = isSeller && ships && (order.status === "paid" || order.status === "fulfilled");
-  const canReview = isBuyer && (order.status === "fulfilled" || order.status === "completed");
+  // Buyers review the seller once they confirm the order arrived.
+  const canReview = isBuyer && order.status === "completed";
   const { data: myReview } = canReview
     ? await member.supabase
         .from("reviews")
@@ -403,18 +404,19 @@ export default async function OrderPage({ params, searchParams }: { params: Para
           </form>
         )}
 
-        {isBuyer && order.status === "fulfilled" && (
-          <form action={confirmReceived} className="border-t pt-4">
+        {isBuyer && (order.status === "fulfilled" || (order.status === "paid" && !order.ship_to)) && (
+          <form action={confirmReceived} className="border-t pt-4 space-y-2">
             <input type="hidden" name="id" value={order.id} />
+            <p className="text-sm text-gray-600">⭐ {o.reviewAfterReceived}</p>
             <ConfirmButton message={o.confirmReceivedAsk} className="bg-green-700 text-white rounded-lg px-4 py-2 text-sm">
-              {o.confirmReceived}
+              {order.status === "paid" ? o.confirmPickup : o.confirmReceived}
             </ConfirmButton>
           </form>
         )}
       </div>
 
       {canReview && (
-        <div className="border rounded-xl p-5 space-y-3 mb-4">
+        <div id="review" className={`rounded-xl p-5 space-y-3 mb-4 scroll-mt-24 ${myReview ? "border" : "border-2 border-amber-300 bg-amber-50/40"}`}>
           <h2 className="font-semibold">{myReview ? r.yours : r.leaveTitle}</h2>
           {myReview ? (
             <div>

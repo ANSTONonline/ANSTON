@@ -632,7 +632,9 @@
       "costNote": "Ibinabawas ang halaga ng label sa payout mo para sa order na ito.",
       "error": "Hindi makuha ang label. Tingnan ang mga address at detalye ng package, saka subukan ulit.",
       "or": "O kung iba ang paraan mo ng pagpapadala, ilagay mo mismo ang tracking:"
-    }
+    },
+    "reviewAfterReceived": "Kapag natanggap mo na, kumpirmahin sa ibaba. Saka mo ma-review ang nagbebenta.",
+    "confirmPickup": "Nakuha ko na"
   },
   "boost": {
     "sponsored": "Sponsored"

@@ -632,7 +632,9 @@
       "costNote": "O custo da etiqueta sai do seu repasse deste pedido.",
       "error": "Não foi possível obter a etiqueta. Confira os endereços e o pacote e tente de novo.",
       "or": "Ou, se enviou de outra forma, adicione o rastreio você mesmo:"
-    }
+    },
+    "reviewAfterReceived": "Quando receber, confirme abaixo. Depois você pode avaliar o vendedor.",
+    "confirmPickup": "Já retirei"
   },
   "boost": {
     "sponsored": "Patrocinado"

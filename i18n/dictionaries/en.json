@@ -632,7 +632,9 @@
       "costNote": "The label's cost comes out of your payout for this order.",
       "error": "We couldn't get that label. Check the addresses and package details, then try again.",
       "or": "Or, if you shipped another way, add tracking yourself:"
-    }
+    },
+    "reviewAfterReceived": "Once you have it, confirm below. Then you can review the seller.",
+    "confirmPickup": "I picked it up"
   },
   "boost": {
     "sponsored": "Sponsored"

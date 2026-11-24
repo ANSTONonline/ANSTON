@@ -632,7 +632,9 @@
       "costNote": "Il costo dell'etichetta viene detratto dal pagamento per questo ordine.",
       "error": "Impossibile ottenere l'etichetta. Controlla indirizzi e dati del pacco e riprova.",
       "or": "Oppure, se hai spedito in altro modo, aggiungi tu il tracking:"
-    }
+    },
+    "reviewAfterReceived": "Quando lo ricevi, confermalo qui sotto. Poi potrai recensire il venditore.",
+    "confirmPickup": "L'ho ritirato"
   },
   "boost": {
     "sponsored": "Sponsorizzato"

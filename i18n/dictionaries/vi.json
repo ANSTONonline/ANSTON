@@ -632,7 +632,9 @@
       "costNote": "Chi phí nhãn được trừ vào tiền của đơn này.",
       "error": "Không lấy được nhãn. Hãy kiểm tra địa chỉ và thông tin kiện hàng rồi thử lại.",
       "or": "Hoặc nếu bạn gửi bằng cách khác, hãy tự thêm mã vận đơn:"
-    }
+    },
+    "reviewAfterReceived": "Khi đã nhận hàng, hãy xác nhận bên dưới. Sau đó bạn có thể đánh giá người bán.",
+    "confirmPickup": "Tôi đã nhận hàng"
   },
   "boost": {
     "sponsored": "Được tài trợ"

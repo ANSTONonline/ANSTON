@@ -632,7 +632,9 @@
       "costNote": "Le coût de l'étiquette est déduit de votre paiement pour cette commande.",
       "error": "Impossible d'obtenir cette étiquette. Vérifiez les adresses et le colis, puis réessayez.",
       "or": "Ou, si vous avez expédié autrement, ajoutez le suivi vous-même :"
-    }
+    },
+    "reviewAfterReceived": "Une fois reçu, confirmez ci-dessous. Vous pourrez ensuite évaluer le vendeur.",
+    "confirmPickup": "Je l'ai récupéré"
   },
   "boost": {
     "sponsored": "Sponsorisé"
