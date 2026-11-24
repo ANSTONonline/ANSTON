@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Anston</string>
+    <string name="title_activity_main">Anston</string>
+    <string name="package_name">com.myanston.app</string>
+    <string name="custom_url_scheme">com.myanston.app</string>
+</resources>

@@ -6,6 +6,7 @@ import { getPlaceFilter, placeLabel } from "@/lib/location-filter";
 import { allCountryCodes } from "@/lib/places";
 import SiteFooter from "./components/site-footer";
 import ServiceWorker from "./components/service-worker";
+import NativeAppBridge from "./components/native-app-bridge";
 import { localeDir } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/server";
 
@@ -66,6 +67,7 @@ export default async function RootLayout({
         {children}
         <SiteFooter t={t} />
         <ServiceWorker />
+        <NativeAppBridge />
       </body>
     </html>
   );

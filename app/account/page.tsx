@@ -1,5 +1,6 @@
 import Avatar from "@/app/components/avatar";
 import Link from "next/link";
+import { isNativeApp } from "@/lib/native-app";
 import AuthForms, { FinishProfileForm } from "./auth-forms";
 import { saveEmailSettings, signOut } from "./actions";
 import { getDictionary, getLocale } from "@/i18n/server";
@@ -155,7 +156,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
       {params.error === "link" && <Banner kind="error">{t.account.errors.link}</Banner>}
       {params.error === "google" && <Banner kind="error">{t.account.errors.google}</Banner>}
       {supabaseConfigured() ? (
-        <AuthForms text={t.account} legal={{ terms: t.footer.terms, privacy: t.footer.privacy }} />
+        <AuthForms
+          text={t.account}
+          legal={{ terms: t.footer.terms, privacy: t.footer.privacy }}
+          showGoogle={!(await isNativeApp())}
+        />
       ) : (
         <p className="border rounded-xl p-6 bg-gray-50 text-gray-600">{t.account.soon}</p>
       )}
