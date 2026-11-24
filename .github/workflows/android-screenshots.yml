@@ -10,12 +10,17 @@ on:
   pull_request:
     paths: [".github/workflows/android-screenshots.yml"]
 
+permissions:
+  contents: write
+
 jobs:
   screenshots:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - uses: actions/setup-node@v4
         with:
@@ -57,3 +62,18 @@ jobs:
         with:
           name: anston-screenshots
           path: shots/
+
+      # Save the screenshots into the repo (mobile/store/google-play/screenshots)
+      # so they're easy to find and upload to Google Play.
+      - name: Save screenshots to the repo
+        if: success()
+        run: |
+          dest=mobile/store/google-play/screenshots
+          mkdir -p "$dest"
+          cp shots/*.png "$dest"/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Android screenshots"
+          git push
