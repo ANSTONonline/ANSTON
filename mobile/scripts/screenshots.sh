@@ -26,9 +26,13 @@ sleep 30
 shot 01-home
 
 # Debug access to the app's web view (debug builds only), for checks below.
-sock=$(adb shell cat /proc/net/unix | grep -ao 'webview_devtools_remote_[0-9]*' | head -1)
-[ -n "$sock" ] && adb forward tcp:9222 "localabstract:$sock" >/dev/null
-js() { [ -n "$sock" ] && node mobile/scripts/webview-eval.mjs "$1" || echo "n/a"; }
+js() {
+  local sock
+  sock=$(adb shell cat /proc/net/unix | tr -d '\r' | grep -o 'webview_devtools_remote_[0-9]*' | tail -1)
+  if [ -z "$sock" ]; then echo "n/a (no debug socket)"; return; fi
+  adb forward tcp:9222 "localabstract:$sock" >/dev/null
+  node mobile/scripts/webview-eval.mjs "$1"
+}
 echo "CHECK app user agent ends with AnstonApp: $(js 'navigator.userAgent.endsWith("AnstonApp")')"
 
 # Open other pages the same way a tapped myanston.com link would.
