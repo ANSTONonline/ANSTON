@@ -27,11 +27,11 @@ const section = "border rounded-xl p-5 space-y-4";
 
 // Makes big phone photos smaller before uploading (longest side 1600px).
 // If the browser can't read the image (some HEIC photos), the original is used.
-async function shrink(file: File): Promise<Blob> {
+export async function shrink(file: File, longest = 1600): Promise<Blob> {
   if (!file.type.startsWith("image/") || file.type === "image/gif") return file;
   try {
     const bitmap = await createImageBitmap(file);
-    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+    const scale = Math.min(1, longest / Math.max(bitmap.width, bitmap.height));
     if (scale === 1 && file.size < 1_500_000) return file;
     const canvas = document.createElement("canvas");
     canvas.width = Math.round(bitmap.width * scale);
@@ -375,12 +375,14 @@ export default function ListingForm({
   locale,
   countryCodes,
   editing,
+  providerGender = null,
 }: {
   text: Text;
   categories: Category[];
   userId: string;
   locale: string;
   countryCodes: string[];
+  providerGender?: string | null;
   editing?: EditingListing;
 }) {
   const submit = editing ? updateListing.bind(null, editing.listingId) : createListing;
@@ -619,6 +621,22 @@ export default function ListingForm({
                 <div className="sm:col-span-2">
                   <AvailabilityFields text={text} locale={locale} values={v} />
                 </div>
+                <fieldset className="sm:col-span-2 space-y-1">
+                  <legend className={label}>{text.providerGender}</legend>
+                  <p className="text-xs text-gray-500">{text.providerGenderHelp}</p>
+                  <div className="flex flex-wrap gap-4 pt-1">
+                    {([["female", text.genderFemale], ["male", text.genderMale], ["", text.genderPreferNot]] as const).map(([value, name]) => (
+                      <label key={name} className="flex items-center gap-2 text-sm">
+                        <input type="radio" name="provider_gender" value={value} defaultChecked={(v.provider_gender ?? providerGender ?? "") === value} />
+                        {name}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+                <p className="sm:col-span-2 text-sm">
+                  📷 <a href="/account/profile" target="_blank" rel="noopener" className="text-[#7A1E2B] underline">{text.addProfilePhoto}</a>
+                  <span className="text-xs text-gray-500"> {text.addProfilePhotoHelp}</span>
+                </p>
               </>,
             )}
           </>

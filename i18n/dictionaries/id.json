@@ -95,7 +95,9 @@
     "shipsOnly": "Dikirim ke saya",
     "localIn": "Menampilkan iklan lokal di {place}.",
     "pickCity": "Pilih kota Anda di bagian atas halaman untuk melihat yang dekat saja.",
-    "categories": "Kategori"
+    "categories": "Kategori",
+    "provider": "Penyedia",
+    "anyProvider": "Penyedia mana saja"
   },
   "listing": {
     "back": "Kembali ke iklan",
@@ -341,7 +343,14 @@
     "rentalRemove": "Hapus",
     "rentalAdd": "Tambah tanggal tersedia",
     "rentalAddMore": "Tambah tanggal lain",
-    "priceAllInHint": "Pembeli melihat harga ini sudah termasuk biaya layanan Anston (7% di bawah $50, 5% sampai $500, 3% di atasnya). Anda menerima harga Anda."
+    "priceAllInHint": "Pembeli melihat harga ini sudah termasuk biaya layanan Anston (7% di bawah $50, 5% sampai $500, 3% di atasnya). Anda menerima harga Anda.",
+    "providerGender": "Jenis kelamin Anda (opsional)",
+    "providerGenderHelp": "Ditampilkan di jasa Anda. Pencari jasa bisa memilih jenis kelamin penyedia.",
+    "addProfilePhoto": "Tambahkan foto profil",
+    "addProfilePhotoHelp": "agar orang tahu siapa yang mereka pesan.",
+    "genderFemale": "Perempuan",
+    "genderMale": "Laki-laki",
+    "genderPreferNot": "Tidak ingin menyebutkan"
   },
   "account": {
     "title": "Akun Anda",
@@ -733,5 +742,24 @@
     "item": "Barang",
     "serviceFee": "Biaya layanan ({n}%)",
     "serviceFeePlain": "Biaya layanan"
+  },
+  "profile": {
+    "title": "Foto profil & detail",
+    "intro": "Foto Anda tampil di profil, iklan, dan jasa Anda.",
+    "photo": "Foto profil",
+    "photoHelp": "Foto wajah yang jelas membuat orang lebih percaya, terutama untuk jasa.",
+    "addPhoto": "Tambah foto",
+    "changePhoto": "Ganti foto",
+    "removePhoto": "Hapus",
+    "uploading": "Mengunggah…",
+    "uploadFailed": "Foto tidak bisa diunggah. Coba JPG atau PNG di bawah 2 MB.",
+    "gender": "Jenis kelamin",
+    "genderHelp": "Opsional. Ditampilkan di jasa Anda agar orang bisa memilih penyedia yang membuat mereka nyaman.",
+    "female": "Perempuan",
+    "male": "Laki-laki",
+    "preferNot": "Tidak ingin menyebutkan",
+    "save": "Simpan",
+    "saved": "Tersimpan!",
+    "error": "Terjadi kesalahan. Coba lagi."
   }
 }

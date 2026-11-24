@@ -13,7 +13,7 @@ export async function getMember() {
   if (!user) return null;
   const { data: profile } = await supabase
     .from("profiles")
-    .select("username, display_name, age_confirmed_at, terms_accepted_at, is_suspended, is_admin")
+    .select("username, display_name, age_confirmed_at, terms_accepted_at, is_suspended, is_admin, gender")
     .eq("id", user.id)
     .maybeSingle();
   const complete = Boolean(profile?.username && profile?.age_confirmed_at && profile?.terms_accepted_at);

@@ -95,7 +95,9 @@
     "shipsOnly": "配送してもらう",
     "localIn": "{place} の地元の出品を表示しています。",
     "pickCity": "ページ上部で市区町村を選ぶと、近くのものだけ表示されます。",
-    "categories": "カテゴリ"
+    "categories": "カテゴリ",
+    "provider": "提供者",
+    "anyProvider": "指定なし"
   },
   "listing": {
     "back": "一覧に戻る",
@@ -341,7 +343,14 @@
     "rentalRemove": "削除",
     "rentalAdd": "空き日程を追加",
     "rentalAddMore": "日程をさらに追加",
-    "priceAllInHint": "購入者にはこの価格に Anston のサービス料（50 ドル未満 7%、500 ドルまで 5%、それ以上 3%）を含めた額が表示されます。あなたは設定した価格を受け取ります。"
+    "priceAllInHint": "購入者にはこの価格に Anston のサービス料（50 ドル未満 7%、500 ドルまで 5%、それ以上 3%）を含めた額が表示されます。あなたは設定した価格を受け取ります。",
+    "providerGender": "あなたの性別（任意）",
+    "providerGenderHelp": "サービスに表示されます。サービスを探す人は提供者の性別で選べます。",
+    "addProfilePhoto": "プロフィール写真を追加",
+    "addProfilePhotoHelp": "予約相手が分かるようにしましょう。",
+    "genderFemale": "女性",
+    "genderMale": "男性",
+    "genderPreferNot": "回答しない"
   },
   "account": {
     "title": "アカウント",
@@ -733,5 +742,24 @@
     "item": "商品",
     "serviceFee": "サービス料（{n}%）",
     "serviceFeePlain": "サービス料"
+  },
+  "profile": {
+    "title": "プロフィール写真と情報",
+    "intro": "写真はプロフィール、出品、サービスに表示されます。",
+    "photo": "プロフィール写真",
+    "photoHelp": "顔がはっきり分かる写真は、特にサービスで信頼につながります。",
+    "addPhoto": "写真を追加",
+    "changePhoto": "写真を変更",
+    "removePhoto": "削除",
+    "uploading": "アップロード中…",
+    "uploadFailed": "写真をアップロードできませんでした。2 MB 未満の JPG か PNG をお試しください。",
+    "gender": "性別",
+    "genderHelp": "任意。サービスに表示され、利用者が安心できる提供者を選べます。",
+    "female": "女性",
+    "male": "男性",
+    "preferNot": "回答しない",
+    "save": "保存",
+    "saved": "保存しました！",
+    "error": "問題が発生しました。もう一度お試しください。"
   }
 }

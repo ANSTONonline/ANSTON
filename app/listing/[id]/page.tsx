@@ -1,3 +1,4 @@
+import Avatar from "@/app/components/avatar";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCartButton, FavoriteButton } from "../../components/list-buttons";
@@ -167,10 +168,14 @@ export default async function ListingPage({
           </p>
           <h1 className="text-3xl font-bold mb-2">{listing.title}</h1>
           {listing.sellerUsername && (
-            <p className="text-sm text-gray-600 mb-1">
-              <Link href={`/seller/${listing.sellerUsername}`} className="hover:underline">
+            <p className="flex flex-wrap items-center gap-2 text-sm text-gray-600 mb-1">
+              <Link href={`/seller/${listing.sellerUsername}`} className="flex items-center gap-2 hover:underline">
+                <Avatar path={listing.sellerAvatar} username={listing.sellerUsername} size={listing.booking ? 44 : 28} />
                 {t.listing.by.replace("{username}", listing.sellerUsername)}
               </Link>
+              {listing.booking && listing.sellerGender && (
+                <span className="bg-gray-100 rounded-full px-2 py-0.5 text-xs">{t.profile[listing.sellerGender]}</span>
+              )}
               {listing.reviews > 0 && (
                 <span className="ms-2">
                   <span className="text-amber-500">★</span> {listing.rating.toFixed(1)} ({listing.reviews} {t.featured.reviews})

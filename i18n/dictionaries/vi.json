@@ -95,7 +95,9 @@
     "shipsOnly": "Giao đến tôi",
     "localIn": "Đang hiển thị tin địa phương ở {place}.",
     "pickCity": "Chọn thành phố ở đầu trang để chỉ xem những gì gần bạn.",
-    "categories": "Danh mục"
+    "categories": "Danh mục",
+    "provider": "Người cung cấp",
+    "anyProvider": "Bất kỳ ai"
   },
   "listing": {
     "back": "Quay lại danh sách",
@@ -341,7 +343,14 @@
     "rentalRemove": "Xóa",
     "rentalAdd": "Thêm ngày còn trống",
     "rentalAddMore": "Thêm ngày khác",
-    "priceAllInHint": "Người mua thấy giá này đã gồm phí dịch vụ Anston (7% dưới $50, 5% đến $500, 3% trên đó). Bạn nhận đúng giá của mình."
+    "priceAllInHint": "Người mua thấy giá này đã gồm phí dịch vụ Anston (7% dưới $50, 5% đến $500, 3% trên đó). Bạn nhận đúng giá của mình.",
+    "providerGender": "Giới tính của bạn (không bắt buộc)",
+    "providerGenderHelp": "Hiển thị trên dịch vụ. Người tìm dịch vụ có thể chọn giới tính người cung cấp.",
+    "addProfilePhoto": "Thêm ảnh đại diện",
+    "addProfilePhotoHelp": "để mọi người biết họ đặt lịch với ai.",
+    "genderFemale": "Nữ",
+    "genderMale": "Nam",
+    "genderPreferNot": "Không muốn trả lời"
   },
   "account": {
     "title": "Tài khoản của bạn",
@@ -733,5 +742,24 @@
     "item": "Món hàng",
     "serviceFee": "Phí dịch vụ ({n}%)",
     "serviceFeePlain": "Phí dịch vụ"
+  },
+  "profile": {
+    "title": "Ảnh đại diện & thông tin",
+    "intro": "Ảnh của bạn hiện trên hồ sơ, tin đăng và dịch vụ.",
+    "photo": "Ảnh đại diện",
+    "photoHelp": "Ảnh rõ mặt giúp mọi người tin tưởng hơn, nhất là với dịch vụ.",
+    "addPhoto": "Thêm ảnh",
+    "changePhoto": "Đổi ảnh",
+    "removePhoto": "Xóa",
+    "uploading": "Đang tải lên…",
+    "uploadFailed": "Không tải được ảnh. Hãy thử JPG hoặc PNG dưới 2 MB.",
+    "gender": "Giới tính",
+    "genderHelp": "Không bắt buộc. Hiển thị trên dịch vụ để mọi người chọn người cung cấp mà họ thấy thoải mái.",
+    "female": "Nữ",
+    "male": "Nam",
+    "preferNot": "Không muốn trả lời",
+    "save": "Lưu",
+    "saved": "Đã lưu!",
+    "error": "Đã xảy ra lỗi. Vui lòng thử lại."
   }
 }

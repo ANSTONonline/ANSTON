@@ -22,12 +22,14 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
   const category = isCategory(categoryParam) ? categoryParam : undefined;
   const deliveryParam = one(params.get);
   const delivery = deliveryParam === "local" || deliveryParam === "ships" ? deliveryParam : undefined;
+  const genderParam = one(params.provider);
+  const providerGender = mode === "services" && (genderParam === "female" || genderParam === "male") ? genderParam : undefined;
 
   const place = await getPlaceFilter();
-  const results = await findListings(locale, { mode, category, q, place, delivery });
+  const results = await findListings(locale, { mode, category, q, place, delivery, providerGender });
 
   // Build a link that changes one filter and keeps the others.
-  const href = (change: { mode?: string | null; category?: string | null; get?: string | null }) => {
+  const href = (change: { mode?: string | null; category?: string | null; get?: string | null; provider?: string | null }) => {
     const next = new URLSearchParams();
     const m = change.mode === undefined ? mode : change.mode;
     const c = change.category === undefined ? category : change.category;
@@ -35,6 +37,8 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
     if (m) next.set("mode", m);
     if (c) next.set("category", c);
     if (g) next.set("get", g);
+    const pg = change.provider === undefined ? providerGender : change.provider;
+    if (pg && m === "services") next.set("provider", pg);
     if (q) next.set("q", q);
     const s = next.toString();
     return s ? `/browse?${s}` : "/browse";
@@ -75,6 +79,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
         {mode && <input type="hidden" name="mode" value={mode} />}
         {category && <input type="hidden" name="category" value={category} />}
         {delivery && <input type="hidden" name="get" value={delivery} />}
+        {providerGender && <input type="hidden" name="provider" value={providerGender} />}
         <input
           type="search"
           name="q"
@@ -126,6 +131,27 @@ export default async function BrowsePage({ searchParams }: { searchParams: Searc
               </p>
             )}
           </section>
+
+          {mode === "services" && (
+            <section>
+              <h2 className="text-sm font-semibold text-gray-900 mb-2">{t.browse.provider}</h2>
+              <ul className="flex flex-wrap md:flex-col gap-2">
+                {([[null, t.browse.anyProvider], ["female", t.profile.female], ["male", t.profile.male]] as const).map(([key, label]) => (
+                  <li key={label}>
+                    <Link
+                      href={href({ provider: key })}
+                      aria-current={providerGender === (key ?? undefined) ? "true" : undefined}
+                      className={`block rounded-lg px-3 py-2 text-sm border ${
+                        providerGender === (key ?? undefined) ? "bg-[#7A1E2B] text-white border-[#7A1E2B]" : "bg-white hover:bg-gray-50"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <section>
             <h2 className="text-sm font-semibold text-gray-900 mb-2">{t.browse.categories}</h2>

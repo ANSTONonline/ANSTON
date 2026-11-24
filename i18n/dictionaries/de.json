@@ -95,7 +95,9 @@
     "shipsOnly": "Versand zu mir",
     "localIn": "Lokale Angebote in {place}.",
     "pickCity": "Wähle oben auf der Seite deine Stadt, um nur Angebote in deiner Nähe zu sehen.",
-    "categories": "Kategorien"
+    "categories": "Kategorien",
+    "provider": "Anbieter",
+    "anyProvider": "Alle Anbieter"
   },
   "listing": {
     "back": "Zurück zur Übersicht",
@@ -341,7 +343,14 @@
     "rentalRemove": "Entfernen",
     "rentalAdd": "Verfügbare Daten hinzufügen",
     "rentalAddMore": "Weitere Daten hinzufügen",
-    "priceAllInHint": "Käufer sehen diesen Preis inklusive Anston-Servicegebühr (7 % unter 50 $, 5 % bis 500 $, 3 % darüber). Du erhältst deinen Preis."
+    "priceAllInHint": "Käufer sehen diesen Preis inklusive Anston-Servicegebühr (7 % unter 50 $, 5 % bis 500 $, 3 % darüber). Du erhältst deinen Preis.",
+    "providerGender": "Dein Geschlecht (optional)",
+    "providerGenderHelp": "Wird bei deinen Dienstleistungen angezeigt. Kunden können das Geschlecht des Anbieters wählen.",
+    "addProfilePhoto": "Füge ein Profilfoto hinzu",
+    "addProfilePhotoHelp": "damit Kunden sehen, wen sie buchen.",
+    "genderFemale": "Weiblich",
+    "genderMale": "Männlich",
+    "genderPreferNot": "Keine Angabe"
   },
   "account": {
     "title": "Dein Konto",
@@ -733,5 +742,24 @@
     "item": "Artikel",
     "serviceFee": "Servicegebühr ({n} %)",
     "serviceFeePlain": "Servicegebühr"
+  },
+  "profile": {
+    "title": "Profilfoto & Angaben",
+    "intro": "Dein Foto erscheint auf deinem Profil, deinen Anzeigen und Dienstleistungen.",
+    "photo": "Profilfoto",
+    "photoHelp": "Ein klares Foto deines Gesichts schafft Vertrauen, besonders bei Dienstleistungen.",
+    "addPhoto": "Foto hinzufügen",
+    "changePhoto": "Foto ändern",
+    "removePhoto": "Entfernen",
+    "uploading": "Wird hochgeladen…",
+    "uploadFailed": "Das Foto konnte nicht hochgeladen werden. Versuche ein JPG oder PNG unter 2 MB.",
+    "gender": "Geschlecht",
+    "genderHelp": "Optional. Wird bei deinen Dienstleistungen angezeigt, damit Kunden jemanden wählen können, bei dem sie sich wohlfühlen.",
+    "female": "Weiblich",
+    "male": "Männlich",
+    "preferNot": "Keine Angabe",
+    "save": "Speichern",
+    "saved": "Gespeichert!",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
   }
 }

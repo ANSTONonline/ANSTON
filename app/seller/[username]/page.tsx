@@ -1,3 +1,4 @@
+import Avatar from "@/app/components/avatar";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -17,7 +18,7 @@ async function loadProfile(raw: string) {
   const supabase = await createClient();
   const { data } = await supabase
     .from("profiles")
-    .select("id, username, created_at, rating_avg, rating_count, city, region, country_code")
+    .select("id, username, created_at, rating_avg, rating_count, city, region, country_code, avatar_url")
     .eq("username", username)
     .maybeSingle();
   return data ? { supabase, profile: data } : null;
@@ -70,9 +71,7 @@ export default async function SellerPage({ params }: { params: Params }) {
         </div>
       )}
       <div className="flex items-center gap-4 mb-8">
-        <span className="w-16 h-16 rounded-full bg-[#7A1E2B] text-white flex items-center justify-center text-2xl font-bold shrink-0">
-          {profile.username!.charAt(0).toUpperCase()}
-        </span>
+        <Avatar path={profile.avatar_url} username={profile.username} size={80} />
         <div className="min-w-0">
           <h1 className="text-3xl font-bold" dir="ltr">@{profile.username}</h1>
           <p className="text-gray-600">

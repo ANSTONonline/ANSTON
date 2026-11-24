@@ -1,3 +1,4 @@
+import Avatar from "./avatar";
 import Link from "next/link";
 import { AddToCartButton, FavoriteButton } from "./list-buttons";
 import type { Listing } from "@/lib/listings";
@@ -63,6 +64,12 @@ export default function ListingCard({ listing, t, sponsored = false }: { listing
         {listing.reviews > 0 && (
           <p className="text-sm text-gray-600 mb-1">
             ⭐ {listing.rating} ({listing.reviews} {t.featured.reviews})
+          </p>
+        )}
+        {listing.modes.includes("services") && listing.sellerUsername && (
+          <p className="flex items-center gap-2 text-sm text-gray-700 mb-1">
+            <Avatar path={listing.sellerAvatar} username={listing.sellerUsername} size={24} />
+            <span dir="ltr">@{listing.sellerUsername}</span>
           </p>
         )}
         {listing.location && <p className="text-sm text-gray-500 mb-3" dir="ltr">📍 {listing.location}</p>}

@@ -95,7 +95,9 @@
     "shipsOnly": "可邮寄给我",
     "localIn": "正在显示 {place} 的本地商品。",
     "pickCity": "在页面顶部选择你的城市，只看附近的商品和服务。",
-    "categories": "分类"
+    "categories": "分类",
+    "provider": "服务者",
+    "anyProvider": "不限"
   },
   "listing": {
     "back": "返回浏览",
@@ -341,7 +343,14 @@
     "rentalRemove": "删除",
     "rentalAdd": "添加可租日期",
     "rentalAddMore": "添加更多日期",
-    "priceAllInHint": "买家看到的价格已包含 Anston 服务费（50 美元以下 7%，500 美元以内 5%，以上 3%）。你会收到你定的价格。"
+    "priceAllInHint": "买家看到的价格已包含 Anston 服务费（50 美元以下 7%，500 美元以内 5%，以上 3%）。你会收到你定的价格。",
+    "providerGender": "你的性别（可选）",
+    "providerGenderHelp": "显示在你的服务上。寻找服务的人可以按服务者性别筛选。",
+    "addProfilePhoto": "添加头像",
+    "addProfilePhotoHelp": "让大家知道预约的是谁。",
+    "genderFemale": "女",
+    "genderMale": "男",
+    "genderPreferNot": "不愿透露"
   },
   "account": {
     "title": "我的账户",
@@ -733,5 +742,24 @@
     "item": "商品",
     "serviceFee": "服务费（{n}%）",
     "serviceFeePlain": "服务费"
+  },
+  "profile": {
+    "title": "头像和资料",
+    "intro": "你的头像会显示在个人主页、商品和服务上。",
+    "photo": "头像",
+    "photoHelp": "清晰的正脸照片能让别人更信任你，尤其是服务类。",
+    "addPhoto": "添加照片",
+    "changePhoto": "更换照片",
+    "removePhoto": "移除",
+    "uploading": "正在上传…",
+    "uploadFailed": "照片上传失败。请使用 2 MB 以下的 JPG 或 PNG。",
+    "gender": "性别",
+    "genderHelp": "可选。会显示在你的服务上，方便大家选择感到放心的服务者。",
+    "female": "女",
+    "male": "男",
+    "preferNot": "不愿透露",
+    "save": "保存",
+    "saved": "已保存！",
+    "error": "出错了，请重试。"
   }
 }

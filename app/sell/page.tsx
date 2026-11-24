@@ -25,6 +25,7 @@ export default async function SellPage() {
           userId={member.user.id}
           locale={locale}
           countryCodes={allCountryCodes()}
+          providerGender={member.profile?.gender ?? null}
         />
       ) : (
         <div className="border rounded-xl p-8 bg-gray-50 text-center">

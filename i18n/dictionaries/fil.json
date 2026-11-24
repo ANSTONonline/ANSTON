@@ -95,7 +95,9 @@
     "shipsOnly": "Ipadala sa akin",
     "localIn": "Ipinapakita ang mga lokal na listing sa {place}.",
     "pickCity": "Piliin ang lungsod mo sa itaas ng page para makita lang ang malapit sa iyo.",
-    "categories": "Mga kategorya"
+    "categories": "Mga kategorya",
+    "provider": "Provider",
+    "anyProvider": "Kahit sinong provider"
   },
   "listing": {
     "back": "Bumalik sa mga listing",
@@ -341,7 +343,14 @@
     "rentalRemove": "Alisin",
     "rentalAdd": "Magdagdag ng available na petsa",
     "rentalAddMore": "Magdagdag pa ng petsa",
-    "priceAllInHint": "Nakikita ng mga mamimili ang presyong ito na kasama na ang service fee ng Anston (7% sa ilalim ng $50, 5% hanggang $500, 3% kapag lampas). Matatanggap mo ang presyo mo."
+    "priceAllInHint": "Nakikita ng mga mamimili ang presyong ito na kasama na ang service fee ng Anston (7% sa ilalim ng $50, 5% hanggang $500, 3% kapag lampas). Matatanggap mo ang presyo mo.",
+    "providerGender": "Kasarian mo (opsyonal)",
+    "providerGenderHelp": "Ipinapakita sa mga serbisyo mo. Puwedeng piliin ng naghahanap ang kasarian ng provider.",
+    "addProfilePhoto": "Magdagdag ng profile photo",
+    "addProfilePhotoHelp": "para makita ng tao kung sino ang bini-book nila.",
+    "genderFemale": "Babae",
+    "genderMale": "Lalaki",
+    "genderPreferNot": "Ayaw kong sabihin"
   },
   "account": {
     "title": "Ang account mo",
@@ -733,5 +742,24 @@
     "item": "Item",
     "serviceFee": "Service fee ({n}%)",
     "serviceFeePlain": "Service fee"
+  },
+  "profile": {
+    "title": "Profile photo at detalye",
+    "intro": "Makikita ang photo mo sa profile, mga listing at serbisyo mo.",
+    "photo": "Profile photo",
+    "photoHelp": "Ang malinaw na photo ng mukha mo ay nagpapataas ng tiwala, lalo na sa mga serbisyo.",
+    "addPhoto": "Magdagdag ng photo",
+    "changePhoto": "Palitan ang photo",
+    "removePhoto": "Alisin",
+    "uploading": "Ina-upload…",
+    "uploadFailed": "Hindi ma-upload ang photo. Subukan ang JPG o PNG na mas mababa sa 2 MB.",
+    "gender": "Kasarian",
+    "genderHelp": "Opsyonal. Ipinapakita sa mga serbisyo mo para makapili ang tao ng provider na komportable sila.",
+    "female": "Babae",
+    "male": "Lalaki",
+    "preferNot": "Ayaw kong sabihin",
+    "save": "I-save",
+    "saved": "Na-save!",
+    "error": "May nangyaring mali. Subukan ulit."
   }
 }

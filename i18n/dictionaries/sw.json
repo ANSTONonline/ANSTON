@@ -95,7 +95,9 @@
     "shipsOnly": "Nitumiwe",
     "localIn": "Inaonyesha matangazo ya karibu {place}.",
     "pickCity": "Chagua mji wako juu ya ukurasa ili uone vilivyo karibu nawe tu.",
-    "categories": "Aina"
+    "categories": "Aina",
+    "provider": "Mtoa huduma",
+    "anyProvider": "Mtoa huduma yeyote"
   },
   "listing": {
     "back": "Rudi kwenye matangazo",
@@ -341,7 +343,14 @@
     "rentalRemove": "Ondoa",
     "rentalAdd": "Weka tarehe zinazopatikana",
     "rentalAddMore": "Weka tarehe zaidi",
-    "priceAllInHint": "Wanunuzi huona bei hii ikiwa na ada ya huduma ya Anston (7% chini ya $50, 5% hadi $500, 3% zaidi). Wewe unapokea bei yako."
+    "priceAllInHint": "Wanunuzi huona bei hii ikiwa na ada ya huduma ya Anston (7% chini ya $50, 5% hadi $500, 3% zaidi). Wewe unapokea bei yako.",
+    "providerGender": "Jinsia yako (si lazima)",
+    "providerGenderHelp": "Huonyeshwa kwenye huduma zako. Wanaotafuta huduma wanaweza kuchagua jinsia ya mtoa huduma.",
+    "addProfilePhoto": "Ongeza picha ya wasifu",
+    "addProfilePhotoHelp": "ili watu waone wanamweka nani.",
+    "genderFemale": "Mwanamke",
+    "genderMale": "Mwanamume",
+    "genderPreferNot": "Sipendi kusema"
   },
   "account": {
     "title": "Akaunti yako",
@@ -733,5 +742,24 @@
     "item": "Bidhaa",
     "serviceFee": "Ada ya huduma ({n}%)",
     "serviceFeePlain": "Ada ya huduma"
+  },
+  "profile": {
+    "title": "Picha ya wasifu na maelezo",
+    "intro": "Picha yako inaonekana kwenye wasifu, matangazo na huduma zako.",
+    "photo": "Picha ya wasifu",
+    "photoHelp": "Picha wazi ya uso wako huwafanya watu wakuamini, hasa kwa huduma.",
+    "addPhoto": "Ongeza picha",
+    "changePhoto": "Badilisha picha",
+    "removePhoto": "Ondoa",
+    "uploading": "Inapakia…",
+    "uploadFailed": "Picha haikuweza kupakiwa. Jaribu JPG au PNG chini ya MB 2.",
+    "gender": "Jinsia",
+    "genderHelp": "Si lazima. Huonyeshwa kwenye huduma zako ili watu wachague mtoa huduma wanayemwamini.",
+    "female": "Mwanamke",
+    "male": "Mwanamume",
+    "preferNot": "Sipendi kusema",
+    "save": "Hifadhi",
+    "saved": "Imehifadhiwa!",
+    "error": "Kuna hitilafu. Jaribu tena."
   }
 }

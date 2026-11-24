@@ -95,7 +95,9 @@
     "shipsOnly": "Bana kargolansın",
     "localIn": "{place} konumundaki yerel ilanlar gösteriliyor.",
     "pickCity": "Yalnızca yakınınızdakileri görmek için sayfanın üstünden şehrinizi seçin.",
-    "categories": "Kategoriler"
+    "categories": "Kategoriler",
+    "provider": "Hizmet veren",
+    "anyProvider": "Herhangi biri"
   },
   "listing": {
     "back": "İlanlara dön",
@@ -341,7 +343,14 @@
     "rentalRemove": "Kaldır",
     "rentalAdd": "Müsait tarih ekle",
     "rentalAddMore": "Daha fazla tarih ekle",
-    "priceAllInHint": "Alıcılar bu fiyatı Anston hizmet bedeli dahil görür (50 $ altı %7, 500 $'a kadar %5, üstü %3). Siz kendi fiyatınızı alırsınız."
+    "priceAllInHint": "Alıcılar bu fiyatı Anston hizmet bedeli dahil görür (50 $ altı %7, 500 $'a kadar %5, üstü %3). Siz kendi fiyatınızı alırsınız.",
+    "providerGender": "Cinsiyetiniz (isteğe bağlı)",
+    "providerGenderHelp": "Hizmetlerinizde gösterilir. Hizmet arayanlar hizmet verenin cinsiyetini seçebilir.",
+    "addProfilePhoto": "Profil fotoğrafı ekleyin",
+    "addProfilePhotoHelp": "böylece kimden randevu aldıkları görünür.",
+    "genderFemale": "Kadın",
+    "genderMale": "Erkek",
+    "genderPreferNot": "Belirtmek istemiyorum"
   },
   "account": {
     "title": "Hesabınız",
@@ -733,5 +742,24 @@
     "item": "Ürün",
     "serviceFee": "Hizmet bedeli (%{n})",
     "serviceFeePlain": "Hizmet bedeli"
+  },
+  "profile": {
+    "title": "Profil fotoğrafı ve bilgiler",
+    "intro": "Fotoğrafınız profilinizde, ilanlarınızda ve hizmetlerinizde görünür.",
+    "photo": "Profil fotoğrafı",
+    "photoHelp": "Yüzünüzün net bir fotoğrafı güven verir, özellikle hizmetlerde.",
+    "addPhoto": "Fotoğraf ekle",
+    "changePhoto": "Fotoğrafı değiştir",
+    "removePhoto": "Kaldır",
+    "uploading": "Yükleniyor…",
+    "uploadFailed": "Fotoğraf yüklenemedi. 2 MB'den küçük bir JPG veya PNG deneyin.",
+    "gender": "Cinsiyet",
+    "genderHelp": "İsteğe bağlı. Hizmetlerinizde gösterilir; böylece insanlar kendilerini rahat hissettikleri bir hizmet vereni seçebilir.",
+    "female": "Kadın",
+    "male": "Erkek",
+    "preferNot": "Belirtmek istemiyorum",
+    "save": "Kaydet",
+    "saved": "Kaydedildi!",
+    "error": "Bir şeyler ters gitti. Tekrar deneyin."
   }
 }

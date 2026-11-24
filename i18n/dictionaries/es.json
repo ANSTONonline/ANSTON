@@ -95,7 +95,9 @@
     "shipsOnly": "Con envío",
     "localIn": "Mostrando anuncios locales en {place}.",
     "pickCity": "Elige tu ciudad arriba para ver solo lo que está cerca de ti.",
-    "categories": "Categorías"
+    "categories": "Categorías",
+    "provider": "Proveedor",
+    "anyProvider": "Cualquier proveedor"
   },
   "listing": {
     "back": "Volver a explorar",
@@ -341,7 +343,14 @@
     "rentalRemove": "Quitar",
     "rentalAdd": "Agregar fechas disponibles",
     "rentalAddMore": "Agregar más fechas",
-    "priceAllInHint": "Los compradores ven este precio con la tarifa de servicio de Anston incluida (7% menos de $50, 5% hasta $500, 3% más). Tú recibes tu precio."
+    "priceAllInHint": "Los compradores ven este precio con la tarifa de servicio de Anston incluida (7% menos de $50, 5% hasta $500, 3% más). Tú recibes tu precio.",
+    "providerGender": "Tu género (opcional)",
+    "providerGenderHelp": "Se muestra en tus servicios. Quien busca un servicio puede elegir el género del proveedor.",
+    "addProfilePhoto": "Agrega una foto de perfil",
+    "addProfilePhotoHelp": "para que la gente vea a quién reserva.",
+    "genderFemale": "Mujer",
+    "genderMale": "Hombre",
+    "genderPreferNot": "Prefiero no decirlo"
   },
   "account": {
     "title": "Tu cuenta",
@@ -733,5 +742,24 @@
     "item": "Artículo",
     "serviceFee": "Tarifa de servicio ({n}%)",
     "serviceFeePlain": "Tarifa de servicio"
+  },
+  "profile": {
+    "title": "Foto de perfil y datos",
+    "intro": "Tu foto aparece en tu perfil, tus anuncios y tus servicios.",
+    "photo": "Foto de perfil",
+    "photoHelp": "Una foto clara de tu cara genera confianza, sobre todo en servicios.",
+    "addPhoto": "Agregar foto",
+    "changePhoto": "Cambiar foto",
+    "removePhoto": "Quitar",
+    "uploading": "Subiendo…",
+    "uploadFailed": "No se pudo subir la foto. Prueba un JPG o PNG de menos de 2 MB.",
+    "gender": "Género",
+    "genderHelp": "Opcional. Se muestra en tus servicios para que la gente elija a alguien con quien se sienta cómoda.",
+    "female": "Mujer",
+    "male": "Hombre",
+    "preferNot": "Prefiero no decirlo",
+    "save": "Guardar",
+    "saved": "¡Guardado!",
+    "error": "Algo salió mal. Inténtalo de nuevo."
   }
 }

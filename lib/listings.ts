@@ -56,6 +56,8 @@ export type Listing = {
   // Boost the seller pays when it sells, in basis points (500 = 5%).
   boostBps?: number;
   sellerUsername?: string;
+  sellerAvatar?: string;
+  sellerGender?: "female" | "male";
   status?: string;
   condition?: string;
   createdAt?: string;

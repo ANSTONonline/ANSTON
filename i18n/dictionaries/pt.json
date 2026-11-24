@@ -95,7 +95,9 @@
     "shipsOnly": "Envio para mim",
     "localIn": "Mostrando anúncios locais em {place}.",
     "pickCity": "Escolha sua cidade no topo da página para ver só o que está perto de você.",
-    "categories": "Categorias"
+    "categories": "Categorias",
+    "provider": "Prestador",
+    "anyProvider": "Qualquer prestador"
   },
   "listing": {
     "back": "Voltar aos anúncios",
@@ -341,7 +343,14 @@
     "rentalRemove": "Remover",
     "rentalAdd": "Adicionar datas disponíveis",
     "rentalAddMore": "Adicionar mais datas",
-    "priceAllInHint": "Os compradores veem este preço com a taxa de serviço da Anston incluída (7% abaixo de $50, 5% até $500, 3% acima). Você recebe o seu preço."
+    "priceAllInHint": "Os compradores veem este preço com a taxa de serviço da Anston incluída (7% abaixo de $50, 5% até $500, 3% acima). Você recebe o seu preço.",
+    "providerGender": "Seu gênero (opcional)",
+    "providerGenderHelp": "Aparece nos seus serviços. Quem procura um serviço pode escolher o gênero do prestador.",
+    "addProfilePhoto": "Adicione uma foto de perfil",
+    "addProfilePhotoHelp": "para as pessoas verem quem estão reservando.",
+    "genderFemale": "Feminino",
+    "genderMale": "Masculino",
+    "genderPreferNot": "Prefiro não dizer"
   },
   "account": {
     "title": "Sua conta",
@@ -733,5 +742,24 @@
     "item": "Item",
     "serviceFee": "Taxa de serviço ({n}%)",
     "serviceFeePlain": "Taxa de serviço"
+  },
+  "profile": {
+    "title": "Foto de perfil e dados",
+    "intro": "Sua foto aparece no seu perfil, anúncios e serviços.",
+    "photo": "Foto de perfil",
+    "photoHelp": "Uma foto nítida do seu rosto passa confiança, principalmente em serviços.",
+    "addPhoto": "Adicionar foto",
+    "changePhoto": "Trocar foto",
+    "removePhoto": "Remover",
+    "uploading": "Enviando…",
+    "uploadFailed": "Não foi possível enviar a foto. Tente um JPG ou PNG com menos de 2 MB.",
+    "gender": "Gênero",
+    "genderHelp": "Opcional. Aparece nos seus serviços para que as pessoas escolham um prestador com quem se sintam à vontade.",
+    "female": "Feminino",
+    "male": "Masculino",
+    "preferNot": "Prefiro não dizer",
+    "save": "Salvar",
+    "saved": "Salvo!",
+    "error": "Algo deu errado. Tente de novo."
   }
 }

@@ -95,7 +95,9 @@
     "shipsOnly": "Spedito a me",
     "localIn": "Annunci locali a {place}.",
     "pickCity": "Scegli la tua città in alto per vedere solo ciò che è vicino a te.",
-    "categories": "Categorie"
+    "categories": "Categorie",
+    "provider": "Professionista",
+    "anyProvider": "Qualsiasi professionista"
   },
   "listing": {
     "back": "Torna agli annunci",
@@ -341,7 +343,14 @@
     "rentalRemove": "Rimuovi",
     "rentalAdd": "Aggiungi date disponibili",
     "rentalAddMore": "Aggiungi altre date",
-    "priceAllInHint": "Gli acquirenti vedono questo prezzo con la commissione di servizio di Anston inclusa (7% sotto i 50 $, 5% fino a 500 $, 3% oltre). Tu ricevi il tuo prezzo."
+    "priceAllInHint": "Gli acquirenti vedono questo prezzo con la commissione di servizio di Anston inclusa (7% sotto i 50 $, 5% fino a 500 $, 3% oltre). Tu ricevi il tuo prezzo.",
+    "providerGender": "Il tuo genere (facoltativo)",
+    "providerGenderHelp": "Mostrato sui tuoi servizi. Chi cerca un servizio può scegliere il genere del professionista.",
+    "addProfilePhoto": "Aggiungi una foto profilo",
+    "addProfilePhotoHelp": "così si vede chi si prenota.",
+    "genderFemale": "Donna",
+    "genderMale": "Uomo",
+    "genderPreferNot": "Preferisco non dirlo"
   },
   "account": {
     "title": "Il tuo account",
@@ -733,5 +742,24 @@
     "item": "Articolo",
     "serviceFee": "Commissione di servizio ({n}%)",
     "serviceFeePlain": "Commissione di servizio"
+  },
+  "profile": {
+    "title": "Foto profilo e dati",
+    "intro": "La tua foto appare sul profilo, negli annunci e nei servizi.",
+    "photo": "Foto profilo",
+    "photoHelp": "Una foto chiara del viso ispira fiducia, soprattutto per i servizi.",
+    "addPhoto": "Aggiungi foto",
+    "changePhoto": "Cambia foto",
+    "removePhoto": "Rimuovi",
+    "uploading": "Caricamento…",
+    "uploadFailed": "Impossibile caricare la foto. Prova un JPG o PNG sotto i 2 MB.",
+    "gender": "Genere",
+    "genderHelp": "Facoltativo. Mostrato sui tuoi servizi così chi cerca può scegliere un professionista con cui si sente a suo agio.",
+    "female": "Donna",
+    "male": "Uomo",
+    "preferNot": "Preferisco non dirlo",
+    "save": "Salva",
+    "saved": "Salvato!",
+    "error": "Qualcosa è andato storto. Riprova."
   }
 }

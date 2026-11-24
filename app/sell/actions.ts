@@ -251,6 +251,13 @@ function typedValues(fd: FormData) {
   return values;
 }
 
+// Services: the provider can share their gender (or not); it's saved on their profile.
+async function saveProviderGender(supabase: Awaited<ReturnType<typeof requireMember>>["supabase"], userId: string, fd: FormData) {
+  if (!fd.has("provider_gender")) return;
+  const g = text(fd, "provider_gender");
+  await supabase.from("profiles").update({ gender: g === "female" || g === "male" ? g : null }).eq("id", userId);
+}
+
 export async function createListing(_prev: SellState, fd: FormData): Promise<SellState> {
   const { supabase, user, profile } = await requireMember();
   const values = typedValues(fd);
@@ -288,6 +295,7 @@ export async function createListing(_prev: SellState, fd: FormData): Promise<Sel
 
   revalidatePath("/");
   revalidatePath("/browse");
+  await saveProviderGender(supabase, user.id, fd);
   redirect(`/listing/${listing.id}?created=1`);
 }
 
@@ -367,6 +375,7 @@ export async function updateListing(listingId: string, _prev: SellState, fd: For
   revalidatePath("/account/selling");
   revalidatePath("/browse");
   revalidatePath("/");
+  await saveProviderGender(supabase, user.id, fd);
   redirect(`/listing/${listingId}?updated=1`);
 }
 
