@@ -520,7 +520,10 @@
     },
     "messageBuyer": "联系买家",
     "messageSeller": "联系卖家",
-    "messageWinner": "联系中标者"
+    "messageWinner": "联系中标者",
+    "readyToShip": "待发货",
+    "readyToShipHelp": "这些订单已付款。一键购买 USPS、UPS 或 FedEx 运单。",
+    "buyLabel": "📦 购买运单"
   },
   "orders": {
     "title": "购买记录和订单",

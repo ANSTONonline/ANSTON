@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Kirim pesan ke pembeli",
     "messageSeller": "Kirim pesan ke penjual",
-    "messageWinner": "Kirim pesan ke pemenang"
+    "messageWinner": "Kirim pesan ke pemenang",
+    "readyToShip": "Siap dikirim",
+    "readyToShipHelp": "Pesanan ini sudah dibayar. Beli label USPS, UPS, atau FedEx dengan sekali klik.",
+    "buyLabel": "📦 Beli label pengiriman"
   },
   "orders": {
     "title": "Riwayat pembelian dan pesanan",

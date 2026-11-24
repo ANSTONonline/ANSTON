@@ -520,7 +520,10 @@
     },
     "messageBuyer": "I-message ang mamimili",
     "messageSeller": "I-message ang nagbebenta",
-    "messageWinner": "I-message ang nanalo"
+    "messageWinner": "I-message ang nanalo",
+    "readyToShip": "Handa nang ipadala",
+    "readyToShipHelp": "Bayad na ang mga order na ito. Bumili ng USPS, UPS o FedEx label sa isang click.",
+    "buyLabel": "📦 Bumili ng shipping label"
   },
   "orders": {
     "title": "Kasaysayan ng pagbili at mga order",

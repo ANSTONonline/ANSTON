@@ -520,7 +520,10 @@
     },
     "messageBuyer": "購入者にメッセージ",
     "messageSeller": "出品者にメッセージ",
-    "messageWinner": "落札者にメッセージ"
+    "messageWinner": "落札者にメッセージ",
+    "readyToShip": "発送待ち",
+    "readyToShipHelp": "これらの注文は支払い済みです。ワンクリックで USPS・UPS・FedEx のラベルを購入できます。",
+    "buyLabel": "📦 配送ラベルを購入"
   },
   "orders": {
     "title": "購入履歴と注文",

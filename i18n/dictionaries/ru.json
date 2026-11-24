@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Написать покупателю",
     "messageSeller": "Написать продавцу",
-    "messageWinner": "Написать победителю"
+    "messageWinner": "Написать победителю",
+    "readyToShip": "Готово к отправке",
+    "readyToShipHelp": "Эти заказы оплачены. Купите этикетку USPS, UPS или FedEx в один клик.",
+    "buyLabel": "📦 Купить этикетку"
   },
   "orders": {
     "title": "История покупок и заказы",

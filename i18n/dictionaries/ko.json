@@ -520,7 +520,10 @@
     },
     "messageBuyer": "구매자에게 메시지",
     "messageSeller": "판매자에게 메시지",
-    "messageWinner": "낙찰자에게 메시지"
+    "messageWinner": "낙찰자에게 메시지",
+    "readyToShip": "배송 준비",
+    "readyToShipHelp": "결제된 주문입니다. 클릭 한 번으로 USPS, UPS, FedEx 라벨을 구매하세요.",
+    "buyLabel": "📦 배송 라벨 구매"
   },
   "orders": {
     "title": "구매 내역 및 주문",

@@ -520,7 +520,10 @@
     },
     "messageBuyer": "پیام به خریدار",
     "messageSeller": "پیام به فروشنده",
-    "messageWinner": "پیام به برنده"
+    "messageWinner": "پیام به برنده",
+    "readyToShip": "آماده ارسال",
+    "readyToShipHelp": "این سفارش‌ها پرداخت شده‌اند. با یک کلیک برچسب USPS، UPS یا FedEx بخرید.",
+    "buyLabel": "📦 خرید برچسب ارسال"
   },
   "orders": {
     "title": "سابقه خرید و سفارش‌ها",

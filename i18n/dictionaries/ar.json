@@ -520,7 +520,10 @@
     },
     "messageBuyer": "راسل المشتري",
     "messageSeller": "راسل البائع",
-    "messageWinner": "راسل الفائز"
+    "messageWinner": "راسل الفائز",
+    "readyToShip": "جاهز للشحن",
+    "readyToShipHelp": "هذه الطلبات مدفوعة. اشترِ ملصق USPS أو UPS أو FedEx بنقرة واحدة.",
+    "buyLabel": "📦 اشترِ ملصق الشحن"
   },
   "orders": {
     "title": "سجل المشتريات والطلبات",

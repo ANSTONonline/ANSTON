@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Alıcıya mesaj gönder",
     "messageSeller": "Satıcıya mesaj gönder",
-    "messageWinner": "Kazanana mesaj gönder"
+    "messageWinner": "Kazanana mesaj gönder",
+    "readyToShip": "Gönderime hazır",
+    "readyToShipHelp": "Bu siparişlerin ödemesi yapıldı. Tek tıkla USPS, UPS veya FedEx etiketi alın.",
+    "buyLabel": "📦 Kargo etiketi al"
   },
   "orders": {
     "title": "Satın alma geçmişi ve siparişler",

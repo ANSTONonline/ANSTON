@@ -89,6 +89,21 @@ export default async function SellingPage() {
     .limit(50);
   const offers = (offerData ?? []) as unknown as OfferRow[];
 
+  // Paid orders that still need shipping: one click to buy a label.
+  const { data: shipData } = await supabase
+    .from("orders")
+    .select("id, paid_at, total_cents, currency, listing:listings ( title ), buyer:profiles!orders_buyer_id_fkey ( username )")
+    .eq("seller_id", user.id)
+    .eq("status", "paid")
+    .not("ship_to", "is", null)
+    .is("tracking_number", null)
+    .order("paid_at", { ascending: true })
+    .limit(50);
+  const toShip = (shipData ?? []) as unknown as {
+    id: string; paid_at: string | null; total_cents: number; currency: string;
+    listing: { title: string } | null; buyer: { username: string } | null;
+  }[];
+
   const { data: requestData } = await supabase
     .from("reservations")
     .select("id, mode, period, status, notes, renter_id, listing:listings!inner ( id, title, seller_id ), renter:profiles!reservations_renter_id_fkey ( username )")
@@ -104,6 +119,28 @@ export default async function SellingPage() {
           💳 <span className="font-semibold">{t.payouts.bannerTitle}</span> {t.payouts.bannerText}
         </Link>
       )}
+      {toShip.length > 0 && (
+        <section className="border-2 border-[#7A1E2B]/30 rounded-xl p-4 space-y-3">
+          <div>
+            <h2 className="text-xl font-semibold">📦 {d.readyToShip} ({toShip.length})</h2>
+            <p className="text-sm text-gray-600">{d.readyToShipHelp}</p>
+          </div>
+          <ul className="divide-y">
+            {toShip.map((o) => (
+              <li key={o.id} className="py-3 flex flex-col sm:flex-row sm:items-center gap-2">
+                <div className="flex-1 min-w-0">
+                  <Link href={`/account/orders/${o.id}`} className="font-medium hover:underline break-words">{o.listing?.title ?? "—"}</Link>
+                  <p className="text-sm text-gray-500">@{o.buyer?.username ?? "—"} · <span dir="ltr">{formatPrice(o.total_cents, o.currency)}</span></p>
+                </div>
+                <Link href={`/account/orders/${o.id}#ship-label`} className="bg-[#7A1E2B] text-white rounded-lg px-4 py-2 text-sm font-medium text-center whitespace-nowrap">
+                  {d.buyLabel}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <div className="flex items-center justify-between gap-4">
         <h1 className="text-3xl font-bold">{d.sellingTitle}</h1>
         <Link href="/sell" className="bg-[#7A1E2B] text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">

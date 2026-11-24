@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Nhắn người mua",
     "messageSeller": "Nhắn người bán",
-    "messageWinner": "Nhắn người thắng"
+    "messageWinner": "Nhắn người thắng",
+    "readyToShip": "Sẵn sàng gửi",
+    "readyToShipHelp": "Các đơn này đã thanh toán. Mua nhãn USPS, UPS hoặc FedEx chỉ với một cú nhấp.",
+    "buyLabel": "📦 Mua nhãn vận chuyển"
   },
   "orders": {
     "title": "Lịch sử mua hàng và đơn hàng",

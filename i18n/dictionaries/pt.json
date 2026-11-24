@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Mensagem ao comprador",
     "messageSeller": "Mensagem ao vendedor",
-    "messageWinner": "Mensagem ao vencedor"
+    "messageWinner": "Mensagem ao vencedor",
+    "readyToShip": "Pronto para enviar",
+    "readyToShipHelp": "Estes pedidos estão pagos. Compre uma etiqueta USPS, UPS ou FedEx com um clique.",
+    "buyLabel": "📦 Comprar etiqueta de envio"
   },
   "orders": {
     "title": "Histórico de compras e pedidos",

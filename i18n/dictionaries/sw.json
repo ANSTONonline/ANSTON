@@ -520,7 +520,10 @@
     },
     "messageBuyer": "Mtumie mnunuzi ujumbe",
     "messageSeller": "Mtumie muuzaji ujumbe",
-    "messageWinner": "Mtumie mshindi ujumbe"
+    "messageWinner": "Mtumie mshindi ujumbe",
+    "readyToShip": "Tayari kutumwa",
+    "readyToShipHelp": "Maagizo haya yamelipiwa. Nunua lebo ya USPS, UPS au FedEx kwa mbofyo mmoja.",
+    "buyLabel": "📦 Nunua lebo ya usafirishaji"
   },
   "orders": {
     "title": "Historia ya ununuzi na oda",
