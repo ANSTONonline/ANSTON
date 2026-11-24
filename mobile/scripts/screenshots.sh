@@ -34,6 +34,19 @@ for path in browse how-it-works pricing sell account faq; do
   n=$((n + 1))
 done
 
+# Debug: what the web view sends, and whether the site hides Google sign-in for it.
+sock=$(adb shell cat /proc/net/unix | grep -ao 'webview_devtools_remote_[0-9]*' | head -1)
+if [ -n "$sock" ]; then
+  adb forward tcp:9222 "localabstract:$sock"
+  echo "webview UA: $(node mobile/scripts/webview-eval.mjs 'navigator.userAgent')"
+  echo "page URL: $(node mobile/scripts/webview-eval.mjs 'location.href')"
+  echo "google button on page: $(node mobile/scripts/webview-eval.mjs 'document.body.innerHTML.includes("0 0 48 48")')"
+  echo "google button on fresh fetch: $(node mobile/scripts/webview-eval.mjs 'fetch("/account",{cache:"no-store"}).then(r=>r.text()).then(t=>t.includes("0 0 48 48"))')"
+  echo "response headers: $(node mobile/scripts/webview-eval.mjs 'fetch("/account",{cache:"no-store"}).then(r=>JSON.stringify([...r.headers]))')"
+else
+  echo "no web view debug socket"
+fi
+
 # Scroll the home page for one more shot.
 adb shell am start -W -n "$APP/.MainActivity" -a android.intent.action.VIEW -d "https://myanston.com/"
 sleep 12
