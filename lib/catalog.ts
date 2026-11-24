@@ -2,6 +2,7 @@
 // shape the pages use. Without a database (local development), it falls back
 // to the sample listings in lib/listings.ts.
 
+import { allInCents } from "@/lib/fees";
 import type { PlaceFilter } from "@/lib/location-filter";
 import { readAvailability } from "@/lib/availability";
 import { cache } from "react";
@@ -172,7 +173,8 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
   let priceCents = 0;
   let priceUnit: Listing["priceUnit"];
   const first = modes[0];
-  if (first?.mode === "sale") priceCents = first.price_cents ?? 0;
+  // Fixed prices are shown with Anston's service fee included (all-in pricing).
+  if (first?.mode === "sale") priceCents = allInCents(first.price_cents ?? 0);
   else if (first?.mode === "auction") priceCents = highestBid ?? first.start_price_cents ?? 0;
   else if (first?.mode === "rental") {
     priceCents = first.rate_cents ?? 0;
@@ -212,7 +214,9 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
     attributes: row.attributes,
     refundPolicy: row.refund_policy,
     refundDays: row.refund_days,
-    sale: sale ? { priceCents: sale.price_cents ?? 0, acceptsOffers: sale.accepts_offers, quantity: row.quantity } : undefined,
+    sale: sale
+      ? { priceCents: sale.price_cents ?? 0, buyerCents: allInCents(sale.price_cents ?? 0), acceptsOffers: sale.accepts_offers, quantity: row.quantity }
+      : undefined,
     auction: auction
       ? {
           startCents: auction.start_price_cents ?? 0,

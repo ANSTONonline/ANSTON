@@ -167,7 +167,7 @@ export default async function SellingPage() {
                   <div className="min-w-0">
                     <Link href={`/listing/${l.id}`} className="font-semibold hover:text-[#7A1E2B] block truncate">{l.title}</Link>
                     <p className="text-sm text-gray-600">
-                      <span dir="ltr">{priceLabel(l, t)}</span> ·{" "}
+                      <span dir="ltr">{l.sale ? formatPrice(l.sale.priceCents, l.currency) : priceLabel(l, t)}</span> ·{" "}
                       <span className={l.status === "active" ? "text-green-700" : "text-gray-500"}>
                         {t.listing.statuses[l.status as keyof typeof t.listing.statuses] ?? l.status}
                       </span>

@@ -10,7 +10,7 @@ import { createClient } from "@/lib/supabase/server";
 import { deleteListing, setListingStatus } from "../actions";
 import { setListingSuspended } from "../../admin/actions";
 import { startCheckout } from "../../checkout/actions";
-import { buyerFeeBps, buyerFeeCents } from "@/lib/fees";
+import { allInCents } from "@/lib/fees";
 import { WEEKDAYS, todayIn, type Availability } from "@/lib/availability";
 import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, RentalCalendar, ReportForm, ReserveForm } from "./listing-actions";
 
@@ -190,7 +190,7 @@ export default async function ListingPage({
             {listing.sale && (
               <div className="flex items-baseline gap-2">
                 <dt className="text-sm text-gray-500">{t.featured.buyNow}</dt>
-                <dd className="text-3xl font-bold" dir="ltr">{money(listing.sale.priceCents)}</dd>
+                <dd className="text-3xl font-bold" dir="ltr">{money(listing.sale.buyerCents)}</dd>
               </div>
             )}
             {listing.auction && (
@@ -261,23 +261,19 @@ export default async function ListingPage({
                 <div className="border rounded-xl p-4 space-y-3">
                   {acceptedOfferId && <p className="text-sm text-green-700 font-medium">✅ {t.checkout.offerAccepted}</p>}
                   {(() => {
-                    const itemCents = acceptedOfferCents ?? listing.sale!.priceCents;
-                    const fee = buyerFeeCents(itemCents);
+                    // One all-in price (Anston's fee included), plus shipping.
+                    const itemCents = allInCents(acceptedOfferCents ?? listing.sale!.priceCents);
                     const ship = listing.ships ? listing.shippingCents ?? 0 : 0;
                     return (
                       <dl className="text-sm space-y-1">
                         <div className="flex justify-between"><dt className="text-gray-600">{t.checkout.item}</dt><dd>{money(itemCents)}</dd></div>
-                        <div className="flex justify-between">
-                          <dt className="text-gray-600">{t.checkout.serviceFee.replace("{n}", String(buyerFeeBps(itemCents) / 100))}</dt>
-                          <dd>{money(fee)}</dd>
-                        </div>
                         {listing.ships && (
                           <div className="flex justify-between">
                             <dt className="text-gray-600">🚚 {ship ? t.orders.shipping : t.checkout.freeShipping}</dt>
                             <dd>{ship ? money(ship) : ""}</dd>
                           </div>
                         )}
-                        <div className="flex justify-between font-semibold border-t pt-1"><dt>{t.orders.total}</dt><dd>{money(itemCents + fee + ship)}</dd></div>
+                        <div className="flex justify-between font-semibold border-t pt-1"><dt>{t.orders.total}</dt><dd>{money(itemCents + ship)}</dd></div>
                       </dl>
                     );
                   })()}
@@ -308,7 +304,7 @@ export default async function ListingPage({
                 text={t.listing}
               />
             )}
-            {canAct && listing.sale?.acceptsOffers && <OfferForm listingId={listing.id} text={t.listing} />}
+            {canAct && listing.sale?.acceptsOffers && <OfferForm listingId={listing.id} text={t.listing} currency={listing.currency} locale={locale} />}
             {canAct && listing.rental && calendarRental && (
               <RentalCalendar
                 listingId={listing.id}

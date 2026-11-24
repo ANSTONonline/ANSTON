@@ -197,7 +197,8 @@
     "calStart": "Start",
     "calEnd": "End",
     "calTaken": "Some of those dates are already booked. Pick different dates.",
-    "calClear": "Clear dates"
+    "calClear": "Clear dates",
+    "offerYouPay": "If accepted, you'll pay {amount} (plus any shipping)."
   },
   "cart": {
     "title": "Your cart",
@@ -331,7 +332,8 @@
     "rentalTo": "To (last night)",
     "rentalRemove": "Remove",
     "rentalAdd": "Add available dates",
-    "rentalAddMore": "Add more dates"
+    "rentalAddMore": "Add more dates",
+    "priceAllInHint": "Buyers see this price with Anston's service fee included (7% under $50, 5% up to $500, 3% above). You receive your price."
   },
   "account": {
     "title": "Your account",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Pricing",
       "body": [
-        "Listing on Anston is free, and Anston charges sellers no selling fee. Sellers receive the price plus shipping, minus the card processing fee on their share. Buyers pay a service fee when they pay online: 7% on items under $50, 5% from $50 to $500, and 3% over $500, always shown before paying.",
+        "Listing on Anston is free, and Anston charges sellers no selling fee. Sellers receive their price plus shipping, minus the card processing fee on their share. Prices buyers see already include Anston's service fee (7% of the seller's price under $50, 5% from $50 to $500, 3% above), so the price you see is the price you pay for the item.",
         "Boosting is optional. Choose a percentage when you list, and your listing shows first in Featured Listings. You pay that percentage of the final price only if it sells or is booked through Anston checkout.",
         "Any new fees will be shown clearly before you list."
       ]

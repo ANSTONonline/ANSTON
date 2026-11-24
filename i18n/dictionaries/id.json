@@ -197,7 +197,8 @@
     "calStart": "Mulai",
     "calEnd": "Selesai",
     "calTaken": "Sebagian tanggal itu sudah dipesan. Pilih tanggal lain.",
-    "calClear": "Hapus tanggal"
+    "calClear": "Hapus tanggal",
+    "offerYouPay": "Jika diterima, Anda membayar {amount} (ditambah ongkir, jika ada)."
   },
   "cart": {
     "title": "Keranjang Anda",
@@ -331,7 +332,8 @@
     "rentalTo": "Sampai (malam terakhir)",
     "rentalRemove": "Hapus",
     "rentalAdd": "Tambah tanggal tersedia",
-    "rentalAddMore": "Tambah tanggal lain"
+    "rentalAddMore": "Tambah tanggal lain",
+    "priceAllInHint": "Pembeli melihat harga ini sudah termasuk biaya layanan Anston (7% di bawah $50, 5% sampai $500, 3% di atasnya). Anda menerima harga Anda."
   },
   "account": {
     "title": "Akun Anda",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Biaya",
       "body": [
-        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan dari penjual. Penjual menerima harga ditambah ongkir, dikurangi biaya kartu atas bagian mereka. Pembeli membayar biaya layanan saat membayar online: 7% untuk barang di bawah $50, 5% untuk $50 sampai $500, dan 3% di atas $500, selalu ditampilkan sebelum membayar.",
+        "Memasang iklan di Anston gratis, dan Anston tidak memungut biaya penjualan dari penjual. Penjual menerima harga mereka ditambah ongkir, dikurangi biaya kartu atas bagian mereka. Harga yang dilihat pembeli sudah termasuk biaya layanan Anston (7% dari harga penjual di bawah $50, 5% untuk $50 sampai $500, 3% di atasnya), jadi harga yang Anda lihat adalah yang Anda bayar.",
         "Promosi bersifat opsional. Pilih persentase saat memasang iklan, dan iklan Anda tampil paling atas di Iklan Unggulan. Anda hanya membayar persentase dari harga akhir itu jika terjual atau dipesan melalui checkout Anston.",
         "Biaya baru apa pun akan ditampilkan dengan jelas sebelum Anda memasang iklan."
       ]

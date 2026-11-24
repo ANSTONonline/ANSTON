@@ -197,7 +197,8 @@
     "calStart": "Bắt đầu",
     "calEnd": "Kết thúc",
     "calTaken": "Một số ngày đó đã có người đặt. Hãy chọn ngày khác.",
-    "calClear": "Xóa ngày"
+    "calClear": "Xóa ngày",
+    "offerYouPay": "Nếu được chấp nhận, bạn sẽ trả {amount} (cộng phí vận chuyển nếu có)."
   },
   "cart": {
     "title": "Giỏ hàng của bạn",
@@ -331,7 +332,8 @@
     "rentalTo": "Đến (đêm cuối)",
     "rentalRemove": "Xóa",
     "rentalAdd": "Thêm ngày còn trống",
-    "rentalAddMore": "Thêm ngày khác"
+    "rentalAddMore": "Thêm ngày khác",
+    "priceAllInHint": "Người mua thấy giá này đã gồm phí dịch vụ Anston (7% dưới $50, 5% đến $500, 3% trên đó). Bạn nhận đúng giá của mình."
   },
   "account": {
     "title": "Tài khoản của bạn",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Phí",
       "body": [
-        "Đăng tin trên Anston là miễn phí và Anston không thu phí bán hàng của người bán. Người bán nhận giá cộng phí vận chuyển, trừ phí thẻ trên phần của họ. Người mua trả phí dịch vụ khi thanh toán trực tuyến: 7% với món dưới $50, 5% từ $50 đến $500 và 3% trên $500, luôn hiển thị trước khi thanh toán.",
+        "Đăng tin trên Anston là miễn phí và Anston không thu phí bán hàng của người bán. Người bán nhận giá của mình cộng phí vận chuyển, trừ phí thẻ trên phần của họ. Giá người mua thấy đã gồm phí dịch vụ Anston (7% giá người bán dưới $50, 5% từ $50 đến $500, 3% trên đó), nên giá bạn thấy là giá bạn trả.",
         "Đẩy tin là tùy chọn. Chọn một tỷ lệ khi đăng và tin của bạn sẽ hiện đầu tiên trong Tin nổi bật. Bạn chỉ trả tỷ lệ đó của giá cuối cùng nếu món hàng được bán hoặc đặt qua thanh toán Anston.",
         "Mọi khoản phí mới sẽ được hiển thị rõ ràng trước khi bạn đăng tin."
       ]

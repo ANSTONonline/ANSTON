@@ -197,7 +197,8 @@
     "calStart": "Başlangıç",
     "calEnd": "Bitiş",
     "calTaken": "Bu tarihlerin bazıları zaten dolu. Başka tarihler seçin.",
-    "calClear": "Tarihleri temizle"
+    "calClear": "Tarihleri temizle",
+    "offerYouPay": "Kabul edilirse {amount} ödersiniz (varsa kargo hariç)."
   },
   "cart": {
     "title": "Sepetiniz",
@@ -331,7 +332,8 @@
     "rentalTo": "Bitiş (son gece)",
     "rentalRemove": "Kaldır",
     "rentalAdd": "Müsait tarih ekle",
-    "rentalAddMore": "Daha fazla tarih ekle"
+    "rentalAddMore": "Daha fazla tarih ekle",
+    "priceAllInHint": "Alıcılar bu fiyatı Anston hizmet bedeli dahil görür (50 $ altı %7, 500 $'a kadar %5, üstü %3). Siz kendi fiyatınızı alırsınız."
   },
   "account": {
     "title": "Hesabınız",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Ücretler",
       "body": [
-        "Anston'da ilan vermek ücretsizdir ve Anston satıcılardan satış ücreti almaz. Satıcılar fiyat artı kargoyu, kendi paylarındaki kart ücreti düşülerek alır. Alıcılar çevrimiçi ödemede hizmet bedeli öder: 50 $ altındaki ürünlerde %7, 50 $ ile 500 $ arasında %5 ve 500 $ üzerinde %3; ödemeden önce her zaman gösterilir.",
+        "Anston'da ilan vermek ücretsizdir ve Anston satıcılardan satış ücreti almaz. Satıcılar fiyatlarını artı kargoyu, kendi paylarındaki kart ücreti düşülerek alır. Alıcıların gördüğü fiyatlar Anston hizmet bedelini zaten içerir (satıcı fiyatının 50 $ altında %7, 50–500 $ arası %5, üstünde %3); gördüğünüz fiyat ödediğiniz fiyattır.",
         "Öne çıkarma isteğe bağlıdır. İlan verirken bir oran seçin, ilanınız Öne Çıkan İlanlar'da en üstte görünsün. Son fiyatın bu oranını yalnızca ürün Anston ödemesiyle satılırsa veya rezerve edilirse ödersiniz.",
         "Yeni ücretler, ilan vermeden önce açıkça gösterilecektir."
       ]

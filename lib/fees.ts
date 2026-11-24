@@ -6,6 +6,12 @@ export function buyerFeeBps(priceCents: number) {
   return 300;
 }
 
+// What a buyer pays for an item priced by the seller at priceCents: the price
+// with Anston's service fee included. This is the price buyers see everywhere.
+export function allInCents(priceCents: number) {
+  return priceCents + buyerFeeCents(priceCents);
+}
+
 export function buyerFeeCents(priceCents: number) {
   return Math.round((priceCents * buyerFeeBps(priceCents)) / 10000);
 }

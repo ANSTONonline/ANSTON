@@ -65,7 +65,8 @@ export type Listing = {
   attributes?: Record<string, unknown>;
   refundPolicy?: "refundable" | "non_refundable" | null;
   refundDays?: number | null;
-  sale?: { priceCents: number; acceptsOffers: boolean; quantity: number };
+  // priceCents: the seller's price. buyerCents: what buyers see and pay (Anston's fee included).
+  sale?: { priceCents: number; buyerCents: number; acceptsOffers: boolean; quantity: number };
   auction?: {
     startCents: number;
     highestCents: number | null;

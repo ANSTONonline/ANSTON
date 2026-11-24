@@ -545,7 +545,10 @@ export default function ListingForm({
               "sale",
               text.sale,
               <>
-                {money("sale_price", text.price)}
+                <div>
+                  {money("sale_price", text.price)}
+                  <p className="text-xs text-gray-500 mt-1">{text.priceAllInHint}</p>
+                </div>
                 <div>
                   <label className={label} htmlFor="quantity">{text.quantity}</label>
                   <input id="quantity" name="quantity" type="number" min="1" max="10000" defaultValue={v.quantity ?? "1"} className={input} dir="ltr" />

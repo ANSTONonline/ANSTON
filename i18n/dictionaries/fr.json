@@ -197,7 +197,8 @@
     "calStart": "Début",
     "calEnd": "Fin",
     "calTaken": "Certaines de ces dates sont déjà réservées. Choisissez d'autres dates.",
-    "calClear": "Effacer les dates"
+    "calClear": "Effacer les dates",
+    "offerYouPay": "Si elle est acceptée, vous paierez {amount} (plus la livraison, le cas échéant)."
   },
   "cart": {
     "title": "Votre panier",
@@ -331,7 +332,8 @@
     "rentalTo": "Au (dernière nuit)",
     "rentalRemove": "Retirer",
     "rentalAdd": "Ajouter des dates disponibles",
-    "rentalAddMore": "Ajouter d'autres dates"
+    "rentalAddMore": "Ajouter d'autres dates",
+    "priceAllInHint": "Les acheteurs voient ce prix frais de service Anston inclus (7 % sous 50 $, 5 % jusqu'à 500 $, 3 % au-delà). Vous recevez votre prix."
   },
   "account": {
     "title": "Votre compte",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Tarifs",
       "body": [
-        "Publier sur Anston est gratuit et Anston ne prend aucune commission aux vendeurs. Les vendeurs reçoivent le prix plus la livraison, moins les frais de carte sur leur part. Les acheteurs paient des frais de service lors d'un paiement en ligne : 7 % sous 50 $, 5 % de 50 $ à 500 $ et 3 % au-delà de 500 $, toujours affichés avant le paiement.",
+        "Publier sur Anston est gratuit et Anston ne prend aucune commission aux vendeurs. Les vendeurs reçoivent leur prix plus la livraison, moins les frais de carte sur leur part. Les prix affichés aux acheteurs incluent déjà les frais de service d'Anston (7 % du prix du vendeur sous 50 $, 5 % de 50 $ à 500 $, 3 % au-delà) : le prix affiché est celui que vous payez pour l'article.",
         "La mise en avant est facultative. Choisissez un pourcentage lors de la publication et votre annonce apparaîtra en premier dans les Annonces à la une. Vous ne payez ce pourcentage du prix final que si l'article est vendu ou réservé via le paiement Anston.",
         "Tout nouveau frais sera clairement indiqué avant que vous publiiez."
       ]

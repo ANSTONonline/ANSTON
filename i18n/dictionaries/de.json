@@ -197,7 +197,8 @@
     "calStart": "Beginn",
     "calEnd": "Ende",
     "calTaken": "Einige dieser Tage sind schon belegt. Wähle andere Daten.",
-    "calClear": "Daten löschen"
+    "calClear": "Daten löschen",
+    "offerYouPay": "Wenn es angenommen wird, zahlst du {amount} (zzgl. Versand, falls vorhanden)."
   },
   "cart": {
     "title": "Dein Warenkorb",
@@ -331,7 +332,8 @@
     "rentalTo": "Bis (letzte Nacht)",
     "rentalRemove": "Entfernen",
     "rentalAdd": "Verfügbare Daten hinzufügen",
-    "rentalAddMore": "Weitere Daten hinzufügen"
+    "rentalAddMore": "Weitere Daten hinzufügen",
+    "priceAllInHint": "Käufer sehen diesen Preis inklusive Anston-Servicegebühr (7 % unter 50 $, 5 % bis 500 $, 3 % darüber). Du erhältst deinen Preis."
   },
   "account": {
     "title": "Dein Konto",
@@ -438,7 +440,7 @@
     "pricing": {
       "title": "Preise",
       "body": [
-        "Inserieren auf Anston ist kostenlos, und Anston verlangt von Verkäufern keine Verkaufsgebühr. Verkäufer erhalten den Preis plus Versand, abzüglich der Kartengebühr auf ihren Anteil. Käufer zahlen bei Online-Zahlung eine Servicegebühr: 7 % bei Artikeln unter 50 $, 5 % von 50 $ bis 500 $ und 3 % über 500 $ – immer vor dem Bezahlen angezeigt.",
+        "Inserieren auf Anston ist kostenlos, und Anston verlangt von Verkäufern keine Verkaufsgebühr. Verkäufer erhalten ihren Preis plus Versand, abzüglich der Kartengebühr auf ihren Anteil. Die Preise, die Käufer sehen, enthalten bereits die Anston-Servicegebühr (7 % des Verkäuferpreises unter 50 $, 5 % von 50 $ bis 500 $, 3 % darüber) – du zahlst also den Preis, den du siehst.",
         "Hervorheben ist optional. Wähle beim Einstellen einen Prozentsatz, und deine Anzeige erscheint zuerst unter Empfohlene Anzeigen. Du zahlst diesen Prozentsatz vom Endpreis nur, wenn der Artikel über den Anston-Checkout verkauft oder gebucht wird.",
         "Neue Gebühren zeigen wir dir immer deutlich, bevor du etwas einstellst."
       ]

@@ -1,5 +1,6 @@
 "use client";
 
+import { allInCents } from "@/lib/fees";
 import { useActionState, useEffect, useState } from "react";
 import type { Dictionary } from "@/i18n/server";
 import {
@@ -105,8 +106,12 @@ export function BidForm({
   );
 }
 
-export function OfferForm({ listingId, text }: { listingId: string; text: Text }) {
+export function OfferForm({ listingId, text, currency = "USD", locale = "en" }: { listingId: string; text: Text; currency?: string; locale?: string }) {
   const [open, setOpen] = useState(false);
+  const [amount, setAmount] = useState("");
+  // What the buyer pays if accepted: the offer with Anston's fee included.
+  const offerCents = Math.round(Number(amount) * 100);
+  const payCents = Number.isFinite(offerCents) && offerCents > 0 ? allInCents(offerCents) : 0;
   const [state, action, pending] = useActionState(makeOffer.bind(null, listingId), {});
   if (!open) {
     return (
@@ -119,7 +124,12 @@ export function OfferForm({ listingId, text }: { listingId: string; text: Text }
     <form action={action} className={box}>
       <p className="font-medium">{text.offerTitle}</p>
       <label className="block text-sm" htmlFor="offer-amount">{text.offerAmount}</label>
-      <input id="offer-amount" name="amount" type="number" min="0.01" step="0.01" required className={input} dir="ltr" />
+      <input id="offer-amount" name="amount" type="number" min="0.01" step="0.01" required className={input} dir="ltr" value={amount} onChange={(e) => setAmount(e.target.value)} />
+      {payCents > 0 && (
+        <p className="text-xs text-gray-600">
+          {text.offerYouPay.replace("{amount}", new Intl.NumberFormat(locale, { style: "currency", currency }).format(payCents / 100))}
+        </p>
+      )}
       <label className="block text-sm" htmlFor="offer-message">{text.offerMessage}</label>
       <textarea id="offer-message" name="message" rows={2} maxLength={1000} className={input} />
       <Feedback state={state} text={text} success={text.offerSent} />

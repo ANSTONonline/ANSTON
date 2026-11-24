@@ -274,8 +274,9 @@ export default async function OrderPage({ params, searchParams }: { params: Para
           {o.seller}: <span dir="ltr">@{order.seller?.username ?? "—"}</span> · {o.buyer}: <span dir="ltr">@{order.buyer?.username ?? "—"}</span>
         </p>
         <dl className="text-sm border-t pt-3 space-y-1">
-          <div className="flex justify-between"><dt>{o.subtotal}</dt><dd>{money(order.subtotal_cents)}</dd></div>
-          {order.service_fee_cents > 0 && <div className="flex justify-between"><dt>{t.checkout.serviceFeePlain}</dt><dd>{money(order.service_fee_cents)}</dd></div>}
+          {/* Buyers see the all-in price; sellers see their price and Anston's fee. */}
+          <div className="flex justify-between"><dt>{o.subtotal}</dt><dd>{money(isSeller ? order.subtotal_cents : order.subtotal_cents + order.service_fee_cents)}</dd></div>
+          {isSeller && order.service_fee_cents > 0 && <div className="flex justify-between"><dt>{t.checkout.serviceFeePlain}</dt><dd>{money(order.service_fee_cents)}</dd></div>}
           {order.shipping_cents > 0 && <div className="flex justify-between"><dt>{o.shipping}</dt><dd>{money(order.shipping_cents)}</dd></div>}
           {order.tax_cents > 0 && <div className="flex justify-between"><dt>{o.tax}</dt><dd>{money(order.tax_cents)}</dd></div>}
           <div className="flex justify-between font-semibold border-t pt-2"><dt>{o.total}</dt><dd>{money(order.total_cents)}</dd></div>
