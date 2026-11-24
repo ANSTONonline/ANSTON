@@ -1,6 +1,6 @@
 import type { CapacitorConfig } from "@capacitor/cli";
 
-// The Anston app loads the live site (myanston.com) inside a native shell,
+// The Anston app loads the live site (www.myanston.com) inside a native shell,
 // so every update you deploy to Vercel shows up in the app right away —
 // no new App Store / Google Play release needed for website changes.
 const config: CapacitorConfig = {
@@ -9,7 +9,8 @@ const config: CapacitorConfig = {
   // Shown only if myanston.com can't be reached (no internet).
   webDir: "www",
   server: {
-    url: "https://myanston.com",
+    // www is the main address (myanston.com redirects to it).
+    url: "https://www.myanston.com",
     errorPath: "index.html",
     // Pages that stay inside the app. Any other site (Instagram, tracking
     // links, etc.) opens in the phone's browser instead.

@@ -3,10 +3,9 @@
 <plist version="1.0">
 <dict>
 	<!-- Open myanston.com links in the app.
-	     Verified by https://myanston.com/.well-known/apple-app-site-association -->
+	     Verified by https://www.myanston.com/.well-known/apple-app-site-association (myanston.com redirects to www, and Apple does not follow redirects) -->
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:myanston.com</string>
 		<string>applinks:www.myanston.com</string>
 	</array>
 </dict>

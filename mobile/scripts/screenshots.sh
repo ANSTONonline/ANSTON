@@ -25,30 +25,28 @@ adb shell am start -W -n "$APP/.MainActivity"
 sleep 30
 shot 01-home
 
+# Debug access to the app's web view (debug builds only), for checks below.
+sock=$(adb shell cat /proc/net/unix | grep -ao 'webview_devtools_remote_[0-9]*' | head -1)
+[ -n "$sock" ] && adb forward tcp:9222 "localabstract:$sock" >/dev/null
+js() { [ -n "$sock" ] && node mobile/scripts/webview-eval.mjs "$1" || echo "n/a"; }
+echo "CHECK app user agent ends with AnstonApp: $(js 'navigator.userAgent.endsWith("AnstonApp")')"
+
 # Open other pages the same way a tapped myanston.com link would.
 n=2
 for path in browse how-it-works pricing sell account faq; do
-  adb shell am start -W -n "$APP/.MainActivity" -a android.intent.action.VIEW -d "https://myanston.com/$path"
+  adb shell am start -W -n "$APP/.MainActivity" -a android.intent.action.VIEW -d "https://www.myanston.com/$path"
   sleep 15
   shot "$(printf '%02d' $n)-$path"
+  echo "CHECK $path opened: $(js 'location.pathname')"
+  if [ "$path" = account ]; then
+    echo "CHECK Google sign-in hidden in app: $(js '!document.body.innerHTML.includes("0 0 48 48")')"
+    echo "CHECK service worker off in app: $(js '!navigator.serviceWorker.controller')"
+  fi
   n=$((n + 1))
 done
 
-# Debug: what the web view sends, and whether the site hides Google sign-in for it.
-sock=$(adb shell cat /proc/net/unix | grep -ao 'webview_devtools_remote_[0-9]*' | head -1)
-if [ -n "$sock" ]; then
-  adb forward tcp:9222 "localabstract:$sock"
-  echo "webview UA: $(node mobile/scripts/webview-eval.mjs 'navigator.userAgent')"
-  echo "page URL: $(node mobile/scripts/webview-eval.mjs 'location.href')"
-  echo "google button on page: $(node mobile/scripts/webview-eval.mjs 'document.body.innerHTML.includes("0 0 48 48")')"
-  echo "google button on fresh fetch: $(node mobile/scripts/webview-eval.mjs 'fetch("/account",{cache:"no-store"}).then(r=>r.text()).then(t=>t.includes("0 0 48 48"))')"
-  echo "response headers: $(node mobile/scripts/webview-eval.mjs 'fetch("/account",{cache:"no-store"}).then(r=>JSON.stringify([...r.headers]))')"
-else
-  echo "no web view debug socket"
-fi
-
 # Scroll the home page for one more shot.
-adb shell am start -W -n "$APP/.MainActivity" -a android.intent.action.VIEW -d "https://myanston.com/"
+adb shell am start -W -n "$APP/.MainActivity" -a android.intent.action.VIEW -d "https://www.myanston.com/"
 sleep 12
 adb shell input swipe 540 1500 540 500 400
 sleep 3
