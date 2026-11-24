@@ -875,5 +875,25 @@
     "legalNameShown": "Legal name",
     "listingsTitle": "Listings",
     "noListings": "No listings yet."
+  },
+  "deleteAccount": {
+    "title": "Delete account",
+    "intro": "This permanently deletes your Anston account. You can't undo it.",
+    "point1": "Your profile, photos, listings, messages, favorites and saved addresses are deleted.",
+    "point2": "Past orders stay in the other member's history, but your name and details are removed.",
+    "point3": "You'll be signed out and can't log in to this account again.",
+    "blockers": "You can't delete your account while you have orders in progress, or while Anston is holding money from your sales for you.",
+    "confirmLabel": "To confirm, type DELETE",
+    "button": "Delete my account",
+    "deleting": "Deleting…",
+    "errorConfirm": "Type DELETE to confirm.",
+    "errorOpenOrders": "You have orders in progress. Finish or cancel them first, then try again.",
+    "errorHeldMoney": "Anston is holding money from your sales for you. Set up Get paid so we can send it to you, then try again.",
+    "errorGeneric": "Something went wrong. Please try again, or email support@myanston.com.",
+    "goToOrders": "Go to my orders",
+    "goToPayouts": "Set up Get paid",
+    "doneTitle": "Your account was deleted",
+    "doneText": "Thanks for using Anston. You're welcome back anytime.",
+    "home": "Go to the home page"
   }
 }

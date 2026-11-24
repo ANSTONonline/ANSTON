@@ -875,5 +875,25 @@
     "legalNameShown": "Nombre legal",
     "listingsTitle": "Anuncios",
     "noListings": "Aún no hay anuncios."
+  },
+  "deleteAccount": {
+    "title": "Eliminar cuenta",
+    "intro": "Esto elimina tu cuenta de Anston de forma permanente. No se puede deshacer.",
+    "point1": "Se eliminan tu perfil, fotos, anuncios, mensajes, favoritos y direcciones guardadas.",
+    "point2": "Los pedidos anteriores siguen en el historial del otro miembro, pero se quitan tu nombre y tus datos.",
+    "point3": "Se cerrará tu sesión y no podrás volver a entrar en esta cuenta.",
+    "blockers": "No puedes eliminar tu cuenta mientras tengas pedidos en curso o mientras Anston guarde dinero de tus ventas para ti.",
+    "confirmLabel": "Para confirmar, escribe DELETE",
+    "button": "Eliminar mi cuenta",
+    "deleting": "Eliminando…",
+    "errorConfirm": "Escribe DELETE para confirmar.",
+    "errorOpenOrders": "Tienes pedidos en curso. Termínalos o cancélalos primero y vuelve a intentarlo.",
+    "errorHeldMoney": "Anston guarda dinero de tus ventas para ti. Configura Cobrar para que te lo enviemos y vuelve a intentarlo.",
+    "errorGeneric": "Algo salió mal. Inténtalo de nuevo o escribe a support@myanston.com.",
+    "goToOrders": "Ir a mis pedidos",
+    "goToPayouts": "Configurar Cobrar",
+    "doneTitle": "Tu cuenta se eliminó",
+    "doneText": "Gracias por usar Anston. Vuelve cuando quieras.",
+    "home": "Ir a la página de inicio"
   }
 }

@@ -875,5 +875,25 @@
     "legalNameShown": "법인명",
     "listingsTitle": "등록 상품",
     "noListings": "아직 등록 상품이 없어요."
+  },
+  "deleteAccount": {
+    "title": "계정 삭제",
+    "intro": "Anston 계정이 영구적으로 삭제됩니다. 되돌릴 수 없습니다.",
+    "point1": "프로필, 사진, 등록 상품, 메시지, 즐겨찾기, 저장된 주소가 삭제됩니다.",
+    "point2": "지난 주문은 상대방의 내역에 남지만, 이름과 정보는 삭제됩니다.",
+    "point3": "로그아웃되며 이 계정에 다시 로그인할 수 없습니다.",
+    "blockers": "진행 중인 주문이 있거나 Anston이 판매 대금을 보관 중이면 계정을 삭제할 수 없습니다.",
+    "confirmLabel": "확인하려면 DELETE를 입력하세요",
+    "button": "내 계정 삭제",
+    "deleting": "삭제 중…",
+    "errorConfirm": "확인하려면 DELETE를 입력하세요.",
+    "errorOpenOrders": "진행 중인 주문이 있습니다. 먼저 완료하거나 취소한 후 다시 시도하세요.",
+    "errorHeldMoney": "Anston이 판매 대금을 보관하고 있습니다. 대금을 보내드릴 수 있도록 정산 설정을 마친 후 다시 시도하세요.",
+    "errorGeneric": "문제가 발생했습니다. 다시 시도하거나 support@myanston.com으로 이메일을 보내 주세요.",
+    "goToOrders": "내 주문 보기",
+    "goToPayouts": "정산 설정하기",
+    "doneTitle": "계정이 삭제되었습니다",
+    "doneText": "Anston을 이용해 주셔서 감사합니다. 언제든 다시 오세요.",
+    "home": "홈으로 가기"
   }
 }

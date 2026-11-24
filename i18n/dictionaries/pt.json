@@ -875,5 +875,25 @@
     "legalNameShown": "Razão social",
     "listingsTitle": "Anúncios",
     "noListings": "Ainda não há anúncios."
+  },
+  "deleteAccount": {
+    "title": "Excluir conta",
+    "intro": "Isso exclui sua conta Anston permanentemente. Não é possível desfazer.",
+    "point1": "Seu perfil, fotos, anúncios, mensagens, favoritos e endereços salvos serão excluídos.",
+    "point2": "Pedidos anteriores continuam no histórico do outro membro, mas seu nome e seus dados são removidos.",
+    "point3": "Você será desconectado e não poderá entrar nesta conta novamente.",
+    "blockers": "Você não pode excluir sua conta enquanto tiver pedidos em andamento ou enquanto a Anston guardar para você o dinheiro das suas vendas.",
+    "confirmLabel": "Para confirmar, digite DELETE",
+    "button": "Excluir minha conta",
+    "deleting": "Excluindo…",
+    "errorConfirm": "Digite DELETE para confirmar.",
+    "errorOpenOrders": "Você tem pedidos em andamento. Conclua ou cancele-os primeiro e tente de novo.",
+    "errorHeldMoney": "A Anston está guardando o dinheiro das suas vendas para você. Configure o recebimento para que possamos enviá-lo e tente de novo.",
+    "errorGeneric": "Algo deu errado. Tente de novo ou escreva para support@myanston.com.",
+    "goToOrders": "Ver meus pedidos",
+    "goToPayouts": "Configurar recebimento",
+    "doneTitle": "Sua conta foi excluída",
+    "doneText": "Obrigado por usar a Anston. Volte quando quiser.",
+    "home": "Ir para a página inicial"
   }
 }

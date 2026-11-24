@@ -875,5 +875,25 @@
     "legalNameShown": "Jina la kisheria",
     "listingsTitle": "Matangazo",
     "noListings": "Bado hakuna matangazo."
+  },
+  "deleteAccount": {
+    "title": "Futa akaunti",
+    "intro": "Hii itafuta akaunti yako ya Anston kabisa. Haiwezi kutenduliwa.",
+    "point1": "Wasifu wako, picha, matangazo, ujumbe, vipendwa na anwani zilizohifadhiwa vitafutwa.",
+    "point2": "Oda za zamani zitabaki kwenye historia ya mwanachama mwingine, lakini jina na taarifa zako zitaondolewa.",
+    "point3": "Utaondolewa kwenye akaunti na hutaweza kuingia kwenye akaunti hii tena.",
+    "blockers": "Huwezi kufuta akaunti yako ukiwa na oda zinazoendelea, au Anston ikiwa bado inakushikilia pesa za mauzo yako.",
+    "confirmLabel": "Ili kuthibitisha, andika DELETE",
+    "button": "Futa akaunti yangu",
+    "deleting": "Inafuta…",
+    "errorConfirm": "Andika DELETE ili kuthibitisha.",
+    "errorOpenOrders": "Una oda zinazoendelea. Zikamilishe au uzighairi kwanza, kisha ujaribu tena.",
+    "errorHeldMoney": "Anston inakushikilia pesa za mauzo yako. Weka njia ya kupokea malipo ili tukutumie pesa hizo, kisha ujaribu tena.",
+    "errorGeneric": "Hitilafu imetokea. Jaribu tena, au tuma barua pepe kwa support@myanston.com.",
+    "goToOrders": "Nenda kwenye oda zangu",
+    "goToPayouts": "Weka njia ya kupokea malipo",
+    "doneTitle": "Akaunti yako imefutwa",
+    "doneText": "Asante kwa kutumia Anston. Karibu tena wakati wowote.",
+    "home": "Nenda ukurasa wa mwanzo"
   }
 }
