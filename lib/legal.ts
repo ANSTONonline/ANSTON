@@ -157,7 +157,7 @@ export const termsOfService: LegalDoc = {
         "You have the right to sell, rent or offer it, and it is described honestly, with your own photos or photos you are allowed to use.",
         "The price and terms you set are real, and you will honor them.",
         "It follows the law where you and the buyer are, and these Terms.",
-        "For services that need a license (for example drivers or private investigators), you hold every license, permit and insurance the law requires where you work.",
+        "For services that need a license (for example drivers or childcare), you hold every license, permit and insurance the law requires where you work.",
         "For homemade food, you follow your local food laws (in Texas, the cottage food rules, including labeling and the items allowed). Homemade food is not inspected by Anston or, in many places, by any health department. Buyers eat it at their own risk, and sellers are fully responsible for its safety, ingredients and allergen information.",
       ],
     },
