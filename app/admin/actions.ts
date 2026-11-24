@@ -109,3 +109,15 @@ export async function setSuspended(fd: FormData) {
   refresh();
   revalidatePath(`/admin/members/${id}`);
 }
+
+// Approve, reject or suspend a business page (with a note for the owner).
+export async function reviewBusiness(fd: FormData) {
+  const member = await requireAdmin();
+  const id = text(fd, "id");
+  const decision = text(fd, "decision");
+  if (!isId(id) || !["verified", "rejected", "suspended"].includes(decision)) return;
+  const { error } = await member.supabase.rpc("review_business", { p_business: id, p_decision: decision, p_note: text(fd, "note").slice(0, 1000) });
+  if (error) console.error("review business", error.message);
+  revalidatePath("/admin/businesses");
+  revalidatePath("/businesses");
+}

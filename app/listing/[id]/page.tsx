@@ -1,3 +1,4 @@
+import WeeklyHours from "@/app/components/weekly-hours";
 import Avatar from "@/app/components/avatar";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,40 +13,12 @@ import { deleteListing, setListingStatus } from "../actions";
 import { setListingSuspended } from "../../admin/actions";
 import { startCheckout } from "../../checkout/actions";
 import { allInCents } from "@/lib/fees";
-import { WEEKDAYS, todayIn, type Availability } from "@/lib/availability";
+import { todayIn } from "@/lib/availability";
 import { BidForm, ConfirmButton, Gallery, LocalTime, MessageForm, OfferForm, RentalCalendar, ReportForm, ReserveForm } from "./listing-actions";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 // The seller's weekly hours, in their time zone.
-function WeeklyHours({ availability, timeZone, locale, title, zoneNote }: {
-  availability: Availability;
-  timeZone: string;
-  locale: string;
-  title: string;
-  zoneNote: string;
-}) {
-  const fmt = (min: number) =>
-    new Intl.DateTimeFormat(locale, { hour: "numeric", minute: "2-digit", timeZone: "UTC" }).format(
-      new Date(Date.UTC(2024, 0, 1, 0, min)),
-    );
-  const day = (d: number) =>
-    new Intl.DateTimeFormat(locale, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2024, 0, 7 + d)));
-  return (
-    <div className="border rounded-xl p-4 text-sm">
-      <p className="font-medium mb-2">🕒 {title}</p>
-      <dl className="space-y-1">
-        {WEEKDAYS.filter((d) => availability[String(d)]).map((d) => (
-          <div key={d} className="flex justify-between gap-3">
-            <dt className="text-gray-600">{day(d)}</dt>
-            <dd dir="ltr">{availability[String(d)].map(([a, b]) => `${fmt(a)} – ${fmt(b)}`).join(", ")}</dd>
-          </div>
-        ))}
-      </dl>
-      <p className="text-xs text-gray-500 mt-2">{zoneNote.replace("{zone}", timeZone.replace(/_/g, " "))}</p>
-    </div>
-  );
-}
 
 // Today's date (UTC) for the rental calendar. Checked once per request.
 function utcToday() {
@@ -114,6 +87,18 @@ export default async function ListingPage({
   const auctionOpen = Boolean(listing.auction && isFuture(listing.auction.endsAt));
   const rentalUnit = listing.rental ? t.sell.units[listing.rental.unit] : "";
 
+  // The seller's verified business, if they have one.
+  let sellerBusiness: { slug: string; name: string } | null = null;
+  if (fromDatabase && listing.sellerId) {
+    const { data } = await (member?.supabase ?? (await createClient()))
+      .from("businesses")
+      .select("slug, name")
+      .eq("owner_id", listing.sellerId)
+      .eq("status", "verified")
+      .maybeSingle();
+    sellerBusiness = data;
+  }
+
   // Rentals by the day, week or month book on a calendar: load the taken dates.
   const calendarRental = Boolean(listing.rental && listing.rental.unit !== "hour" && fromDatabase);
   let rentalBusy: { start: string; end: string }[] = [];
@@ -173,6 +158,11 @@ export default async function ListingPage({
                 <Avatar path={listing.sellerAvatar} username={listing.sellerUsername} size={listing.booking ? 44 : 28} />
                 {t.listing.by.replace("{username}", listing.sellerUsername)}
               </Link>
+              {sellerBusiness && (
+                <Link href={`/business/${sellerBusiness.slug}`} className="inline-flex items-center gap-1 bg-green-50 text-green-800 border border-green-200 rounded-full px-2 py-0.5 text-xs font-medium hover:bg-green-100">
+                  ✅ {t.business.verifiedBusiness}: {sellerBusiness.name}
+                </Link>
+              )}
               {listing.booking && listing.sellerGender && (
                 <span className="bg-gray-100 rounded-full px-2 py-0.5 text-xs">{t.profile[listing.sellerGender]}</span>
               )}

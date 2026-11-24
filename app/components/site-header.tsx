@@ -25,6 +25,7 @@ export default function SiteHeader({ t, locale, place }: { t: Dictionary; locale
         <Link href="/browse?mode=rent" className="hover:text-[#7A1E2B]">{t.header.rent}</Link>
         <Link href="/sell" className="hover:text-[#7A1E2B]">{t.header.sell}</Link>
         <Link href="/browse?mode=services" className="hover:text-[#7A1E2B]">{t.header.services}</Link>
+        <Link href="/businesses" className="hover:text-[#7A1E2B]">{t.header.businesses}</Link>
       </nav>
 
       <Form action="/browse" className="hidden xl:block w-56 2xl:w-72" role="search">

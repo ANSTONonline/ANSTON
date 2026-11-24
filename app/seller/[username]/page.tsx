@@ -53,6 +53,12 @@ export default async function SellerPage({ params }: { params: Params }) {
   if (error) console.error("seller reviews", error.message);
   type Review = { id: string; rating: number; comment: string | null; created_at: string; reviewer: { username: string | null } | null };
   const reviews = (reviewRows ?? []) as unknown as Review[];
+  const { data: sellerBusiness } = await supabase
+    .from("businesses")
+    .select("slug, name")
+    .eq("owner_id", profile.id)
+    .eq("status", "verified")
+    .maybeSingle();
   const active = listings.filter((l) => l.status === "active");
   const sold = listings.filter((l) => l.status === "sold");
   const place = [profile.city, profile.region, profile.country_code].filter(Boolean).join(", ");
@@ -74,6 +80,11 @@ export default async function SellerPage({ params }: { params: Params }) {
         <Avatar path={profile.avatar_url} username={profile.username} size={80} />
         <div className="min-w-0">
           <h1 className="text-3xl font-bold" dir="ltr">@{profile.username}</h1>
+          {sellerBusiness && (
+            <Link href={`/business/${sellerBusiness.slug}`} className="inline-flex items-center gap-1 mt-1 bg-green-50 text-green-800 border border-green-200 rounded-full px-3 py-0.5 text-sm font-medium hover:bg-green-100">
+              ✅ {t.business.verifiedBusiness}: {sellerBusiness.name}
+            </Link>
+          )}
           <p className="text-gray-600">
             {profile.rating_count > 0 ? (
               <>
