@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  DndContext, KeyboardSensor, MouseSensor, TouchSensor, closestCenter, useSensor, useSensors, type DragEndEvent,
+} from "@dnd-kit/core";
+import { SortableContext, arrayMove, rectSortingStrategy, sortableKeyboardCoordinates, useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+import PhotoEditor from "./photo-editor";
 import Link from "next/link";
 import { DEFAULT_HOURS, WEEKDAYS } from "@/lib/availability";
 import { startTransition, useActionState, useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -108,87 +114,155 @@ function RentalDates({ text, initial }: { text: Text; initial: string }) {
   );
 }
 
+// One photo tile: drag it to change the order; edit (crop, zoom, rotate) or remove it.
+function PhotoTile({ photo, index, text, onEdit, onRemove }: {
+  photo: Photo; index: number; text: Text; onEdit: () => void; onRemove: () => void;
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: photo.path });
+  return (
+    <div
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition }}
+      className={`relative aspect-square rounded-lg overflow-hidden bg-gray-100 touch-none select-none ${isDragging ? "z-10 ring-2 ring-[#7A1E2B] shadow-lg opacity-90" : ""}`}
+      {...attributes}
+      {...listeners}
+      aria-label={text.photoPosition.replace("{n}", String(index + 1))}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={photo.url} alt="" draggable={false} className="w-full h-full object-cover pointer-events-none" />
+      <input type="hidden" name="photo" value={photo.path} />
+      {index === 0 && (
+        <span className="absolute bottom-1 start-1 bg-[#7A1E2B] text-white text-[10px] px-1.5 py-0.5 rounded">{text.cover}</span>
+      )}
+      <button
+        type="button"
+        onPointerDown={(e) => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}
+        onClick={onEdit}
+        className="absolute bottom-1 end-1 bg-white/90 rounded-full w-7 h-7 text-sm leading-none"
+        aria-label={text.editPhoto}
+        title={text.editPhoto}
+      >
+        ✏️
+      </button>
+      <button
+        type="button"
+        onPointerDown={(e) => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}
+        onClick={onRemove}
+        className="absolute top-1 end-1 bg-white/90 rounded-full w-6 h-6 text-sm leading-none"
+        aria-label={text.removePhoto}
+        title={text.removePhoto}
+      >
+        ×
+      </button>
+    </div>
+  );
+}
+
 function Photos({ text, userId, initial = [] }: { text: Text; userId: string; initial?: Photo[] }) {
   const [photos, setPhotos] = useState<Photo[]>(initial);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
+  const [editing, setEditing] = useState<Photo | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
+
+  // Drag with a mouse, a finger (press and hold briefly) or the keyboard.
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 180, tolerance: 6 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
+  );
+
+  async function upload(blob: Blob, nameHint = "photo.jpg") {
+    const ext = blob.type === "image/jpeg" ? "jpg" : (nameHint.split(".").pop() || "jpg").toLowerCase();
+    const path = `${userId}/${crypto.randomUUID()}.${ext}`;
+    const { error: uploadError } = await createBrowserSupabase()
+      .storage.from(BUCKET)
+      .upload(path, blob, { contentType: blob.type || "image/jpeg", upsert: false });
+    return uploadError ? null : { path, url: URL.createObjectURL(blob) };
+  }
 
   async function add(files: FileList | null) {
     if (!files || files.length === 0) return;
     setBusy(true);
     setError(false);
-    const supabase = createBrowserSupabase();
     const room = MAX_PHOTOS - photos.length;
     const added: Photo[] = [];
     for (const file of Array.from(files).slice(0, room)) {
-      const blob = await shrink(file);
-      const ext = blob.type === "image/jpeg" ? "jpg" : (file.name.split(".").pop() || "jpg").toLowerCase();
-      const path = `${userId}/${crypto.randomUUID()}.${ext}`;
-      const { error: uploadError } = await supabase.storage
-        .from(BUCKET)
-        .upload(path, blob, { contentType: blob.type || file.type, upsert: false });
-      if (uploadError) {
-        setError(true);
-        continue;
-      }
-      added.push({ path, url: URL.createObjectURL(blob) });
+      const done = await upload(await shrink(file), file.name);
+      if (done) added.push(done);
+      else setError(true);
     }
     setPhotos((current) => [...current, ...added]);
     setBusy(false);
     if (fileInput.current) fileInput.current.value = "";
   }
 
+  // Photos already on the listing are only deleted when the changes are
+  // saved, so nothing is lost if the person leaves without saving.
+  const forget = (path: string) => {
+    if (!initial.some((p) => p.path === path)) void discardPhoto(path);
+  };
+
   function remove(path: string) {
     setPhotos((current) => current.filter((p) => p.path !== path));
-    // Photos already on the listing are only deleted when the changes are
-    // saved, so nothing is lost if the person leaves without saving.
-    if (!initial.some((p) => p.path === path)) void discardPhoto(path);
+    forget(path);
+  }
+
+  // An edited photo is uploaded as a new file and takes the old one's place.
+  async function saveEdit(blob: Blob) {
+    if (!editing) return;
+    const done = await upload(blob, "photo.jpg");
+    if (!done) throw new Error("upload failed");
+    const old = editing.path;
+    setPhotos((current) => current.map((p) => (p.path === old ? done : p)));
+    forget(old);
+    setEditing(null);
+  }
+
+  function onDragEnd(e: DragEndEvent) {
+    const { active, over } = e;
+    if (!over || active.id === over.id) return;
+    setPhotos((current) => {
+      const from = current.findIndex((p) => p.path === active.id);
+      const to = current.findIndex((p) => p.path === over.id);
+      return arrayMove(current, from, to);
+    });
   }
 
   return (
     <div>
       <p className={label}>{text.photos}</p>
-      <p className="text-xs text-gray-500 mb-3">{text.photosHint}</p>
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
-        {photos.map((p, i) => (
-          <div key={p.path} className="relative aspect-square rounded-lg overflow-hidden bg-gray-100">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={p.url} alt="" className="w-full h-full object-cover" />
-            <input type="hidden" name="photo" value={p.path} />
-            {i === 0 && (
-              <span className="absolute bottom-1 start-1 bg-[#7A1E2B] text-white text-[10px] px-1.5 py-0.5 rounded">
-                {text.cover}
-              </span>
+      <p className="text-xs text-gray-500 mb-3">{text.photosHint} {photos.length > 1 && text.dragToReorder}</p>
+      <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+        <SortableContext items={photos.map((p) => p.path)} strategy={rectSortingStrategy}>
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+            {photos.map((p, i) => (
+              <PhotoTile key={p.path} photo={p} index={i} text={text} onEdit={() => setEditing(p)} onRemove={() => remove(p.path)} />
+            ))}
+            {photos.length < MAX_PHOTOS && (
+              <label className="aspect-square rounded-lg border-2 border-dashed flex flex-col items-center justify-center text-sm text-gray-500 cursor-pointer hover:border-[#7A1E2B]">
+                <span className="text-2xl" aria-hidden="true">📷</span>
+                <span>{busy ? text.uploading : text.addPhotos}</span>
+                <input
+                  ref={fileInput}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  className="sr-only"
+                  disabled={busy}
+                  onChange={(e) => add(e.target.files)}
+                />
+              </label>
             )}
-            <button
-              type="button"
-              onClick={() => remove(p.path)}
-              className="absolute top-1 end-1 bg-white/90 rounded-full w-6 h-6 text-sm leading-none"
-              aria-label={text.removePhoto}
-              title={text.removePhoto}
-            >
-              ×
-            </button>
           </div>
-        ))}
-        {photos.length < MAX_PHOTOS && (
-          <label className="aspect-square rounded-lg border-2 border-dashed flex flex-col items-center justify-center text-sm text-gray-500 cursor-pointer hover:border-[#7A1E2B]">
-            <span className="text-2xl" aria-hidden="true">📷</span>
-            <span>{busy ? text.uploading : text.addPhotos}</span>
-            <input
-              ref={fileInput}
-              type="file"
-              accept="image/*"
-              multiple
-              className="sr-only"
-              disabled={busy}
-              onChange={(e) => add(e.target.files)}
-            />
-          </label>
-        )}
-      </div>
-      {error && <p className="text-sm text-red-700 mt-2">{text.photoError}</p>}
+        </SortableContext>
+      </DndContext>
+      {error && <p className="text-sm text-red-600 mt-2">{text.photoError}</p>}
+      {editing && (
+        <PhotoEditor src={editing.url} text={text} onCancel={() => setEditing(null)} onSave={saveEdit} />
+      )}
     </div>
   );
 }
