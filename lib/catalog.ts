@@ -101,7 +101,7 @@ export const LISTING_SELECT = `
                   min_increment_cents, ends_at, rate_cents, rate_unit, deposit_cents, session_minutes,
                   availability, time_zone, rental_dates ),
   listing_images ( storage_path, position ),
-  seller:profiles!listings_seller_id_fkey ( username, rating_avg, rating_count )
+  seller:profiles!listings_seller_id_fkey ( username, rating_avg, rating_count, avatar_url, gender )
 `;
 
 type ModeRow = {
@@ -144,7 +144,7 @@ export type ListingRow = {
   category: (CategoryRow & { parent_id: number | null }) | null;
   listing_modes: ModeRow[];
   listing_images: { storage_path: string; position: number }[];
-  seller: { username: string | null; rating_avg: number; rating_count: number } | null;
+  seller: { username: string | null; rating_avg: number; rating_count: number; avatar_url?: string | null; gender?: string | null } | null;
 };
 
 const SERVICES_PARENT = cache(async () => (await loadCategoryRows()).find((c) => c.slug === "services")?.id ?? null);
@@ -205,6 +205,8 @@ export async function toListing(row: ListingRow, locale: Locale, highestBid: num
     sellerId: row.seller_id,
     boostBps: row.boost_bps ?? 0,
     sellerUsername: row.seller?.username ?? undefined,
+    sellerAvatar: row.seller?.avatar_url ?? undefined,
+    sellerGender: row.seller?.gender === "female" || row.seller?.gender === "male" ? row.seller.gender : undefined,
     status: row.status,
     condition: row.condition,
     createdAt: row.created_at,
@@ -274,6 +276,8 @@ export async function findListings(
     mode?: Mode; category?: CategorySlug; q?: string; limit?: number; featured?: boolean; place?: PlaceFilter | null;
     // local: pickup available, or doesn't ship at all (services, rentals, local-only items). ships: can be shipped.
     delivery?: "local" | "ships";
+    // Services only: the provider's gender, as they chose to share it.
+    providerGender?: "female" | "male";
   } = {},
 ): Promise<Listing[]> {
   if (!supabaseConfigured()) {
@@ -289,7 +293,9 @@ export async function findListings(
   const dbMode = filters.mode
     ? ({ buy: "sale", offer: "sale", bid: "auction", rent: "rental", services: "booking" } as const)[filters.mode]
     : null;
-  const select = dbMode ? `${LISTING_SELECT}, filter_modes:listing_modes!inner ( mode, accepts_offers )` : LISTING_SELECT;
+  let select = dbMode ? `${LISTING_SELECT}, filter_modes:listing_modes!inner ( mode, accepts_offers )` : LISTING_SELECT;
+  const byGender = filters.mode === "services" && filters.providerGender;
+  if (byGender) select += ", provider:profiles!listings_seller_id_fkey!inner ( gender )";
 
   let query = supabase.from("listings").select(select).eq("status", "active");
   if (dbMode) {
@@ -314,6 +320,7 @@ export async function findListings(
     if (filters.place.city) query = query.ilike("city", filters.place.city.replace(/[\\%_]/g, (ch) => `\\${ch}`));
   }
   // Featured Listings put boosted listings first, highest boost first.
+  if (byGender) query = query.eq("provider.gender", filters.providerGender!);
   if (filters.delivery === "local") query = query.or("local_pickup.eq.true,ships.eq.false");
   else if (filters.delivery === "ships") query = query.eq("ships", true);
   if (filters.featured) query = query.order("boost_bps", { ascending: false });

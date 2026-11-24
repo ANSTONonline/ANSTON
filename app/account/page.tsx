@@ -1,3 +1,4 @@
+import Avatar from "@/app/components/avatar";
 import Link from "next/link";
 import AuthForms, { FinishProfileForm } from "./auth-forms";
 import { saveEmailSettings, signOut } from "./actions";
@@ -25,7 +26,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
     const supabase = await createClient();
     const { data: profile } = await supabase
       .from("profiles")
-      .select("username, display_name, age_confirmed_at, terms_accepted_at")
+      .select("username, display_name, age_confirmed_at, terms_accepted_at, avatar_url")
       .eq("id", user.id)
       .maybeSingle();
 
@@ -76,9 +77,9 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
         {params.emailsSaved && <Banner kind="ok">{t.account.emailsSaved}</Banner>}
         <div className="border rounded-xl p-6 space-y-4">
           <div className="flex items-center gap-3">
-            <span className="w-12 h-12 rounded-full bg-[#7A1E2B] text-white flex items-center justify-center text-xl font-bold">
-              {profile.username!.charAt(0).toUpperCase()}
-            </span>
+            <Link href="/account/profile" aria-label={t.profile.title}>
+              <Avatar path={profile.avatar_url} username={profile.username} size={48} />
+            </Link>
             <div className="min-w-0 flex-1">
               <p className="font-semibold" dir="ltr">@{profile.username}</p>
               <p className="text-sm text-gray-600 truncate" dir="ltr">{contact}</p>
@@ -94,6 +95,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             >
               👁 {t.seller.viewMine}
             </Link>
+            <Link href="/account/profile" className="border py-2 rounded-lg text-center">📷 {t.profile.title}</Link>
             <Link href="/sell" className="bg-[#7A1E2B] text-white py-2 rounded-lg text-center font-medium">
               {t.header.listItem}
             </Link>

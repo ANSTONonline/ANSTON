@@ -95,7 +95,9 @@
     "shipsOnly": "배송받기",
     "localIn": "{place}의 지역 상품을 보여 드려요.",
     "pickCity": "페이지 상단에서 도시를 선택하면 가까운 것만 볼 수 있어요.",
-    "categories": "카테고리"
+    "categories": "카테고리",
+    "provider": "제공자",
+    "anyProvider": "전체"
   },
   "listing": {
     "back": "목록으로 돌아가기",
@@ -341,7 +343,14 @@
     "rentalRemove": "삭제",
     "rentalAdd": "이용 가능한 날짜 추가",
     "rentalAddMore": "날짜 더 추가",
-    "priceAllInHint": "구매자에게는 Anston 서비스 수수료가 포함된 가격이 보입니다($50 미만 7%, $500까지 5%, 그 이상 3%). 판매자는 정한 가격을 받습니다."
+    "priceAllInHint": "구매자에게는 Anston 서비스 수수료가 포함된 가격이 보입니다($50 미만 7%, $500까지 5%, 그 이상 3%). 판매자는 정한 가격을 받습니다.",
+    "providerGender": "성별(선택)",
+    "providerGenderHelp": "서비스에 표시됩니다. 서비스를 찾는 사람이 제공자의 성별을 고를 수 있어요.",
+    "addProfilePhoto": "프로필 사진 추가",
+    "addProfilePhotoHelp": "누구에게 예약하는지 알 수 있도록요.",
+    "genderFemale": "여성",
+    "genderMale": "남성",
+    "genderPreferNot": "밝히고 싶지 않음"
   },
   "account": {
     "title": "내 계정",
@@ -733,5 +742,24 @@
     "item": "상품",
     "serviceFee": "서비스 수수료 ({n}%)",
     "serviceFeePlain": "서비스 수수료"
+  },
+  "profile": {
+    "title": "프로필 사진 및 정보",
+    "intro": "사진은 프로필, 등록 상품, 서비스에 표시됩니다.",
+    "photo": "프로필 사진",
+    "photoHelp": "얼굴이 잘 보이는 사진은 특히 서비스에서 신뢰를 줍니다.",
+    "addPhoto": "사진 추가",
+    "changePhoto": "사진 변경",
+    "removePhoto": "삭제",
+    "uploading": "업로드 중…",
+    "uploadFailed": "사진을 업로드하지 못했습니다. 2MB 이하의 JPG 또는 PNG를 사용해 보세요.",
+    "gender": "성별",
+    "genderHelp": "선택 사항. 서비스에 표시되어 이용자가 편한 제공자를 고를 수 있습니다.",
+    "female": "여성",
+    "male": "남성",
+    "preferNot": "밝히고 싶지 않음",
+    "save": "저장",
+    "saved": "저장되었습니다!",
+    "error": "문제가 발생했습니다. 다시 시도해 주세요."
   }
 }

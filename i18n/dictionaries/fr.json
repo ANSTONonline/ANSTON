@@ -95,7 +95,9 @@
     "shipsOnly": "Livré chez moi",
     "localIn": "Annonces locales à {place}.",
     "pickCity": "Choisissez votre ville en haut de la page pour ne voir que ce qui est près de chez vous.",
-    "categories": "Catégories"
+    "categories": "Catégories",
+    "provider": "Prestataire",
+    "anyProvider": "Tous les prestataires"
   },
   "listing": {
     "back": "Retour aux annonces",
@@ -341,7 +343,14 @@
     "rentalRemove": "Retirer",
     "rentalAdd": "Ajouter des dates disponibles",
     "rentalAddMore": "Ajouter d'autres dates",
-    "priceAllInHint": "Les acheteurs voient ce prix frais de service Anston inclus (7 % sous 50 $, 5 % jusqu'à 500 $, 3 % au-delà). Vous recevez votre prix."
+    "priceAllInHint": "Les acheteurs voient ce prix frais de service Anston inclus (7 % sous 50 $, 5 % jusqu'à 500 $, 3 % au-delà). Vous recevez votre prix.",
+    "providerGender": "Votre genre (facultatif)",
+    "providerGenderHelp": "Affiché sur vos services. Les clients peuvent choisir le genre du prestataire.",
+    "addProfilePhoto": "Ajoutez une photo de profil",
+    "addProfilePhotoHelp": "pour qu'on sache qui on réserve.",
+    "genderFemale": "Femme",
+    "genderMale": "Homme",
+    "genderPreferNot": "Je préfère ne pas répondre"
   },
   "account": {
     "title": "Votre compte",
@@ -733,5 +742,24 @@
     "item": "Article",
     "serviceFee": "Frais de service ({n} %)",
     "serviceFeePlain": "Frais de service"
+  },
+  "profile": {
+    "title": "Photo de profil et infos",
+    "intro": "Votre photo apparaît sur votre profil, vos annonces et vos services.",
+    "photo": "Photo de profil",
+    "photoHelp": "Une photo nette de votre visage inspire confiance, surtout pour les services.",
+    "addPhoto": "Ajouter une photo",
+    "changePhoto": "Changer de photo",
+    "removePhoto": "Retirer",
+    "uploading": "Envoi…",
+    "uploadFailed": "Impossible d'envoyer la photo. Essayez un JPG ou PNG de moins de 2 Mo.",
+    "gender": "Genre",
+    "genderHelp": "Facultatif. Affiché sur vos services pour que chacun choisisse un prestataire avec qui il est à l'aise.",
+    "female": "Femme",
+    "male": "Homme",
+    "preferNot": "Je préfère ne pas répondre",
+    "save": "Enregistrer",
+    "saved": "Enregistré !",
+    "error": "Un problème est survenu. Réessayez."
   }
 }

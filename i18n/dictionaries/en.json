@@ -95,7 +95,9 @@
     "shipsOnly": "Ships to me",
     "localIn": "Showing local listings in {place}.",
     "pickCity": "Pick your city at the top of the page to see only what's near you.",
-    "categories": "Categories"
+    "categories": "Categories",
+    "provider": "Provider",
+    "anyProvider": "Any provider"
   },
   "listing": {
     "back": "Back to browse",
@@ -341,7 +343,14 @@
     "rentalRemove": "Remove",
     "rentalAdd": "Add available dates",
     "rentalAddMore": "Add more dates",
-    "priceAllInHint": "Buyers see this price with Anston's service fee included (7% under $50, 5% up to $500, 3% above). You receive your price."
+    "priceAllInHint": "Buyers see this price with Anston's service fee included (7% under $50, 5% up to $500, 3% above). You receive your price.",
+    "providerGender": "Your gender (optional)",
+    "providerGenderHelp": "Shown on your services. People looking for a service can choose a provider's gender.",
+    "addProfilePhoto": "Add a profile photo",
+    "addProfilePhotoHelp": "so people can see who they're booking.",
+    "genderFemale": "Female",
+    "genderMale": "Male",
+    "genderPreferNot": "Prefer not to say"
   },
   "account": {
     "title": "Your account",
@@ -733,5 +742,24 @@
     "item": "Item",
     "serviceFee": "Service fee ({n}%)",
     "serviceFeePlain": "Service fee"
+  },
+  "profile": {
+    "title": "Profile photo & details",
+    "intro": "Your photo shows on your profile, your listings and your services.",
+    "photo": "Profile photo",
+    "photoHelp": "A clear photo of your face helps people trust you, especially for services.",
+    "addPhoto": "Add photo",
+    "changePhoto": "Change photo",
+    "removePhoto": "Remove",
+    "uploading": "Uploading…",
+    "uploadFailed": "That photo couldn't be uploaded. Try a JPG or PNG under 2 MB.",
+    "gender": "Gender",
+    "genderHelp": "Optional. Shown on your services so people can choose a provider they're comfortable with.",
+    "female": "Female",
+    "male": "Male",
+    "preferNot": "Prefer not to say",
+    "save": "Save",
+    "saved": "Saved!",
+    "error": "Something went wrong. Please try again."
   }
 }

@@ -118,6 +118,9 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
     auctionEndsAt: auction?.ends_at ?? null,
   };
 
+  const { data: me } = await supabase.from("profiles").select("gender").eq("id", user.id).maybeSingle();
+  const providerGender = me?.gender ?? null;
+
   return (
     <main className="flex-1 px-4 sm:px-8 py-12 max-w-2xl mx-auto w-full">
       <h1 className="text-3xl font-bold mb-8 text-center">{t.sell.editTitle}</h1>
@@ -128,6 +131,7 @@ export default async function EditListingPage({ params }: { params: Promise<{ id
         locale={locale}
         countryCodes={allCountryCodes()}
         editing={editing}
+        providerGender={providerGender}
       />
     </main>
   );
