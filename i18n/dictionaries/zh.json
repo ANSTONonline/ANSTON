@@ -875,5 +875,25 @@
     "legalNameShown": "法定名称",
     "listingsTitle": "商品",
     "noListings": "暂无商品。"
+  },
+  "deleteAccount": {
+    "title": "删除账户",
+    "intro": "这将永久删除您的 Anston 账户，且无法撤销。",
+    "point1": "您的个人资料、照片、商品、消息、收藏和保存的地址将被删除。",
+    "point2": "过去的订单会保留在对方的记录中，但您的姓名和信息将被移除。",
+    "point3": "您将被退出登录，且无法再登录此账户。",
+    "blockers": "如果您有进行中的订单，或 Anston 仍在为您保管销售款项，则无法删除账户。",
+    "confirmLabel": "请输入 DELETE 以确认",
+    "button": "删除我的账户",
+    "deleting": "正在删除…",
+    "errorConfirm": "请输入 DELETE 以确认。",
+    "errorOpenOrders": "您有进行中的订单。请先完成或取消，然后重试。",
+    "errorHeldMoney": "Anston 正在为您保管销售款项。请先设置收款，以便我们将钱汇给您，然后重试。",
+    "errorGeneric": "出了点问题。请重试，或发送邮件至 support@myanston.com。",
+    "goToOrders": "查看我的订单",
+    "goToPayouts": "设置收款",
+    "doneTitle": "您的账户已删除",
+    "doneText": "感谢使用 Anston。欢迎随时回来。",
+    "home": "返回首页"
   }
 }

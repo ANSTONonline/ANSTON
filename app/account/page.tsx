@@ -51,6 +51,9 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
           <form action={signOut} className="mt-4 text-center">
             <button type="submit" className="text-sm text-gray-500 hover:underline">{t.account.signOut}</button>
           </form>
+          <p className="mt-2 text-center">
+            <Link href="/account/delete" className="text-sm text-gray-500 hover:underline">{t.deleteAccount.title}</Link>
+          </p>
         </main>
       );
     }
@@ -146,6 +149,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Sear
             </button>
           </form>
         )}
+        <p className="mt-6 text-center">
+          <Link href="/account/delete" className="text-sm text-gray-500 hover:text-red-700 hover:underline">
+            {t.deleteAccount.title}
+          </Link>
+        </p>
       </main>
     );
   }

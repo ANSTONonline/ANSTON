@@ -875,5 +875,25 @@
     "legalNameShown": "Nama resmi",
     "listingsTitle": "Iklan",
     "noListings": "Belum ada iklan."
+  },
+  "deleteAccount": {
+    "title": "Hapus akun",
+    "intro": "Ini akan menghapus akun Anston Anda secara permanen. Tindakan ini tidak dapat dibatalkan.",
+    "point1": "Profil, foto, iklan, pesan, favorit, dan alamat tersimpan Anda akan dihapus.",
+    "point2": "Pesanan lama tetap ada di riwayat anggota lain, tetapi nama dan data Anda dihapus.",
+    "point3": "Anda akan keluar dan tidak bisa masuk ke akun ini lagi.",
+    "blockers": "Anda tidak dapat menghapus akun selama masih ada pesanan yang berjalan, atau selama Anston masih menyimpan uang hasil penjualan untuk Anda.",
+    "confirmLabel": "Untuk konfirmasi, ketik DELETE",
+    "button": "Hapus akun saya",
+    "deleting": "Menghapus…",
+    "errorConfirm": "Ketik DELETE untuk konfirmasi.",
+    "errorOpenOrders": "Anda masih punya pesanan yang berjalan. Selesaikan atau batalkan dulu, lalu coba lagi.",
+    "errorHeldMoney": "Anston menyimpan uang hasil penjualan untuk Anda. Atur penerimaan pembayaran agar kami bisa mengirimkannya, lalu coba lagi.",
+    "errorGeneric": "Terjadi kesalahan. Coba lagi, atau email support@myanston.com.",
+    "goToOrders": "Lihat pesanan saya",
+    "goToPayouts": "Atur penerimaan pembayaran",
+    "doneTitle": "Akun Anda telah dihapus",
+    "doneText": "Terima kasih telah menggunakan Anston. Silakan kembali kapan saja.",
+    "home": "Ke beranda"
   }
 }

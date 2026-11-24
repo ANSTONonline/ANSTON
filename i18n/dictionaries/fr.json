@@ -875,5 +875,25 @@
     "legalNameShown": "Raison sociale",
     "listingsTitle": "Annonces",
     "noListings": "Aucune annonce pour l'instant."
+  },
+  "deleteAccount": {
+    "title": "Supprimer le compte",
+    "intro": "Cette action supprime définitivement votre compte Anston. Elle est irréversible.",
+    "point1": "Votre profil, vos photos, annonces, messages, favoris et adresses enregistrées sont supprimés.",
+    "point2": "Les commandes passées restent dans l'historique de l'autre membre, mais votre nom et vos informations sont retirés.",
+    "point3": "Vous serez déconnecté et ne pourrez plus vous connecter à ce compte.",
+    "blockers": "Vous ne pouvez pas supprimer votre compte tant que vous avez des commandes en cours, ou tant qu'Anston conserve pour vous l'argent de vos ventes.",
+    "confirmLabel": "Pour confirmer, tapez DELETE",
+    "button": "Supprimer mon compte",
+    "deleting": "Suppression…",
+    "errorConfirm": "Tapez DELETE pour confirmer.",
+    "errorOpenOrders": "Vous avez des commandes en cours. Terminez-les ou annulez-les d'abord, puis réessayez.",
+    "errorHeldMoney": "Anston conserve pour vous l'argent de vos ventes. Configurez vos paiements pour que nous puissions vous l'envoyer, puis réessayez.",
+    "errorGeneric": "Une erreur s'est produite. Réessayez ou écrivez à support@myanston.com.",
+    "goToOrders": "Voir mes commandes",
+    "goToPayouts": "Configurer mes paiements",
+    "doneTitle": "Votre compte a été supprimé",
+    "doneText": "Merci d'avoir utilisé Anston. Vous êtes le bienvenu à tout moment.",
+    "home": "Aller à l'accueil"
   }
 }

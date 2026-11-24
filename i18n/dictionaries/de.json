@@ -875,5 +875,25 @@
     "legalNameShown": "Rechtlicher Name",
     "listingsTitle": "Angebote",
     "noListings": "Noch keine Angebote."
+  },
+  "deleteAccount": {
+    "title": "Konto löschen",
+    "intro": "Dadurch wird dein Anston-Konto dauerhaft gelöscht. Das kann nicht rückgängig gemacht werden.",
+    "point1": "Dein Profil, deine Fotos, Anzeigen, Nachrichten, Favoriten und gespeicherten Adressen werden gelöscht.",
+    "point2": "Frühere Bestellungen bleiben im Verlauf des anderen Mitglieds, aber dein Name und deine Daten werden entfernt.",
+    "point3": "Du wirst abgemeldet und kannst dich nicht mehr bei diesem Konto anmelden.",
+    "blockers": "Du kannst dein Konto nicht löschen, solange du laufende Bestellungen hast oder Anston Geld aus deinen Verkäufen für dich verwahrt.",
+    "confirmLabel": "Gib zur Bestätigung DELETE ein",
+    "button": "Mein Konto löschen",
+    "deleting": "Wird gelöscht…",
+    "errorConfirm": "Gib zur Bestätigung DELETE ein.",
+    "errorOpenOrders": "Du hast laufende Bestellungen. Schließe sie ab oder storniere sie und versuche es dann erneut.",
+    "errorHeldMoney": "Anston verwahrt Geld aus deinen Verkäufen für dich. Richte Auszahlungen ein, damit wir es dir senden können, und versuche es dann erneut.",
+    "errorGeneric": "Etwas ist schiefgelaufen. Versuche es erneut oder schreibe an support@myanston.com.",
+    "goToOrders": "Zu meinen Bestellungen",
+    "goToPayouts": "Auszahlungen einrichten",
+    "doneTitle": "Dein Konto wurde gelöscht",
+    "doneText": "Danke, dass du Anston genutzt hast. Du bist jederzeit wieder willkommen.",
+    "home": "Zur Startseite"
   }
 }

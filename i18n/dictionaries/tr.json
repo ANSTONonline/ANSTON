@@ -875,5 +875,25 @@
     "legalNameShown": "Yasal ad",
     "listingsTitle": "İlanlar",
     "noListings": "Henüz ilan yok."
+  },
+  "deleteAccount": {
+    "title": "Hesabı sil",
+    "intro": "Bu işlem Anston hesabını kalıcı olarak siler. Geri alınamaz.",
+    "point1": "Profilin, fotoğrafların, ilanların, mesajların, favorilerin ve kayıtlı adreslerin silinir.",
+    "point2": "Geçmiş siparişler diğer üyenin geçmişinde kalır, ancak adın ve bilgilerin kaldırılır.",
+    "point3": "Oturumun kapatılır ve bu hesaba bir daha giriş yapamazsın.",
+    "blockers": "Devam eden siparişlerin varken veya Anston satışlarından gelen parayı senin için tutarken hesabını silemezsin.",
+    "confirmLabel": "Onaylamak için DELETE yaz",
+    "button": "Hesabımı sil",
+    "deleting": "Siliniyor…",
+    "errorConfirm": "Onaylamak için DELETE yaz.",
+    "errorOpenOrders": "Devam eden siparişlerin var. Önce bunları tamamla veya iptal et, sonra tekrar dene.",
+    "errorHeldMoney": "Anston satışlarından gelen parayı senin için tutuyor. Parayı gönderebilmemiz için ödeme almayı ayarla, sonra tekrar dene.",
+    "errorGeneric": "Bir sorun oluştu. Tekrar dene veya support@myanston.com adresine e-posta gönder.",
+    "goToOrders": "Siparişlerime git",
+    "goToPayouts": "Ödeme almayı ayarla",
+    "doneTitle": "Hesabın silindi",
+    "doneText": "Anston'u kullandığın için teşekkürler. İstediğin zaman geri gelebilirsin.",
+    "home": "Ana sayfaya git"
   }
 }

@@ -875,5 +875,25 @@
     "legalNameShown": "Tên pháp lý",
     "listingsTitle": "Tin đăng",
     "noListings": "Chưa có tin đăng."
+  },
+  "deleteAccount": {
+    "title": "Xóa tài khoản",
+    "intro": "Thao tác này sẽ xóa vĩnh viễn tài khoản Anston của bạn và không thể hoàn tác.",
+    "point1": "Hồ sơ, ảnh, tin đăng, tin nhắn, mục yêu thích và địa chỉ đã lưu của bạn sẽ bị xóa.",
+    "point2": "Đơn hàng cũ vẫn còn trong lịch sử của thành viên kia, nhưng tên và thông tin của bạn sẽ bị gỡ bỏ.",
+    "point3": "Bạn sẽ bị đăng xuất và không thể đăng nhập lại vào tài khoản này.",
+    "blockers": "Bạn không thể xóa tài khoản khi còn đơn hàng đang xử lý, hoặc khi Anston đang giữ tiền bán hàng cho bạn.",
+    "confirmLabel": "Để xác nhận, hãy nhập DELETE",
+    "button": "Xóa tài khoản của tôi",
+    "deleting": "Đang xóa…",
+    "errorConfirm": "Hãy nhập DELETE để xác nhận.",
+    "errorOpenOrders": "Bạn còn đơn hàng đang xử lý. Hãy hoàn tất hoặc hủy trước, rồi thử lại.",
+    "errorHeldMoney": "Anston đang giữ tiền bán hàng cho bạn. Hãy thiết lập nhận tiền để chúng tôi gửi cho bạn, rồi thử lại.",
+    "errorGeneric": "Đã xảy ra lỗi. Hãy thử lại, hoặc gửi email tới support@myanston.com.",
+    "goToOrders": "Xem đơn hàng của tôi",
+    "goToPayouts": "Thiết lập nhận tiền",
+    "doneTitle": "Tài khoản của bạn đã bị xóa",
+    "doneText": "Cảm ơn bạn đã sử dụng Anston. Hãy quay lại bất cứ lúc nào.",
+    "home": "Về trang chủ"
   }
 }

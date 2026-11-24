@@ -875,5 +875,25 @@
     "legalNameShown": "Legal name",
     "listingsTitle": "Mga listing",
     "noListings": "Wala pang listing."
+  },
+  "deleteAccount": {
+    "title": "Burahin ang account",
+    "intro": "Permanenteng mabubura ang iyong Anston account. Hindi na ito maibabalik.",
+    "point1": "Mabubura ang iyong profile, mga larawan, listing, mensahe, paborito at naka-save na address.",
+    "point2": "Mananatili ang mga dating order sa history ng ibang miyembro, pero aalisin ang iyong pangalan at detalye.",
+    "point3": "Masa-sign out ka at hindi ka na makakapag-log in sa account na ito.",
+    "blockers": "Hindi mo mabubura ang iyong account habang may mga order ka pang hindi tapos, o habang may hawak pang pera ang Anston mula sa iyong mga benta.",
+    "confirmLabel": "Para kumpirmahin, i-type ang DELETE",
+    "button": "Burahin ang aking account",
+    "deleting": "Binubura…",
+    "errorConfirm": "I-type ang DELETE para kumpirmahin.",
+    "errorOpenOrders": "May mga order ka pang hindi tapos. Tapusin o kanselahin muna ang mga ito, saka subukang muli.",
+    "errorHeldMoney": "May hawak na pera ang Anston mula sa iyong mga benta. I-set up ang pagtanggap ng bayad para maipadala namin ito sa iyo, saka subukang muli.",
+    "errorGeneric": "May nangyaring mali. Subukang muli, o mag-email sa support@myanston.com.",
+    "goToOrders": "Pumunta sa aking mga order",
+    "goToPayouts": "I-set up ang pagtanggap ng bayad",
+    "doneTitle": "Nabura na ang iyong account",
+    "doneText": "Salamat sa paggamit ng Anston. Welcome kang bumalik anumang oras.",
+    "home": "Pumunta sa home page"
   }
 }
