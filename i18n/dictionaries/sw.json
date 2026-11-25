@@ -895,5 +895,11 @@
     "doneTitle": "Akaunti yako imefutwa",
     "doneText": "Asante kwa kutumia Anston. Karibu tena wakati wowote.",
     "home": "Nenda ukurasa wa mwanzo"
+  },
+  "push": {
+    "title": "Washa arifa?",
+    "body": "Pata arifa za ujumbe mpya, ofa, zabuni na oda.",
+    "turnOn": "Washa",
+    "notNow": "Si sasa"
   }
 }

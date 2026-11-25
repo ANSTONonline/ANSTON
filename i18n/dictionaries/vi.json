@@ -895,5 +895,11 @@
     "doneTitle": "Tài khoản của bạn đã bị xóa",
     "doneText": "Cảm ơn bạn đã sử dụng Anston. Hãy quay lại bất cứ lúc nào.",
     "home": "Về trang chủ"
+  },
+  "push": {
+    "title": "Bật thông báo?",
+    "body": "Nhận thông báo về tin nhắn, đề nghị giá, lượt đấu giá và đơn hàng mới.",
+    "turnOn": "Bật",
+    "notNow": "Để sau"
   }
 }

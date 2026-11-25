@@ -895,5 +895,11 @@
     "doneTitle": "Il tuo account è stato eliminato",
     "doneText": "Grazie per aver usato Anston. Torna quando vuoi.",
     "home": "Vai alla home"
+  },
+  "push": {
+    "title": "Attivare le notifiche?",
+    "body": "Ricevi avvisi su nuovi messaggi, offerte, puntate e ordini.",
+    "turnOn": "Attiva",
+    "notNow": "Non ora"
   }
 }

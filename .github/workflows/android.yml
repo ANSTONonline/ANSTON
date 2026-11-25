@@ -8,6 +8,9 @@
 #   ANDROID_KEY_ALIAS
 #   ANDROID_KEY_PASSWORD
 # Without them, it still builds a test APK you can install on your phone.
+#
+# For push notifications also add GOOGLE_SERVICES_JSON (contents of the
+# google-services.json file from Firebase).
 name: Android app
 
 on:
@@ -41,6 +44,20 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      # Firebase settings for push notifications (Firebase console → Project
+      # settings → Android app → google-services.json). Optional: without it the
+      # app still builds, just without notifications.
+      - name: Add Firebase settings
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: |
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > android/app/google-services.json
+            echo "Firebase settings added"
+          else
+            echo "No GOOGLE_SERVICES_JSON secret: building without push notifications"
+          fi
+
       - name: Install and sync Capacitor
         run: |
           npm ci
@@ -64,7 +81,8 @@ jobs:
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         working-directory: mobile/android
         run: |
-          echo "$KEYSTORE" | tr -d ' \n\r' | base64 -d > "$RUNNER_TEMP/upload.jks"
+          # Keep only base64 characters, in case extra spaces or line breaks got pasted.
+          printf '%s' "$KEYSTORE" | tr -cd 'A-Za-z0-9+/=' | base64 -d > "$RUNNER_TEMP/upload.jks"
           ./gradlew bundleRelease --no-daemon \
             -Pandroid.injected.signing.store.file="$RUNNER_TEMP/upload.jks" \
             -Pandroid.injected.signing.store.password="$ANDROID_KEYSTORE_PASSWORD" \

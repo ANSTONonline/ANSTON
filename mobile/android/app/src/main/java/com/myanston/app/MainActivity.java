@@ -10,6 +10,7 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        registerPlugin(AnstonAppPlugin.class);
         super.onCreate(savedInstanceState);
         // Opened by tapping a myanston.com link: show that page instead of the home page.
         openAnstonLink(getIntent());

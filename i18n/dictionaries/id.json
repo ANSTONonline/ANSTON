@@ -895,5 +895,11 @@
     "doneTitle": "Akun Anda telah dihapus",
     "doneText": "Terima kasih telah menggunakan Anston. Silakan kembali kapan saja.",
     "home": "Ke beranda"
+  },
+  "push": {
+    "title": "Aktifkan notifikasi?",
+    "body": "Dapatkan pemberitahuan pesan, penawaran, tawaran lelang, dan pesanan baru.",
+    "turnOn": "Aktifkan",
+    "notNow": "Nanti saja"
   }
 }
