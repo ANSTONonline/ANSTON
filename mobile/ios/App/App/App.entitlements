@@ -8,5 +8,8 @@
 	<array>
 		<string>applinks:www.myanston.com</string>
 	</array>
+	<!-- Push notifications. Xcode switches this to "production" for App Store builds. -->
+	<key>aps-environment</key>
+	<string>development</string>
 </dict>
 </plist>

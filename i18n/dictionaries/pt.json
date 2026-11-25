@@ -895,5 +895,11 @@
     "doneTitle": "Sua conta foi excluída",
     "doneText": "Obrigado por usar a Anston. Volte quando quiser.",
     "home": "Ir para a página inicial"
+  },
+  "push": {
+    "title": "Ativar notificações?",
+    "body": "Receba avisos de novas mensagens, ofertas, lances e pedidos.",
+    "turnOn": "Ativar",
+    "notNow": "Agora não"
   }
 }

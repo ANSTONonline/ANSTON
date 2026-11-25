@@ -895,5 +895,11 @@
     "doneTitle": "Votre compte a été supprimé",
     "doneText": "Merci d'avoir utilisé Anston. Vous êtes le bienvenu à tout moment.",
     "home": "Aller à l'accueil"
+  },
+  "push": {
+    "title": "Activer les notifications ?",
+    "body": "Soyez averti des nouveaux messages, offres, enchères et commandes.",
+    "turnOn": "Activer",
+    "notNow": "Plus tard"
   }
 }

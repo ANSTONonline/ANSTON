@@ -895,5 +895,11 @@
     "doneTitle": "Nabura na ang iyong account",
     "doneText": "Salamat sa paggamit ng Anston. Welcome kang bumalik anumang oras.",
     "home": "Pumunta sa home page"
+  },
+  "push": {
+    "title": "I-on ang notifications?",
+    "body": "Maabisuhan sa mga bagong mensahe, alok, bid at order.",
+    "turnOn": "I-on",
+    "notNow": "Hindi muna"
   }
 }

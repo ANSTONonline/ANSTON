@@ -895,5 +895,11 @@
     "doneTitle": "Tu cuenta se eliminó",
     "doneText": "Gracias por usar Anston. Vuelve cuando quieras.",
     "home": "Ir a la página de inicio"
+  },
+  "push": {
+    "title": "¿Activar notificaciones?",
+    "body": "Recibe avisos de nuevos mensajes, ofertas, pujas y pedidos.",
+    "turnOn": "Activar",
+    "notNow": "Ahora no"
   }
 }

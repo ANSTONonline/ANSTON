@@ -33,6 +33,10 @@ const config: CapacitorConfig = {
       backgroundColor: "#ffffff",
       showSpinner: false,
     },
+    PushNotifications: {
+      // Show notifications even while the app is open.
+      presentationOptions: ["badge", "sound", "alert"],
+    },
     StatusBar: {
       style: "LIGHT",
       backgroundColor: "#ffffff",

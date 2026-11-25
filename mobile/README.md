@@ -84,6 +84,38 @@ https://www.myanston.com/.well-known/assetlinks.json should show JSON.
 Links must use **www.myanston.com** to open the app (Apple and Android can’t verify
 myanston.com because it redirects to www).
 
+## Push notifications
+
+The app asks signed-in members to turn on notifications. Every event that
+already sends an Anston email (new message, offer, bid, order, payout...) then
+also sends a phone notification. Tapping it opens the right page.
+
+How it fits together: phone → `register_push_token` (Supabase) → when something
+happens, `private.notify` → `private.push` → `https://www.myanston.com/api/push/send`
+→ Firebase (Android) / Apple (iPhone).
+
+### One-time setup
+
+1. **Database:** run `supabase/migrations/20261209000000_push_notifications.sql`
+   in Supabase → SQL Editor.
+2. **Shared secret:** make up a long random value (e.g. from a password
+   generator). In Supabase → SQL Editor run
+   `select vault.create_secret('THE-VALUE', 'push_secret');`
+   and in Vercel → Settings → Environment Variables add `PUSH_SECRET` = the same value.
+3. **Firebase (Android):**
+   - Create a free project at https://console.firebase.google.com (name: Anston).
+   - Add an **Android app** with package name `com.myanston.app`, download
+     `google-services.json`, and add its whole contents as the GitHub secret
+     `GOOGLE_SERVICES_JSON`.
+   - Project settings → **Service accounts** → **Generate new private key**.
+     Add the whole downloaded JSON in Vercel as `FCM_SERVICE_ACCOUNT`.
+4. **Apple (iPhone), once the Apple Developer account exists:**
+   - Certificates, Identifiers & Profiles → **Keys** → new key with
+     **Apple Push Notifications service (APNs)**. Download the `.p8` file (only once!).
+   - In Vercel add `APNS_KEY` (contents of the .p8), `APNS_KEY_ID` (the key's ID)
+     and `APNS_TEAM_ID` (your Team ID).
+5. Redeploy on Vercel, and rebuild the app.
+
 ## Updating the app later
 
 - Website changes: just deploy to Vercel. Nothing to do here.

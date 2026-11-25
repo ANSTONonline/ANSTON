@@ -895,5 +895,11 @@
     "doneTitle": "Dein Konto wurde gelöscht",
     "doneText": "Danke, dass du Anston genutzt hast. Du bist jederzeit wieder willkommen.",
     "home": "Zur Startseite"
+  },
+  "push": {
+    "title": "Benachrichtigungen aktivieren?",
+    "body": "Erhalte Hinweise zu neuen Nachrichten, Angeboten, Geboten und Bestellungen.",
+    "turnOn": "Aktivieren",
+    "notNow": "Nicht jetzt"
   }
 }

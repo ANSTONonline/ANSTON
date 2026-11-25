@@ -895,5 +895,11 @@
     "doneTitle": "Hesabın silindi",
     "doneText": "Anston'u kullandığın için teşekkürler. İstediğin zaman geri gelebilirsin.",
     "home": "Ana sayfaya git"
+  },
+  "push": {
+    "title": "Bildirimler açılsın mı?",
+    "body": "Yeni mesajlar, teklifler, pey'ler ve siparişler için bildirim al.",
+    "turnOn": "Aç",
+    "notNow": "Şimdi değil"
   }
 }

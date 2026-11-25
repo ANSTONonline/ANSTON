@@ -895,5 +895,11 @@
     "doneTitle": "Your account was deleted",
     "doneText": "Thanks for using Anston. You're welcome back anytime.",
     "home": "Go to the home page"
+  },
+  "push": {
+    "title": "Turn on notifications?",
+    "body": "Get notified about new messages, offers, bids and orders.",
+    "turnOn": "Turn on",
+    "notNow": "Not now"
   }
 }
