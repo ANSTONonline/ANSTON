@@ -21,6 +21,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Secrets can't be used in "if:" directly; this says whether the key was added.
+      HAS_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
     defaults:
       run:
         working-directory: mobile
@@ -53,7 +56,7 @@ jobs:
           path: mobile/android/app/build/outputs/apk/debug/*.apk
 
       - name: Build signed release bundle (.aab) for Google Play
-        if: ${{ env.KEYSTORE != '' }}
+        if: env.HAS_KEYSTORE == 'true'
         env:
           KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -61,7 +64,7 @@ jobs:
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
         working-directory: mobile/android
         run: |
-          echo "$KEYSTORE" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          echo "$KEYSTORE" | tr -d ' \n\r' | base64 -d > "$RUNNER_TEMP/upload.jks"
           ./gradlew bundleRelease --no-daemon \
             -Pandroid.injected.signing.store.file="$RUNNER_TEMP/upload.jks" \
             -Pandroid.injected.signing.store.password="$ANDROID_KEYSTORE_PASSWORD" \
@@ -69,9 +72,7 @@ jobs:
             -Pandroid.injected.signing.key.password="$ANDROID_KEY_PASSWORD"
 
       - uses: actions/upload-artifact@v4
-        if: ${{ env.KEYSTORE != '' }}
-        env:
-          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        if: env.HAS_KEYSTORE == 'true'
         with:
           name: anston-release-aab
           path: mobile/android/app/build/outputs/bundle/release/*.aab
