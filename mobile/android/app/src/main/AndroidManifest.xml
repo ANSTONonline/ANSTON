@@ -20,13 +20,14 @@
             </intent-filter>
 
             <!-- Open myanston.com links (email confirmations, shared listings) in the app.
-                 Verified by https://myanston.com/.well-known/assetlinks.json -->
+                 Verified by https://www.myanston.com/.well-known/assetlinks.json -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" />
-                <data android:host="myanston.com" />
+                <!-- Only www: myanston.com redirects to it, and Android can't verify
+                     a domain that redirects. -->
                 <data android:host="www.myanston.com" />
             </intent-filter>
         </activity>

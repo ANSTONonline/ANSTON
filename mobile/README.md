@@ -79,8 +79,10 @@ In Vercel → Settings → Environment Variables, add these, then redeploy:
 - `APPLE_TEAM_ID`: Apple Developer → Membership → Team ID
 - `ANDROID_CERT_SHA256`: Play Console → Test and release → App integrity → **App signing key certificate** SHA-256
 
-Check: https://myanston.com/.well-known/apple-app-site-association and
-https://myanston.com/.well-known/assetlinks.json should show JSON.
+Check: https://www.myanston.com/.well-known/apple-app-site-association and
+https://www.myanston.com/.well-known/assetlinks.json should show JSON.
+Links must use **www.myanston.com** to open the app (Apple and Android can’t verify
+myanston.com because it redirects to www).
 
 ## Updating the app later
 
